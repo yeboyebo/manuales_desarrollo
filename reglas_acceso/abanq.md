@@ -1,5 +1,7 @@
 # Manual desarrollo con ACL
+---------------------------
 # Parte 4. Aplicando reglas en AbanQ/Eneboo
+-------------------------------------------
 
 ## Comprobar si el usuario actual es superusuario
   ```js

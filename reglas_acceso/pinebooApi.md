@@ -1,5 +1,7 @@
 # Manual desarrollo con ACL
+---------------------------
 # Parte 2. Aplicando reglas en PinebooAPI
+-----------------------------------------
 
 ## Es tu día de suerte
 

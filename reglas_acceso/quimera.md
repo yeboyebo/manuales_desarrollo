@@ -1,5 +1,7 @@
 # Manual desarrollo con ACL
+---------------------------
 # Parte 3. Aplicando reglas en Quimera
+--------------------------------------
 
 ## Extendiendo de la extensión *login*
 
