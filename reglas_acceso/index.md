@@ -10,4 +10,4 @@
 
 ### Más
 
-  * [Volver al índice de manuales](../index.md)
+  * [Volver al índice de manuales](../README.md)
