@@ -9,12 +9,12 @@ Para mezclar un proyecto o extensión ejecutamos, por ejemplo ext0305-servcli_dt
 eneboo-assembler build servcli_dtoesp src
 ```
 
-Suponiendo que tenemos la extension en ~/extensiones/ , nos vamos a ~/extensiones/ext0305-servcli_dtoesp/ y vemos que nos ha generado una carpeta (* buidl *) , que contiene 3 carpetas (* base, final y src*). Si queremos hacer cambios vamos a trabajar sobre la carpeta src
+Suponiendo que tenemos la extension en ~/extensiones/ , nos vamos a ~/extensiones/ext0305-servcli_dtoesp/ y vemos que nos ha generado una carpeta *build* , que contiene 3 carpetas **base, final y src**. Si queremos hacer cambios vamos a trabajar sobre la carpeta src
 
 
 #### save-fullpatch ( **Guardar Cambios** )
 
-Cuando hemos terminado de hacer cambios en la carpeta (* ~/extensiones/ext0305-servcli_dtoesp/build/src *) ejecutamos:
+Cuando hemos terminado de hacer cambios en la carpeta **~/extensiones/ext0305-servcli_dtoesp/build/src** ejecutamos:
 ```
 eneboo-assembler save-fullpatch servcli_dtoesp
 ```
