@@ -2,7 +2,7 @@
 
 ### eneboo-assembler
 
-#### build (* Mezclado *)
+#### build ( **Mezclado** )
 
 Para mezclar un proyecto o extensión ejecutamos, por ejemplo ext0305-servcli_dtoesp:
 ```
@@ -12,7 +12,7 @@ eneboo-assembler build servcli_dtoesp src
 Suponiendo que tenemos la extension en ~/extensiones/ , nos vamos a ~/extensiones/ext0305-servcli_dtoesp/ y vemos que nos ha generado una carpeta (* buidl *) , que contiene 3 carpetas (* base, final y src*). Si queremos hacer cambios vamos a trabajar sobre la carpeta src
 
 
-#### save-fullpatch (* Guardar Cambios *)
+#### save-fullpatch ( **Guardar Cambios** )
 
 Cuando hemos terminado de hacer cambios en la carpeta (* ~/extensiones/ext0305-servcli_dtoesp/build/src *) ejecutamos:
 ```
@@ -21,7 +21,7 @@ eneboo-assembler save-fullpatch servcli_dtoesp
 
 Este comando que hemos ejecutado, nos guardará los cambios de ~/extensiones/ext0305-servcli_dtoesp/build/src en ~/extensiones/ext0305-servcli_dtoesp/patches/servcli_dtoesp, que es donde se guarda el contenido de los parches que aportará la extensión cuando es usada en una mezcla.
 
-### new (* Nuevo proyecto/extensión *)
+### new ( **Nuevo proyecto/extensión** )
 
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
 ```
@@ -150,14 +150,12 @@ Seleccione una opción: a
 Guardando ... 
 ```
 
-(* OJO! *) Siempre acabamos el assistente con la opción (* a *) Aceptar y crear. Seguidamente, para actualizar las extensiones disponibles ejecutamos:
+**OJO!** Siempre acabamos el assistente con la opción  **a Aceptar y crear**. Seguidamente, para actualizar las extensiones disponibles ejecutamos:
 ```
 eneboo-assembler dbupdate
 ```
 
 
-
- 
 ### Más
 
   * [Volver al Índice](./index.md)

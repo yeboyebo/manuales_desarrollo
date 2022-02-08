@@ -29,7 +29,7 @@ Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disp
 	eneboo-assembler dbupdate
 	```
 	
-Este paso (* eneboo-assembler dbupdate *) hay que realizarlo cada vez se añadan/eliminen módulos / extensiones.
+Este paso ( **eneboo-assembler dbupdate** ) hay que realizarlo cada vez se añadan/eliminen módulos / extensiones.
 
  
 ### Más
