@@ -13,7 +13,8 @@ Copiamos en esta consola el fichero *.env* con el nombre asociado al proyecto al
 ```console
   cp pinebooapi/.env envs/oficial
 ```
-Iremos añadiendo a esta carpeta un fichero por cada entorno en el que queramos trabajar, que generalmente coincidirá con el nombre de una extensión o BD en la que estemos programando (*articuloscomp*, *fun_jsenar*, etc.).
+Iremos añadiendo a esta carpeta un fichero por cada entorno en el que queramos trabajar, que generalmente coincidirá con el nombre de 
+una extensión o BD en la que estemos programando (*articuloscomp*, *fun_jsenar*, etc.).
 
 ## Fichero api.sh
 Creamos un fichero *api.sh* en la carpeta superior a *pinebooapi* que recibirá como parámetro el nombre entorno en el que queremos trabajar, y lo levantará.

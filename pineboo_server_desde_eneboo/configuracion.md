@@ -3,10 +3,14 @@
 ## Tablas de autenticación
 La autenticación de primer nivel y el uso de tokens de autenticación necesita de la existencia de dos tablas que Django genera de forma automática, *auth_user* y *authtoken_token*. Para generarlas:
   ```console
-  ¿?
+  cd carpeta_con_pinebooapi
+  docker-compose run django bash
+  > python manage.py makemigrations
+  > python manage.py migrate
+  > exit
   ```
 
-## Ckecklist inicial
+## Checklist inicial
 Antes de continuar debemos asegurarnos de que tenemos instalado:
 * [Pineboo Server](../pineboo_server/instalacion.md)
 * Una versión de Eneboo que contenga **AQExtension**. Para comprobarlo hay que ver que en la carpeta *bin* del directorio de instalación de Eneboo hay un fichero ejecutable llamado *aqextension*.
