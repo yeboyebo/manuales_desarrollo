@@ -28,12 +28,11 @@ Una vez establecida su contraseña, pulsamos el botón *Obtener token*. Si todo 
 ![Usuarios](img/usuarios.png)
 
 ## Activar llamadas a Pineboo Server
-Para activar las llamadas de forma local, editamos el fichero *$HOME/.qt/eneboorc* y añadimos en su sección *[scripts]*:
-```sh
-[scripts]
-...
-flfactppal/usarServidorPineboo=true
-...
+Para activar las llamadas de forma global, insertamos el siguiente registro en la tabla flsettings:
+
+```
+flkey = 'usarServidorPineboo_firma'
+valor = 'true'
 ```
 
 Ciertas extensiones pueden tener activado esto por defecto, sobrecargando la función *usarServidorPineboo* de *flfactppal.qs*:
