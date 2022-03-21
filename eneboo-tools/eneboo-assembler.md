@@ -11,6 +11,8 @@ eneboo-assembler build servcli_dtoesp src
 
 Suponiendo que tenemos la extension en ~/extensiones/ , nos vamos a ~/extensiones/ext0305-servcli_dtoesp/ y vemos que nos ha generado una carpeta **build** , que contiene 3 carpetas **base, final y src**. Si queremos hacer cambios vamos a trabajar sobre la carpeta **src**
 
+**OJO !!. (Versión 1.4 o sup.) PARA QUE SE MEZCLE EL QS SIMULANDO EL COMPORTAMIENTO DE LA HERRAMIENTA DESARROLLO DE YEBOYEBO, HAY QUE AÑADIR LA LINEA 'qs_extend_mode=yeboyebo', EN EL FICHERO servcli_dtoesp.feature.ini EN LA CARPETA DEL PARCHE. ESTO HAY QUE HACERLO EN EL PARCHE QUE SOLICITAMOS HACER BUILD. LAS DEPENDENCIAS DE ESTE ADQUIEREN ESTE MODO DE MEZCLADO.**
+
 
 #### save-fullpatch ( **Guardar Cambios** )
 
