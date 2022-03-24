@@ -8,7 +8,7 @@ Generamos una carpeta con el build
 
 ```console
 cd quimera-mono
-npm run build-project sanhigia
+npm run build sanhigia
 ```
 
 Comprimimos el build:
