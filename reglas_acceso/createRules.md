@@ -118,19 +118,16 @@ Para ello, existe un diccionario en el que asociamos los modelos de API a modelo
 
 Podemos modificar este diccionario mediante la función *getAclModel* del script principal de cada módulo. Ej:
 ``` js
-function oficial_getAclModel(modelDict)
+function oficial_getAclModelDict()
 {
-	const models = [
-		["lineaspresupuestoscli", "presupuestoscli"],
-		["lineaspedidoscli", "pedidoscli"],
-		["lineasalbaranescli", "albaranescli"],
-		["lineasfacturascli", "facturascli"],
-		["lineaspedidosprov", "pedidosprov"],
-		["lineasalbaranesprov", "albaranesprov"],
-		["lineasfacturasprov", "facturasprov"]
-	]
-	for (var m = 0; m < models.length; m++) {
-		modelDict[models[m][0]] = models[m][1]
+	return {
+		"lineaspresupuestoscli": "presupuestoscli",
+		"lineaspedidoscli": "pedidoscli",
+		"lineasalbaranescli": "albaranescli",
+		"lineasfacturascli": "facturascli",
+		"lineaspedidosprov": "pedidosprov",
+		"lineasalbaranesprov": "albaranesprov",
+		"lineasfacturasprov": "facturasprov"
 	}
 }
 ```
