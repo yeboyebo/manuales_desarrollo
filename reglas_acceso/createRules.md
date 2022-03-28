@@ -106,6 +106,36 @@
   | **reciboscli/crearReciboPrivado** | Puede crear recibos privados       |
   |                                   |                                    |
 
+## Modelos ACL y modelos API
+En ocasiones, un modelo de ACL engloba a más de un modelo API. Por ejemplo, si damos acceso a Pedidos de client, implícitamente lo estamos dando también a Líneas de pedidos de cliente.
+
+Para ello, existe un diccionario en el que asociamos los modelos de API a modelos de ACL. En el ejemplo que indicábamos:
+
+| Modelo API                          | Modelo ACL                 |
+  | --------------------------------- | ---------------------------------- |
+  | pedidoscli                        | pedidoscli                 |
+  | lineaspedidoscli                  | pedidoscli                 |
+
+Podemos modificar este diccionario mediante la función *getAclModel* del script principal de cada módulo. Ej:
+``` js
+function oficial_getAclModel(modelDict)
+{
+	const models = [
+		["lineaspresupuestoscli", "presupuestoscli"],
+		["lineaspedidoscli", "pedidoscli"],
+		["lineasalbaranescli", "albaranescli"],
+		["lineasfacturascli", "facturascli"],
+		["lineaspedidosprov", "pedidosprov"],
+		["lineasalbaranesprov", "albaranesprov"],
+		["lineasfacturasprov", "facturasprov"]
+	]
+	for (var m = 0; m < models.length; m++) {
+		modelDict[models[m][0]] = models[m][1]
+	}
+}
+```
+Solo es necesario establecer la correspondencia ente modelos cuando los nombres de estos no coinciden.
+
 ### Más
 
 - [Volver al Índice](./index.md)
