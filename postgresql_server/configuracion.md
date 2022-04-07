@@ -1,4 +1,4 @@
-# Postgresql Server / Configuración
+# Postgresql Server / Instalación y configuración
 
 ## Instalacion
 Ejecutamos en una consola:
