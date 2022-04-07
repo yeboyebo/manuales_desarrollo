@@ -5,6 +5,7 @@
 
   * [Instalación](./instalacion.md)
   * [Gestión de entornos](./entornos.md)
+  * [Schemas](./schemas.md)
 
 ### Más
 

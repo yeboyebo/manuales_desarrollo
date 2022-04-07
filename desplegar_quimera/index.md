@@ -1,23 +1,27 @@
 # Desplegar Quimera en producción
---------------------------------------
 
-Ejemplo para el cliente *sanhigia*.
+---
+
+Ejemplo para el cliente _sanhigia_.
 
 Generamos una carpeta con el build
+
 ```console
 cd quimera-mono
-npm run nx run sanhigia:build:production
+npm run build sanhigia
 ```
 
 Comprimimos el build:
+
 ```console
 cd quimera-mono/dist/apps
 tar -czvf sanhigia.tar.gz sanhigia
 ```
 
-Movemos el fichero *.tar.gz* al servidor del cliente
+Movemos el fichero _.tar.gz_ al servidor del cliente
 
 En la carpeta de despliegue:
+
 ```console
 rm -rf build_old
 tar -xzvf sanhigia.tar.gz
@@ -27,6 +31,4 @@ mv sanhigia build
 
 ## Más
 
-  * [Volver al índice de manuales](../README.md)
-
-
+- [Volver al índice de manuales](../README.md)
