@@ -1,0 +1,62 @@
+# Quimera / Shortcuts
+
+Los shortcuts son conjuntos parametrizables de grapes que podemos incluir en nuestro controlador y que definen comportamientos comunes que solemos necesitar implementar.
+
+## Model
+El shortcut de *Model* gestiona una lista de elementos provenientes del servidor de API.
+
+### Estado
+La estructura que se monta en el estado para un shortcut con name "categorias" es:
+
+```json
+{
+  "categorias": {
+    "dict": {
+      "cat1": {
+        "idCategoria": "cat1",
+        "nombre": "Categoria 1"
+      },
+       "cat2": {
+        "idCategoria": "cat2",
+        "nombre": "Categoria 2"
+      }
+      // Diccionario de items por clave de cada elemento
+    },
+    "idList": [
+      "cat2", "cat1"
+      // Lista ordenada de claves de los elementos
+    ],
+    "current": "cat1" // Clave del elemento actual,
+    // Otros elementos secundarios e control
+  }
+}
+```
+
+### Grapes llamables (slots)
+**get{Modelo}**: Lanza la búsqueda de la primera página, si va bien carga la estructura de datos y llama a *onGet{Modelo}Succeded
+
+**onNext{Modelo}**: Lanza la búsqueda de la siguiente página, si va bien agrega la estructura de datos y llama a onGet{Modelo}Succeded
+
+**on{Modelo}FilterChanged**: Modifica el filtro y llama a get{Modelo}
+
+**on{Modelo}ColumnClicked**: Modifica la columna de ordenación y llama a get{Modelo}
+**onId{Modelo}Prop**: Cambia el valor de current y llama a onId{Modelo}Changed
+
+**on{Modelo}Clicked**: Navega a la instancia seleccionada con click si hay URL o llama a onId{Modelo}Prop
+
+**reloadOne{Modelo}**: Recarga un registro y lo modifica o incorpora en la estructura de datos. Llama a onReloadOne{Modelo}Succeded
+
+**deleteKey{Modelo}**: Elimina un elemento de la lista y el diccionario, y pone el current a nulo si coincide con el elemento eliminado
+
+### Grapes llamables (signals)
+**onGet{Modelo}Succeded**: Es llamada cuando se carga con éxito una página de elementos.
+
+**onId{Modelo}Changed**: Es la llamada cuando se cambio un elemento
+
+**onReloadOne{Modelo}Succeded**: Es la llamada cuando se ha recargado un elemento con éxito
+
+
+
+### Más
+
+  * [Volver al Índice](./index.md)
