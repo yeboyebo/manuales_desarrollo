@@ -56,6 +56,57 @@ La estructura que se monta en el estado para un shortcut con name "categorias" e
 **onReloadOne{Modelo}Succeded**: Es la llamada cuando se ha recargado un elemento con éxito
 
 
+## DetailBuffer
+El shortcut de *DetailBuffer* gestiona un registro, tanto en alta como en edición, y sincroniza sus cambios con la lógica del servidor asociada.
+
+### Estado
+La estructura que se monta en el estado para un shortcut con name "ejemplo" es:
+
+```json
+{
+  "ejemplo": {
+    "data": {
+      "idejemplo": "cat1",
+      "dato1": "Categoria 1"
+    },
+    "buffer": {
+      "idejemplo": "cat1",
+      "dato1": "Categoria 1"
+    }
+  }
+}
+```
+
+Creamos el shortcut indicando:
+* **type**: *DetailBiffer*
+* **name**: nombre de la clave de estado que representa al registro
+* **id**: campo clave del registro
+* **schemaName**: Nombre del esquema
+* **mode**: (opcional), el valor *insert* especifica que el buffer se usará para inserción
+
+Ejemplo de fichero UI con detailBuffer
+```json
+{
+  "shortcuts": [
+    {
+      "type": "DetailBuffer",
+      "name": "categoria",
+      "id": "idCategoria",
+      "schemaName": "categorias",
+      "mode": "insert"
+    }
+  ],
+  "state": {},
+  "bunch": {
+  }
+}
+```
+
+### Grapes llamables (slots)
+**TO DO{Modelo}**: TO DO
+
+### Grapes llamables (signals)
+**onTO DO{Modelo}**: TO DO
 
 ### Más
 
