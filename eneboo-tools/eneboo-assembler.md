@@ -23,6 +23,17 @@ eneboo-assembler save-fullpatch servcli_dtoesp
 
 Este comando que hemos ejecutado, nos guardará los cambios de ~/extensiones/ext0305-servcli_dtoesp/build/src en ~/extensiones/ext0305-servcli_dtoesp/patches/servcli_dtoesp, que es donde se guarda el contenido de los parches que aportará la extensión cuando es usada en una mezcla.
 
+#### Modificar extensión y mezclar con funcionalidad en local
+
+Podemos realizar cambios en una extensión y probarla en nuestra funcionalidad sin tener que subir la extensión y bajar de nuevo la funcionalidad.
+Para ello haremos lo siguiente:
+1. Modificar la extensión. Para ello previamente hemos realizado el build y luego el save-fullpatch
+2. Hacer un save-fullpatch de nuestra funcionalidad
+3. Borrar la carpeta build de nuestra funcionalidad (Por ahora hay que hacer este paso a mano ya que el build si ya está creada la carpeta build no la elimina y crea.)
+4. Realizar un build de nuestra funcionalidad 
+
+
+
 ### new ( **Nuevo proyecto/extensión** )
 
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
