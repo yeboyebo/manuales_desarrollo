@@ -30,6 +30,23 @@ export default (parent) => ({
 })
 ```
 
+### Subschemas
+Podemos introducir subschemas en nuestros schemas para definir listas de registros asociadas a los registros de nuestro esquema, por ejemplo, líneas de una factura.
+```js
+  Schema('to_carritos', 'idcarrito')
+    .fields({
+      idCarrito: Field.Int('idcarrito', 'Id. Carrito'),
+      nombreCliente: Field.Text('nombrecliente', 'Nombre Cliente').required(),
+      total: Field.Currency('total', 'Total'),
+    })
+    .subschemas({
+      lineasCarrito: Subschema.List('lineas', 'lineaCarrito')
+    }),
+```
+El único tipo soportado por ahora en los subschemas es *List* (array de registros), sus parámetros son:
+* **apiKey**: clave del subschema en los datos provenientes la API (*lineas* en el ejemplo).
+* **esquema**: nombre del esquema asociado al subschema (*lineaCarrito* en el ejemplo), que debe estar declarado por su parte en el correspondiente fichero *schemas.js*.
+
 ### Más
 
   * [Volver al Índice](./index.md)
