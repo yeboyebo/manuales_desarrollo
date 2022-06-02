@@ -77,12 +77,15 @@ La estructura que se monta en el estado para un shortcut con name "ejemplo" es:
 }
 ```
 
+### Declaración
+
 Creamos el shortcut indicando:
 * **type**: *DetailBiffer*
 * **name**: nombre de la clave de estado que representa al registro
 * **id**: campo clave del registro
 * **schemaName**: Nombre del esquema
 * **mode**: (opcional), el valor *insert* especifica que el buffer se usará para inserción
+* **deleteConfirmQuestion**: (opcional) textos a mostrar para confirmar el borrado
 
 Ejemplo de fichero UI con detailBuffer
 ```json
@@ -93,12 +96,15 @@ Ejemplo de fichero UI con detailBuffer
       "name": "categoria",
       "id": "idCategoria",
       "schemaName": "categorias",
-      "mode": "insert"
+      "mode": "insert",
+      "deleteConfirmQuestion": {
+        "titulo": "Borrar categoría",
+        "cuerpo": "La categoría se borrará"
+      }
     }
   ],
   "state": {},
-  "bunch": {
-  }
+  "bunch": {}
 }
 ```
 
