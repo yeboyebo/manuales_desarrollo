@@ -5,6 +5,7 @@
 
   * [Instalación (TO DO)](./instalacion.md)
   * [Proyectos y extensiones](./proyectos_extensiones.md)
+  * [Estructura de una view](./estructura_view.md)
   * [Shortcuts](./shortcuts.md)
   * [Schemas](./schemas.md)
   * [Views maestro detalle](./maestro_detalle.md)
