@@ -11,7 +11,9 @@
   * [Views maestro detalle](./maestro_detalle.md)
   * [Views de detalle (con buffer)](./detalle.md)
   * [Views de alta de registro](./alta.md)
+  * [Componentes](./componentes.md)
   * [Llamadas a la API](./llamadas_api.md)
+  * [Menús](./menus.md)
 
 ### Más
 
