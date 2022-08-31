@@ -1,44 +1,18 @@
-# Quimera / Llamadas a la API
+# Quimera / Componentes
 
-Las llamadas a la API envían o reciben información al servidor.
+Hemos creado distintos componentes para homogeneizar las páginas de quimera y ahorrar trabajo de desarrollo.
 
-## POST
-En una llamada POST (alta), necesitamos indicar:
-* **schema**: El nombre del esquema a usar
-* **action**: (opcional) Acción a lanzar, si no es la acción por defecto "post"
-* **data**: Array de valores "key": "value" a enviar, las claves deben corresponder a campos del esquema.
-* **success**: Nombre del grape a llamar si el post tiene éxito
+## QBox
+[to do]
 
-Ejemplo:
-```json
-"onAnadirProductoACarritoClicked": [
-    {
-        "_type": "post",
-        "schema": "nuevaLineaCarrito",
-        "action": "anadir_producto",
-        "data": [
-          {
-            "key": "referencia",
-            "value": {
-              "payloadPath": "referencia"
-            }
-          },
-          {
-            "key": "cantidad",
-            "value": {
-              "payloadPath": "cantidad"
-            }
-          },
-          {
-            "key": "idCarrito",
-            "value": {
-              "const": null
-            }
-          }
-        ],
-        "success": "onProductoAnadidoAlCarrito"
-     }
-],
+## QListModel
+Crea una lista de items de tipo *ItemComponent* basada en una estructura (*data*) que contiene un diccionario y un array.
+
+La propiedad *modelName* se usa para generar nombres de acciones a llamar (p.e. *onModelNameItemChanged*).
+
+```html
+<QListModel data={pedidos} modelName='pedidos' ItemComponent={ListItemMisPedidos}
+>
 ```
 
 ### Más

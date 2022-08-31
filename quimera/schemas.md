@@ -18,17 +18,14 @@ export default (parent) => ({
         nombre: Field.Text('nombre', 'Nombre'),
         idCatPadre: Field.Int('idcatpadre', 'Id Categoria Padre'),
         metatags: Field.Text('metatags', 'Meta Tags'),
-        urlkey: Field.Text('urlkey', 'URL Key'),
-        habilitado: Field.Bool('habilitado', 'Habilitado'),
-        incluirEnMenu: Field.Bool('incluirenmenu', 'Incluir en menu'),
-        ordenenMenu: Field.Int('ordenenmenu', 'Orden en menu'),
-        metatile: Field.Text('metatile', 'Meta Tile'),
-        idStoreview: Field.Int('idstoreview', 'Id Storeview'),
-      })
       .filter(() => ['1', 'eq', '1'])
       .order(() => ({ field: 'idcategoria', direction: 'ASC' })),
 })
 ```
+
+El primer parámetro del schema denota el nombre de la API a llamar. Así, un valor *to_categorias* llamará al fichero de API *to_categorias_api*.
+
+El segundo parámetro indica cuál de las propiedades del schema es la clave primaria. Su valor es el de servidor (*idcategoria*, no *idCategoria*).
 
 ### Subschemas
 Podemos introducir subschemas en nuestros schemas para definir listas de registros asociadas a los registros de nuestro esquema, por ejemplo, líneas de una factura.

@@ -37,6 +37,7 @@ import UserMenu from './static/usermenu'
   },
 ...
 ```
+Si solo añadimos opciones de un tipo (aplicación o usuario) no es necesario añadir la otra clave.
 
 ### Más
 
