@@ -1,6 +1,6 @@
 # Modelos / Esquemas
 
-Cuando definimos un modelo, queremos hacerlo de la forma más sencilla posible. Por ejemplo, cuando creamos un cliente, si todos los datos vamos a introducir distintos de los datos por defecto de un cliente son su nombre y su CIF, querríamos hacerlo de la siguiente forma:
+Cuando definimos un modelo, queremos hacerlo de la forma más sencilla posible. Por ejemplo, cuando creamos un cliente, si los datos que vamos a introducir distintos de los datos por defecto de un cliente son solo su nombre y su CIF, querríamos hacerlo de la siguiente forma:
 
 ```js
 const cliente = {
@@ -68,7 +68,7 @@ Listado de campos que define el orden en el que se establecen los campos en el c
     "pvp": 99
 }
 ```
-Sabemos que tras indicar la referencia, la descripción y el precio de la línea se calcularán automáticamente (con *funCambio*). Como lo que queremos es que nuestra línea tenga como precio el valor que nos viene por parámetro, definiremos en nuestro esquema:
+Sabemos que tras indicar la referencia, los campos descripción y precio de la línea se calcularán automáticamente (con *funCambio*). Como lo que queremos es que nuestra línea tenga como precio el valor que nos viene por parámetro, definiremos en nuestro esquema:
 ```js
 ordenCampos: ["referencia"]
 ```

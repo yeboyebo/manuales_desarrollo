@@ -14,7 +14,7 @@ articulo = {
 
 El objetivo de usar modelos es aislar el acceso a base de datos y limitarlo a las fases inicial y final de una función o rutina programable. Cagaremos los datos de la BD en modelos, operaremos con ellos y luego los guardaremos.
 
-La librería **MODEL** nos permite crear y cargar modelos.
+La librería **MODEL** nos permite trabajar con modelos.
 
 ## Crear un modelo: *formMODEL.crea*
 La función *crea* guarda el modelo en base de datos usando cursores.
@@ -30,9 +30,11 @@ const miArticulo = {
     "pvp": 10,
     ...etc
 }
-formMODEL.crea(miArticulo, "articulos")
+referencia = formMODEL.crea(miArticulo, "articulos")
 ```
 Las claves del diccionario deben coincidir con los campos de la tabla asociada.
+
+La función *crea* delvuelve el valor de la clave primaria del modelo creado.
 
 ## Cargar un modelo: *formMODEL.carga*
 La función *carga* lee un cursor de la base de datos y lo carga en un diccionario.
@@ -46,7 +48,7 @@ const miArticulo = formMODEL.carga("REF1", "articulos")
 ```
 
 ## Buscar modelos: *formMODEL.busca*
-La función *busca* obtiene los modelos que cumplen una condición en la base de datos y los devuelve como un array de diccionarios.
+La función *busca* obtiene los modelos que cumplen una condición en la base de datos y los devuelve como un array de modelos.
 
 Para cargar un modelo, la sintaxis es:
 ```js
@@ -91,5 +93,4 @@ formMODEL.borra("REF1", "articulos")
 ```
  
 ### Más
-
   * [Volver al Índice](./index.md)
