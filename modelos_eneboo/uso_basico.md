@@ -23,7 +23,7 @@ Para crear un modelo, la sintaxis es:
 ```js
 formMODEL.crea(dictModelo, nombreTabla)
 
-Ejemplo:
+// Ejemplo:
 const miArticulo = {
     "referencia": "REF1",
     "descripcion": "Producto de ejemplo"
@@ -41,7 +41,7 @@ Para cargar un modelo, la sintaxis es:
 ```js
 dictModelo = formMODEL.carga(valorPK, nombreTabla)
 
-Ejemplo:
+// Ejemplo:
 const miArticulo = formMODEL.carga("REF1", "articulos")
 ```
 
@@ -52,7 +52,7 @@ Para cargar un modelo, la sintaxis es:
 ```js
 modelos = formMODEL.busca(clausulaWhere, nombreTabla)
 
-Ejemplo:
+// Ejemplo:
 const articulos = formMODEL.busca("pvp >= 10", "articulos")
 /* La función devuelve:
 [
@@ -63,18 +63,32 @@ const articulos = formMODEL.busca("pvp >= 10", "articulos")
 ]*/
 ```
 
+## Cambiar un modelo: *formMODEL.cambia*
+La función *cambia* modifica el registro principal asociado al modelo.
+
+Para cambiar un modelo, la sintaxis es:
+```js
+modelos = formMODEL.cambia(valorPK, nombreTabla, cambio)
+
+// Ejemplo:
+formMODEL.cambia("REF1", "articulos", {
+	"descripcion": "Nueva descripcion",
+	"pvp": 6
+})
+```
+
 ## Borrar un modelo: *formMODEL.borra*
 La función *borra* elimina el registro principal asociado al modelo.
 
-**Importante: La función no borra los registros M1 del modelo, solo se borran si en los before/afterCommit del cursor se ha incluido el borrado o hay un delC en los metadatos.**
+**Importante: La función no borra los registros M1 del modelo, solo se borran si en los before/afterCommit del cursor se ha incluido el borrado o hay un *delC* en los metadatos.**
 
 Para borrar un modelo, la sintaxis es:
 ```js
 modelos = formMODEL.borra(valorPK, nombreTabla)
 
-Ejemplo:
+// Ejemplo:
 formMODEL.borra("REF1", "articulos")
-
+```
  
 ### Más
 
