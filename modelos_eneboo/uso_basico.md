@@ -63,38 +63,17 @@ const articulos = formMODEL.busca("pvp >= 10", "articulos")
 ]*/
 ```
 
+## Borrar un modelo: *formMODEL.borra*
+La función *borra* elimina el registro principal asociado al modelo.
 
-``` js
-```
+**Importante: La función no borra los registros M1 del modelo, solo se borran si en los before/afterCommit del cursor se ha incluido el borrado o hay un delC en los metadatos.**
 
-Ejecutamos una vez
-	```
-	eneboo-assembler dbupdate
-	```
-Abrimos  el fichero ~/.assembler-config.ini y añadimos las rutas de las carpeta de modulos y extensiones
+Para borrar un modelo, la sintaxis es:
+```js
+modelos = formMODEL.borra(valorPK, nombreTabla)
 
-```
-	[module]
-	modulefolders = 
-		~/ruta_modulos ← Cambiamos esta ruta por la correcta
-	featurefolders = 
-		~/ruta_extensiones ← Cambiamos esta ruta por la correcta
-	buildcache = ~/.eneboo-tools/buildcache
-
-	[mergetool]
-	patch_qs_rewrite = warn
-	patch_qs_style_name = legacy
-	verbosity_delta = 0
-	patch_xml_style_name = legacy1
-	diff_xml_search_move = False
-```
-
-Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disponibles, para porder usarlas en el futuro. 
-	```
-	eneboo-assembler dbupdate
-	```
-	
-Este paso ( **eneboo-assembler dbupdate** ) hay que realizarlo cada vez se añadan/eliminen módulos / extensiones.
+Ejemplo:
+formMODEL.borra("REF1", "articulos")
 
  
 ### Más
