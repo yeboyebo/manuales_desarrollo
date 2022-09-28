@@ -14,6 +14,7 @@
   * [Componentes](./componentes.md)
   * [Llamadas a la API](./llamadas_api.md)
   * [Menús](./menus.md)
+  * [Tipos de grape](./tipos_de_grape.md)
 
 ### Más
 
