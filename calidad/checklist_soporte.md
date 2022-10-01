@@ -1,6 +1,6 @@
 # Checklists de incidencias
 
-## Al comenzar con la tarea (Recibido)
+## Al comenzar con la tarea (*Recibido*)
 Copiar este texto en la descripción de la tarea cuando está la incidencia está Recibida.
 
 ```txt
@@ -20,7 +20,7 @@ Copiar este texto en la descripción de la tarea cuando está la incidencia est�
 
 El desarrollador comprueba que comprende el problema y recoge los datos necesarios para poder resolver la incidencia.
 
-## Para pasar a En Resolución
+## Para pasar a *En Resolución*
 La persona que valida y completa la checklist indicando su código:
 ```txt
 NIK Datos adicionales: N/A
@@ -41,7 +41,7 @@ Añade los siguiententes puntos de verificación:
 - Correo de confirmación enviado (plantilla)
 ```
 
-## Para pasar a Resuelto
+## Para pasar a *Resuelto*
 Hay que marcar como hechos los puntos de tests, etc.
 - Las tareas de tests, asserts, controles están realizadas
 - La documentación está generada

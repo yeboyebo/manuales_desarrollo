@@ -1,6 +1,6 @@
 # Checklists de desarrollo
 
-## Al comenzar con la tarea (Por hacer)
+## Al comenzar con la tarea (*Por hacer*)
 Copiar este texto en la descripción de la tarea cuando está Por Hacer.
 
 ```txt
@@ -23,7 +23,7 @@ El desarrollador realiza un análisis de lo que la tarea pide y
 * Crea un esquema de documentación
 * Convoca reunión de paso a En progreso / envía petición
 
-## Para pasar a En Progreso
+## Para pasar a *En Progreso*
 La persona que valida y completa la checklist indica su código:
 ```txt
 POZ Código:
@@ -41,7 +41,7 @@ AUL Esquema de documentación:
   - https://github.com/yeboyebo/manuales_publicos/tree/master/extensiones/igic_canarias)
 ```
 
-## Para pasar a Por Instalar
+## Para pasar a *Por Instalar*
 * Revisión de código
 * Verificamos los puntos de tests, documentación, etc. 
 
@@ -51,5 +51,5 @@ Añadimos los siguientes puntos:
 - Funcionalidad probada en producción o bloqueada si debe ser probada por el cliente
 - Correo de instalación enviado (plantilla)
 ```
-## Para pasar a Completada
+## Para pasar a *Completada*
 Checklist totalmente completada
