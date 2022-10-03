@@ -109,9 +109,17 @@ Ejemplo de fichero UI con detailBuffer
 ```
 
 ### Grapes llamables (slots)
+**save{Modelo}**: Guarda el contenido de *modelo.buffer*
+
+**loadBuffer{Modelo}**: Deshace los cambios en *modelo.buffer*. Vuelca el contenido de *modelo.data* en *modelo.buffer*
+
 **TO DO{Modelo}**: TO DO
 
 ### Grapes llamables (signals)
+**on{Modelo}Saved**: El modelo ha sido guardado con éxito
+
+**onSave{Modelo}Failed**: La grabación del modelo ha fallado
+
 **onTO DO{Modelo}**: TO DO
 
 ### Más
