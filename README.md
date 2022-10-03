@@ -14,4 +14,5 @@
   * [Instalacion y configuración Postgresql-server](./postgresql_server/index.md)
   * [Documentar manuales de usuario](./documentar/index.md)
   * [Calidad](./calidad/index.md)
+  * [SQL](./sql/index.md)
   
