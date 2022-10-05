@@ -34,6 +34,28 @@ USE_ATOMIC_LIST=True;
 
 Copiamos en un fichero de texto esta estructura, sustituimos por nuestros datos locales, y lo guaramos con el nombre .env en */pinebooapi*.
 
+## Dar permisos a fichero docker.sock
+```console
+sudo chmod 777 /run/docker.sock
+```
+## Configuración postgresql
+
+En /etc/postgresql/9.6/main/postgresql.conf, hay que dejar la siguiente linea de la siguiente forma
+```
+listen_addresses = '*'                  # what IP address(es) to listen on;
+```
+En /etc/postgresql/9.6/main/pg_hba.con, hay añadir una linea para que deje acceder desde el rango de ips que estamos utilizando, en el ejemplo al añadir 0.0.0.0/0 damos acceso a cualquier rango
+```
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+host    all             all             0.0.0.0/0               md5 
+```
+
+Reiniciar postgresql
+```
+sudo service postgresql restart
+```
+
 ## Primera ejecución
 Como en cualquier proyecto docker, lo primero es construirlo, y luego levantarlo.
 ```console
