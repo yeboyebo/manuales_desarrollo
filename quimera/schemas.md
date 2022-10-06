@@ -27,7 +27,7 @@ El primer parámetro del schema denota el nombre de la API a llamar. Así, un va
 
 El segundo parámetro indica cuál de las propiedades del schema es la clave primaria. Su valor es el de servidor (*idcategoria*, no *idCategoria*).
 
-### Subschemas
+## Subschemas
 Podemos introducir subschemas en nuestros schemas para definir listas de registros asociadas a los registros de nuestro esquema, por ejemplo, líneas de una factura.
 ```js
   Schema('to_carritos', 'idcarrito')
@@ -43,6 +43,18 @@ Podemos introducir subschemas en nuestros schemas para definir listas de registr
 El único tipo soportado por ahora en los subschemas es *List* (array de registros), sus parámetros son:
 * **apiKey**: clave del subschema en los datos provenientes la API (*lineas* en el ejemplo).
 * **esquema**: nombre del esquema asociado al subschema (*lineaCarrito* en el ejemplo), que debe estar declarado por su parte en el correspondiente fichero *schemas.js*.
+
+## Sobrecarga
+Podemos ampliar un esquema en una extensión para añadir campos u otras propiedades.
+```js
+export default (parent) => ({
+  ...parent,
+  carrito: parent.carrito.fields({
+    fechaEntrega: Field.Date('vb_fechaentrega', 'F. Entrega')
+  }),
+  ...
+}
+```
 
 ### Más
 
