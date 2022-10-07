@@ -33,6 +33,15 @@ Ejemplo:
 ## [Checklists de soporte](./checklist_soporte)
 
 
+
+
+## Gestión de tiquets
+
+Las incidencias de soporte las crearemos un una plataforma para gestionar desde ahi las comunicaciones con los clientes
+
+## [Aplicación de gestión de tickets](./gestion_tickets)
+
+
 ## Más
 
 - [Volver al índice de manuales](../README.md)
