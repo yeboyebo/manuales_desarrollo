@@ -71,6 +71,6 @@ Cuando podamos dar la incidencia por resuelta debemos poner también el tiquet c
 
 ![Resolver ticket](./img/resolver_ticket.png)
 
-Una vez resuelto el ticket debemos registralo en el documento mitovos_ticket de la carpeta Calidad del drive (https://docs.google.com/spreadsheets/d/1zinygYjlrDLStBCm1qKVw6brCKrl_Okv6S7A79Iy4ZM/edit#gid=0)
+Una vez resuelto el ticket debemos registralo en el documento [motivos_ticket](https://docs.google.com/spreadsheets/d/1zinygYjlrDLStBCm1qKVw6brCKrl_Okv6S7A79Iy4ZM/edit#gid=0) de la carpeta Calidad del drive.
 
 En este documento debemos especificar el motivo por el que se ha generado el ticket. Ha podido ser por error de especificacion, un malentendido con el cliente, error nuestro en un desarrollo, error del cliente...
