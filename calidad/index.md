@@ -45,3 +45,12 @@ Las incidencias de soporte las crearemos un una plataforma para gestionar desde 
 ## Más
 
 - [Volver al índice de manuales](../README.md)
+
+
+
+## Plantillas de correo
+
+Aquí tenemos una serie de plantillas de email de respuesta. Debemos copiar el contenido de la plantilla y sustituir los valores entre corchetes [] por lo que corresponda
+
+
+## [Instalación](./plantila_instalacion)
