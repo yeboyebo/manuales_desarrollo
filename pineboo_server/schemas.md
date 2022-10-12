@@ -31,6 +31,10 @@ En el esquema del cliente quimera indicaremos que el campo no debe enviarse al s
   ```js
   codFamilia: Field.String('codfamilia', 'Cód. Familia').dump(false),
   ```
+## TO DO
+API.py:
+
+Modificar get y get_resources para que se haga un schema.dump de cada registro de la consulta. Parece que necesitaremos mapear campo de consult a campo de entrada del schema.dump, y aparte para la paginación habrá que conocer el tipo de los campos de BD ¿usar nombres completos tabla.campo y tirar de metadatos de Pineboo?
 
 
 ### Más
