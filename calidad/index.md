@@ -33,6 +33,24 @@ Ejemplo:
 ## [Checklists de soporte](./checklist_soporte)
 
 
+
+
+## Gestión de tiquets
+
+Las incidencias de soporte las crearemos un una plataforma para gestionar desde ahi las comunicaciones con los clientes
+
+## [Aplicación de gestión de tickets](./gestion_tickets)
+
+
 ## Más
 
 - [Volver al índice de manuales](../README.md)
+
+
+
+## Plantillas de correo
+
+Aquí tenemos una serie de plantillas de email de respuesta. Debemos copiar el contenido de la plantilla y sustituir los valores entre corchetes [] por lo que corresponda
+
+
+## [Instalación](./plantila_instalacion)
