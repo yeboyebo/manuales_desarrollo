@@ -1,5 +1,7 @@
 # Correo electrónico
 ---------------------------
+## Cómo saber el tamaño de nuestra cuenta de correo en el servidor
+Podémos ver el tamaño de nuestra cuenta en el webmail, haciendo hover sobre el icono del disco de la parte inferior izquierda.
 
 ## Cómo controlar el tamaño del correo
 
