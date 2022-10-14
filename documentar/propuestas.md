@@ -14,7 +14,7 @@
 
     Asunto:
     ```txt
-    Presupuesto AAAASSNNNNNN. #CLI #____ Nombre del proyecto
+    Propuesta AAAASSNNNNNN. #CLI #____ Nombre del proyecto
     ```
 
     Cuerpo
@@ -35,6 +35,40 @@
     ```
 
 1. Pasar la tarea del tablero a *En revisión técnica* / *En revisión económica*.
+
+## Modificar la propuesta
+
+1. Modificar la propuesta, indicando las partes eliminadas con [~~tachados~~][NUEVO: ...]
+
+2. Enviar el correo de actualización del documento (y presupuesto opcionalmente), con la siguiente plantilla:
+
+    Asunto:
+    ```txt
+    Propuesta actualizada AAAASSNNNNNN. #CLI #____ Nombre del proyecto
+    ```
+
+    Cuerpo
+    ```txt
+    Hola [Cliente],
+
+    hemos actualizado la propuesta:
+
+    #CLI #____ Nombre del proyecto
+
+    Para incluir los siguientes cambios:
+      * [cambio 1]
+  
+    Tienes la descripción del nuevo funcionamiento aquí:
+
+    [https://yeboyebo.github.io/manuales_publicos/propuestas/H____.html]
+
+    Quedamos a la espera de tu confirmación o comentarios.
+
+    Un saludo
+    ```
+
+1. Pasar la tarea del tablero a *En revisión técnica* / *En revisión económica*.
+
 
 ## Aprobar la propuesta
 
