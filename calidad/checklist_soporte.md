@@ -19,6 +19,12 @@ Copiar este texto en la descripción de la tarea cuando está la incidencia est�
 ```
 
 El desarrollador comprueba que comprende el problema y recoge los datos necesarios para poder resolver la incidencia.
+Debemos establecer la prioridad de la tarea y su **Fecha de entrega** según la prioridad:
+- P1. Prioridad Alta. El cliente no puede trabajar. La **Fecha de entrega** debe ser hoy.
+- P2. Prioridad Media. Es importante pero no impide que sigan trabajando. La **Fecha de entrega** debe ser de 3 días
+- P3. Prioridad Baja. La **Fecha de entrega** debe ser de 5 días.
+
+Debemos dejar la fecha de ejcución vacía
 
 ## Para pasar a *En Resolución*
 La persona que valida y completa la checklist indicando su código:
@@ -37,9 +43,19 @@ NIK Documentación:
 ```
 Añade los siguiententes puntos de verificación:
 ```txt
-- Cambio instalado y probado (Pasar a bloqueo si es el cliente quien debe confirmar la prueba)
+- Cambio instalado y probado (Pasar a revisión cliente si es el cliente quien debe confirmar la prueba)
 - Correo de confirmación enviado (plantilla)
 ```
+Debemos dejar la fecha de ejecución vacía
+
+## Para pasar a *Bloqueado*
+Si no podemos continuar con una tarea por falta de información, por no poder probar, porque necesitamos ayuda... Esa tarea pasa a **Bloqueado**. Al pasarla debemos especificar en **Fecha de ejecución** la fecha en la que la bloqueamos
+
+## Para pasar a *Revisión cliente*
+Cuando una tarea está finalizada e instalada pero necesitamos la confirmación del cliente para darla por resuelta debemos pasarla a **Revisión cliente**. Al pasarla debemos especificar:
+-  En **Fecha de ejecución** la fecha en la que realizaremos la siguiente acción en caso de que no obtengamos respuesta del cliente.
+- Un comentario con la acción a realizar. 
+Ej. Fecha de ejecución: 25/10/222 Comentario: Volver a preguntar al cliente si ha podido probarlo. Significa que el dia 25, si no hemos obtenido respuesta, debemos voler a preguntarle al cliente y establecer una nueva fecha de ejecución y una nueva acción en el comentario.
 
 ## Para pasar a *Resuelto*
 Hay que marcar como hechos los puntos de tests, etc.
@@ -47,3 +63,5 @@ Hay que marcar como hechos los puntos de tests, etc.
 - La documentación está generada
 - El cambio está instalado y funcionando: Probar si es posible, pedir prueba a cliente y bloquear si no lo es
 - El correo de resolución de incidencia (plantilla) está enviado
+
+Hay que establecer en **Fecha de ejecución** la fecha en la que se da por resuelta
