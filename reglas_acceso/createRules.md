@@ -93,6 +93,15 @@
     )
   }
   ```
+Nota: Si el grupo no existe, debemos crear antes una regla con *idregla* = *grupo* para crear el grupo y definir su nombre.
+
+```js
+{
+  idregla: 'miGrupo',
+  grupo: 'miGrupo',
+  descripcion: 'Nombre de mi grupo',
+},
+```
 
 - De esta manera devolveremos un total de 6 reglas:
 
