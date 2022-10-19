@@ -17,4 +17,5 @@
   * [Calidad](./calidad/index.md)
   * [SQL](./sql/index.md)
   * [Configuracion del puesto](./puesto/index.md)
+  * [Programación QSA](./programacion_qsa/index.md)
   

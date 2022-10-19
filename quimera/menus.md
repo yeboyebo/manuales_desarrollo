@@ -13,6 +13,7 @@ export default parent => ({
     items: {
       ...parent?.areaClientes?.items,
       areaClientes: {
+        rule: 'AreaClientes:visit',
         title: 'Pedidos',
         icons: ['receipt', 'outlined_flag'],
         color: 'warning',
@@ -38,6 +39,14 @@ import UserMenu from './static/usermenu'
 ...
 ```
 Si solo añadimos opciones de un tipo (aplicación o usuario) no es necesario añadir la otra clave.
+
+## Control de acceso
+La clave *rule* de cada item del menú indica la regla de acceso que se aplicará para mostrar o no la opción en el menú.
+
+Si ninguno de los items de una misma sección de menú debe ser mostrado, la propia sección se oculta, evitando mostrarse sin opciones.
+
+Más sobre control de acceso [aquí](/reglas_acceso/index.md).
+
 
 ### Más
 
