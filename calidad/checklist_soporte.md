@@ -15,6 +15,7 @@ Copiar este texto en la descripción de la tarea cuando está la incidencia est�
 - Crear nuevos tests a pasar
 - Asserts
 - Controles redundantes a implementar
+- Si contine un jasper probar con versión 6.16.0 de eneboo-reports y actualizarla en el cliente si no la tiene actualizada
 - Identificar documentación a modificar / generar
 ```
 
@@ -38,6 +39,7 @@ NIK Tests_
     - Test 2
 NIK Asserts: N/A
 NIK Controles redundantes a implementar: N/A
+NIK Si contine un jasper probar con versión 6.16.0 de eneboo-reports y actualizarla en el cliente si no la tiene actualizada
 NIK Documentación:
     - https://github.com/yeboyebo/manuales_publicos/tree/master/extensiones/igic_canarias)
 ```
