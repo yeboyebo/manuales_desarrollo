@@ -3,9 +3,11 @@
 Los shortcuts son conjuntos parametrizables de grapes que podemos incluir en nuestro controlador y que definen comportamientos comunes que solemos necesitar implementar.
 
 ## Model
-El shortcut de *Model* gestiona una lista de elementos provenientes del servidor de API.
+
+El shortcut de _Model_ gestiona una lista de elementos provenientes del servidor de API.
 
 ### Estado
+
 La estructura que se monta en el estado para un shortcut con name "categorias" es:
 
 ```json
@@ -16,14 +18,15 @@ La estructura que se monta en el estado para un shortcut con name "categorias" e
         "idCategoria": "cat1",
         "nombre": "Categoria 1"
       },
-       "cat2": {
+      "cat2": {
         "idCategoria": "cat2",
         "nombre": "Categoria 2"
       }
       // Diccionario de items por clave de cada elemento
     },
     "idList": [
-      "cat2", "cat1"
+      "cat2",
+      "cat1"
       // Lista ordenada de claves de los elementos
     ],
     "current": "cat1" // Clave del elemento actual,
@@ -33,7 +36,8 @@ La estructura que se monta en el estado para un shortcut con name "categorias" e
 ```
 
 ### Grapes llamables (slots)
-**get{Modelo}**: Lanza la búsqueda de la primera página, si va bien carga la estructura de datos y llama a *onGet{Modelo}Succeded
+
+**get{Modelo}**: Lanza la búsqueda de la primera página, si va bien carga la estructura de datos y llama a \*onGet{Modelo}Succeded
 
 **onNext{Modelo}**: Lanza la búsqueda de la siguiente página, si va bien agrega la estructura de datos y llama a onGet{Modelo}Succeded
 
@@ -49,17 +53,19 @@ La estructura que se monta en el estado para un shortcut con name "categorias" e
 **deleteKey{Modelo}**: Elimina un elemento de la lista y el diccionario, y pone el current a nulo si coincide con el elemento eliminado
 
 ### Grapes llamables (signals)
+
 **onGet{Modelo}Succeded**: Es llamada cuando se carga con éxito una página de elementos.
 
 **onId{Modelo}Changed**: Es la llamada cuando se cambio un elemento
 
 **onReloadOne{Modelo}Succeded**: Es la llamada cuando se ha recargado un elemento con éxito
 
-
 ## DetailBuffer
-El shortcut de *DetailBuffer* gestiona un registro, tanto en alta como en edición, y sincroniza sus cambios con la lógica del servidor asociada.
+
+El shortcut de _DetailBuffer_ gestiona un registro, tanto en alta como en edición, y sincroniza sus cambios con la lógica del servidor asociada.
 
 ### Estado
+
 La estructura que se monta en el estado para un shortcut con name "ejemplo" es:
 
 ```json
@@ -80,14 +86,16 @@ La estructura que se monta en el estado para un shortcut con name "ejemplo" es:
 ### Declaración
 
 Creamos el shortcut indicando:
-* **type**: *DetailBiffer*
-* **name**: nombre de la clave de estado que representa al registro
-* **id**: campo clave del registro
-* **schemaName**: Nombre del esquema
-* **mode**: (opcional), el valor *insert* especifica que el buffer se usará para inserción
-* **deleteConfirmQuestion**: (opcional) textos a mostrar para confirmar el borrado
+
+- **type**: _DetailBuffer_
+- **name**: nombre de la clave de estado que representa al registro
+- **id**: campo clave del registro
+- **schemaName**: Nombre del esquema
+- **mode**: (opcional), el valor _insert_ especifica que el buffer se usará para inserción
+- **deleteConfirmQuestion**: (opcional) textos a mostrar para confirmar el borrado
 
 Ejemplo de fichero UI con detailBuffer
+
 ```json
 {
   "shortcuts": [
@@ -109,13 +117,17 @@ Ejemplo de fichero UI con detailBuffer
 ```
 
 ### Grapes llamables (slots)
-**save{Modelo}**: Guarda el contenido de *modelo.buffer*
 
-**loadBuffer{Modelo}**: Deshace los cambios en *modelo.buffer*. Vuelca el contenido de *modelo.data* en *modelo.buffer*
+**save{Modelo}**: Guarda el contenido de _modelo.buffer_
+
+**loadBuffer{Modelo}**: Deshace los cambios en _modelo.buffer_. Vuelca el contenido de _modelo.data_ en _modelo.buffer_
 
 **TO DO{Modelo}**: TO DO
 
 ### Grapes llamables (signals)
+
+**onBuffer{Modelo}Loaded**: El buffer del modelo ha sido cargado con éxito
+
 **on{Modelo}Saved**: El modelo ha sido guardado con éxito
 
 **onSave{Modelo}Failed**: La grabación del modelo ha fallado
@@ -124,4 +136,4 @@ Ejemplo de fichero UI con detailBuffer
 
 ### Más
 
-  * [Volver al Índice](./index.md)
+- [Volver al Índice](./index.md)

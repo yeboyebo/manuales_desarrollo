@@ -13,6 +13,7 @@ Copiar este texto en la descripción de la tarea cuando está Por Hacer.
 - Tests que deben pasar
 - Asserts
 - Controles redundantes a implementar
+- Si contine un jasper probar con versión 6.16.0 de eneboo-reports y actualizarla en el cliente si no la tiene actualizada
 - Tareas de seguimiento
 - Esquema de documentación
 ```
@@ -37,6 +38,7 @@ AND Tests que deben pasar:
   - Test 2
 LOR Asserts: N/A
 ANT Controles redundantes a implementar: N/A
+LOR Si contine un jasper probar con versión 6.16.0 de eneboo-reports y actualizarla en el cliente si no la tiene actualizada
 AUL Esquema de documentación:
   - https://github.com/yeboyebo/manuales_publicos/tree/master/extensiones/igic_canarias)
 ```
