@@ -16,6 +16,17 @@ SELECT bl.pid     AS blocked_pid,
    WHERE NOT bl.granted;
 ```
 
+### Matar un proceso (pid)
+
+```sql
+SELECT pg_terminate_backend(pid);
+```
+
+### Matar procesos antiguos
+```sql
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE backend_start < CURRENT_DATE - 2;
+```
+
 ## Volcar datos a fichero csv (Postgres)
 Usamos *\copy* de la siguiente forma:
 ```sql
