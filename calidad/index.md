@@ -33,7 +33,7 @@ Ejemplo:
 ## [Checklists de soporte](./checklist_soporte)
 
 
-
+## [Guía rápida soporte](./guiarapida_soporte)
 
 ## Gestión de tiquets
 
