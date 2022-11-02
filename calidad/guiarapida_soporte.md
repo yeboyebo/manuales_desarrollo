@@ -13,7 +13,7 @@ Esto es una guía esquemática de cómo actuar con las incidencias de soporte.
 - Si incidencia por teléfono. Creamos tiket en soporte
     - Si es urgente avisamos a la persona de soporte
     - Escribimos una nota interna explicativa
-    - Enviar desde soporte correo de confirmación apertura
+    - Enviar desde soporte correo de **Confirmación apertura**
 
 
 ## PERSONA DE SOPORTE
@@ -21,7 +21,7 @@ Esto es una guía esquemática de cómo actuar con las incidencias de soporte.
 - Cada cierto tiempo revisar si hay tikets nuevos
     - Traspasarlos al grupo mixto
     - Crear tarea en dailyjob y asignar numero de ticket de soporte Ej #4512368
-    - Enviar desde soporte correo de confirmación apertura
+    - Enviar desde soporte correo de **Confirmación apertura**
 
 - Prioridades de tareas de dailyjob: 
     - #P1 Fecha Entrega hoy o mañana
@@ -30,18 +30,18 @@ Esto es una guía esquemática de cómo actuar con las incidencias de soporte.
 
 - Si tiene demasiada carga avisar (si hay muchas tareas con fecha entrega hoy o hay muchas urgentes)
 
-- Todas las comunicaciones con el cliente se harán desde la aplicación de tickets. Si es necesario solicitar información hay una plantilla de Solicitud de información
+- Todas las comunicaciones con el cliente se harán desde la aplicación de tickets. Si es necesario solicitar información hay una plantilla de **Solicitud de información**
 
-- Se pasan a bloqueadas las tareas bloqueadas por motivos internos. Indicar:
+- Se pasan a **Bloqueado** las tareas bloqueadas por motivos internos. Indicar:
     - Un comentario con el motivo del bloqueo y la siguiente acción a realizar
     - Fecha Ejecución el dia en que revisaremos la tarea
 
-- Se pasan a revisión cliente las tareas que están a la espera de que el cliente nos confirme el funcionamiento. Indicar:
-    - Enviar correo de Actualización de tiket desde soporte
+- Se pasan a **Revisión cliente** las tareas que están a la espera de que el cliente nos confirme el funcionamiento. Indicar:
+    - Enviar correo de **Actualización de tiket** desde soporte
     - La siguiente acción a realizar
     - Fecha Ejecución el dia en que revisaremos la tarea
 
-- Al pasar una tarea a finalizada indicar:
+- Al pasar una tarea a **Resuelto** indicar:
     - Un comentario con el motivo de la tarea. Ej. Daba error la consulta del informe porque el campo x no existia
     - Fecha Ejecución el día que se finaliza
-    - Desde soporte enviar correo de Confirmación Resolución
+    - Desde soporte enviar correo de **Confirmación Resolución**
