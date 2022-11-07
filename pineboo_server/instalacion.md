@@ -43,22 +43,22 @@ Copiamos en un fichero de texto esta estructura, sustituimos por nuestros datos 
 Dentro de ./app/AQNEXT/pinebooSettings.py podemos usar los siguientes modificadores (\* valor por defecto)
 
 ```sh
-pineboolib_api.AUTO_RELOAD_BAD_CONNECTIONS = *False # Durante una consulta, cuando se especifica a True y se detecta una sessión erronea, reinicia las conexiones del usuario. Cuando está False y se detecta la sesión erronea , lanzará una excepción:
+pineboolib_app.AUTO_RELOAD_BAD_CONNECTIONS = *False # Durante una consulta, cuando se especifica a True y se detecta una sessión erronea, reinicia las conexiones del usuario. Cuando está False y se detecta la sesión erronea , lanzará una excepción:
 "AttributeError:: Quite possibly, you are trying to use a session in which a previous error has occurred and has not been recovered with a rollback. Current session is discarded."
-pineboolib_api.ENABLE_ACLS = *True # Activa o desactiva las ACLS del módulo de acceso instalado.
+pineboolib_app.ENABLE_ACLS = *True # Activa o desactiva las ACLS del módulo de acceso instalado.
 
-pineboolib_api.USE_ALTER_TABLE_LEGACY = *True # Si especificamos False , usará alembic para la regenración de tablas (solo usarlo en desarrollo, hay que estar muy seguro de hacerlo en producción)
+pineboolib_app.USE_ALTER_TABLE_LEGACY = *True # Si especificamos False , usará alembic para la regenración de tablas (solo usarlo en desarrollo, hay que estar muy seguro de hacerlo en producción)
 
-pineboolib_api.USE_FLFILES_FOLDER_AS_STATIC_LOAD = *True # Habilita el uso de la carpeta especificada en pineboolib_api.PROJECT.USE_FLFILES_FOLDER como flfiles.
+pineboolib_app.USE_FLFILES_FOLDER_AS_STATIC_LOAD = *True # Habilita el uso de la carpeta especificada en pineboolib_app.PROJECT.USE_FLFILES_FOLDER como flfiles.
 
-pineboolib_api.PROJECT.USE_FLFILES_FOLDER = *'' # Carpeta para ser usada como flfiles.
+pineboolib_app.PROJECT.USE_FLFILES_FOLDER = *'' # Carpeta para ser usada como flfiles.
 
-pineboolib_api.USE_WEBSOCKET_CHANNEL = *False # True habilita el uso de websocket
+pineboolib_app.USE_WEBSOCKET_CHANNEL = *False # True habilita el uso de websocket
 
 pineboolib_api.LOG_SQL = *False # True muestra debug del sql generado por sqlalchemy.
 
 
-pineboolib_app.PROJECT.conn_manager.REMOVE_CONNECTIONS_AFTER_ATOMIC = * False # True cierra las conexiónes al terminar de ejecutar el decorador atomic. Esto es importante para que el pool de conexiones no se llene.
+pineboolib_api.PROJECT.conn_manager.REMOVE_CONNECTIONS_AFTER_ATOMIC = * False # True cierra las conexiónes al terminar de ejecutar el decorador atomic. Esto es importante para que el pool de conexiones no se llene.
 
 
 
