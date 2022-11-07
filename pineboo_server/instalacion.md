@@ -55,10 +55,10 @@ pineboolib_app.PROJECT.USE_FLFILES_FOLDER = *'' # Carpeta para ser usada como fl
 
 pineboolib_app.USE_WEBSOCKET_CHANNEL = *False # True habilita el uso de websocket
 
-pineboolib_api.LOG_SQL = *False # True muestra debug del sql generado por sqlalchemy.
+pineboolib_app.LOG_SQL = *False # True muestra debug del sql generado por sqlalchemy.
 
 
-pineboolib_api.PROJECT.conn_manager.REMOVE_CONNECTIONS_AFTER_ATOMIC = * False # True cierra las conexiónes al terminar de ejecutar el decorador atomic. Esto es importante para que el pool de conexiones no se llene.
+pineboolib_app.PROJECT.conn_manager.REMOVE_CONNECTIONS_AFTER_ATOMIC = * False # True cierra las conexiónes al terminar de ejecutar el decorador atomic. Esto es importante para que el pool de conexiones no se llene.
 
 
 
