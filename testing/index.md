@@ -4,6 +4,7 @@
 ## Índice
 
   * [Tests básicos](./tests_basicos.md)
+  * [Testear módulos y extensiones](./tests_modulos_extensiones.md)
 
 
 ### Más

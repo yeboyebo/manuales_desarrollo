@@ -8,7 +8,6 @@
   * [AQNext legacy](./aqnext_legacy/index.md)
   * [Quimera](./quimera/index.md)
   * [Acceso a Pineboo Server desde Eneboo](./pineboo_server_desde_eneboo/index.md)
-  * [Uso de modelos en Eneboo](./modelos_eneboo/index.md)
   * [Testing](./testing/index.md)
   * [Eneboo tools](./eneboo-tools/index.md)
   * [Desplegar Quimera en producción](./desplegar_quimera/index.md)

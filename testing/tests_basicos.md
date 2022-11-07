@@ -56,7 +56,7 @@ La clase base debe contener los métodos *setUpClass* y *tearDownClass* que esta
 
 *setUpClass* abre una base de datos SQLite y carga en ella los módulos indicados.
 
-*tearDownClass* borra la base de datos y los ficheros de caché, si se incluye en el parámetro *false* en la función *finish_testing*, los ficheros de caché NO se borrarán, con lo que la ejecución de los tests será más rápida al no tener que traducirse el código QSA.
+*tearDownClass* borra la base de datos y los ficheros de caché, si se incluye en el parámetro *false* en la función *finish_testing*, los ficheros de caché NO se borrarán, con lo que la ejecución de los tests será más rápida al no tener que traducirse el código QSA a partir de la segunda ejecución.
 
 ## Añadir un nuevo test al fichero
 Podemos añadir un nuevo test incluyendo un nuevo método cuyo nombre comience por *test_*.
@@ -69,6 +69,40 @@ Podemos añadir un nuevo test incluyendo un nuevo método cuyo nombre comience p
 La librería *unittest* proporciona [distintos tipos de función *assert*](https://www.pythontutorial.net/python-unit-testing/python-unittest-assert/) para realizar la comprobación de los resultados.
 
 
+## Lanzar los tests
+Para lanzar los test ejecutamos *pytest* en una carpeta bajo la cual haya carpetas *test* que incluyan uno o más ficheros *test_*.py*.
+```sh
+cd modulos/facturacion/facturacion
+~/modulos/facturacion/facturacion$ pytest
+======================== test session starts ========================
+platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/antonio/modulos/facturacion/facturacion
+collected 10  items
+test_albaranescli.py ...                                      [ 30%]
+test/test_flfacturac.py .......                               [100%]
+
+======================== 10 passed in 10.07s ========================
+```
+
+## Valores por defecto para datos de prueba en BD
+En la libraría de tests, *T3ST.py*, hay una varias funciones que nos agilizan la creación de datos de prueba:
+### new
+Nos permite crear registros de pruebas de forma ágil.
+
+### get_valores_defecto
+Nos permite crear valores por defecto para objetos de base de datos que necesitemos crear para nuestros tests.
+```py
+    def get_valores_defecto(self):
+        return {
+            "articulos": {
+                "referencia": "#AUTO",
+                "descripcion": "Artículo de pruebas",
+            },
+            ...
+```
+El valor *"#AUTO"* permite indicar que se use un valor autonumérico.
+
+De esta forma, a menos que especifiquemos un valor especial en su creación, los objetos que creemos con *self.lib.new* se crearán con estos valores sin necesidad de indicarlos.
  
 ### Más
   * [Volver al Índice](./index.md)
