@@ -45,3 +45,13 @@ Esto es una guía esquemática de cómo actuar con las incidencias de soporte.
     - Un comentario con el motivo de la tarea. Ej. Daba error la consulta del informe porque el campo x no existia
     - Fecha Ejecución el día que se finaliza
     - Desde soporte enviar correo de **Confirmación Resolución**
+    - Si hay que explicar el funcionamiento de algo incluirlo en la documentación y enviarles el enlace en el correo
+
+
+## BASE DE CONOCIMIENTOS
+
+- Al resolver una incidencia si es algo que pasa a menudo y podemos crear documentación de cómo resolverla, lo hacemos en manuales_desarrollo y ponemos el enlace en la aplicación de tiquets en el apartado **Base de Conocimientos**->**Soporte GM**.
+
+
+![FAQS](./img/faqsgrupomixto.png)
+
