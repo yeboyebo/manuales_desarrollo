@@ -21,7 +21,7 @@ Aquí debemos establecer los siguientes valores:
 
 - En el apartado **Planificación** podemos configurar la frecuencia con la que se harán los respaldos
     - Activamos la opción **Respaldo automático**
-    - Establecemos la peridicidad en el campo **Cada**
+    - Establecemos la periodicidad en el campo **Cada**
     - Establecemos hasta cuando deseamos guardar las copias en el campo **Conservar**
 
 ![Planificación](./img/planificacion.png)
