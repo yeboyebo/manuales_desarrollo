@@ -2,7 +2,10 @@
 
 Para configurar nuestro equipo y hacer copias de seguridad periódicas debemos seguir los siguientes pasos:
 
-- Conectamos a la VPN de Yeboyebo
+- He creado un usuario para cada uno en el servidor donde se harán las copias (10.20.2.134). Intentad acceder por ssh. Usuario vuestro nombre y contraseña c0m... Si queréis podéis cambiar la contraseña
+
+- Conectamos a la VPN de Yeboyebo. Para que haga las copias todos los días, hay que estar conectado a la VPN
+
 - Abrimos la aplicación de **Respaldos**
 
 ![Respaldos](./img/respaldos.png)
