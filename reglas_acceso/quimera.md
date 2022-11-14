@@ -49,6 +49,50 @@
 
   * En caso de no tener permisos de acceso a una View, se devolverá una página 403
 
+## Restringiendo el acceso a los menús
+
+  * Para restringir el acceso a menús, debemos añadir, si no existe, una clave `rules` en el index.ts de nuestra extensión
+    ```js
+    export default {
+      path: ...,
+      dependencies: [...],
+      rules: {
+
+      }
+    }
+    ```
+
+  * Dentro de este objeto, crearemos una regla. Lo normal será igualar la regla a una función *check* (ver más adelante):
+    ```js
+    export default {
+      path: ...,
+      dependencies: [...],
+      rules: {
+        'mi_regla': (check: (rule: string) => boolean) => check('inventarios'),
+      }
+    }
+    ```
+
+  * En la extensión que crea o modifica la opción de menú, incluimos una propiedad *rule* en el fichero *appmenu.js*.
+    ```js
+      export default parent => ({
+      ...parent,
+      inventarios: {
+        title: 'Almacén',
+        items: {
+          ...parent?.inventarios?.items,
+          inventarios: {
+            ...
+            rule: 'mi_regla',
+            ...
+          },
+        },
+      }
+    })
+    ```
+    Lo lógico aquí es que si hay una view master con una regla `'_ViewName_:visit'`, que usemos esa misma regla como regla de acceso en la propiedad *rule* de *appmanu.js*.
+
+
 ## Restringiendo la visualización de elementos
 
   * Lo primero que debemos hacer es tener una regla que mapee el acceso al componente o grupo de componentes. Lo haremos de la misma manera que `visit`, pero esta vez con una regla personalizada. Ej:
