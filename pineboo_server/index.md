@@ -1,12 +1,14 @@
 # Pineboo Server
----------------------------
+
+---
 
 ## Índice
 
-  * [Instalación](./instalacion.md)
-  * [Gestión de entornos](./entornos.md)
-  * [Schemas](./schemas.md)
+- [Instalación](./instalacion.md)
+- [Gestión de entornos](./entornos.md)
+- [Schemas](./schemas.md)
+- [Compartir settings con pineboo-core](./settings.md)
 
 ### Más
 
-  * [Volver al índice de manuales](../README.md)
+- [Volver al índice de manuales](../README.md)
