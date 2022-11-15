@@ -5,6 +5,7 @@
 
   * [Uso de modelos en Eneboo](./modelos_eneboo/index.md)
   * [runTransaction](./runtransaction.md)
+  * [Calculate counter](./calculatecounter.md)
   * [Librería EXCEL.qs](./excel.md)
   
 ### Más
