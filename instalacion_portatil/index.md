@@ -4,6 +4,7 @@
 ## Índice
 
   * [Configuración personal](./configuracion_personal.md)
+  * [PostgresSQL](./postgressql.md)
   * [MySql](./mysql.md)
   * [PgAdmin4](./pgadmin4.md)
   * [Subversion](./subversion)
@@ -13,6 +14,13 @@
   * [Pinebooapi](../pineboo_server/index.md)
   * [Sublime](./sublime.md)
   * [Visores de diferencias](./visores_diferencias.md)
+  * [Chrome](./chrome.md)
+  * [NPM](./npm.md)
+  * [Bower](./bower.md)
+  * [Gimp](./gimp.md)
+  * [Qt Designer](./qtdesigner.md)
+  * [TeamViewer](./teamviewer.md)
+  * [Abamq](./abanq.md)
   
  
 ## Más

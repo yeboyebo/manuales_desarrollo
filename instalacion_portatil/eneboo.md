@@ -9,7 +9,7 @@
 ln -s /opt/eneboo-build/bin/eneboo yeboyebo 
 ```
 
-Para mostrar el icono en ubuntu 20.04 de eneboo (o cualquiera que no aparezca) creamos un fichero dentro de la carpeta **.local/share/applications/** del home.
+PPara mostrar el icono en ubuntu si no aparece, creamos un fichero dentro de la carpeta **.local/share/applications/** del home.
 El nombre del fichero tiene que ser **nombre_app.desktop**, para el caso de eneboo sería **eneboo.desktop**
 Este fichero debe de contener lo siguiente (cambiar la ruta del instalable y del icono)
 
