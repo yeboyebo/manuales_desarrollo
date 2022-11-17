@@ -2,5 +2,5 @@
 
 ## Índice
   * [Contabilidad](./contabilidad/index.md)
-  * [Sanhigia](./sanhigia/sanhigia.md)
+  * [Sanhigia](./sanhigia/index.md)
   * [Mayton](./mayton/index.md)  
