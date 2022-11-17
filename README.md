@@ -18,4 +18,5 @@
   * [Configuracion del puesto](./puesto/index.md)
   * [Programación QSA](./programacion_qsa/index.md)
   * [Copias de seguridad](./copias_seguridad/index.md)
+  * [Instalación portátil](./instalacion_portatil/index.md)
   
