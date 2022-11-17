@@ -8,7 +8,7 @@
 
 ## Crear y enviar la propuesta
 
-1. Crear documento en manuales_desarrollo/propuestas con nombre = *CLI_H____.md*, basado en la plantilla *propuestas/plantilla.md*
+1. Crear documento en manuales_publicos/propuestas con nombre = *CLI_H____.md*, basado en la plantilla *propuestas/plantilla.md*
 
 2. Enviar el documento (y presupuesto opcionalmente), con la siguiente plantilla:
 
