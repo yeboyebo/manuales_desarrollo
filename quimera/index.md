@@ -16,6 +16,7 @@
   * [Menús](./menus.md)
   * [Tipos de grape](./tipos_de_grape.md)
   * [Imágenes](./imagenes.md)
+  * [Traducciones](./traducciones.md)
 
 ### Más
 

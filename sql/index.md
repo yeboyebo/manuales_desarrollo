@@ -45,11 +45,14 @@ replace(campo, cadena_a_sustituir, cadena_nueva)
 ```
 
 ### Remplazar intros
-
 ```sql
 replace(l.descripcion, E'\n', '-')
 ```
 
+### Expresión regular no cumplida (emails)
+```sql
+select codcliente, nombre, email from clientes where email !~ '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$' order by codcliente
+```
 ## Cambiar la codificación del cliente (Postgres)
 ```sql
 set client_encoding=utf8
