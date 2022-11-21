@@ -1,5 +1,12 @@
 # Configurar Subversion
 
+## Prerrequisitos
+Para usar subversion necesitamos tener un usuario del subversion de Yeboyebo. Pedir al admin que lo cree en el servidor:
+```sh
+/usr/bin/htpasswd -m /etc/apache2/dav_svn.passwd
+```
+
+## Instalación
 - Para instalar subversion ejecutamos:
 
     ```
