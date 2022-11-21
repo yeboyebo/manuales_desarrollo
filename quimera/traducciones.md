@@ -83,20 +83,66 @@ const t = util.translate
 ```
 
 ### Traducciones de campos *Schema.Field*, *Filter.Field*
-Las etiquetas de estos campos se traducen automáticamente si en la definición del esquema indicamos la clave de traducción.
+Las etiquetas de estos campos se traducen automáticamente si en el fichero de traducciones hay una clave *schemas.[schema].[campo]*.
 ```js
 export default (parent) => ({
   ...parent,
   catalogo:
     Schema('to_articulos', 'codplanta')
       .fields({
-        descripcion: Field.Text('descripcion', 'catalogo.descripcion'),
+        descripcion: Field.Text('descripcion', '[valor si no hay traducción]'),
         // ...
       }),
   // ...
 })
 ```
-XXXX Claves de traducción automáticas schemas.catalogo.descripcion
+```json
+{
+  "translation": {
+    "schemas": {
+      "catalogo": {
+        "descripcion": "Description"
+      }
+    }
+  }
+}
+```
+### Traducciones de opciones en campos de selección *Select*
+Tanto en el esquema como en las definiciones externas de las opciones, sustituiremos la clave value por la traduccion correspondiente.
+
+**Esquemas**
+```js
+export default (parent) => ({
+  ...parent,
+  catalogo:
+    Schema('to_articulos', 'codplanta')
+      .fields({
+        // ...
+        exposicionSolar: Field.Options('vb_exposicionsolar').options([
+          { key: 1, value: 'schemas.catalogo.exposicionSolar_sol' },
+          { key: 2, value: 'schemas.catalogo.exposicionSolar_solsombra' },
+          { key: 3, value: 'schemas.catalogo.exposicionSolar_sombra' }
+        ]),
+      }),
+  // ...
+})
+```
+
+```json
+{
+  "translation": {
+    "schemas": {
+      "catalogo": {
+        "exposicionSolar": "Exposición solar",
+        "exposicionSolar_sol": "SOL",
+        "exposicionSolar_solsombra": "SOL/SOMBRA",
+        "exposicionSolar_sombra": "SOMBRA"
+      }
+    }
+  }
+}
+```
+
 
 ### Más
 
