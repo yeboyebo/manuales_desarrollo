@@ -27,6 +27,11 @@ SELECT pg_terminate_backend(pid);
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE backend_start < CURRENT_DATE - 2;
 ```
 
+## Recargar configuración del pg_hba sin reiniciar (Postgres)
+```sql
+select pg_reload_conf();
+```
+
 ## Volcar datos a fichero csv (Postgres)
 Usamos *\copy* de la siguiente forma:
 ```sql
