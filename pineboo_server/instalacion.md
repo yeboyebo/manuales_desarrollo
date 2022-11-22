@@ -88,10 +88,21 @@ host    all             all             127.0.0.1/32            md5
 host    all             all             0.0.0.0/0               md5
 ```
 
+Para versiones de postgresql_server >= 13.0 tener en cuenta lo que se dice al respecto en [Postgresql Server / Instalación y configuración](../postgresql_server/configuracion.md).
+
+
 Reiniciar postgresql
 
 ```
 sudo service postgresql restart
+```
+
+## Comprobar antes de ejecutar
+
+Si tenemos instalado la version de python >= 3.10, puede que nuestra versión de Docker esté desfasada y eso nos genere un problema en la lectura del comando. En ese caso ejecutaremos previamente el siguiente comando:
+
+```console
+alias docker-compose='docker compose' 
 ```
 
 ## Primera ejecución
