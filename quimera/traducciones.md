@@ -143,6 +143,21 @@ export default (parent) => ({
 }
 ```
 
+### Traducciones en componentes personalizados
+El componente incluirá la traducción automática de los textos que reciba como propiedades.
+```js
+function FiltroDisponibles({ id, label, ...props }) {
+  // ...
+  return (
+    <Field.CheckBox
+      // ...
+      label={util.translate(label)}
+      {...props}
+    />
+  )
+}
+```
+
 
 ### Más
 
