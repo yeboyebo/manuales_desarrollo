@@ -50,3 +50,5 @@ Dirección de la clave: "1",
 Certificados adicionales: (ninguno)
 ```
 Hacemos clic en "Aplicar" tanto para la configuración avanzada como la general e intentamos conectarnos. 
+
+  * [Volver al Índice](./index.md)
