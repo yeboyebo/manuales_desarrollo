@@ -158,6 +158,9 @@ function FiltroDisponibles({ id, label, ...props }) {
 }
 ```
 
+### Traducciones en componentes de quimera comps
+Para los textos fijos de los componentes (etiquetas de botones, etc.),el componente usará *util.translate* y colocaremos sus traducciones en la carpeta *libs/comps/static/translations*.
+
 
 ### Más
 
