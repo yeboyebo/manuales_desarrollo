@@ -7,6 +7,7 @@
   * [runTransaction](./runtransaction.md)
   * [Calculate counter](./calculatecounter.md)
   * [Librería EXCEL.qs](./excel.md)
+  * [Expresiones regulares](./expresionesregulares.md)
   
 ### Más
 
