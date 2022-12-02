@@ -32,6 +32,33 @@ Funciones RegExp:
 - **searchRev( text : String )**: Number; Igual que search(), pero searchRev() busca en sentido inverso desde el final del texto. 
 
 - **exactMatch( text : String )** : Boolean; Devuelve *true* si la coincidencia entre *text* y el patrón de la expresión regular es exacta, si no lo hace devuelve *false*.
+
+- **cap( nth : Number )**: Number
+    ```
+    re = /nombre: ([a-zA-Z ]+)/;
+    re.search( "nombre: Pepe Gotera, edad: 42" );
+    re.cap(0);  // devuelve "nombre: Pepe Gotera"
+
+    re.cap(1);  // devuelve "Pepe Gotera"
+
+    re.cap(2);  // devuelve undefined, no hay más capturas
+    
+    ```
+    *Devuelve la enésima captura encontrada del patrón que hemos buscado en el texto ingresado. El primer string capturado ( cap(0) ) es la parte del string que coincide con el patrón completo, si es que hay captura. El segundo string capturado son las partes del patrón encerradas por paréntesis. En el ejemplo superior intentamos capturar ([a-zA-Z ]+), que caotura una secuencia de una o más letras y espacios después de 'nombre:' que son parte del string en el que hemos buscado.*
+
+- **pos( nth : Number )**: Number
+    ```
+    re = /nombre: ([a-zA-Z ]+)/;
+    re.search( "nombre: Pepe Gotera, edad: 42" );
+    re.pos(0); // devuelve 0, posición de "nombre: Pepe Gotera"
+
+    re.pos(1); // devuelve 6, posición de "Pepe Gotera"
+
+    re.pos(2); // devuelve -1, no hay más capturas
+    
+    ```
+    *Devuelve la posición de la enésima captura del patrón en el texto buscado*
+
     
 ### Más
 
