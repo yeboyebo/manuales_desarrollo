@@ -56,6 +56,15 @@ Y en la carpeta *static/translations* crearemos un fichero *translations.xx.json
 }
 ```
 
+Una vez creada la carpeta *translations*, debemos incluirla en el *index.ts* de la extensión.
+```js
+import { translations } from './static/translations'
+//...
+export default {
+  //...
+  translations
+}
+```
 ## Llamadas a la función de traducción
 
 ### Traducciones desde los ficheros *ui*
@@ -107,6 +116,43 @@ export default (parent) => ({
   }
 }
 ```
+### Traduccions de menús
+Reproduciremos la estructura del menú en cada fichero de taducciones en la clave *appmenu*, usando las claves *title* e *items* para el nombre de grupo y sus opciones.
+
+Definición del menú (*appmenu.js*):
+```js
+export default parent => ({
+  ...parent,
+  catalogo: {
+    title: 'Catálogo!', // Valor en caso de que no haya traducción
+    items: {
+      tienda: {
+        title: 'Tienda!', // Valor en caso de que no haya traducción
+        icons: ['shopping_cart', null],
+        color: 'primary',
+        variant: 'main',
+        url: '/catalogo'
+      },
+    },
+  },
+})
+```
+
+Fichero de traducciones (*translations.es.json*):
+```json
+"translation": {
+  "appmenu": {
+    "catalogo": {
+      "title": "Catálogo",
+      "items": {
+        "tienda": "Tienda"
+      }
+    }
+  },
+  // ...
+}
+```
+
 ### Traducciones de opciones en campos de selección *Select*
 Tanto en el esquema como en las definiciones externas de las opciones, sustituiremos la clave value por la traduccion correspondiente.
 
