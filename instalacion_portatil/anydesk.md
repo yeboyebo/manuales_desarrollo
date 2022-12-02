@@ -32,5 +32,6 @@ Comprobamos de nuevo:
 ```
 echo $XDG_SESSION_TYPE --> "La salida debe ser 'x11'"
 ```
+Debemos reiniciar el sisatema para que los cambios sean efectivos.
 
   * [Volver al Índice](./index.md)
