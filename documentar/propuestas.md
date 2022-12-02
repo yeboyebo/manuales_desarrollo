@@ -74,6 +74,7 @@
 1. Aprobar el presupuesto en el ERP.
 1. Mover la tarea del tablero *Propuestas* a *Completada*.
 1. Publicar el proyecto en *dailyjob*.
+1. Mover el documento de propuesta en *manuales_publicos* de la carpeta raíz a la carpeta *por desarrollar*.
 
 ## Realizar la propuesta
 
