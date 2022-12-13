@@ -43,7 +43,7 @@ qsa.FLUtil.writeSettingEntry("scripts/yeboyebo/url", url)
 o
 
 ```py
-url = qsa.FLUtil.writeSettingEntry("scripts/yeboyebo/url")
+url = qsa.FLUtil.readSettingEntry("scripts/yeboyebo/url")
 print(url)
 ```
 
