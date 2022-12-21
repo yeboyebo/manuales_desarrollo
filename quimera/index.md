@@ -4,6 +4,7 @@
 ## Índice
 
   * [Instalación (TO DO)](./instalacion.md)
+  * [Acceso a la API de Pineboo](./acceso_api.md)
   * [Proyectos y extensiones](./proyectos_extensiones.md)
   * [Estructura de una view](./estructura_view.md)
   * [Shortcuts](./shortcuts.md)
