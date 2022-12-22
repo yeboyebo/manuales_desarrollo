@@ -45,7 +45,7 @@ Y en la carpeta *static/translations* crearemos un fichero *translations.xx.json
 {
   "translation": {
     "itemCatalogo": {
-      "medidas": "MESURES",
+      "medidas": "MESURES (MAX {{maxMedida}})",
       "comprar": "Afegir"
     },
     "description": {
@@ -74,7 +74,7 @@ import { useTranslation, Trans } from 'react-i18next';
 function Componente({ ..props }) {
   const { t } = useTranslation()
   return (
-    <Typography variant='h7'>{t('itemCatalogo.medidas')}</Typography>
+    <Typography variant='h7'>{t('itemCatalogo.medidas', { maxMedida: 10 })}</Typography>
 
     <Trans i18nKey='description.part1'>
       Edit <code>src/App.js</code> and save to reload.
@@ -90,6 +90,7 @@ import { util } from 'quimera'
 
 const t = util.translate
 ```
+Esta función es la misma que la que obtenemos con *useTranslation*.
 
 ### Traducciones de campos *Schema.Field*, *Filter.Field*
 Las etiquetas de estos campos se traducen automáticamente si en el fichero de traducciones hay una clave *schemas.[schema].[campo]*.
