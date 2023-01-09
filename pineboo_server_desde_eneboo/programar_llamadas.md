@@ -37,6 +37,35 @@ La función devuelve un objeto:
 	}
   ```
 
+## Activar la llamada para una extensión
+En la llamada a activar, preguntamos si está activa la API y la hacemos de ambas formas:
+```js
+if (formHTTP.iface.usarAPI("articulos/cambiar_proveedor_defecto")) {
+  const url = "articulos/" + referencia + "/cambiar_proveedor_defecto"
+  const respuesta = formHTTP.iface.patch(url, {
+    "codproveedor": codProveedor
+  })
+  if (!respuesta.ok) {
+    formUI.ponMsgError(sys.translate("Hubo un error al marcar el proveedor por defecto\n%1").arg(respuesta.salida), this);
+  }
+} else {
+  if (!_i.establecerProveedorDefecto(referencia, codProveedor)) {
+    return false;
+  }
+}
+```
+Sobrecargamos HTTP.py para incluir la llamada en la lista de llamadas HTTP:
+```js
+function miExtension_getAccionesAPI()
+{
+    const _i = this.iface
+    const llamadas = _i.__getAccionesAPI()
+    llamadas["pedidoscli/generar_albaran"] = true
+    llamadas["articulos/cambiar_proveedor_defecto"] = true
+    return llamadas
+}
+```
+
 ### Más
 
   * [Volver al Índice](./index.md)
