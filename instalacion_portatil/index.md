@@ -18,6 +18,7 @@
 * [Visores de diferencias](./visores_diferencias.md)
 * [Chrome](./chrome.md)
 * [NPM](./npm.md)
+* [NVM](./nvm.md)
 * [VPN](./vpn.md)
 * [Bower](./bower.md)
 * [Gimp](./gimp.md)
