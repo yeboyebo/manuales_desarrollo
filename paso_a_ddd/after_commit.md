@@ -1,34 +1,35 @@
-# Delegate commit
+# Eliminación de Before / After commit
 ---------------------------
 
-## Activación
-Activamos esta opción incliuyendo un setting local de *.qt/eneboorc*:
-```sh
-[application]
-...
-delegateCommit=true
-```
+## Repositorios por defecto
+Los repositorios por defecto hacen una grabación que implica la ejecución de los beforeCommit / afterCommit en el código traducido
 
-Una vez activado, si cuando se hace un commit automático (se modifica, crea o borra un registro desde un FLFormRecord / FLTableDB), Eneboo buscará una función *_delegateCommit(cursor)* en el mismo script donde ahora creamos los *before/afterCommit*.
+Ver *legacyRepository.py* en el módulo de *libreria*.
 
-Si la función existe, el commitBuffer normal no se ejecuta, y se llama a la función.
+## Repositorios por agregado
+Para ciertos agregados podemos crear un repositorio personalizado (lo ideal es hacer lo con todos ellos) en el que gestionemos el momento en el que llamamos a las funciones de *after / beforeCommit*.
 
-La función por defecto a la que se llamará desde cada *_delegateCommit* es *formHTTP.iface.saveCursor(cursor)*
+Ver *docfacturacion_repo.py* y *facturascli_repo.py* en el módulo de *facturación*.
+
+## Evitar la llamada no explícita a afterCommits 
+Hay una forma de saber si estamos en el nuevo entorno de entidades y repositorios de DDD, con lo que podemos saber si una llamada debe hacerse de la forma tradicional, en el transcurso del *afterCommit*, o va a ser lanzada de forma explícita desde el respositorio o el gestor de eventos.
+
+*formCURSOR.isFake(cursor)* nos indica si el cursor es en realidad una instancia de la clase *legacyEntity*, que comparte su interfaz.
 
 ```js
-function oficial_delegateCommit(cursor)
-{
-	var accion = null
-	const tabla = cursor.table()
-	switch(tabla) {
-		case "x": {
-			...
-			break;
-		}
-        default: {
-            return formHTTP.iface.saveCursor(cursor, accion)
+if (!formCURSOR.isFake(curFactura)) {
+    if (curFactura.modeAccess() == curFactura.Edit) {
+        if (!formRecordfacturascli.iface.pub_actualizarLineasIva(curFactura)) {
+            return false;
         }
-	}
+    }
+
+    if (curFactura.modeAccess() == curFactura.Insert || curFactura.modeAccess() == curFactura.Edit) {
+        if (sys.isLoadedModule("flcontppal") && flfactppal.iface.pub_valorDefectoEmpresa("contintegrada")) {
+            if (_i.generarAsientoFacturaCli(curFactura) == false) {
+                return false;
+            }
+        }
+    }
 }
 ```
-En el caso de acceso a *aggregates* de DDD, modificaremos estas funciones para acceder a la API del agregado (ver función para líneas de documento de facturación en *flfacturac.qs*)
