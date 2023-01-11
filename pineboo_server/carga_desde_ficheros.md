@@ -3,7 +3,8 @@
 ## Fichero de entrono
 
 Para configurar nuestro en entorno para que la carga de ficheros sea automática debemos realizar algunos cambios en nuestro fichero de entrono.
-  ```
+
+```sh
 # Carpeta local donde se está descargados los módulos a ejecutar (para carga estática).
 MODULESDIR=/home/USER/modulos/
 
@@ -15,8 +16,9 @@ FLFILES_FOLDER=/pineboo/modules/flfiles
 ```
 
 ## Carpeta 'flfiles'
+
 Debemos crear un carpeta 'flfiles' donde colocar los ficheros a monitorizar. Se corresponderá con la ruta de 'MODULESDIR' en el fichero de entorno.
 
 ### Más
 
-  * [Volver al Índice](./index.md)
+* [Volver al Índice](./index.md)
