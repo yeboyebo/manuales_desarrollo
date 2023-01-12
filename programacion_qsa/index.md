@@ -8,6 +8,7 @@
   * [Calculate counter](./calculatecounter.md)
   * [Librería EXCEL.qs](./excel.md)
   * [Expresiones regulares](./expresionesregulares.md)
+  * [Medidas dinámicas en cubos de análisis](./medidadinamica.md)
   
 ### Más
 
