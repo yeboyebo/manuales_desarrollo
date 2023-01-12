@@ -38,6 +38,35 @@ class Sanhigia(Oficial):
 Para scripts que la funcionalidad añade, lo mejor casi siempre será crear un nuevo archivo de test. Por ejemplo, para *miscript.qs* crearemos *test_miscript.py*.
 
 Crearemos el archivo copiando y renombrando el archivo de test del módulo donde se encuentre, y vaciando sus funciones (excepto *setUpClass* y *tearDownClass*).
- 
+
+### Ampliar un archivo de tests con tests propios de la extensión
+Lo primero es cerciorarnos de que la cadena de herencia de oficial para el archivo es la siguiente:
+```py
+# @class_declaration Oficial */
+class Oficial:
+  #...
+
+# @class_declaration Head */
+class Head(Oficial):
+  pass
+
+# @class_declaration Testpedidoscli */
+class Testpedidoscli(Head, unittest.TestCase):
+  pass
+```
+De esta forma podemos crear nuevos tests o anular los que no apliquen, sin que estos se dupliquen:
+```py
+# @class_declaration Sanhigia */
+class Sanhigia(Oficial):
+  # Nuevo test
+  def test_sanhigia_x(self):
+    # ...
+
+  # Test de oficial anulado
+  def test_oficial_x(self):
+    self.assertTrue(True)
+```
+
+
 ### Más
   * [Volver al Índice](./index.md)
