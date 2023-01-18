@@ -7,3 +7,4 @@
   * [Guanabana](./guanabana/index.md)
   * [Landia](./landia/index.md)
   * [UlbSports](./ulbsports/index.md)
+  * [AQNext en Grupo Mixto 1](./aqnext/aqnextgm1.md)
