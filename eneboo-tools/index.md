@@ -5,7 +5,7 @@
 
   * [Instalación](./instalacion.md)
   * [Configuración](./configuracion.md)
-  * [Meclas con eneboo-assembler](./eneboo-assembler.md)
+  * [Mezclas con eneboo-assembler](./eneboo-assembler.md)
   
 ## Más
 
