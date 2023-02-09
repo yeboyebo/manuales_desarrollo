@@ -78,6 +78,11 @@ La estructura que se monta en el estado para un shortcut con name "ejemplo" es:
     "buffer": {
       "idejemplo": "cat1",
       "dato1": "Categoria 1"
+    },
+    "event": {
+      "serial": 0
+      "event": null
+      "onSuccess": null
     }
   }
 }
@@ -121,6 +126,21 @@ Ejemplo de fichero UI con detailBuffer
 **save{Modelo}**: Guarda el contenido de _modelo.buffer_
 
 **loadBuffer{Modelo}**: Deshace los cambios en _modelo.buffer_. Vuelca el contenido de _modelo.data_ en _modelo.buffer_
+
+### Eventos generados
+Dado que no es recomendable hacer llamadas a callbacks cuando se está procesando el valor del nuevo estado en el bunch, el shortcut guarda en el estado el nuevo evento (llamada al callback de cambio).
+Para ello el shortcut incorpora en el estado una clave _event_ que se estructura de la siguiente forma:
+* event: tipo de evento ('created', 'edited', 'deleted', 'cancelled')
+* serial: valor autonumérico para incrementar indicando que hay un nuevo evento pendiente de ser enviado.
+* onSuccess: función opcional que puede venir en el payload de algunos grapes y que hay que reenviar como un dato más del evento para ser llamada más adelante.
+* (datos específicos del evento)
+
+Los ui que usan este shortcut necesitan tener un _useEffect_ similar a este, que publica el evento cuando hay uno nuevo:
+```js
+useEffect(() => {
+  util.publishEvent(pedido.event, callbackFunction)
+}, [pedido.event.serial])
+```
 
 **TO DO{Modelo}**: TO DO
 
