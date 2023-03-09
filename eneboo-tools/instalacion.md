@@ -1,17 +1,23 @@
 # Eneboo tools / Instalación
 
-### Desde github
-Ejecutamos los siguientes comandos:
-  ```console
-  git clone git@github.com:Aulla/eneboo-tools.git
-  cd eneboo-tools
-  sudo make install
-  ```
-### Desde pypi.org
+### Desde pypi.org (recomendado)
+
 Ejecutamos el siguiente comando:
-  ```console
-  sudo -H pip3 install enebootools
-  ```
+
+```console
+sudo -H pip3 install enebootools
+```
+
+### Desde github
+
+Ejecutamos los siguientes comandos:
+
+```console
+git clone git@github.com:Aulla/eneboo-tools.git
+cd eneboo-tools
+sudo make install
+```
+
 ### Más
 
-  * [Volver al Índice](./index.md)
+- [Volver al Índice](./index.md)

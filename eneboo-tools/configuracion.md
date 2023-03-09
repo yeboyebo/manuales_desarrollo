@@ -3,16 +3,16 @@
 ### Configuración
 
 Ejecutamos una vez
-	```
+`
 	eneboo-assembler dbupdate
-	```
-Abrimos  el fichero ~/.assembler-config.ini y añadimos las rutas de las carpeta de modulos y extensiones
+	`
+Abrimos el fichero ~/.eneboo-tools/assembler-config.ini y añadimos las rutas de las carpeta de modulos y extensiones
 
 ```
 	[module]
-	modulefolders = 
+	modulefolders =
 		~/ruta_modulos ← Cambiamos esta ruta por la correcta
-	featurefolders = 
+	featurefolders =
 		~/ruta_extensiones ← Cambiamos esta ruta por la correcta
 	buildcache = ~/.eneboo-tools/buildcache
 
@@ -24,14 +24,12 @@ Abrimos  el fichero ~/.assembler-config.ini y añadimos las rutas de las carpeta
 	diff_xml_search_move = False
 ```
 
-Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disponibles, para porder usarlas en el futuro. 
-	```
+Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disponibles, para porder usarlas en el futuro.
+`
 	eneboo-assembler dbupdate
-	```
-	
+	`
 Este paso ( **eneboo-assembler dbupdate** ) hay que realizarlo cada vez se añadan/eliminen módulos / extensiones.
 
- 
 ### Más
 
-  * [Volver al Índice](./index.md)
+- [Volver al Índice](./index.md)
