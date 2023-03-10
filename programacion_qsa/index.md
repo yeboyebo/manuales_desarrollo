@@ -9,6 +9,7 @@
   * [Librería EXCEL.qs](./excel.md)
   * [Expresiones regulares](./expresionesregulares.md)
   * [Medidas dinámicas en cubos de análisis](./medidadinamica.md)
+  * [Crear Imagen QR a partir de string](./imagenqr.md)
   
 ### Más
 
