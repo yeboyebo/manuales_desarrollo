@@ -10,7 +10,7 @@ Delegate commit es una opción de ejecución de Eneboo que modifica el comportam
 
 Llamamos _cursor automático_ a los cursores que el motor usa automáticamente cuando conectamos los slots _insertRecord_, _editRecord_ o _deleteRecord_ a señales que emite un componente _FLTableDB_ (tablas de Eneboo).
 
-Cuando _delegate commit_ está activo, en lugar de hacerse un commitBuffer automático cuando creamos, editamos o borramos un registro de un _cursor automático_, el motor de Eneboo hace una llamada a la función _delegateCommit_ del script principal del módulo al que pertenece la tabla del cursor (_flfacturac_, _flfactalma_, etc)
+Cuando _delegate commit_ está activo, en lugar de hacerse un commitBuffer normal cuando creamos, editamos o borramos un registro de un _cursor automático_, el motor de Eneboo hace una llamada a la función _delegateCommit_ del script principal del módulo al que pertenece la tabla del cursor (_flfacturac_, _flfactalma_, etc)
 
 El caso más básico de esta función es este:
 ```js
@@ -39,10 +39,10 @@ Típicamente, es el caso de un formulario de pedido con la subtabla de líneas. 
 
 Para ello, modificamos _oficial_delegateCommit_ para que, en el caso de que la tabla a guardar sea la de líneas de pedido, llamemos a la función de API correcta y no a la de commit buffer por defecto.
 
-*NOTA: ver implementación de este caso en flfactuac*
+*NOTA: ver implementación de este caso en flfacturac*
 
 ## Evolución
-A medida que vayamos enriqueciendo las funciones de API, debemos eliminar paulatinamente lad llamadad a *formHTTP.iface.saveCursor* para irlas sustituyendo por llamadas a las funciones de API específicas para cada tabla.
+A medida que vayamos enriqueciendo las funciones de API, debemos eliminar paulatinamente las llamadas a *formHTTP.iface.saveCursor* para irlas sustituyendo por llamadas a las funciones de API específicas para cada entidad.
 
 ### Más
 
