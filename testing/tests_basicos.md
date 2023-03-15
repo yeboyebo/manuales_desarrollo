@@ -70,10 +70,24 @@ La librería *unittest* proporciona [distintos tipos de función *assert*](https
 
 
 ## Lanzar los tests
-Para lanzar los test ejecutamos *pytest* en una carpeta bajo la cual haya carpetas *test* que incluyan uno o más ficheros *test_*.py*.
+Para lanzar los test ejecutamos *pytest* desde la carpeta raíz de los módulos. En dicha carpeta debe existir un archivo _pytest.init_ con el siguiente contenido:
+```ini
+[pytest]
+pythonpath=.
+```
 ```sh
-cd modulos/facturacion/facturacion
-~/modulos/facturacion/facturacion$ pytest
+cd modulos
+# Para testearlo todo
+~/modulos$ pytest
+# Para testear los tests de una carpeta
+~/modulos$ pytest facturacion/facturacion/tests
+# Para testear los tests de un fichero
+~/modulos$ pytest facturacion/facturacion/test/test_facturascli.py
+# Para testear los tests de un fichero que cumplen un patrón
+~/modulos$ pytest facturacion/facturacion/test/test_facturascli.py -k "test_lo_que_sea"
+```
+La salida del comando será algo similar a esto:
+```sh
 ======================== test session starts ========================
 platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0
 rootdir: /home/antonio/modulos/facturacion/facturacion
@@ -84,25 +98,55 @@ test/test_flfacturac.py .......                               [100%]
 ======================== 10 passed in 10.07s ========================
 ```
 
-## Valores por defecto para datos de prueba en BD
-En la libraría de tests, *T3ST.py*, hay una varias funciones que nos agilizan la creación de datos de prueba:
-### new
-Nos permite crear registros de pruebas de forma ágil.
-
-### get_valores_defecto
-Nos permite crear valores por defecto para objetos de base de datos que necesitemos crear para nuestros tests.
+## Valores por defecto para datos de prueba en los tests
+Para generar de forma ágil datos de prueba usaremos las clases _Mother_. Estos clases fabrican objetos con valores por defecto y automatizan la generación de identificadores de registros
+### Ejemplo de fichero mother: _ArticuloMother.py_
 ```py
-    def get_valores_defecto(self):
-        return {
-            "articulos": {
-                "referencia": "#AUTO",
-                "descripcion": "Artículo de pruebas",
-            },
-            ...
-```
-El valor *"#AUTO"* permite indicar que se use un valor autonumérico.
+class ArticuloMother:
+    referencia = 0
 
-De esta forma, a menos que especifiquemos un valor especial en su creación, los objetos que creemos con *self.lib.new* se crearán con estos valores sin necesidad de indicarlos.
- 
+    @classmethod
+    def default(cls, data={}):
+        return {
+            "referencia": cls.get_referencia(),
+            "descripcion": "Artículo de test",
+            "codimpuesto": "GEN"
+            **data
+        }
+
+    @classmethod
+    def iva_reducido(cls, data={}):
+        return {
+            **cls.default(),
+            "codimpuesto": "RED",
+            **data
+        }
+
+    @classmethod
+    def get_referencia(cls):
+        cls.referencia += 1
+        return str(cls.referencia).zfill(10)
+```
+En este ejemplo vemos que, si no especificamos la referencia del artículo, la clase nos devolverá un autonumérico con ceros a la izquierda.
+
+### Uso de clases Mother en los tests
+Podemos usar estas clases para construir modelos de qsa o clases de dominio
+```py
+from facturacion.almacen.contexts.articulo.test.ArticuloMother import ArticuloMother
+script = qsa.from_project
+models = script("formMODEL")
+...
+
+# Creamos un artículo en la BD
+referencia_articulo_10_euros = models.crea(ArticuloMother.default({
+    "pvp": 10
+}), "articulos")
+
+# Creamos una instancia de dominio de la clase Articulo
+articulo_10_euros = qsa.class_.Articulo(ArticuloMother.default({
+    "pvp": 10
+}))
+```
+
 ### Más
   * [Volver al Índice](./index.md)
