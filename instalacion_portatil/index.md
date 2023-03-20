@@ -24,7 +24,7 @@
 * [Gimp](./gimp.md)
 * [Qt Designer](./qtdesigner.md)
 * [TeamViewer](./teamviewer.md)
-* [Abamq](./abanq.md)
+* [Abanq](./abanq.md)
   
 ## Más
 
