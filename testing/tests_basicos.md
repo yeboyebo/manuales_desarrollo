@@ -99,18 +99,21 @@ test/test_flfacturac.py .......                               [100%]
 ```
 
 ## Valores por defecto para datos de prueba en los tests
-Para generar de forma ágil datos de prueba usaremos las clases _Mother_. Estos clases fabrican objetos con valores por defecto y automatizan la generación de identificadores de registros
-### Ejemplo de fichero mother: _ArticuloMother.py_
+Para generar de forma ágil datos de prueba usaremos las clases _Mother_ y _MotherApi_. Estos clases fabrican objetos con valores por defecto y automatizan la generación de identificadores de registros
+### Ejemplo de fichero mother: _ArticuloMotherApi.py_
 ```py
-class ArticuloMother:
-    referencia = 0
+from sistema.libreria.contexts.shared.test.EntityMotherApi import EntityMotherApi
+
+# @class_declaration Oficial */
+class Oficial(EntityMotherApi):
+    _referencia = 0
 
     @classmethod
     def default(cls, data={}):
         return {
-            "referencia": cls.get_referencia(),
+            "referencia": cls.get_next_referencia(),
             "descripcion": "Artículo de test",
-            "codimpuesto": "GEN"
+            "pvp": 10,
             **data
         }
 
@@ -123,30 +126,24 @@ class ArticuloMother:
         }
 
     @classmethod
-    def get_referencia(cls):
-        cls.referencia += 1
-        return str(cls.referencia).zfill(10)
+    def get_next_referencia(cls):
+        cls._referencia += 1
+        return str(cls._referencia).zfill(10)
+
+
+# @class_declaration ArticuloMotherApi */
+class ArticuloMotherApi(Oficial):
+    pass
 ```
 En este ejemplo vemos que, si no especificamos la referencia del artículo, la clase nos devolverá un autonumérico con ceros a la izquierda.
 
 ### Uso de clases Mother en los tests
-Podemos usar estas clases para construir modelos de qsa o clases de dominio
+Podemos usar estas clases para construir modelos de qsa o clases de dominio. En el caso de los _MotherApi_, contamos además con una función _create_ en la librería _T3ST_ que podemos llamar para crear una entidad en base de datos a través de unos datos generados por un fichero _mother_.
 ```py
-from facturacion.almacen.contexts.articulo.test.ArticuloMother import ArticuloMother
-script = qsa.from_project
-models = script("formMODEL")
-...
-
-# Creamos un artículo en la BD
-referencia_articulo_10_euros = models.crea(ArticuloMother.default({
-    "pvp": 10
-}), "articulos")
-
-# Creamos una instancia de dominio de la clase Articulo
-articulo_10_euros = qsa.class_.Articulo(ArticuloMother.default({
-    "pvp": 10
-}))
+factura = self.lib.api_create("formfacturascli_api",
+            FacturaClienteMotherApi.default())
 ```
+La función _api_create_ llama a la función _post_ de la API indicada para crear una instancia de la clase, y luego la busca y la devuelve mediante la función _get_from_id_ de la API.
 
 ### Más
   * [Volver al Índice](./index.md)
