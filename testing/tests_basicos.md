@@ -98,52 +98,5 @@ test/test_flfacturac.py .......                               [100%]
 ======================== 10 passed in 10.07s ========================
 ```
 
-## Valores por defecto para datos de prueba en los tests
-Para generar de forma ágil datos de prueba usaremos las clases _Mother_ y _MotherApi_. Estos clases fabrican objetos con valores por defecto y automatizan la generación de identificadores de registros
-### Ejemplo de fichero mother: _ArticuloMotherApi.py_
-```py
-from sistema.libreria.contexts.shared.test.EntityMotherApi import EntityMotherApi
-
-# @class_declaration Oficial */
-class Oficial(EntityMotherApi):
-    _referencia = 0
-
-    @classmethod
-    def default(cls, data={}):
-        return {
-            "referencia": cls.get_next_referencia(),
-            "descripcion": "Artículo de test",
-            "pvp": 10,
-            **data
-        }
-
-    @classmethod
-    def iva_reducido(cls, data={}):
-        return {
-            **cls.default(),
-            "codimpuesto": "RED",
-            **data
-        }
-
-    @classmethod
-    def get_next_referencia(cls):
-        cls._referencia += 1
-        return str(cls._referencia).zfill(10)
-
-
-# @class_declaration ArticuloMotherApi */
-class ArticuloMotherApi(Oficial):
-    pass
-```
-En este ejemplo vemos que, si no especificamos la referencia del artículo, la clase nos devolverá un autonumérico con ceros a la izquierda.
-
-### Uso de clases Mother en los tests
-Podemos usar estas clases para construir modelos de qsa o clases de dominio. En el caso de los _MotherApi_, contamos además con una función _create_ en la librería _T3ST_ que podemos llamar para crear una entidad en base de datos a través de unos datos generados por un fichero _mother_.
-```py
-factura = self.lib.api_create("formfacturascli_api",
-            FacturaClienteMotherApi.default())
-```
-La función _api_create_ llama a la función _post_ de la API indicada para crear una instancia de la clase, y luego la busca y la devuelve mediante la función _get_from_id_ de la API.
-
 ### Más
   * [Volver al Índice](./index.md)
