@@ -9,6 +9,7 @@
 - [Testear módulos y extensiones](./tests_modulos_extensiones.md)
 - [Tests de código legacy](./tests_legacy.md)
 - [Combinatoria de entradas / salidas](./tests_combinatoria.md)
+- [Tipos de fichero de test](./tests_tipos_fichero.md)
 - [Testing Eneboo](./tests_qs.md)
 - [Configuración Testing Eneboo](./tests_qs_config.md)
 
