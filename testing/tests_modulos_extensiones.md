@@ -26,18 +26,6 @@ class Sanhigia(Oficial):
         return "fun_jsenar"
 ```
 ### Modificar los valores por defecto (obsoleto, ver Mothers)
-Si una extensión exige la introducción de nuevos campos en alguno de los registros de BD, podemos sobreescribir *get_valores_defecto* de *T3ST.py* para incluirlos:
-
-```py
-# @class_declaration Sanhigia
-class Sanhigia(Oficial):
-  [...]
-  def get_valores_defecto(self):
-    valores = super().get_valores_defecto()
-    valores["clientes"]["telefono1"] = "123456789"
-    valores["clientes"]["email"] = "test@email.com"
-    return valores
-```
 
 ### Crear un nuevo archivo de test
 Para scripts que la funcionalidad añade, lo mejor casi siempre será crear un nuevo archivo de test. Por ejemplo, para *miscript.qs* crearemos *test_miscript.py*.
