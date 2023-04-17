@@ -1,4 +1,4 @@
-# Crear Imagne QR a partir de un String
+# Crear Imagen QR a partir de un String
 
 Teniendo las variables:
 
