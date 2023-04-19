@@ -40,20 +40,6 @@ codepath/home/_user_/.eneboocache/UTF-8/test=/home/_user_/funcional/modulos
 codepath/test=/home/_user_/funcional/modulos
 ```
 
-## Paso 5. Lanzar los tests
-
-Lo haremos con el siguiente comando:
-
-```sh
-# SQLite
-~/ruta_hacia_eneboo/bin/eneboo -silentconn "test:yeboyebo:SQLite3:nogui" -c "formTestQs.runner" -a "./" -q
-
-# PostgreSQL
-~/ruta_hacia_eneboo/bin/eneboo -silentconn "test:user:PostgreSQL:localhost:5432:password:nogui" -c "formTestQs.runner" -a "./" -q
-```
-
-Esto lanzará todos los test (ficheros _xxx.test.qs_) de la base de código. Para lanzar un subconjunto de los tests, cambiar la ruta dentro del parámetro "-a".
-
 ## A testear
 
 Ya puedes empezar a hacer tests en [Testing Eneboo](./tests_qs.md)
