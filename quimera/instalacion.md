@@ -11,6 +11,7 @@ Aquí se encuentra la información relacionada con la instalación y puesta a pu
 
 ```
 git clone https://github.com/yeboyebo/quimera-mono.git
+cd quimera-mono/
 ```
 
 ## Instalar dependencias
