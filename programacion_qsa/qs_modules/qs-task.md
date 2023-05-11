@@ -20,6 +20,10 @@ Ejemplo:
 }
 ```
 
+```
+Puedes ver las tareas existentes lanzando simplemente qs-task
+```
+
 ## Ejecución
 
 Para ejecutar una tarea debemos utilizar la siguiente sintaxis:
