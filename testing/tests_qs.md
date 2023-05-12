@@ -8,6 +8,24 @@ Ejemplo: _FacturasTotalizador.qs_ => _FacturasTotalizador.test.qs_
 
 Si no has configurado el entorno de test, puedes hacerlo en [Configuración Testing Eneboo](./tests_qs_config.md)
 
+## Como lanzar Lanzar los tests
+
+Lo haremos con el siguiente comando:
+
+```sh
+# SQLite
+~/ruta_hacia_eneboo/bin/eneboo -silentconn "test:yeboyebo:SQLite3:nogui" -c "formTestQs.runner" -a "./:unit" -q
+
+# PostgreSQL
+~/ruta_hacia_eneboo/bin/eneboo -silentconn "test:user:PostgreSQL:localhost:5432:password:nogui" -c "formTestQs.runner" -a "./:unit" -q
+```
+
+### Parámetros
+
+El primer parámetro corresponde a la ruta sobre la que vamos a lanzar los tests. Esta ruta es relativa al path que añadimos en la configuración.
+
+El segundo parámetro corresponde al tipo de tests que queremos lanzar. Disponemos actualmente de dos opciones "unit" y "integration". Los test unitarios tienen una extensión "xxx.test.qs" y se componen de tests que no necesitan ningún tipo de infraestructura para funcionar. Mientras tanto, los test de integración tienen la extensión "xxx.itest.qs" y es necesario arrancar infraestructura como base de datos, apis, etc...para poder lanzarlos.
+
 ## Creación de un nuevo test
 
 Supongamos que queremos testear nuestra clase FacturasTotalizador. Para ello, lo primero que debemos hacer es crear un nuevo fichero _FacturasTotalizador.test.qs_
