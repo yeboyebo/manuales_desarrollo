@@ -4,6 +4,12 @@
 
 Antes de empezar debemos tener instalado y configurado correctamente [eneboo-tools](./index.md)
 
+## Después de crear o bajar nuevas extensiones actualizar
+
+```
+eneboo-assembler dbupdate
+```
+
 ## Preparar extensión para hacer cambios
     
     - Borramos el directorio build de la extensión
