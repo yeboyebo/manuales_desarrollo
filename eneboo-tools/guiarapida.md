@@ -9,6 +9,7 @@ Antes de empezar debemos tener instalado y configurado correctamente [eneboo-too
 ```
 eneboo-assembler dbupdate
 ```
+Esto hay que repetirlo cuando creamos una nueva extensión o bajamos una extensión que hasta ahora no teníamos en local.
 
 ## Preparar extensión para hacer cambios
     
@@ -26,6 +27,8 @@ eneboo-assembler dbupdate
     - eneboo-assembler save-auto extension
     - vamos haciendo cambios y se van aplicando sin ejecutar nada más
 
+En la consola del escuchador iremos viendo los cambios detectados y aplicados.
+
 ## Mezclar cambios con funcionalidadPadre
 
     - Borramos build de funcionalidadPadre
@@ -34,9 +37,9 @@ eneboo-assembler dbupdate
 
 ## Subir a git
 
-Antes de subir a git configurar .gitignore para no subir carpetas build
-El fichero gitignore debe estar en la raiz de funcionalidades y debe incluir la lína **/build.
+Subiremos los cambios a git en nuestra extensión y mezclaremos con master de la forma normal (ver política de ramas).
 
+Hay que notar que las carpetas _build_ no suben al repositorio, pero todo lo demás sí, por lo que hay que evitar crear carpetas o ficheros no relacionados con el desarrollo en la carpeta local.
 
 ### Más
 
