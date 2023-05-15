@@ -6,6 +6,7 @@
 - [qs-run](./qs-run.md)
 - [qs-test](./qs-test.md)
 - [qs-task](./qs-task.md)
+- [SupaQS](./supaqs.md)
 
 ### Más
 
