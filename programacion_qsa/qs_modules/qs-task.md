@@ -20,7 +20,7 @@ Ejemplo:
 }
 ```
 
-```
+```sh
 Puedes ver las tareas existentes lanzando simplemente qs-task
 ```
 

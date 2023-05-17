@@ -6,9 +6,9 @@ QSModules son una serie de ejecutables y librerías de utilidad que nos permiten
 
 ## Pasos previos
 
-### Paso 1. Instalar los binarios de qsa_runner
+### Paso 1. Instalar los binarios de qs_modules
 
-Si no tenemos instalados los binarios de qsa_runner, vamos a la carpeta (a partir de la raíz de módulos) /qs_modules/contexts/qsa_runner/ y lanzamos
+Si no tenemos instalados los binarios de qs_modules, vamos a la carpeta (a partir de la raíz de módulos) /qs_modules/bin/ y lanzamos
 
 ```sh
 npm install -g .
