@@ -18,6 +18,12 @@ cd eneboo-tools
 sudo make install
 ```
 
+### Actualización
+
+```
+pip3 install --upgrade enebootools==2.0.1
+```
+
 ### Más
 
 - [Volver al Índice](./index.md)
