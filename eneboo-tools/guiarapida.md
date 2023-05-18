@@ -35,9 +35,18 @@ En la consola del escuchador iremos viendo los cambios detectados y aplicados.
     - eneboo-assembler build funcionalidadPadre src
     - eneboo-assembler save-fullpatch funcionalidadPadre
 
+## Crear nuevo proyecto o extensión
+
+Para crear una nueva funcionalidad utilizaremos en comando
+```
+eneboo-assembler new
+```
+
+La documentación completa sobre este comando podemos encontrarla [aquí](./eneboo-assembler.md)
+
 ## Subir a git
 
-Subiremos los cambios a git en nuestra extensión y mezclaremos con master de la forma normal (ver política de ramas).
+Subiremos los cambios a git en nuestra extensión y mezclaremos con master de la forma normal ([ver política de ramas](./politicaramas.md)).
 
 Hay que notar que las carpetas _build_ no suben al repositorio, pero todo lo demás sí, por lo que hay que evitar crear carpetas o ficheros no relacionados con el desarrollo en la carpeta local.
 
