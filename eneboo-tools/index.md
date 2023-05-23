@@ -9,6 +9,7 @@
   * [Guia rápida](./guiarapida.md)
   * [Política de ramas](./politicaramas.md)
   * [FAQ](./faq.md)
+  * [Crear paquetes](./paquetes.md)
   
 ## Más
 
