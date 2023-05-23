@@ -8,6 +8,7 @@
   * [Mezclas con eneboo-assembler](./eneboo-assembler.md)
   * [Guia rápida](./guiarapida.md)
   * [Política de ramas](./politicaramas.md)
+  * [FAQ](./faq.md)
   
 ## Más
 
