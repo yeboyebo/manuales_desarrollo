@@ -2,5 +2,5 @@
 
 Lanzar desde un navegador la url con el id de magento que corresponda
 ````
-https://guanabana.es/shell/sincronizar_pedido.php?id=xxxxx
+https://guanabana.es/shell/sincronizar_pedido.php?id=xxxxx&forzar=true
 ````
