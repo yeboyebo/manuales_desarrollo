@@ -15,7 +15,6 @@ Esto hay que repetirlo cuando creamos una nueva extensión o bajamos una extensi
     
     - Borramos el directorio build de la extensión
     - eneboo-assembler build extension src
-    - eneboo-assembler save-fullpatch extension
 
 ## Generar parche y aplicarlo a final sin escuchador
 
@@ -43,6 +42,13 @@ eneboo-assembler new
 ```
 
 La documentación completa sobre este comando podemos encontrarla [aquí](./eneboo-assembler.md)
+
+## Generar parche por primera vez
+
+Una vez creada la nueva funcionalidad y hechos los cambos necesarios. Para crear el parche por primera vez ejecutaremos:
+```
+  eneboo-assembler save-fullpatch extension
+```
 
 ## Subir a git
 
