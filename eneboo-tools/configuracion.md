@@ -32,8 +32,8 @@ modulefolders =
 	~/codebase/modulos_2.5.0
 	~/codebase/modulos_otros
 featurefolders =
-	~/codebase/extensiones_2.5.0
 	~/codebase/extensiones_aulla
+	~/codebase/extensiones_2.5.0
 buildcache = ~/.eneboo-tools/buildcache
 
 [mergetool]
