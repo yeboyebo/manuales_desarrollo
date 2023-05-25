@@ -21,7 +21,7 @@ sudo make install
 ### Actualización
 
 ```
-pip3 install --upgrade enebootools==2.0.1
+pip3 install --upgrade enebootools==2.0.5
 ```
 
 ### Más
