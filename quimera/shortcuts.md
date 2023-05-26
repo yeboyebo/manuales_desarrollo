@@ -41,9 +41,12 @@ La estructura que se monta en el estado para un shortcut con name "categorias" e
 
 **onNext{Modelo}**: Lanza la búsqueda de la siguiente página, si va bien agrega la estructura de datos y llama a onGet{Modelo}Succeded
 
+**call{Modelo}BufferChanged**: Podemos sobrecargar este grape " patch: 'override' grapes: []" para evitar que se haga el patch automaticamente al modificar DetailBuffer.  
+
 **on{Modelo}FilterChanged**: Modifica el filtro y llama a get{Modelo}
 
 **on{Modelo}ColumnClicked**: Modifica la columna de ordenación y llama a get{Modelo}
+
 **onId{Modelo}Prop**: Cambia el valor de current y llama a onId{Modelo}Changed
 
 **on{Modelo}Clicked**: Navega a la instancia seleccionada con click si hay URL o llama a onId{Modelo}Prop

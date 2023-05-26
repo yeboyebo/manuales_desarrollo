@@ -58,6 +58,22 @@ eneboo-assembler update [extension]
 
 El assembler construye solo los ficheros que estan en otros parches y tienen fecha de modificación superior a la del parche de nuestra extensión. Puede realizar el proceso anterior para cada fichero encotrado.
 
+## Tener libreria y contexts en un único directorio
+
+### Pedido por
+
+Antonio
+
+### Motivo
+
+No tener que remezclar cosas cuando tocamos librería o contexts.
+
+### Propuesta
+
+En el build, no incluir estos dos módulos.
+
+A la hora de crear los paquetes, incluirlos automáticamente.
+
 ### Más
 
 - [Volver al Índice](./index.md)

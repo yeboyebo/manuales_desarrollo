@@ -8,7 +8,7 @@ Ejecutamos una vez
 	`
 Abrimos el fichero ~/.eneboo-tools/assembler-config.ini y añadimos las rutas de las carpeta de modulos y extensiones
 
-```
+```ini
 	[module]
 	modulefolders =
 		~/ruta_modulos ← Cambiamos esta ruta por la correcta
@@ -22,6 +22,28 @@ Abrimos el fichero ~/.eneboo-tools/assembler-config.ini y añadimos las rutas de
 	verbosity_delta = 0
 	patch_xml_style_name = legacy1
 	diff_xml_search_move = False
+```
+
+Ejemplo (suponiendo _codebase_ en nuestro home):
+
+```ini
+[module]
+modulefolders =
+	~/codebase/modulos_otros
+	~/codebase/modulos_2.4.0
+	~/codebase/modulos_2.5.0
+featurefolders =
+	~/codebase/extensiones_aulla
+	~/codebase/extensiones_2.4.0
+	~/codebase/extensiones_2.5.0
+buildcache = ~/.eneboo-tools/buildcache
+
+[mergetool]
+patch_qs_rewrite = warn
+patch_xml_style_name = legacy1
+patch_qs_style_name = legacy
+diff_xml_search_move = False
+verbosity_delta = 0
 ```
 
 Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disponibles, para porder usarlas en el futuro.
