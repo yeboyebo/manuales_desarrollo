@@ -24,4 +24,4 @@
 - [Instalación portátil](./instalacion_portatil/index.md)
 - [FAQ](./faq/index.md)
 - [Git](./eneboo-tools/guiarapida.md)
-- [Git](./practicas/index.md)
+- [Prácticas](./practicas/index.md)
