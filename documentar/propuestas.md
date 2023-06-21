@@ -4,7 +4,7 @@
 
 1. Crear el proyecto en ERP
 
-1. Crear la tarea con el nombre completo del proyecto en el tablero de *Propuestas*, dentro del proyecto *Propuestas*, en la columna *Por hacer*.
+1. Crear la tarea con el nombre completo del proyecto en el tablero de *Propuestas*, dentro del proyecto *Propuestas*, en la columna *Por hacer*. Poner como fecha de ejecución la fecha actual mas 7 dias. Y poner un comentario: Propuesta envaida el [fecha del envio]
 
 ## Crear y enviar la propuesta
 
@@ -35,6 +35,28 @@
     ```
 
 1. Pasar la tarea del tablero a *En revisión técnica* / *En revisión económica*.
+
+## Enviar recordatorio
+
+1. Cuando pasa una semana desde el envío (ha vencido su fecha de ejecución), enviar un correo de recordatorio con:
+
+    Asunto:
+    ```
+     "Recordatorio propuesta...(resto de asunto original)
+    ```
+
+    Cuerpo:
+    ```
+    Hola [Cliente],
+    
+    te recordamos que esta propuesta está pendiente de aprobación. En caso de no recibir respuesta en los próximos 7 días, la propuesta será cancelada. 
+
+    (resto del cuerpo original)
+
+Cambiar fecha de ejcución como fecha del recordatiro más 7 días.
+Poner un comentario en la tarea para indicar que se ha enviado el recordatorio y la fecha en la que se ha enviado. (Recordatorio enviado el [fecha recordatorio])
+
+2. Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución), pasarla a cancelada (mover el documento a la carpeta de canceladas/suspendidas y poner la tarea de dailyjob como terminada)
 
 ## Modificar la propuesta
 

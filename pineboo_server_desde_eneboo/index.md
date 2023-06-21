@@ -5,6 +5,7 @@
 
   * [Configuración](./configuracion.md)
   * [Programar llamadas](./programar_llamadas.md)
+  * [Delegate commit](./delegate_commit.md)
 
 ### Más
 

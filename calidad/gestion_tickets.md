@@ -19,15 +19,16 @@ Podemos ver los tickets creados en la pestaña **Tickets** de nuestro **Panel de
 
 En esa pestaña tenemos varias opciones:
 
-- **Open**. Dónde vemos los tickets abiertos
+
 - **My Tickets**. Dónde vemos los tickets que tenemos asignados
-- **Closed**. Dónde vemos los tiquets que han sido cerrados
-- **Buscar**. Dónde podemos hacer búsquedas avanzadas
+- **El Ganso**. Dónde vemos los tiquets del grupo El Ganso
+- **Nuevas**. Dónde vemos los tiquets que han entrado nuevos y no están asignadoas todavia a ningún departamente
+- **Soporte GM**. Dónde vemos los tiquets del grupo Mixto
 - **Nuevo Ticket**. Dónde podremos crear nuevos tickets manualmente
 
 Los tickets pueden crearse de dos formas:
 
-- Enviando un correo a soporte@yeboyebo.es se genera automáticamente un ticket asignado al remitente del correo con el contenido del mismo
+- Enviando un correo a soporte@yeboyebo.es se genera automáticamente un ticket asignado al remitente del correo con el contenido del mismo. Lo ideal sería que los propios clientes envien las incidencias al correo para que automáticamente se creen los tiquets
 
 - Manualmente desde la opción **Nuevo Ticket**.
 
@@ -44,15 +45,24 @@ Al crear el ticket de cualquiera de las dos formas una vez creado debemos abrir 
 - **Cc.**: Email de los usuarios a los que debe llegarle una copia de las notificaciones
 - **Aviso de ticket**. Debe poner Alertar a todos (es la opción por defecto)
 - **Fuente del ticket** Debemos establecer si ha sido por email, teléfono u otros
-- **Temas de ayuda** Soporte GM
-- **Departamento** Soporte GM
+- **Temas de ayuda** El propio de cada grupo
+- **Departamento** El grupo que corresponda
 - **Asignar a** Agente al que se asigna la incidencia
 - **Issue Summary** Nombre de la incidencia y descrilpción larga (comentarios del cliente, explicación detallada, datos...)
 
 Pulsamos el botón inferior abrir y el ticket quedará creado
 
-Una vez creado el ticket copiamos su id en la tarea de dailyjob
+Una vez creado el ticket:
 
+- Enviaremos mensaje de **Confirmación apertura** (explicado en el punto siguiente)
+- Valoramos la prioridad de la inidencia para establecer una fecha de entrega:
+    #P1 Fecha Entrega hoy o mañana
+    #P2 Fecha Entrega 3 días
+    #P3 Fecha Entrega 5 días
+
+- Creamos la tarea en dailyjob:
+    - Además del hastag del proyecto añadiremos los hastags de prioridad y el id del tiquet. Ej: #M_Xx_23AA #XXXXXX #P2 Descripción tiquet
+    - Establecemos la fecha de entrega según la prioridad. Para que luego en dailyjob las tareas aparezcan ordenadas por prioridad
 
 ## Enviar mensajes
 Para enviar notificaciones al cliente cuando se crea un ticket utilizaremos el apartado de **Respuesta**.
@@ -63,14 +73,12 @@ Podemos seleccionar una **Respuesta predefinida**. Estas respuestas on de 3 tipo
 
 
 ## Resolver tickets
-Cuando podamos dar la incidencia por resuelta debemos poner también el tiquet como Resuelto y enviar la respuesta de **confirmación de resolución**
+Cuando podamos dar la incidencia por resuelta en dailyjob, debemos poner también el tiquet como Resuelto:
 
-- Primero debemos enviar la **confirmación de resolución**. Para ello vamos al apartado de **Respuesta** y seleccionamos la **Respuesta predefinida** **confirmación resolución** y pulsamos **Publicar respuesta**. Esta acción enviará un email a todos los usuarios asociados al ticket
+- Enviamos la **confirmación de resolución**. Para ello vamos al apartado de **Respuesta** y seleccionamos la **Respuesta predefinida** **confirmación resolución** y pulsamos **Publicar respuesta**. Esta acción enviará un email a todos los usuarios asociados al ticket
 
-- Después cambiaremos el estado del ticket. Pulsamos sobre el valor de Estdo y nos aparecerán todos los estados posibles. Para darlo por resuelto seleccionamos la opción Resolved. Podremos especificar un motivo de resolución
+- Después cambiamos el estado del ticket. Pulsamos sobre el valor de Estdo y nos aparecerán todos los estados posibles. Para darlo por resuelto seleccionamos la opción Resolved. Podremos especificar un motivo de resolución
 
 ![Resolver ticket](./img/resolver_ticket.png)
 
-Una vez resuelto el ticket debemos registralo en el documento [motivos_ticket](https://docs.google.com/spreadsheets/d/1zinygYjlrDLStBCm1qKVw6brCKrl_Okv6S7A79Iy4ZM/edit#gid=0) de la carpeta Calidad del drive.
-
-En este documento debemos especificar el motivo por el que se ha generado el ticket. Ha podido ser por error de especificacion, un malentendido con el cliente, error nuestro en un desarrollo, error del cliente...
+- En la tarea de dailyjob en un comentario especificamos el motivo del tiquet (si ha sido un error de especificación, fallo de programación, problemas de configuración, una actualización en oficial, un fallo del cliente...)

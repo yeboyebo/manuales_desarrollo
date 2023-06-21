@@ -4,6 +4,7 @@
 
 ## Índice
 
+- [Arquitectura](./arquitectura/index.md)
 - [Reglas de acceso](./reglas_acceso/index.md)
 - [Pineboo Server](./pineboo_server/index.md)
 - [AQNext legacy](./aqnext_legacy/index.md)
@@ -22,3 +23,4 @@
 - [Copias de seguridad](./copias_seguridad/index.md)
 - [Instalación portátil](./instalacion_portatil/index.md)
 - [FAQ](./faq/index.md)
+- [Git](./eneboo-tools/guiarapida.md)

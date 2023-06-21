@@ -70,10 +70,24 @@ La librería *unittest* proporciona [distintos tipos de función *assert*](https
 
 
 ## Lanzar los tests
-Para lanzar los test ejecutamos *pytest* en una carpeta bajo la cual haya carpetas *test* que incluyan uno o más ficheros *test_*.py*.
+Para lanzar los test ejecutamos *pytest* desde la carpeta raíz de los módulos. En dicha carpeta debe existir un archivo _pytest.init_ con el siguiente contenido:
+```ini
+[pytest]
+pythonpath=.
+```
 ```sh
-cd modulos/facturacion/facturacion
-~/modulos/facturacion/facturacion$ pytest
+cd modulos
+# Para testearlo todo
+~/modulos$ pytest
+# Para testear los tests de una carpeta
+~/modulos$ pytest facturacion/facturacion/tests
+# Para testear los tests de un fichero
+~/modulos$ pytest facturacion/facturacion/test/test_facturascli.py
+# Para testear los tests de un fichero que cumplen un patrón
+~/modulos$ pytest facturacion/facturacion/test/test_facturascli.py -k "test_lo_que_sea"
+```
+La salida del comando será algo similar a esto:
+```sh
 ======================== test session starts ========================
 platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0
 rootdir: /home/antonio/modulos/facturacion/facturacion
@@ -84,25 +98,5 @@ test/test_flfacturac.py .......                               [100%]
 ======================== 10 passed in 10.07s ========================
 ```
 
-## Valores por defecto para datos de prueba en BD
-En la libraría de tests, *T3ST.py*, hay una varias funciones que nos agilizan la creación de datos de prueba:
-### new
-Nos permite crear registros de pruebas de forma ágil.
-
-### get_valores_defecto
-Nos permite crear valores por defecto para objetos de base de datos que necesitemos crear para nuestros tests.
-```py
-    def get_valores_defecto(self):
-        return {
-            "articulos": {
-                "referencia": "#AUTO",
-                "descripcion": "Artículo de pruebas",
-            },
-            ...
-```
-El valor *"#AUTO"* permite indicar que se use un valor autonumérico.
-
-De esta forma, a menos que especifiquemos un valor especial en su creación, los objetos que creemos con *self.lib.new* se crearán con estos valores sin necesidad de indicarlos.
- 
 ### Más
   * [Volver al Índice](./index.md)

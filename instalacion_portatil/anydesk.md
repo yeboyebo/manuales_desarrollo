@@ -35,3 +35,10 @@ echo $XDG_SESSION_TYPE --> "La salida debe ser 'x11'"
 Debemos reiniciar el sisatema para que los cambios sean efectivos.
 
   * [Volver al Índice](./index.md)
+
+Si en Ubuntu 22.04 no arranca, hay que instalar una versión anterior de anydesk. Sigue estos pasos:
+
+```sh
+wget http://ftp.us.debian.org/debian/pool/main/p/pangox-compat/libpangox-1.0-0_0.0.2-5.1_amd64.deb
+sudo apt install ./libpangox-1.0-0_0.0.2-5.1_amd64.deb
+```

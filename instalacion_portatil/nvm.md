@@ -7,5 +7,14 @@ En el siguiente enlace podemos ver como se instala y se usa
 
 https://github.com/nvm-sh/nvm
 
+Luego:
+```sh
+Instalar npm
+nvm install 16
+rm package-lock.json
+rm -rf node_modules
+npm install
+nvm use 16 && npm start X
+```
 
   * [Volver al Índice](./index.md)
