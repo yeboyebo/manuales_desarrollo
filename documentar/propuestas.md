@@ -97,6 +97,30 @@ Poner un comentario en la tarea para indicar que se ha enviado el recordatorio y
 1. Mover la tarea del tablero *Propuestas* a *Completada*.
 1. Publicar el proyecto en *dailyjob*.
 1. Mover el documento de propuesta en *manuales_publicos* de la carpeta raíz a la carpeta *por desarrollar*.
+1. Enviar correo de confirmación:
+
+ Asunto:
+    ```txt
+    Propuesta aprobada AAAASSNNNNNN. #CLI #____ Nombre del proyecto
+    ```
+
+    Cuerpo
+    ```txt
+    Hola [Cliente],
+
+    Confirmamos la aprobación la propuesta:
+
+    #CLI #____ Nombre del proyecto
+
+    Para incluir los siguientes cambios:
+      * [cambio 1]
+  
+    Se planificará y realizará el desarrollo de acuerdo con las especificaciones descritas en
+
+    [https://yeboyebo.github.io/manuales_publicos/propuestas/por%20desarrollar/CLI_HXXXX.html]
+
+    Un saludo
+    ```
 
 ## Realizar la propuesta
 
