@@ -292,3 +292,39 @@ equals: tener un type para comprobar tipos en igualdad de, por ejemplo, formaPag
 - Tests de fromPrimitives en cada entidad
 - Nomenclatura de ficheros application, creators, etc.
 
+## Nomenclatura de dependencias
+En las cadenas de dependencias de dominio no incluiremos información de infraestructura ni información redundante.
+MAL
+ventas.carritoecommerce.domain.CarritoECommerceRepository
+BIEN
+ventas.carritoecommerce.domain.repository
+
+## Tareas
+### Revisar claves de dependencias
+("lineas.articulo por ArticuloLinea)
+* Respetar ordenación según rutas
+
+### Revisa llamadas a casos de uso API
+Y documentar la instanciación de los casos con dependencias
+Caso tienda MON
+
+### Llamadas a dominio desde legacy
+Usar llamadas directas, ver caso de pedidoscli.qs MON
+
+Es temporal hasta que dichas llamadas las haga un caso de uso propiamente dicho.
+
+Pasar a un caso de uso normal en cuanto sea posible.
+
+### Revisar caso MON de campos no requeridos en el dominio para pedidoscli
+
+
+## Política de composición
+Ante nuevas propiedades de las entidades
+* Si la propiedad tiene sentido global, se incorpora a la composición base, teniendo en cuenta los casos en que no se use.
+* Si la propiedad es particular de un sector o un cliente, usar un nuevo componente que cumpla el interfaz de un componente base ya existente.
+* En el caso de campos legacy que no sabemos dónde incluir en el dominio o que no le afectan, los campos no forman parte de las entidades y lo único que hay que hacer es controlar sus valores por defecto en su creación en la parte de infraestructura. Si es posible, usaremos los valores por defecto de los mtd para no tocar infraestructura tampoco.
+
+
+
+
+
