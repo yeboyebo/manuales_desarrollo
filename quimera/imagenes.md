@@ -41,6 +41,40 @@ IMAGESVOL=/home/user/carpetaConImagenes/
 
 Hay que construir de nuevo el docker(*docker-compose build*) para que los cambios sean efectivos.
 
+### Servidor web(Solo produccion)
+
+Si queremos añadir una carpeta con archivos estaticos externa al proyecto de quimera, hay que buscar el fichero de configuracion de nuestro quimera en:
+
+```
+/etc/nginx/sites-available/***.conf
+```
+
+Editamos el fichero y añadimos la siguiente linea al final del fichero, despues de location /:
+
+```
+server {
+    listen ****
+    ******
+    location / {
+       *****
+    }
+    location /cdn/ {
+        autoindex on;
+        alias {rutaCarpeta};
+    }
+}
+```
+
+Donde alias puede ser por ejemplo '/var/www/media/'
+La carpeta tiene que tener permisos de escritura y mejor si esta ubicada en /var/www/ porque el servidor web tiene permisos en esa ubicaciono si no habria que cambiar el usuario con:
+
+```
+chown -R www-data:www-data /ruta/carpeta/
+```
+
+Location /cdn/ puede ser cualquier cosa, pero tener en cuenta que en sobreescribira cualquier url de quimera, tiene que ser algo que no se este usando para ninguna url.
+
+
 ### Más
 
   * [Volver al Índice](./index.md)
