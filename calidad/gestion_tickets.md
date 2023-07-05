@@ -24,6 +24,7 @@ En esa pestaña tenemos varias opciones:
 - **El Ganso**. Dónde vemos los tiquets del grupo El Ganso
 - **Nuevas**. Dónde vemos los tiquets que han entrado nuevos y no están asignadoas todavia a ningún departamente
 - **Soporte GM**. Dónde vemos los tiquets del grupo Mixto
+- **Ecommerce**. Dónde vemos los tiquets del grupo Ecommerce
 - **Nuevo Ticket**. Dónde podremos crear nuevos tickets manualmente
 
 Los tickets pueden crearse de dos formas:
