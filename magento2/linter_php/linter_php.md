@@ -3,10 +3,13 @@ PHP_CodeSniffer es un conjunto de dos scripts PHP; el script **phpcs** principal
 
 ## 1. Instalación
 composer global require squizlabs/php_codesniffer
+
 composer require --dev squizlabs/php_codesniffer
 
 ## 2. Creación fichero phpcs.xml
 Si el proyecto no contiente el fichero phpcs.xml, crear fichero phpcs.xml en la raiz del proyecto con el contenido:
+
+```
 <?xml version="1.0"?>
 <ruleset name="MyRuleset">
     <!-- Scan all files in directory -->
@@ -31,6 +34,7 @@ Si el proyecto no contiente el fichero phpcs.xml, crear fichero phpcs.xml en la 
         <severity>0</severity>
     </rule>
 </ruleset>
+```
 
 El listado de reglas: https://gist.github.com/andreyAndrienko/19941c4b621f3212976ae7e47607e864
 
@@ -38,14 +42,18 @@ El listado de reglas: https://gist.github.com/andreyAndrienko/19941c4b621f321297
 Hay dos formas de ejecutar por consola, si la primera no funciona utilizar la segunda.
 
 phpcs **"ruta de archivo o carpeta para realizar la comprobación"** ejemplo app/code/Yeboyebo/Sync/Helper/Data.php
+
 O
+
 vendor/bin/phpcs  **"ruta de archivo o carpeta para realizar la comprobación"** ejemplo app/code/Yeboyebo/Sync/Helper/Data.php
 
 ## 4. Extensión vscode
 Instalar extensión en vscode:
+
 PHP Sniffer & Beautifier
 
 Para que la extension integre la reglas definidas en el phpcs.xml, en settings.json de la extensión poner:
+
 "phpsab.allowedAutoRulesets": [
 	".phpcs.xml",
 	".phpcs.xml.dist",
@@ -58,6 +66,6 @@ Para que la extension integre la reglas definidas en el phpcs.xml, en settings.j
 ## 5. Formeateo desde extensión vscode
 Para formatear desde vscode hay tres opciones:
 
--F1 -> PHPCBF: Fix this file
--Atajo del teclado alt+shift+f
--Botón derecho context menu Format Document
+- F1 -> PHPCBF: Fix this file
+- Atajo del teclado alt+shift+f
+- Botón derecho context menu Format Document
