@@ -2,7 +2,7 @@
 
 Vamos a explicar cómo genera una vista maestro - detalle
 ## Controlador
-Creamos un shortcut de tipo *Model* para el modelo a representar (en el ejemplo, *Categorias*)
+Creamos un shortcut de tipo *Model* para el modelo a representar (en el ejemplo, *Presupuestos*)
 
 ```yaml
 {shortcuts:
@@ -18,6 +18,14 @@ bunch:
   onInit:
     - _type: grape
       name: getPresupuestos
+```
+
+Donde:
+```yaml
+name: Este nombre se usara para los dispatch que se lanzen sobre la vista, ej. on{**name**}ItemReceived, normalmente usaremos nombre de la tabla por defecto pero podemos usar cualquier nombre.
+id: Clave de la tabla utilizada para peticiones API
+schema: Nombre del schema definido en static/schemas.js normalmente sera nombre de la tabla pero pueden existir multiples schemas sobre una tabla para diferentes acciones.
+url: url de la view definida en {extension}/index.js
 ```
 
 ## Vista
@@ -71,6 +79,30 @@ PresupuestosCli.propTypes = PropValidation.propTypes
 PresupuestosCli.defaultProps = PropValidation.defaultProps
 export default PresupuestosCli
 ```
+
+Podemos usar cualquier tipo de view tanto para maestro como detalle, normalmente como vemos en el ejemplo mandremos al detalle un callbackChanged, para recibir los cambios realizados en la vista hija y poder realizar acciones en el controlador, en la vista del detalle en este caso hay que activar el evento callbackChanged con un useEffect:
+
+```js
+************
+function PresupuestoCli({ callbackChanged, initPresupuesto, useStyles }) {
+  const [{ lineas, logic, presupuesto, vistaDetalle }, dispatch] = useStateValue();
+  const classes = useStyles();
+  const width = useWidth();
+
+  useEffect(() => {
+    util.publishEvent(presupuesto.event, callbackChanged);
+  }, [presupuesto.event.serial]);
+***********
+```
+
+Este useEffect dispara el evento callbackChanged, cada vez que cambie un elemento en el presupuesto y podermos capturar el evento en el controlador del padre con:
+
+```yaml
+  changePresupuestosItem:
+    - gePresupuestos
+```
+
+Con este ejemplo estamos actualizando la tabla de master cada vez que cambie un elemento del hijo.
 
 ## Filtro
 
