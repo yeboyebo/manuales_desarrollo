@@ -27,7 +27,7 @@ Siempre usaremos la segunda opción, porque el gestor de dependencias siempre no
 
 Llamaremos _nombreClaseFactory_ a las instancias que únicamente nos sirven como constructores de otras instancias. Las funciones de creación podrán ser extraídas a una clase Factory propiamente dicha más adelante si su complejidad sube.
 
-### Respositorios
+### Repositorios
 
 ### DataMappers
 
@@ -38,6 +38,58 @@ Llamaremos _nombreClaseFactory_ a las instancias que únicamente nos sirven como
 ### Clases de caso de uso (aplicación)
 
 .
+## Migración de extensiones
+Nos ponemos en modo dbadim
+```sh
+code ~/.config/Eneboo/PinebooConfig.ini
+```
+
+```ini
+[application]
+...
+dbadmin_enabled=true
+...
+```
+
+Creamos un build de la extensión para usar como referencia
+```sh
+pineboo -s "antonio::SQLite3 (SQLITE3)@localhost:0/iva_nav_template"
+```
+Cargamos final e inicializamos
+
+TO DO: Cambiar esto por la creación automática del template de base de datos
+
+### Cambios en entidades
+Modificamos las entidades para reflejar los nuevos datos a almacenar. Analizar dónde deben ir estos datos y no mapear a ciegas desde la base de datos.
+
+Ejemplo: iva_nav
+Campos en base de datos:
+* clientes - codgrupoivaneg
+* pedidoscli - codgrupoivaneg
+
+El grupo de IVA de negocio se usa para determinar si un documento de venta o compra lleva IVA o no, las subcuentas de IVA que intervienen en su asiento, y el modo de crearlas (una, ninguna, dos canceladas -reversión-). Este funcionamiento es realmente el mismo que el del campo Régimen IVA de los módulos oficiales.
+
+Si una empresa usa iva_nav, no ve Régimen IVA. Decidimos entonces usar el campo _Régimen IVA_ para almacenar el valor de codgrupoivaneg tanto en clientes como en documentos de venta. Quizá debamos también cambiar el nombre de esta propiedad. El funcionamiento de las dos opciones será el mismo, con la diferencia de que en el caso de oficial, la tabla de cruce entre grupo IVA de negocio y grupo IVA de producto (impuestos) será una tabla fija interna.
+
+Lo primero es identificar el actual uso de _Régimen IVA_ en los contextos. Vemos que el único lugar donde se usa para cálculos es _ImpuestosLineaVenta.qs_.
+Localizamos el script de tests asociado:
+```sh
+qs-task myp:test:py contexts/ventas/shared/test/ImpuestosLineaVenta.test.qs
+```
+Refactorizamos _ImpuestosLineaVenta.qs_ para modificar la forma de calcular los IVAs de la línea de venta (ver _ImpuestosLineaVenta.qs_).
+
+Una vez refactorizada la lógica, nos quedaría crear los mappers correctos para recuperar y persistir los datos. Para el caso de los clientes,
+ver _CursorClienteMapper.qs_ y _CursorClienteMapperIvaNav.qs_.
+
+Crear _CursorPedidoClienteMapperIvaNav.qs_
+
+Hacer test _CursorPedidoCliente.itest.qs_
+Hacer test _CursorPedidoClienteIvaNav.itest.qs_
+
+Usar dependencias y construcción anidada
+
+Modificar carga de contexto para IVA Nav
+Crear estrategias de cálculo de IVA línea para oficial e IVA NAV (si hace falta)
 
 ---
 
@@ -324,7 +376,28 @@ Ante nuevas propiedades de las entidades
 * Si la propiedad es particular de un sector o un cliente, usar un nuevo componente que cumpla el interfaz de un componente base ya existente.
 * En el caso de campos legacy que no sabemos dónde incluir en el dominio o que no le afectan, los campos no forman parte de las entidades y lo único que hay que hacer es controlar sus valores por defecto en su creación en la parte de infraestructura. Si es posible, usaremos los valores por defecto de los mtd para no tocar infraestructura tampoco.
 
+## Añadir clase Configuración a línea de venta
+### Dominio
+Este ejemplo es el de tallas y colores
+* Creamos una nueva clase ConfigLineaVentaModa, que implementa el mantenimiento de los datos que configuran el producto (aparte de su referencia):
+  * idTalla
+  * idColor
+  * barcode
 
+### Infraestructura
+* Creamos una nueva clase LineaVentaMapperModa que añade los tres valores a los campos de la tabla en las funciones _load_ y _dump_.
+
+* Si no lo está ya, asociaremos en las dependencias el nuevo mapper para usarlo en los proyectos con tallas y colores:
+```js
+{
+  // ...
+  "ventas.shared.infrastructure.LineaVentaMapper": {
+    "dep": "contexts/ventas/shared/infrastructure/CursorLineaVentaMapperModa.qs",
+    "static": true
+  },
+  //...
+}
+```
 
 
 
