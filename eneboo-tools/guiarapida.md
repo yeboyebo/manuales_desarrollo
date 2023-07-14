@@ -56,6 +56,18 @@ Subiremos los cambios a git en nuestra extensión y mezclaremos con master de la
 
 Hay que notar que las carpetas _build_ no suben al repositorio, pero todo lo demás sí, por lo que hay que evitar crear carpetas o ficheros no relacionados con el desarrollo en la carpeta local.
 
+
+## Buscar dependencia inversa
+
+Pasos para buscar en qué funcionalidades está incluida una extensión. (Es decir la Dep. inversa que teníamos en desarrollo)
+
+- Abrimos la carpeta codebase entera en Visual Studio 
+- Le damos a buscar en ficheros.
+- En Buscar ponemos la extensión que queremos buscar
+- En ficheros a excluir ponemos lo siguiente: *.qs,*.csv,*.xml,*.ui,Changelog,*.jrxml,*.qry,*.mtd
+
+De esta forma buscará en los ficheros de configuración
+
 ### Más
 
   * [Volver al Índice](./index.md)

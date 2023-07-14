@@ -25,3 +25,4 @@
 - [FAQ](./faq/index.md)
 - [Git](./eneboo-tools/guiarapida.md)
 - [Prácticas](./practicas/index.md)
+- [Magento 2](./magento2/index.md)
