@@ -11,6 +11,8 @@ Los objetivos de este proyecto son:
 - Usar un equipo que actue como servidor y hacer estas tareas en este:
 
   - Instalar extensión _tareas_programadas_.
+  - Instalar moreutls:
+    + sudo apt install moreutils
   - Instalar eneboo.
   - Añadir en el crontab del usuario root del S.O. la siguiente linea:
 
