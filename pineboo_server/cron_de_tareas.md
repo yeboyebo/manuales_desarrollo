@@ -26,13 +26,27 @@ Esto iniciará el supervisor a los 60 segundos de iniciar el S.O. en el servidor
 
 En Area Sistema->Mantenimiento->Tareas programadas añadimos un nuevo registro de tipo Servicio.
 
-En el campo Función especificamos la llamda que queremos realizar y la marcamos como activa.
+En el campo Función especificamos la llamada que queremos realizar y la marcamos como activa.
+
+Si hay que añadir parámetros a la llamada de la tarea, se añadirán con :parámetro:
+Por ejemplo:
+
+```
+formmx_stockdiferido.activarBackground:3000
+```
 
 ### Incluir una tarea programada
 
 En Area Sistema->Mantenimiento->Tareas programadas añadimos un nuevo registro de tipo Programada.
 
 En el campo Función especificamos la llamda que queremos realizar y la marcamos como activa.
+
+Si hay que añadir parámetros a la llamada de la tarea, se añadirán con :parámetro:
+Por ejemplo:
+
+```
+formmx_stockdiferido.activarBackground:3000
+```
 
 En los campos del formulario especificamos con valores válidos para crontab el intervalo.
 
