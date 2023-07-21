@@ -1,7 +1,24 @@
-# IDEAS TEST
+# Testing
 
-Apartado para ir anotando la descripción y uso de la carpeta Contexts
+## t.test()
+Representa un test unitario.
 
+Los parámetros que esta función admite son:
++ Texto descriptivo del test
++ Función de test
++ Opciones (parámetro opcional)
+
+### Opciones
+En las opciones podemos indicar un diccionario con distintas claves y valores:
++ Clave _include_. Valor: lista con los proyectos para los que el test debe lanzarse. El test solo se lanza si el proyecto actual está en la lista.
++ Clave _exclude_. Valor: lista con los proyectos para los que el test no debe lanzarse. El test solo se lanza si el proyecto actual __no__ está en la lista.
+```js
+ t.test("Uno más uno son tres", function () {
+    t.expect(1 + 1).toBe(3)
+}, {
+    "include": ["of", "moda"]
+})
+```
 ## Tests de varios valores
 
 ```py
