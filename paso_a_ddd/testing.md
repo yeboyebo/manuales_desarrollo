@@ -1,5 +1,16 @@
 # Testing
 
+## t.describe()
+Representa una suite ((conjunto) de tests.
+
+Los parámetros que esta función admite son:
++ Texto descriptivo de la suite.
++ Función de llamadas a los tests de la suite.
++ Opciones (parámetro opcional)
+
+### Opciones
+Ver opciones de __t.test()
+
 ## t.test()
 Representa un test unitario.
 
