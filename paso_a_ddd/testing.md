@@ -9,7 +9,7 @@ Los parámetros que esta función admite son:
 + Opciones (parámetro opcional)
 
 ### Opciones
-Ver opciones de __t.test()
+Ver opciones de _t.test()_.
 
 ## t.test()
 Representa un test unitario.
