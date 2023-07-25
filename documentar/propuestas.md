@@ -10,7 +10,9 @@
 
 1. Crear documento en manuales_publicos/propuestas con nombre = *CLI_H____.md*, basado en la plantilla *propuestas/plantilla.md*
 
-2. Enviar el documento (y presupuesto opcionalmente), con la siguiente plantilla:
+2. Ver si hay que incluir documentación en el presupuesto
+
+3. Enviar el documento (y presupuesto opcionalmente), con la siguiente plantilla:
 
     Asunto:
     ```txt
@@ -34,7 +36,7 @@
     Un saludo
     ```
 
-1. Pasar la tarea del tablero a *En revisión técnica* / *En revisión económica*.
+4. Pasar la tarea del tablero a *En revisión técnica* / *En revisión económica*.
 
 ## Enviar recordatorio
 
@@ -56,7 +58,12 @@
 Cambiar fecha de ejcución como fecha del recordatiro más 7 días.
 Poner un comentario en la tarea para indicar que se ha enviado el recordatorio y la fecha en la que se ha enviado. (Recordatorio enviado el [fecha recordatorio])
 
-2. Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución), pasarla a cancelada (mover el documento a la carpeta de canceladas/suspendidas y poner la tarea de dailyjob como terminada)
+## Anular la propuesta
+
+Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución):
+- Pasarla a cancelada (mover el documento a la carpeta de canceladas/suspendidas
+- Poner la tarea de dailyjob como terminada)
+
 
 ## Modificar la propuesta
 
@@ -96,6 +103,7 @@ Poner un comentario en la tarea para indicar que se ha enviado el recordatorio y
 1. Aprobar el presupuesto en el ERP.
 1. Mover la tarea del tablero *Propuestas* a *Completada*.
 1. Publicar el proyecto en *dailyjob*.
+1. Incluir subtarea si hay que generar documentación de cliente
 1. Mover el documento de propuesta en *manuales_publicos* de la carpeta raíz a la carpeta *por desarrollar*.
 1. Enviar correo de confirmación:
 

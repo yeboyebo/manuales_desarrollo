@@ -8,7 +8,7 @@
 - [Uso de modelos en Eneboo](./modelos_eneboo/index.md)
 - [runTransaction](./runtransaction.md)
 - [Calculate counter](./calculatecounter.md)
-- [Librería EXCEL.qs](./excel.md)
+- [Clase SpreadSheetReport.qs](./spreadsheetreport.md)
 - [Expresiones regulares](./expresionesregulares.md)
 - [Medidas dinámicas en cubos de análisis](./medidadinamica.md)
 - [Crear Imagen QR a partir de string](./imagenqr.md)
