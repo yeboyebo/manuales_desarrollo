@@ -137,7 +137,6 @@ function oficial_commonCalculateField(fN, cursor)
         }
     }
 
-    cursor.setValueBuffer("result", _i.commonCalculateField("result", cursor));
     return valor;
 }
 ```
@@ -163,7 +162,7 @@ function oficial_bufferChanged(fN)
 
     if (fN == "valueuno" || fN == "tipo" || fN == "valuedos") 
     {
-        _i.commonCalculateField(fN, cursor)
+        cursor.setValueBuffer("result", _i.commonCalculateField("result", cursor));
     }
 }
 ```
