@@ -53,7 +53,7 @@ Las funciones _toPrimitives_ y _fromPrimitives_ convierten una instancia de la e
 ```
 En el caso de atributos complejos, estos deben disponer también de sus funciones _to/fromPrimitives_.
 
-## Funcion _create_
+## Función _create_
 La función _create_ actua como intermediario entre los casos de uso y el constructor incluyendo lógica que facilita la creación, por ejemplo añadiendo valores por defecto.
 ```js
     static function create(data) {
@@ -69,3 +69,17 @@ La función _create_ actua como intermediario entre los casos de uso y el constr
     }
 ```
 Puede incluir también validaciones de los datos previas a la llamada al constructur.
+
+## Función _equals_
+La función _equals_ determina si la entidad es igual a otra pasada por parámetro. Usaremos el operador = para atributos que son primitivas y el método _equals_ para atributos que son _value objects_.
+```js
+    function equals(other) {
+        return this.id.equals(other.id) &&
+            this.nombre == other.nombre &&
+            this.fechaInicio.equals(other.fechaInicio) &&
+            this.fechaFin.equals(other.fechaFin) &&
+            this.estado == other.estado &&
+            this.longSubcuenta.equals(other.longSubcuenta) &&
+            this.idEmpresa.equals(other.idEmpresa)
+    }
+```

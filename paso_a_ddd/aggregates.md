@@ -53,10 +53,28 @@ Que afecte a varios agregados no quiere decir que modifique varios agregados, co
 ```
 [Más sobre casos de uso](./use_cases.md)
 
+### Repositorios (infrastructure / persistence)
+Los repositorios son las clases responsables de guardar, modificar y recuperar agregados desde y hacia un sistema de persistencia (p.e. una base de datos).
+```sh
+/contexts/empresa/ejerciciofiscal/infrastructure/persistence/EjercicioFiscalRepository.qs
+```
+[Más sobre repositorios](./repositories.md)
+
+### Mappers (infrastructure / mappers)
+Los mappers son clases que cargan y vuelcan (_load_ / _dump_) la información desde el sistema de persistencia a primitivas del agregado.
+
+Los mappers son utilizados por los repositorios para abstraer el paso de agregado de dominio a la capa de persistencia, y permiten combinarse para, en función de las dependencias activas, guardar unas estructuras u otras.
+
+```sh
+/contexts/empresa/ejerciciofiscal/infrastructure/mappers/EjercicioFiscalMapper.qs
+```
+[Más sobre mappers](./data_mappers.md)
+
+
 ### Tests de Casos de uso (test/application)
 Los tests de casos de uso son ficheros que contienen una o varias funciones de tests que comprueban que el caso de uso funciona de forma correcta para sus distintas variantes.
 
 ```sh
 /contexts/empresa/ejerciciofiscal/test/application/TestCrearEjercicioFiscal.qs
 ```
-[Más sobre casos de uso](./use_cases.md)
+[Más sobre tests de casos de uso](./testing_use_cases.md)

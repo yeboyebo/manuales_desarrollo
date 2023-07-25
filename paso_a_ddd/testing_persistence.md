@@ -53,22 +53,46 @@ Pineboo/tempdata/cache/moda_template
 Los tres primeros son la base de datos SqLite3, el cuarti, la carpeta caché de Pineboo para esta BD.
 
 ## Tests
-En nuestros tests, deberemos usaremos la línea
+
+### setup de suite: _beforeAll_
+Antes de comenzar una suite de tests, debemos preparar la base de datos para su uso. Esto implica copiar una plantilla (template) con la estructura y realizar la conexión.
 ``` js
-EnebooCursorClient.cleanupDB()
+t.describe("TestCursorEjercicioFiscalRepository", function () {
+    // TO DO: Pasar a t.beforeAll (no funciona en python)
+    BooEngine.setAdminMode(false)
+    EnebooCursorClient.cleanupDB()
+    // ...
 ```
-para hacer una copia del template y limpiar la caché antes de realizar uno o varios tests.
+
+### setup de test: _beforeEach_
+Antes de comenzar cada test debemos asegurarnos de que:
++ Se han borrado los registros creados por el test
++ Se han creado los registros necesarios para el siguiente test
+``` js
+function cleanupDB() {
+    const sqls = [
+        "DELETE FROM ejercicios;"
+    ]
+    formARRAY.map(sqls, function (sql) {
+        AQUtil.execSql(sql, EnebooCursorClient.conexion)
+    })
+}
+
+t.beforeEach(function () {
+    cleanupDB()
+});
+```
 
 ### Tests de guardado
 Los pasos serán:
 + Crear un agregado mediante un _Mother_.
 + Guardar el agregado
 ```js
-t.test("El repositorio guarda la configuración", function () {
-    const config = AsientosConfigMother.create();
+t.test("El repositorio guarda ejercicios fiscales", function () {
+    const ejercicio = EjercicioFiscalMother.basico();
 
-    const repository = formDependencyContainer.get("contabilidad.asientofacturacliente.domain.configRepository");
-    repository.save(config);
+    const repository = formDependencyContainer.get("empresa.ejerciciofiscal.domain.repository");
+    repository.save(ejercicio);
 })
 ```
 ### Tests de guardado y carga
@@ -79,16 +103,16 @@ Los pasos serán:
 + Comprobar que el agregado recuperado es igual al guardado
 
 ```js
-t.test("El repositorio recupera la configuración de asientos", function () {
-    const config = AsientosConfigMother.create();
+t.test("El repositorio recupera ejercicios fiscales", function () {
+    const ejercicio = EjercicioFiscalMother.basico();
+    const idEjercicio = ejercicio.id.value()
 
-    const repository = formDependencyContainer.get("contabilidad.asientofacturacliente.domain.configRepository");
-    repository.save(config);
+    const repository = formDependencyContainer.get("empresa.ejerciciofiscal.domain.repository");
+    repository.save(ejercicio);
 
-    const recuperada = repository.find(config.codEjercicio);
+    const recuperado = repository.find(idEjercicio);
 
-    t.expect(recuperada.codEjercicio).toBe(config.codEjercicio);
-    // ...
+    t.expect(recuperado.equals(ejercicio)).toBe(true);
 })
 ```
 
@@ -102,19 +126,23 @@ Los pasos serán:
 + Recuperar el agregado y comprobar que las modificaciones se han guardado
 
 ```js
-t.test("El repositorio modifica la configuración de asientos", function () {
-    const config = AsientosConfigMother.create();
+t.test("El repositorio modifica ejercicios fiscales", function () {
+    const expected = {
+        "nombre": "Ejercicio 1234"
+    }
+    const ejercicio = EjercicioFiscalMother.basico();
+    const idEjercicio = ejercicio.id.value()
 
-    const repository = formDependencyContainer.get("contabilidad.asientofacturacliente.domain.configRepository");
-    repository.save(config);
+    const repository = formDependencyContainer.get("empresa.ejerciciofiscal.domain.repository");
+    repository.save(ejercicio);
 
-    const recuperada = repository.find(config.codEjercicio);
-    recuperada.cambiaNombre("Pepe")
-    repository.save(recuperada)
-    const recuperada2 = repository.find(config.codEjercicio);
-    
-    t.expect(recuperada2.nombre).toBe("Pepe");
-    // ...
+    const recuperado = repository.find(idEjercicio);
+    recuperado.nombre = expected["nombre"];
+
+    repository.save(recuperado);
+    const modificado = repository.find(idEjercicio);
+
+    t.expect(modificado.nombre).toBe(expected["nombre"]);
 })
 ```
 
@@ -127,16 +155,19 @@ Los pasos serán:
 + Buscar el agregado y comprobar que este no existe.
 
 ```js
-t.test("El repositorio borra la configuración de asientos", function () {
-    const config = AsientosConfigMother.create();
+t.test("El repositorio borra ejercicios fiscales", function () {
+    const ejercicio = EjercicioFiscalMother.basico();
+    const idEjercicio = ejercicio.id.value()
 
-    const repository = formDependencyContainer.get("contabilidad.asientofacturacliente.domain.configRepository");
-    repository.save(config);
+    const repository = formDependencyContainer.get("empresa.ejerciciofiscal.domain.repository");
+    repository.save(ejercicio);
 
-    const recuperada = repository.find(config.codEjercicio);
-    repository.del(recuperada)
-    const recuperada2 = repository.find(config.codEjercicio);
-    
-    t.expect(recuperada2).toBe(null);
+    const recuperado = repository.find(idEjercicio);
+    repository.del(idEjercicio);
+
+    const borrado = repository.find(idEjercicio);
+
+    t.expect(recuperado != null).toBe(true);
+    t.expect(borrado == null).toBe(true);
 })
 ```
