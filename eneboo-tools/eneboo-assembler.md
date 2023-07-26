@@ -38,7 +38,7 @@ Para ello haremos lo siguiente:
 
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
 ```
-eneboo-assembler new
+eneboo-assembler new --sort
 ```
 
 Esto iniciará el asistente que irá preguntado:
