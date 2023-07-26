@@ -54,7 +54,9 @@ Las funciones _toPrimitives_ y _fromPrimitives_ convierten una instancia de la e
 En el caso de atributos complejos, estos deben disponer también de sus funciones _to/fromPrimitives_.
 
 ## Función _create_
-La función _create_ actua como intermediario entre los casos de uso y el constructor incluyendo lógica que facilita la creación, por ejemplo añadiendo valores por defecto.
+La función _create_ se usa para crear nuevas instancias de la entidad que todavía no están persistidas (o no van a persistirse). Prepara los datos para la llamada al constructor incluyendo lógica que facilita la creación, por ejemplo añadiendo valores por defecto.
+
+Puede también crear la instancia a través de _fromPrimitives()_, en lugar de llamar directamente al constructor.
 ```js
     static function create(data) {
         return new this({

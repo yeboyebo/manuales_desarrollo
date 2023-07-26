@@ -34,7 +34,3 @@ class CursorEjercicioFiscalRepository {
 CursorEjercicioFiscalRepository
 ```
 
-Si en un proyecto se necesita la combinación de varios mappers de extensiones, se creará un nuevo mapper con la correspondiente lista de _submappers_.
-
-### MapperEngine
-MapperEngine realiza las funciones de carga y volcado combinando las funciones _loadPart_ y _dumpPart_ de los mappers.
