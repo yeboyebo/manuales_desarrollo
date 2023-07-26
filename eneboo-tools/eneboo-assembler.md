@@ -32,13 +32,22 @@ Para ello haremos lo siguiente:
 3. Borrar la carpeta build de nuestra funcionalidad (Por ahora hay que hacer este paso a mano ya que el build si ya está creada la carpeta build no la elimina y crea.)
 4. Realizar un build de nuestra funcionalidad 
 
+#### dump ( **Genera un fichero sqlite con el contenido de final cargado.** )
+
+Podemos generar un fichero sqlite con el contenido de build/final (si no existe se creará), con el siguiete comando:
+```
+eneboo-assembler dump nombre_funcionalidad ruta_fichero_sql ruta_ejecutable
+```
+
+Si no se especifica ruta_fichero_sql , se usará la carpera build/nombre_funcionalidad.sqlite3.
+Si no especificamos ruta_ejecutable, se usará el "eneboo" (dará error si no está en el PATH del sistema).
 
 
 ### new ( **Nuevo proyecto/extensión** )
 
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
 ```
-eneboo-assembler new
+eneboo-assembler new --sort
 ```
 
 Esto iniciará el asistente que irá preguntado:
