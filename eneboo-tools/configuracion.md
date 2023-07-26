@@ -49,6 +49,7 @@ patch_qs_style_name = legacy
 diff_xml_search_move = False
 verbosity_delta = 0
 ```
+¡OJO!. En caso de existir un módulo en 2 carpeta diferentes , siempre recojerá la copia de la carpeta que se ha declarado mas tarde. Si queremos recoger una copia previa, tendremos que especificar en required_modules el nombre de la carpeta (ejemplo modulos_mon/prueba/prueba).
 
 Ejecutamos nuevamente. Ahora se indexarán todos los módulos y extensiones disponibles, para porder usarlas en el futuro.
 `
