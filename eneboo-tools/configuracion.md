@@ -29,9 +29,13 @@ Ejemplo (suponiendo _codebase_ en nuestro home):
 ```ini
 [module]
 modulefolders =
+	~/codebase/modulos_yby
+	~/codebase/modulos_mon
+	~/codebase/modulos_eur
 	~/codebase/modulos_otros
 	~/codebase/modulos_2.4.0
 	~/codebase/modulos_2.5.0
+
 featurefolders =
 	~/codebase/extensiones_aulla
 	~/codebase/extensiones_2.4.0
