@@ -47,7 +47,15 @@ Si no especificamos ruta_ejecutable, se usará el "eneboo" (dará error si no es
 
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
 ```
-eneboo-assembler new --sort
+eneboo-assembler new
+```
+
+Utilizando este comando y siguiendo los siguientes pasos se creara una nueva funcionalidad con el siguiente nombre: __ext9999-<nombre_corto_funcionalidad>__
+
+Si no queremos que se le añada la coletilla _ext9999-_ tendremos que utilizar la opción __--short__
+
+```
+eneboo-assembler new --short
 ```
 
 Esto iniciará el asistente que irá preguntado:
@@ -177,6 +185,13 @@ Guardando ...
 eneboo-assembler dbupdate
 ```
 
+Una vez se tenga la extensión creada y hecho el build debemos ejecutar por primera vez un:
+
+```
+eneboo-assembler save-fullpatch <nombre_extension>
+```
+
+De esta forma se creará el archivo _.xml_ dentro de extension/patches/nombre_extension/nombre_extension.xml el cual nos permite que otras funcionalidades implementen esta extensión.
 
 ### Más
 
