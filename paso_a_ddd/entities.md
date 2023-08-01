@@ -23,6 +23,8 @@ En el caso de varios atributos que estén relacionados, es bueno crear _value ob
 
 En el ejemplo del _EjercicioFiscal_ podríamos agrupar los atributos _fechaInicio_ y _fechaFin_ de tipo _FechaHora_ en un atributo _periodo_ de tipo _IntervaloDias_ (por hacer).
 
+Puede incluir lógica de validación que invalide la creación de instancias con datos no congruentes.
+
 ## Funciones _to / fromPrimitives_
 Las funciones _toPrimitives_ y _fromPrimitives_ convierten una instancia de la entidad en primitivas (valores primarios del lenguaje como enteros, cadenas, arrays, etc.) y viceversa.
 
@@ -54,7 +56,7 @@ Las funciones _toPrimitives_ y _fromPrimitives_ convierten una instancia de la e
 En el caso de atributos complejos, estos deben disponer también de sus funciones _to/fromPrimitives_.
 
 ## Función _create_
-La función _create_ se usa para crear nuevas instancias de la entidad que todavía no están persistidas (o no van a persistirse). Prepara los datos para la llamada al constructor incluyendo lógica que facilita la creación, por ejemplo añadiendo valores por defecto.
+La función _create_ se usa para crear nuevas instancias de la entidad que todavía no están persistidas (o no van a persistirse). Prepara los datos para la llamada al constructor.
 
 Puede también crear la instancia a través de _fromPrimitives()_, en lugar de llamar directamente al constructor.
 ```js

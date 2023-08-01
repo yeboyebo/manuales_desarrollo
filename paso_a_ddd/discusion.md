@@ -51,6 +51,13 @@ Creo que esto está mejor que lo del array de mappers. ¿Ideas?
 
 Desde luego, es una opción mucho mejor que el array de Mappers. Pero pensando la complejidad que estamos añadiendo a cada uno de los ficheros, me hace replantearme el sistema de extensión que estamos montando. ¿Deberíamos pensar/considerar que hacen otras herramientas para personalizarlas mediante plugins? ¿Deberíamos tener distintas aplicaciones para cada cliente y una librería de dependencia central que actúe como core?
 
+### A.
+¿Cómo plantearíamos por ejemplo este caso de los mappers con el sistema de distintas aplicaciones? Cada app tendría su mapper y si añadimos una funcionalidad que implique ampliar el mapper se modifica el fichero de la app directamente? Quizá haya que hacerlo así, ejemplo:
++ Tengo la app cliente x y la app tallasycolores, que implementa toda la lógica de t&c.
++ Si el cliente compra la funcionalidad tallas y colores tengo que cambiar su mapper añadiendo las claves que faltan, nada de estrategias ni de composiciones.
+
+¿Es esto lo que dices?
+
 ## Repos
 
 ### J.
@@ -132,19 +139,8 @@ function upsert(data) {
 
 ¿No?
 
-## Itest
-
-### J.
-
-En mis ejemplos he cambiado los nombres de algunas cosas que dejan todo mucho más claro. Por lo que "returnOnFind" ahora es "shouldFind" y "findReturn" es "mockFind" o "mockedFind"
-
 ### A.
-
-OK, estoy haciendo los cambios solo en _EjercicioFiscal_, cuando todos los criterios estén claro tocaré el resto de ficheros. Si ves algún cambio en otra carpeta es porque aprovecho para cambiar alguna cosa al testear. La doc ya está con estos nombres.
-
-### J.
-
-Perfecto
+Creo que para ver las líneas a borrar tienes forzosamente que hacer un una consulta en el repo, así que ahí ya sabes si vas a hacer update o insert. No lo veo más limpio, creo que mezclamos la función entre dos entidades (repo y client).
 
 ## Entities
 
@@ -169,6 +165,12 @@ En el caso que comentas, _FechaHora_ puede devolver fecha y hora completas o sol
 ¿Estamos de acuerdo en que `creaFecha` podría ser un método `create` o `fromPrimitives` que solo recibe un parámetro? No se siquiera si estoy convencido de ello. Pero...¿no te obliga la implementación actual a conocer la estructura interna del value object?
 En cuanto a la recepción me pasa exactamente lo mismo. ¿Porqué no tener un método `toPrimitives` que te devuelva un objecto con fecha y hora? Siendo hora `null` o lo que deba. De esa manera tendrás guardado un objeto primitivo del valor que representa y no sabrás de la estructura interna del VO. Posteriormente en el mapper se sacará solo el valor necesario, en este caso, la fecha.
 
+### A.
+creaFecha es un método estático de creación para un caso especial que creamos por conveniencia, en el que no hay hora, y donde la hora toma el valor por defecto 00:00:00. Es como _Moneda.euros(importe)_, que crea una moneda en Euros directamente.
+
+Creo que no se trata tanto de conocer la estructura del value object como de poder acceder a su valor o parte de su valor de forma cómoda. A nivel de cliente del value object creo que es bueno poder extraer la fecha, la hora o todo junto en métodos separados. Tanto en este caso como en otros valueObjects que tengan varias propiedades significativas para el cliente (Moneda, etc.)
+
+
 ## Entities. Create.
 
 ### J.
@@ -182,6 +184,11 @@ Lo he reescrito, yo lo ententiendo igual que tú. Revísalo a ver si lo ves bien
 ### J.
 
 Bien, solo un detalle. Creo que las validaciones previas a la llamada al constructor no deberían estar ahí. Ahora mismo pienso que esas validaciones se van a hacer o en el constructor de los VO correspondientes, o en el propio constructor de los agregados. Create solo es un intermediario que enlaza la creación en dominio, con el lanzamiento de los eventos.
+
+### A.
+OK, he cambiado en la doc el párrafo sobre validación del create al constructor.
+
+Borra este aparado de este documento si lo ves bien.
 
 ## UseCases.
 
@@ -237,6 +244,15 @@ No, a ver, así lo veo yo:
 
 Efectivamente, mi ejemplo era incongruente como digo arriba. Habría que elegir una de las dos opciones que he comentado.
 
+### A.
+Entiendo, voy a intentar aplicar lo que dices a los casos de pedido / carrito
+Sobre la composición padres hijos, otra opción sería:
+
+1. Creamos el padre a través de primitivas
+2. Cramos los hijos mediante un método addPartidas / addLineas del padre al que pasamos ¿primitivas o instancias de entidades hijas?
+
+Esto tiene la ventaja de, en el caso de pedidos, por ejemplo, permitir calcular datos de la cabecera (totales, etc) al incluir una nueva línea.
+
 ## UseCases. Event Bus
 
 ### J.
@@ -275,6 +291,11 @@ Desde quimera me parece mal, porque:
 
 No sabría que hacer aquí porque no parecen opciones viables.
 
+### A.
+Lo de los uuids lo dejamos para la fase 2. Creo que meternos ahora en esto es abrir otro frente, y ya tenemos bastantes.
+
+Creo que lo hacemos en quimera como he propuesto, así los contextos están limpios de esta mala práctica y tenemos localizado el lugar donde hacemos la trápala (en la API de Quimera) cuando vayamos a cambiar a uuid o se nos ocurra algo mejor.
+
 ## Testing TestingPersistence
 
 ### J.
@@ -295,3 +316,10 @@ De la segunda fase, Jose ha creado ya un comando para crear la BD, me falta prob
 Ok. Dejamos esto aquí hasta que podamos hacerlo todo.
 En cuanto al `qs-task all:e2e` se puede hacer ya, concatenando comandos. Ej: `qs-task mon:e2e && qs-task gan:e2e && qs-task otro:e2e`
 Para el setupDb si que habría que añadir un parámetro al `qs-test` que fuese "preload" o algo así. Ej: `qs-test monterelax unit --preload ./preload.qs` (no recuerdo como era la sintaxis) y ahí es donde irían los hooks generales (beforeAll, beforeEach, etc...) que se aplican a todos los tests y también podría ir la función setupDb.
+
+### A.
+Voy a probarlo como dices. Una vez eliminemos los dichosos debugs deben salir los resultados uno tras otros. Si luego hacemos una versión para solo indicar si el proyecto entero pasa o no pasa, podemos hacer el `qs-task all:e2e` y ver algo así como:
+MON [OK]
+SAN [OK]
+EGI[KO!]
+y luego ya ir a los que fallen a ver qué pasa
