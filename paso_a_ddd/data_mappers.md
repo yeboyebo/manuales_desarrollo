@@ -3,41 +3,64 @@
 ## Composición a partir de varios mappers
 Los mappers deben estar preparados para realizar una carga o volcado de datos a partir de la combinación de uno o varios mappers individuales
 ```js
-class CursorClienteMapperIvaNav {
-    var mappers
+class CursorClienteMapper {
+    var condicionesMapper
+    var ivaMapper
     
-    function CursorClienteMapperIvaNav() {
-        this.mappers = QList.from([
-            new CursorClienteMapper(),
-            this
-        ])
+    function CursorClienteMapper(condicionesMapper, ivaMapper) {
+        this.condicionesMapper = condicionesMapper
+        this.ivaMapper = ivaMapper
     }
 
-    function loadPart(primitives, tableRow) {
-        primitives["regimeniva"] = tableRow["codgrupoivaneg"]
+    function load(tableRow) {
+        const primitives = {
+            "idfiscal": {
+                "tipo": tableRow["tipoidfiscal"],
+                "codigo": tableRow["cifnif"]
+            },
+            "condiciones": this.condicionesMapper.load(tableRow),
+            "regimeniva": this.ivaMapper.load(tableRow),
+            // ...
+        }
 
         return primitives
     }
 
-    function dumpPart(tableRow, primitives) {
-        tableRow["codgrupoivaneg"] = primitives["regimeniva"]
-        tableRow["regimeniva"] = "General"
+    function dump(primitives) {
+        var tableRow = {
+            "tipoidfiscal": primitives["idfiscal"]["tipo"],
+            "cifnif": primitives["idfiscal"]["codigo"],
+            // ...
+        }
+
+        tableRow = formDICT.anadeClaves(tableRow, this.ivaMapper.dump(primitives))
+        tableRow = formDICT.anadeClaves(tableRow, this.condicionesMapper.dump(primitives["condiciones"]))
 
         return tableRow
     }
-
-    function load(tableRow) {
-        return MapperEngine.load(tableRow, this.mappers)
-    }
-
-    function dump(primitives) {
-        return MapperEngine.dump(primitives, this.mappers)
-    }
 }
-CursorClienteMapperIvaNav
+
+CursorClienteMapper
 ```
 
-Si en un proyecto se necesita la combinación de varios mappers de extensiones, se creará un nuevo mapper con la correspondiente lista de _submappers_.
-
-### MapperEngine
-MapperEngine realiza las funciones de carga y volcado combinando las funciones _loadPart_ y _dumpPart_ de los mappers.
+Cada parte del mapper puede ser inyectada como dependencia (casos de _condiciones_ e _IVA_ en este ejemplo).
+```js
+const ventas = {
+    "ventas.cliente.domain.mapper": {
+        "dep": "contexts/ventas/cliente/infrastructure/mappers/CursorClienteMapper.qs",
+        "args": [
+            "@ventas.cliente.domain.mapper.condiciones",
+            "@ventas.cliente.domain.mapper.iva",
+        ]
+    },
+    "ventas.cliente.domain.mapper.condiciones": {
+        "dep": "contexts/ventas/cliente/infrastructure/mappers/CursorCondicionesClienteMapper.qs",
+        "args": []
+    },
+    "ventas.cliente.domain.mapper.iva": {
+        "dep": "contexts/ventas/cliente/infrastructure/mappers/CursorIvaClienteMapper.qs",
+        "args": []
+    },
+    //...
+}
+```
