@@ -1,5 +1,24 @@
 # Testing
 
+## Configuración
+
+### qsa.config.json
+Debemos indicar los valores apropiados en el fichero qsa.config.json, que guardaremos en nuestro _home_.
+```json
+{
+  "env": {
+    "home": "/home/antonio"
+  },
+  "bin": {
+    "eneboo": "/opt/eneboo-v2.6.0.3-28-g0e20c5f-dba/bin/eneboo",
+    "pineboo": "pineboo-core"
+  },
+  "conn": {
+    "test": "test:yeboyebo:SQLite3:nogui",
+  }
+}
+```
+
 ## t.describe()
 Representa una suite ((conjunto) de tests.
 
