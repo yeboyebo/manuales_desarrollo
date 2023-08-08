@@ -78,58 +78,102 @@ Las claves seguirán una estructura jerárquica, usándose el punto como caracte
 
 Tenemos más flexibilidad para crear claves que para crear nombres de fichero, por lo que adoptamos reglas que las hacen ser más sencillas y aportar más semántica (más significado).
 
-### Entidades de un agregado
-Entidades principales del agregado:
+La estructura de cada clave sigue el siguiente patrón:
+_[contexto].[agregado].[capa].[partes...].[tipo]_
 
+_Contexto_: Contexto (_bounded context_) en el que se engloba el fichero (_ventas_, _contabilidad_, etc.).
+_Agregado_: Nombre del agregado principal dentro del contexto (_pedido_ en _ventas_, _asiento_ en _contabilidad_, etc.).
+_Capa_: Capa en la que se ubica el fichero. Los posibles valores de capa son:
+* application
+* domain
+* infrastructure
+* test
+_Partes_: Entidad o entidades que forman parte del agregado y que se definen o usan en el fichero. Esta parte es opcional y su ausencia indica que el fichero se ocupa de la parte principal del agregado. Si la parte del agregado es una colección y el fichero afecta a la condición entera, indicaremos el nombre de la parte en plural (_lineas_ por _linea_).
+_Tipo_: Tipo de fichero. Los tipos están ligados a las capas:
+* application
+  * (Caso de uso): Para los casos de uso indicaremos un verbo en español que haga referencia al objetivo del caso de uso (_crear_, _cambiar_, _aprobar_, etc.).
+  * (Caso de uso.on.Evento): Podemos incluir el sufijo _on.[evento]_ cuando el caso de uso sea disparado por un evento (_contabilidad.asientofacturaventa.application.asiento.crear.on.facturaventacreada_).
+* domain
+  * (sin tipo): Definición de entidad
+  * repository: Repositorio
+  * mapper: Mapper
+  * query: Query (repositorio de solo lectura)
+  * (Servicio): Para los servicios de dominio indicaremos una palabra en inglés indicando el tipo de servicio (_creator_, _calculator_, etc.).
+* infrastructure
+* test
+  * mother: Mother
+
+
+### Entidades de un agregado
 _[contexto].[agregado].domain.aggregate_
 ```js
 // EjercicicioFiscal
 empresa.ejerciciofiscal.domain.aggregate
 ```
-Entidades secundarias del agregado:
+Entidades parciales del agregado:
 
 _[contexto].[agregado].domain.[entidad]_
-En _entidad_ indicaremos únicamente el texto que identifique a la entidad dentro del agregado (no repetiremos el nombre del agregado).
 ```js
 // SerieEjercicioFiscal
 empresa.ejerciciofiscal.domain.serie
 ```
 
 ### Repositorios
-Entidades principales del agregado:
-
 _[contexto].[agregado].domain.repository_
 ```js
 // Repositorio de EjercicicioFiscal
 empresa.ejerciciofiscal.domain.repository
 ```
-
-Entidades secundarias del agregado:
+Entidades parciales del agregado:
 
 _[contexto].[agregado].domain.[entidad].repository_
-En _entidad_ indicaremos únicamente el texto que identifique a la entidad dentro del agregado (no repetiremos el nombre del agregado).
 ```js
 // Repositorio de SerieEjercicioFiscal
 empresa.ejerciciofiscal.domain.serie.repository
 ```
-
 ### Mappers
-Entidades principales del agregado:
-
-_[contexto].[agregado].domain.mappers_
+_[contexto].[agregado].domain.mapper_
 ```js
 // Mapper de EjercicicioFiscal
 empresa.ejerciciofiscal.domain.mapper
 ```
 
-Entidades secundarias del agregado:
+Entidades parciales del agregado:
 
 _[contexto].[agregado].domain.[entidad].mapper_
 ```js
 // Mapper de SerieEjercicioFiscal
 empresa.ejerciciofiscal.domain.serie.mapper
 ```
-En _entidad_ indicaremos únicamente el texto que identifique a la entidad dentro del agregado (no repetiremos el nombre del agregado).
+### Mothers
+_[contexto].[agregado].test.mother_
+```js
+// Mother de EjercicicioFiscal
+empresa.ejerciciofiscal.test.mother
+```
+Entidades parciales del agregado:
+
+_[contexto].[agregado].test.[entidad].mother_
+```js
+// Mother de SerieEjercicioFiscal
+empresa.ejerciciofiscal.test.serie.mother
+```
+En el caso de que el fichero genere una estructura de primitives en lugar de una instancia, el sufijo será _primitives.mother_, en lugar de _mother_.
+
+### Casos de uso
+_[contexto].[agregado].test.mother_
+```js
+// Caso de uso para crear un asiento de factura de venta
+contabilidad.asientofacturaventa.application.crear
+
+```
+En caso de que el caso de uso se dispare por un evento:
+
+_[contexto].[agregado].application.[entidad].[caso_de_uso].on.[evento]_
+```js
+// Caso de uso para crear un asiento de factura de venta al crearse una factura de venta
+contabilidad.asientofacturaventa.application.asiento.crear.on.facturaventacreada
+```
 
 ## Claves de diccionarios en general
 Usaremos _camelCase_.
