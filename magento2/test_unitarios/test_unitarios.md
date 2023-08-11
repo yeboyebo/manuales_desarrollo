@@ -285,6 +285,9 @@ $this->assertEquals($getConfiguracion, $jsConfig)
 ## 4. Documentación
 
 https://docs.phpunit.de/en/9.6/
+
 https://devdocs.magento.com/guides/v2.3/test/testing.html
+
 https://matt-chad.medium.com/reclaim-your-sanity-in-magento-2-with-unit-tests-e035f3e32410
+
 https://www.youtube.com/watch?v=RxEOk8MJojA
