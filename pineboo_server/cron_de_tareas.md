@@ -119,3 +119,13 @@ Todos los mensajes de debug, print en qsa van a parar al log.
 ### Política de limpieza del log
 
 El log de /var/log/eneboo.log crea una copia cada 50 megas en _/var/log/eneboo.log.1_ y descarta la copia vieja.
+
+### Como parar un servicio constante
+
+Aunque desactives el servicio en el formulario de tareas programadas el servicio se seguira ejecutando, si es un servicio que se ejecuta constantemente se deberá lanzar el siguien comando para pararlo de forma definitiva.
+
+```
+
+systemctl stop eneboo_nombrebd_nombrefuncion_id
+
+```
