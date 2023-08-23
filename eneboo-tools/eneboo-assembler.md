@@ -32,6 +32,15 @@ Para ello haremos lo siguiente:
 3. Borrar la carpeta build de nuestra funcionalidad (Por ahora hay que hacer este paso a mano ya que el build si ya está creada la carpeta build no la elimina y crea.)
 4. Realizar un build de nuestra funcionalidad 
 
+#### dump ( **Genera un fichero sqlite con el contenido de final cargado.** )
+
+Podemos generar un fichero sqlite con el contenido de build/final (si no existe se creará), con el siguiete comando:
+```
+eneboo-assembler dump nombre_funcionalidad ruta_fichero_sql ruta_ejecutable
+```
+
+Si no se especifica ruta_fichero_sql , se usará la carpera build/nombre_funcionalidad.sqlite3.
+Si no especificamos ruta_ejecutable, se usará el "eneboo" (dará error si no está en el PATH del sistema).
 
 
 ### new ( **Nuevo proyecto/extensión** )
@@ -39,6 +48,14 @@ Para ello haremos lo siguiente:
 Cuando queremos crear un nuevo proyecto/extensión ejecutamos:
 ```
 eneboo-assembler new
+```
+
+Utilizando este comando y siguiendo los siguientes pasos se creara una nueva funcionalidad con el siguiente nombre: __ext9999-<nombre_corto_funcionalidad>__
+
+Si no queremos que se le añada la coletilla _ext9999-_ tendremos que utilizar la opción __--short__
+
+```
+eneboo-assembler new --short
 ```
 
 Esto iniciará el asistente que irá preguntado:
@@ -168,6 +185,13 @@ Guardando ...
 eneboo-assembler dbupdate
 ```
 
+Una vez se tenga la extensión creada y hecho el build debemos ejecutar por primera vez un:
+
+```
+eneboo-assembler save-fullpatch <nombre_extension>
+```
+
+De esta forma se creará el archivo _.xml_ dentro de extension/patches/nombre_extension/nombre_extension.xml el cual nos permite que otras funcionalidades implementen esta extensión.
 
 ### Más
 

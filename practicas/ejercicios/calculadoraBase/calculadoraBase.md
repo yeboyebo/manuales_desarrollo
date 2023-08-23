@@ -22,9 +22,20 @@ Para eso, podemos proseguir con los siguientes pasos:
 
 ### <span style="color:cyan">1. Crear una acción</span>
 
-Como enseñamos en el [Tutorial. Programación en Abanq (II). Acciones](../../manual2/manual2.md) primero crearemos una acción editando el fichero -flfactppal.xml _flfactppal.xml_ y añadiremos el siguiente códgigo:
+Como enseñamos en el [Tutorial. Programación en Abanq (II). Acciones](../../manual2/manual2.md) primero crearemos una acción editando el fichero -flfactppal.xml _flfactppal.xml_ y añadiremos el siguiente código:
 
-![Código acción de flfactppal.xml](./img/1.png)
+```
+<action>
+		<name>calculadorabase</name>
+    		<alias>QT_TRANSLATE_NOOP("MetaData","Calculadora Base")</alias>
+    		<description>QT_TRANSLATE_NOOP("MetaData","Una calculadora que realiza los 4 tipos de calculos basicos")</description>
+   		<table>calculadorabase</table>
+  		 <form>master</form>
+  		 <formrecord>calculadorabase</formrecord>
+  		 <scriptform>mastercalculadorabase</scriptform>
+  		 <scriptformrecord>calculadorabase</scriptformrecord>
+</action>
+```
 
 Luego, nos ocuparemos de añadir el nuevo módulo al menú principal de _Tablas Generales_ ubicado en el formulario de flfactppal (_flfactppal.ui_).
 

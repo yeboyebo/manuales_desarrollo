@@ -27,7 +27,7 @@ Siempre usaremos la segunda opción, porque el gestor de dependencias siempre no
 
 Llamaremos _nombreClaseFactory_ a las instancias que únicamente nos sirven como constructores de otras instancias. Las funciones de creación podrán ser extraídas a una clase Factory propiamente dicha más adelante si su complejidad sube.
 
-### Respositorios
+### Repositorios
 
 ### DataMappers
 
@@ -38,6 +38,8 @@ Llamaremos _nombreClaseFactory_ a las instancias que únicamente nos sirven como
 ### Clases de caso de uso (aplicación)
 
 .
+## Migración de extensiones
+
 
 ---
 
@@ -324,7 +326,28 @@ Ante nuevas propiedades de las entidades
 * Si la propiedad es particular de un sector o un cliente, usar un nuevo componente que cumpla el interfaz de un componente base ya existente.
 * En el caso de campos legacy que no sabemos dónde incluir en el dominio o que no le afectan, los campos no forman parte de las entidades y lo único que hay que hacer es controlar sus valores por defecto en su creación en la parte de infraestructura. Si es posible, usaremos los valores por defecto de los mtd para no tocar infraestructura tampoco.
 
+## Añadir clase Configuración a línea de venta
+### Dominio
+Este ejemplo es el de tallas y colores
+* Creamos una nueva clase ConfigLineaVentaModa, que implementa el mantenimiento de los datos que configuran el producto (aparte de su referencia):
+  * idTalla
+  * idColor
+  * barcode
 
+### Infraestructura
+* Creamos una nueva clase LineaVentaMapperModa que añade los tres valores a los campos de la tabla en las funciones _load_ y _dump_.
+
+* Si no lo está ya, asociaremos en las dependencias el nuevo mapper para usarlo en los proyectos con tallas y colores:
+```js
+{
+  // ...
+  "ventas.shared.infrastructure.LineaVentaMapper": {
+    "dep": "contexts/ventas/shared/infrastructure/CursorLineaVentaMapperModa.qs",
+    "static": true
+  },
+  //...
+}
+```
 
 
 
