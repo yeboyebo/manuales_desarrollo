@@ -35,8 +35,7 @@ Ejecutamos en una consola:
 ## Cambio de password usuario postgres
   Para setear la contraseña de usuario postgres.
   ```console
-  sudo -i -u postgres
-  psql
+  sudo -u postgres psql
   postgres=# \password
   Enter new password for use "postgres":
   Enter it again:
