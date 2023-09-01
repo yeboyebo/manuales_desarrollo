@@ -18,7 +18,7 @@ Ejecutamos en una consola:
   sudo service postgresql restart
   sudo -i -u postgres
   psql
-  > SELECT pg_reload_config();
+  > SELECT pg_reload_conf();
   > SHOW password_encryption; 
   ```
   En pantalla debería mostrar 
