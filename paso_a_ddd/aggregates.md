@@ -23,6 +23,7 @@ La estructura típica de la carpeta del agregado es la siguiente:
     - mappers
     - persistence
   - test
+    - domain
     - application
     - infrastructure
     - persistence
@@ -32,7 +33,7 @@ La estructura típica de la carpeta del agregado es la siguiente:
 ```
 
 
-Los ficheros que soportan la estructura del agregado
+Los ficheros que soportan la estructura del agregado son los siguientes
 
 ### Entidad principal (domain)
 Representa la entidad principal del agregado, y contiene los métodos de creación y manipulación volcado a primitivas de sus datos.
@@ -70,7 +71,13 @@ Los mappers son utilizados por los repositorios para abstraer el paso de agregad
 ```
 [Más sobre mappers](./data_mappers.md)
 
+### Tests de Entidades (test/domain)
+Los tests de entidades son ficheros que contienen una o varias funciones de tests que comprueban los métodos de la entidad.
 
+```sh
+/contexts/empresa/ejerciciofiscal/test/domain/CrearEjercicioFiscal.qs
+```
+n
 ### Tests de Casos de uso (test/application)
 Los tests de casos de uso son ficheros que contienen una o varias funciones de tests que comprueban que el caso de uso funciona de forma correcta para sus distintas variantes.
 

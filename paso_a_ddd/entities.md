@@ -4,6 +4,11 @@ Las entidades son representaciones de un objeto en el dominio (una factura, una 
 
 Las entidades se definen pues en la parte de dominio. Su implementación es una clase con la siguiente estructura.
 
+## Snippets
+El snippet para generar la entidad es **_entity_qs**.
+
+El snippet para el fichero de testeo es **_test_entity_qs**.
+
 ## Constructor
 El constructor toma los datos de entrada para asignarlos a cada uno de sus atributos.
 ``` js
@@ -14,7 +19,7 @@ El constructor toma los datos de entrada para asignarlos a cada uno de sus atrib
         this.fechaFin = data.fechaFin;
         this.estado = data.estado;
         this.longSubcuenta = data.longSubcuenta;
-        this.idEmpresa = data;
+        this.idEmpresa = data.idEmpresa;
     }
 ```
 Es deseable que el valor de cada atributo contenga no sea una primitiva sino un _value object_.
