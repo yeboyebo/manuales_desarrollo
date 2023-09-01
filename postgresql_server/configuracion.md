@@ -46,6 +46,11 @@ Ejecutamos en una consola:
   ```console
   host    all     all     0.0.0.0/0     md5
   ``` 
+## Crear superusuario
+
+```
+CREATE USER username WITH SUPERUSER PASSWORD 'passwordstring';
+```
 
 ### Más
 
