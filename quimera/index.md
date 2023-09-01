@@ -19,6 +19,7 @@
 - [Tipos de grape](./tipos_de_grape.md)
 - [Imágenes](./imagenes.md)
 - [Traducciones](./traducciones.md)
+- [Despliegue automático](./despliegueGithubWorkflow.md)
 
 ### Más
 

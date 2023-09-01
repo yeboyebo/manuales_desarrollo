@@ -16,9 +16,8 @@ Ejecutamos en una consola:
   Para asegurarnos que esta correctamente seteado **md5**:
   ```console
   sudo service postgresql restart
-  sudo -i -u postgres
-  psql
-  > SELECT pg_reload_config();
+  sudo -u postgres psql
+  > SELECT pg_reload_conf();
   > SHOW password_encryption; 
   ```
   En pantalla debería mostrar 
@@ -35,8 +34,7 @@ Ejecutamos en una consola:
 ## Cambio de password usuario postgres
   Para setear la contraseña de usuario postgres.
   ```console
-  sudo -i -u postgres
-  psql
+  sudo -u postgres psql
   postgres=# \password
   Enter new password for use "postgres":
   Enter it again:
@@ -48,6 +46,11 @@ Ejecutamos en una consola:
   ```console
   host    all     all     0.0.0.0/0     md5
   ``` 
+## Crear superusuario
+
+```
+CREATE USER username WITH SUPERUSER PASSWORD 'passwordstring';
+```
 
 ### Más
 

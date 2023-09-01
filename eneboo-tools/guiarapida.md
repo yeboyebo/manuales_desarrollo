@@ -50,6 +50,16 @@ Una vez creada la nueva funcionalidad y hechos los cambos necesarios. Para crear
   eneboo-assembler save-fullpatch extension
 ```
 
+## Incluir en funcionalidad padre cambios que acabamos de hacer en una funcionalidad hija
+
+Teniendo ya el build generado de ambas funcionalidades y posicionados en la rama correcta:
+
+    - Hacemos cambios en funcionalidadHija
+    - eneboo-assembler save funcionalidadHija
+    - eneboo-assembler build funcionalidadPadre src funcionalidadHija
+
+De esta forma solo hace el build de los ficheros que hayan cambiado en la funcionalidadHija
+
 ## Subir a git
 
 Subiremos los cambios a git en nuestra extensión y mezclaremos con master de la forma normal ([ver política de ramas](./politicaramas.md)).
