@@ -16,8 +16,7 @@ Ejecutamos en una consola:
   Para asegurarnos que esta correctamente seteado **md5**:
   ```console
   sudo service postgresql restart
-  sudo -i -u postgres
-  psql
+  sudo -u postgres psql
   > SELECT pg_reload_conf();
   > SHOW password_encryption; 
   ```
