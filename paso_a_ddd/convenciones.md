@@ -57,9 +57,15 @@ Por requerimientos legacy, los nombres de los ficheros no pueden coincicir aunqu
 ### Ficheros: Entidades
 Descripción de la entidad. Como el nombre debe ser único, debemos ser lo suficientemente específicos para garantizar que no se repita.
 ```sh
-/contexts/empresa/ejerciciofiscal/application/CrearEjercicioFiscal.qs
-/contexts/ventas/pedidocliente/application/LineaPedidoCliente.qs
+/contexts/ventas/pedido/domain/LineaPedidoCliente.qs
 ```
+
+### Ficheros: Tests de casos de entidades
+[Nombre del la entidad] + _.test.qs_
+```sh
+/contexts/empresa/ejerciciofiscal/test/domain/EjercicioFiscal.test.qs
+```
+
 
 ### Ficheros: Casos de uso
 Descripción del caso de uso con un verbo en infinitivo al comienzo.

@@ -34,7 +34,9 @@ TEMPDIR=/pineboo/pineboo/tempdata
 STATIC_LOADER_DIRS=/pineboo/modules/facturacion/facturacion/scripts/,/pineboo/modules/facturacion/principal/scripts/,/pineboo/modules/facturacion/almacen/scripts/,/pineboo/modules/facturacion/tpv/scripts/,/pineboo/modules/sistema/libreria/scripts/
 WEBSOCKET=True
 USE_ATOMIC_LIST=True;
+PROJECT_NAME=monterelax
 ```
+Si se usa la nueva parte del módulo de _contextos_, es necesario indicar una clave _PROJECT_NAME_. Consultar su valor con el equipo de desarrollo.
 
 Copiamos en un fichero de texto esta estructura, sustituimos por nuestros datos locales, y lo guaramos con el nombre .env en _/pinebooapi_.
 
