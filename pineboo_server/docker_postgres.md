@@ -12,7 +12,7 @@ git clone git@github.com:yeboyebo/docker_postgres.git
 
 Para funcionar, el servidor debe detectar un fichero _.env_ en el directorio principal. La estructura de este fichero debe ser:
 
-```sh
+```sh 
 POSTGRES_USERNAME=**user**
 POSTGRES_PASSWORD=**password**
 EXTERNAL_VOLUME=/opt/yeboyebo/docker_postgres
@@ -26,7 +26,20 @@ Una vez tengamos el fichero .env correcto podemos lanzar:
 docker-compose build
 ```
 
+En este momento es probable que no salga un error que nos indique que nos falta algunos permisos, si es asi debemos lanzar algunos comandos para camniar eso.
 
+Primero agregaremos a nuestro usuario al grupo de **doceker** y volvemos a probar:
+
+```
+sudo gpasswd -a $USER docker
+newgrp docke
+```
+
+Si de nuevo vuele a fallar podemos intentar volver a logearnos o reiniciar:
+
+```
+sudo su $USER
+```
 
 En caso que necesitemos para o reiniciar el docker utilizar start o stop:
 
@@ -54,3 +67,7 @@ FROM postgres:15.4
     docker exec -i -t 086bbf520c72 /bin/bash
     root: crontab -e 
 ```
+
+### Más
+
+- [Volver al Índice](./index.md)
