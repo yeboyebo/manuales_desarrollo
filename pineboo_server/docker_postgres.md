@@ -76,9 +76,10 @@ FROM postgres:15.4
     * remote_user: Usuario remoto (Opcional). Default: yeboyebo_backup
     * remote_host: Servidor remoto (Opcional). Default: 81.169.149.68
     * db_port: Puerto postgres (Opcional). Default: 5432
-```console 
+```
 * * * * * /backup/backup.sh db_user_name db_user_pass remote_profile_name remote_user??yeboyebo_backup remote_host??81.169.149.68 db_port??5432
 ```
+
 * Al guardar tenemos que obtener el siguiente mensaje: 
 ```console
 crontab: installing new crontab
