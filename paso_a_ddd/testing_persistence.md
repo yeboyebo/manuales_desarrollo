@@ -8,6 +8,11 @@ Tener la carpeta _.eneboocache_ en nuestro home.
 ### Preparar la BD de template
 Ejemplo para el caso de la extensión de tallas y colores (proyecto _moda_)
 
+Podemos generar la BD de forma manual o con:
+```sh
+eneboo-assembler dump nombre_funcionalidad ruta_fichero_sql ruta_ejecutable
+```
+
 Creamos una bd template abriendo Eneboo y seleccionando los valores:
 + nombre de la bd con el sufijo __template_ (_moda_template)
 + Driver SqLite
@@ -50,7 +55,7 @@ Pineboo/tempdata/sqlite_databases/moda_template.sqlite3-shm
 Pineboo/tempdata/sqlite_databases/moda_template.sqlite3
 Pineboo/tempdata/cache/moda_template
 ```
-Los tres primeros son la base de datos SqLite3, el cuarti, la carpeta caché de Pineboo para esta BD.
+Los tres primeros son la base de datos SqLite3, el cuarto, la carpeta caché de Pineboo para esta BD.
 
 ## Tests
 
