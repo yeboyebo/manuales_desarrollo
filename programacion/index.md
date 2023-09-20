@@ -3,7 +3,7 @@
 ## Índice
 
 - [QSA](./qsa/index.md)
-- [VS Code](./vscode.md)
+- [VS Code](./vscode/vscode.md)
 
 ### Más
 
