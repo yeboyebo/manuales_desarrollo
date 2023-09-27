@@ -28,5 +28,115 @@
 			"/////////////////////////////////////////////////////////////////"
 		],
 		"description": "Declaración de clase"
-	}
+	},
+    "campo fecha": {
+        "prefix": "campo_fecha",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>date</type>"
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo string": {
+        "prefix": "campo_string",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>string</type>"
+            "\t<length>${5:Longitud}</length>"          
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${7|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo double": {
+        "prefix": "campo_double",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>double</type>"
+            "\t<partI>10</partI>"
+            "\t<partD>2</partD>"
+            "\t<default>0</default>"    
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo stringlist": {
+        "prefix": "campo_stringlist",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>stringlist</type>" 
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo booleano": {
+        "prefix": "campo_booleano",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>bool</type>"
+            "\t<default>${5|true,false|}</default>" 
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${7|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo unit": {
+        "prefix": "campo_entero",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>uint</type>"
+            "\t<default>0</default>"    
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${8|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "relacion 1M": {
+        "prefix": "relacion_1M",
+        "body": [
+            "<relation>"
+                "\t<table>${1:Nombre tabla}</table>"
+                "\t<field>${2:Nombre campo en tabla}</field>"
+                "\t<card>1M</card>"
+            "</relation>"
+        ]
+    },
+    "relacion M1": {
+        "prefix": "relacion_M1",
+        "body": [
+            "<relation>"
+                "\t<table>${1:Nombre tabla}</table>"
+                "\t<field>${2:Nombre campo en tabla}</field>"
+                "\t<card>M1</card>"
+            "</relation>"
+        ]
+    }
 }
