@@ -10,6 +10,11 @@ Antes de comenzar a trabajar:
 - Descargar los módulos públicos. Para este tutorial bastarán los módulos del área de Facturación  
 - Arrancar Abanq con una nueva base de datos y cargar los módulos
 
+## <span style="color:violet">Glosario</span>
+
+Desde este [glosario](../../glosario/glosario.md) podemos consultar el significado de algunos términos que se utilizarán a lo largo de este tutorial.
+
+
 ## <span style="color:violet">Algunos conceptos previos:</span>
 
 El área de Sistema Abanq tiene diversas funciones, sirve tanto como software de gestión como a su vez de entorno de desarrollo, así tienes permitido realizar cambios y personalizaciones desde lo más básico a lo más avanzado.
