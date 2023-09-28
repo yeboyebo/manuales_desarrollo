@@ -39,6 +39,12 @@ Gracias a los avances en tecnología, Postman ha pasado de ser una extensión a 
 
 Para más información consultar [quí](https://assemblerinstitute.com/blog/que-es-postman/)
 
+## RDP
+
+El RDP o Remote Desktop Protocol es un protocolo de comunicación desarrollado por Microsoft que le permite a un usuario conectarse y controlar un ordenador remoto a través de una red. RDP se utiliza principalmente en entornos empresariales y de negocios, donde los usuarios necesitan acceder a recursos y aplicaciones en equipos remotos desde un dispositivo local
+
+Para más información consultar [quí](https://keepcoding.io/blog/que-es-un-rdp-o-remote-desktop-protocol/)
+
 ## Request o petición HTTP
 
 Una petición HTTP es una conexión entre un equipo que hace de cliente y el servidor a través de la cual el el cliente solicita o envia datos al servidor. Hay varios tipos de métodos de petición HTTP, que modifican completamente el tipo de respuesta que obtienes del servidor. Los más comunes son:
@@ -49,6 +55,10 @@ Una petición HTTP es una conexión entre un equipo que hace de cliente y el ser
 - __PUT__. Las peticiones PUT tienen una funcionalidad similar a la del método POST. Sin embargo, en lugar de enviar datos, utilizas las peticiones PUT para actualizar información que ya existe en el servidor final.
 
 Para más información consultar [quí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
+
+## Sandbox
+
+Un sandbox o un entorno de pruebas, es una máquina virtual aislada en la que se puede ejecutar código de software potencialmente inseguro sin afectar a los recursos de red o a las aplicaciones locales.
 
 ## TPV
 
