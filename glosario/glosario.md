@@ -56,9 +56,27 @@ Una petición HTTP es una conexión entre un equipo que hace de cliente y el ser
 
 Para más información consultar [quí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
 
+## Remmina
+
+Es un software completamente gratuito, que nos va a permitir conectarnos de forma remota a nuestro ordenador o servidor Linux, utilizando diferentes protocolos para ello, y sin la necesidad de instalar más software adicional en el ordenador cliente.
+
 ## Sandbox
 
 Un sandbox o un entorno de pruebas, es una máquina virtual aislada en la que se puede ejecutar código de software potencialmente inseguro sin afectar a los recursos de red o a las aplicaciones locales.
+
+## SCP
+
+Secure Copy Protocol (SCP), es un protocolo que garantiza la transferencia segura de datos entre un equipo local (host local) y un equipo remoto (host remoto) o, alternativamente, entre dos equipos remotos. Se basa en los comandos RCP, (remote copy), que se publicaron en 1982 como parte de los “comandos r” de la Universidad de California (Berkeley). Permiten el control de la transmisión de datos a través de la línea de comandos.
+
+SCP ofrece un método de autenticación entre los dos equipos, así como un cifrado de la transmisión. Por lo tanto, el protocolo no solo garantiza la seguridad, sino también la autenticidad de los datos transferidos. En ambos mecanismos de seguridad el SCP protocol se basa en SSH (Secure Shell), que también se utiliza en protocolos alternativos de transmisión como FTP (o SFTP). El puerto TCP que utiliza para la transferencia a través de SCP es el puerto estándar SSH 22.
+
+Para más información consultar [quí](https://www.ionos.es/digitalguide/servidores/know-how/scp-secure-copy/)
+
+## SSH
+
+SSH (o Secure SHell, en español: intérprete de órdenes seguro) es el nombre de un protocolo y del programa que lo implementa cuya principal función es el acceso remoto a un servidor por medio de un canal seguro en el que toda la información está cifrada. Además de la conexión a otros dispositivos, SSH permite copiar datos de forma segura (tanto archivos sueltos como simular sesiones FTP cifradas), gestionar claves RSA para no escribir contraseñas al conectar a los dispositivos y pasar los datos de cualquier otra aplicación por un canal seguro tunelizado mediante SSH y también puede redirigir el tráfico del (Sistema de Ventanas X) para poder ejecutar programas gráficos remotamente. El puerto TCP asignado es el 22.
+
+Para más información consultar [quí](https://es.wikipedia.org/wiki/Secure_Shell)
 
 ## TPV
 
