@@ -5,6 +5,7 @@
 ## Índice
 
 - [Arquitectura](./arquitectura/index.md)
+- [Glosario](./glosario/glosario.md)
 - [Reglas de acceso](./reglas_acceso/index.md)
 - [Pineboo Server](./pineboo_server/index.md)
 - [AQNext legacy](./aqnext_legacy/index.md)
