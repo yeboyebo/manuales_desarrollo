@@ -73,16 +73,26 @@ FROM postgres:15.4
     docker exec -i -t 086bbf520c72 /bin/bash
     root: crontab -e 
 ```
-* Editamos los datos (remote_user, remote_host y db_port son opcionales):
-    * db_user_name: Usuario de postgres.
-    * db_user_pass: Password de postgres.
-    * remote_profile_name: Nombre instalacion para almacenar las copias en remoto.
-    * db_port: Puerto postgres (Opcional). Default: 5432
-    * remote_user: Usuario remoto (Opcional). Default: yeboyebo_backup
-    * remote_host: Servidor remoto (Opcional). Default: 81.169.149.68
-```
-* * * * * /backup/backup.sh db_user_name db_user_pass remote_profile_name db_port??5432 remote_user??yeboyebo_backup remote_host??81.169.149.68
-```
+* Editamos los datos:
+    * Vía Google drive (Usando /backup/backup_drive.sh):
+        * remote_profile_name: Nombre instalacion para almacenar las copias en remoto.
+        * db_user_name: Usuario de postgres.
+        * db_user_pass: Password de postgres.
+        * db_port: Puerto postgres (Opcional). Default: 5432
+        ```
+        * 1 * * * /backup/backup_drive.sh remote_profile_name db_user_name db_user_pass db_port??5432
+        ```
+
+    * Vía SCP. Editamos los datos (Usando /backup/backup.sh)  (remote_user, remote_host y db_port son opcionales):
+        * db_user_name: Usuario de postgres.
+        * db_user_pass: Password de postgres.
+        * remote_profile_name: Nombre instalacion para almacenar las copias en remoto.
+        * db_port: Puerto postgres (Opcional). Default: 5432
+        * remote_user: Usuario remoto (Opcional). Default: yeboyebo_backup
+        * remote_host: Servidor remoto (Opcional). Default: 81.169.149.68
+        ```
+        * 1 * * * /backup/backup.sh db_user_name db_user_pass remote_profile_name db_port??5432 remote_user??yeboyebo_backup remote_host??81.169.149.68
+    ```
 
 * Al guardar tenemos que obtener el siguiente mensaje: 
 ```console
