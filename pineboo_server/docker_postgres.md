@@ -75,13 +75,15 @@ FROM postgres:15.4
 ```
 * Editamos los datos:
     * Vía Google drive (Usando /backup/backup_drive.sh):
-        * remote_profile_name: Nombre instalacion para almacenar las copias en remoto.
+        * remote_profile_name: Nombre instalacion para almacenar las copias en remoto. "_NO_SYNC_" no sincroniza con remoto.
         * db_user_name: Usuario de postgres.
         * db_user_pass: Password de postgres.
         * db_port: Puerto postgres (Opcional). Default: 5432
         ```
         * 1 * * * /backup/backup_drive.sh remote_profile_name db_user_name db_user_pass db_port??5432
         ```
+
+
 
     * Vía SCP. Editamos los datos (Usando /backup/backup.sh)  (remote_user, remote_host y db_port son opcionales):
         * db_user_name: Usuario de postgres.
