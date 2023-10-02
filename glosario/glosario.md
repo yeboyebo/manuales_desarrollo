@@ -62,6 +62,8 @@ Una petición HTTP es una conexión entre un equipo que hace de cliente y el ser
 - __POST__. Tu navegador utiliza el método de petición HTTP POST cuando necesita enviar datos al servidor. Por ejemplo, si rellenas un formulario de contacto en un sitio web y lo envías, estás utilizando una petición POST para que el servidor reciba esa información.
 - __PUT__. Las peticiones PUT tienen una funcionalidad similar a la del método POST. Sin embargo, en lugar de enviar datos, utilizas las peticiones PUT para actualizar información que ya existe en el servidor final.
 
+En yeboyebo utilizamos este tipo de peticiones para hacer por ejemplo sincronizacines de datos entre el ERP y la página web.
+
 Para más información consultar [quí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
 
 ## Remmina
@@ -96,6 +98,8 @@ TPV hace referencia al “Terminal Punto de Venta”, un concepto esencial en el
 El TPV es la tecnología o sistema informático que permite gestionar todo el proceso de venta de un negocio –los tickets, las facturas, las ventas, etc.–. Introducimos los productos con el código de referencia y a partir de él se realizarán las operaciones de gestión.
 
 Un TPV eficaz organiza de manera rápida las funciones relacionadas con el proceso de venta, de forma que las operaciones comerciales se pueden hacer de manera mucho más ágil y eficiente que con las ya obsoletas cajas registradoras. Además permite hacer cobros por tarjeta bancaria, lo que lleva a aumentar la fluidez de las ventas.
+
+En yeboyebo tenemos un módulo de tpv que permite la gestión de los tickets, comandas y, en general, los datos y funcionalidades clave de la venta directa
 
 Para más información consultar [quí](https://www.tpvcenter.com/que-es-tpv/)
 
