@@ -6,6 +6,8 @@ Una API (del inglés, application programming interface, en español, interfaz d
 
 Por ejemplo, si se tiene una app para móviles acerca de recetas y se hace una búsqueda de una determinada receta, se puede utilizar una API para que esta aplicación se comunique con el sitio web de recetas y pida las recetas que cumplen con los criterios de búsqueda. La API entonces se encarga de recibir la solicitud, buscar las recetas apropiadas y regresar los resultados a la aplicación. Una API es una forma de conectar diferentes aplicaciones y hacer que trabajen juntas de manera más eficiente y efectiva
 
+En yeboyebo hemos desarrollado una API de acceso al ERP ([pinebooapi](../pineboo_server/index.md) 
+
 Para más información consultar [quí](https://es.wikipedia.org/wiki/API)
 
 
@@ -19,6 +21,8 @@ Para más información consultar [quí](https://www.arimetrics.com/glosario-digi
 
 Un CRM (Customer Relationship Management) es un software que contiene toda la información de los clientes y partners de una empresa y que es capaz de compartirla con todas las áreas clave de la compañía como ventas, marketing o atención al cliente. Pero un CRM no solo permite el acceso a toda la información clave, también permite llevar un seguimiento de las interacciones y transacciones con ellos y analizar esta información para mejorar la satisfacción del cliente y aumentar la rentabilidad de la empresa.
 
+En yeboyebo tenemos un módulo de CRM que permite realizar las acciones más comunes en un centro de atención al cliente. Control de las comunicaciones e incidencias de clientes, gestión de contactos, diseño, crear y monitorizar campañas de marketing a clientes, así como realizar mailings por disintos canales (correo convencional, e-mail, teléfono, etc.)
+
 ## ERP
 
 Un ERP es un software que permite a las empresas controlar todos los flujos de información que se generan en cada ámbito de la organización. Sus siglas en inglés representan Enterprise Resource Planning o sistema de planificación de recursos empresariales en español. 
@@ -29,6 +33,8 @@ De este modo, los ERP suelen estar integrados por diferentes módulos, correspon
 
 El objetivo de cualquier sistema ERP es el de ayudar a una empresa en sus tareas de administración y toma de decisiones, automatizando todos sus procesos. Gracias a ello podemos obtener datos en tiempo real, mejorar tareas de back office, controlar flujos de trabajo y minimizar errores. Por ejemplo, cuando se habla de llevar la contabilidad, el usuario solo tendrá que preocuparse por conseguir ventas. Del resto (crear facturas y contabilizar gastos) se encargará el programa.
 
+En yeboyebo programamos y comercializamos el ERP Eneboo que se compone de distintos módulos y extensiones
+
 ## Postman
 
 Postman es una plataforma que permite y hace más sencilla la creación y el uso de APIs. Esta herramienta es muy útil para programar porque da la posibilidad hacer pruebas y comprobar el correcto funcionamiento de los proyectos que realizan los desarrolladores web. ¡Todo en base a una extensión en Google Chrome! 
@@ -36,6 +42,8 @@ Postman es una plataforma que permite y hace más sencilla la creación y el uso
 Postman es gratuito, si trabajas solo, o de pago, si quieres trabajar de manera colaborativa.  
 
 Gracias a los avances en tecnología, Postman ha pasado de ser una extensión a ser una aplicación que cuenta con herramientas nativas para varios sistemas operativos, entre los que se encuentran los principales: Windows, Mac y Linux.
+
+En yeboyebo utilizamos postman para hacer pruebas de los servicios web que programamos en nuestras APIs antes de realizar los desarrollos.
 
 Para más información consultar [quí](https://assemblerinstitute.com/blog/que-es-postman/)
 
@@ -60,6 +68,8 @@ Para más información consultar [quí](https://kinsta.com/es/base-de-conocimien
 
 Es un software completamente gratuito, que nos va a permitir conectarnos de forma remota a nuestro ordenador o servidor Linux, utilizando diferentes protocolos para ello, y sin la necesidad de instalar más software adicional en el ordenador cliente.
 
+En yeboyebo utilizamos remina para conectar al servidor de nuestros clientes y poder realizar instlaciones o resolver posibles incidencias
+
 ## Sandbox
 
 Un sandbox o un entorno de pruebas, es una máquina virtual aislada en la que se puede ejecutar código de software potencialmente inseguro sin afectar a los recursos de red o a las aplicaciones locales.
@@ -75,6 +85,8 @@ Para más información consultar [quí](https://www.ionos.es/digitalguide/servid
 ## SSH
 
 SSH (o Secure SHell, en español: intérprete de órdenes seguro) es el nombre de un protocolo y del programa que lo implementa cuya principal función es el acceso remoto a un servidor por medio de un canal seguro en el que toda la información está cifrada. Además de la conexión a otros dispositivos, SSH permite copiar datos de forma segura (tanto archivos sueltos como simular sesiones FTP cifradas), gestionar claves RSA para no escribir contraseñas al conectar a los dispositivos y pasar los datos de cualquier otra aplicación por un canal seguro tunelizado mediante SSH y también puede redirigir el tráfico del (Sistema de Ventanas X) para poder ejecutar programas gráficos remotamente. El puerto TCP asignado es el 22.
+
+En yeboyebo utilizamos ssh para conectar al servidor de nuestros clientes y poder realizar instlaciones o resolver posibles incidencias
 
 Para más información consultar [quí](https://es.wikipedia.org/wiki/Secure_Shell)
 
