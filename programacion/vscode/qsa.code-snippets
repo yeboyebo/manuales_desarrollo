@@ -29,6 +29,15 @@
 		],
 		"description": "Declaración de clase"
 	},
+    "Function declaration": {
+		"prefix": "_function_declaration",
+		"body": [
+			"function $1() {",
+            "\treturn this.ctx.$2_$1();",
+			"}",
+		],
+		"description": "Declaración de función"
+	},
     "campo fecha": {
         "prefix": "campo_fecha",
         "body": [
