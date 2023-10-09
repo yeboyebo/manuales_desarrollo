@@ -1,5 +1,13 @@
 # Glosario
 
+## AnyDesk
+
+El software de escritorio remoto de alto rendimiento de AnyDesk permite compartir el escritorio sin latencia, un control remoto estable y una transmisión de datos rápida y segura entre dispositivos.
+
+En yeboyebo utilizamos AnyDesk para dar asistencia a clientes (instalaciones y resolución de incidencias)
+
+Para más información consultar [quí](https://anydesk.com/es/caracteristicas)
+
 ## API
 
 Una API (del inglés, application programming interface, en español, interfaz de programación de aplicaciones)1 es una pieza de código que permite a diferentes aplicaciones comunicarse entre sí y compartir información y funcionalidades. Una API es un intermediario entre dos sistemas, que permite que una aplicación se comunique con otra y pida datos o acciones específicas.
@@ -23,6 +31,14 @@ Un CRM (Customer Relationship Management) es un software que contiene toda la in
 
 En yeboyebo tenemos un módulo de CRM que permite realizar las acciones más comunes en un centro de atención al cliente. Control de las comunicaciones e incidencias de clientes, gestión de contactos, diseño, crear y monitorizar campañas de marketing a clientes, así como realizar mailings por disintos canales (correo convencional, e-mail, teléfono, etc.)
 
+## CRON
+
+Cron es un administrador de tareas de Linux que permite ejecutar comandos en un momento determinado, por ejemplo, cada minuto, día, semana o mes. Si queremos trabajar con cron, podemos hacerlo a través del comando crontab.
+
+En yeboyebo utilizamos el Cron para programar tareas en los clientes que queremos ejecutar periódicamente. Por ejemplo, comprobaciones de cierto funcionamiento, sincronizaciones...
+
+Para más información consultar [quí](https://dinahosting.com/ayuda/como-configurar-tareas-cron-de-forma-manual/)
+
 ## ERP
 
 Un ERP es un software que permite a las empresas controlar todos los flujos de información que se generan en cada ámbito de la organización. Sus siglas en inglés representan Enterprise Resource Planning o sistema de planificación de recursos empresariales en español. 
@@ -34,6 +50,28 @@ De este modo, los ERP suelen estar integrados por diferentes módulos, correspon
 El objetivo de cualquier sistema ERP es el de ayudar a una empresa en sus tareas de administración y toma de decisiones, automatizando todos sus procesos. Gracias a ello podemos obtener datos en tiempo real, mejorar tareas de back office, controlar flujos de trabajo y minimizar errores. Por ejemplo, cuando se habla de llevar la contabilidad, el usuario solo tendrá que preocuparse por conseguir ventas. Del resto (crear facturas y contabilizar gastos) se encargará el programa.
 
 En yeboyebo programamos y comercializamos el ERP Eneboo que se compone de distintos módulos y extensiones
+
+## FTP
+
+FTP (File Transfer Protocol o Protocolo de Transferencia de Archivos) es un protocolo de red que empezó a utilizarse en el año 1974, su principal objetivo, es la transferencia de archivos entre dos equipos.
+
+El servicio FTP es ofrecido por la capa de Aplicación del modelo TCP/IP y utiliza normalmente el puerto 20 y el 21 para conectarse. Hoy en día, es muy habitual emplear gestores de FTP, como por ejemplo FileZilla o WinSCP, para subir los contenidos al hosting o administrar sus ficheros de forma segura.
+
+Para más información consultar [quí](https://dinahosting.com/ayuda/que-es-ftp-y-para-que-sirve/)
+
+## GIT
+
+Git es un sistema de control de versiones, un software que sirve básicamente para gestionar las versiones por las que va pasando el código de los proyectos.
+
+Git es el más popular de los sistemas de control de versiones en la actualidad y una de las herramientas más indispensables para el desarrollo de proyectos de software.
+
+Aunque un sistema de control de versiones sirva justamente para controlar los estados por los que ha pasado un código, lo cierto es que la herramienta git facilita mucho el desarrollo de los proyectos en equipo, así como otras operaciones relacionadas con el flujo de trabajo de los desarrolladores.
+
+Por ejemplo, gracias a Git los desarrolladores pueden participar en un proyecto y hacer aportaciones de código sin que uno desarrollador pueda llegar a machacar cambios que hayan introducido otros desarrolladores. Esta sería una de las principales ventajas de Git, pero además gracias a esta herramienta podemos facilitar los despliegues, las revisiones de código y establecer tareas automatizadas cuando el código de los proyectos cambia.
+
+GIT es el sistema que utilizamos en yeboyebo actualmente para el control de versiones.
+
+Para más información consultar [quí](https://desarrolloweb.com/home/git)
 
 ## Postman
 
@@ -61,6 +99,8 @@ Una petición HTTP es una conexión entre un equipo que hace de cliente y el ser
 - __HEAD__. Con una petición HEAD, sólo recibes la información de la cabecera de la página que quieres cargar. Puedes utilizar este tipo de petición HTTP para conocer el tamaño de un documento antes de descargarlo mediante GET.
 - __POST__. Tu navegador utiliza el método de petición HTTP POST cuando necesita enviar datos al servidor. Por ejemplo, si rellenas un formulario de contacto en un sitio web y lo envías, estás utilizando una petición POST para que el servidor reciba esa información.
 - __PUT__. Las peticiones PUT tienen una funcionalidad similar a la del método POST. Sin embargo, en lugar de enviar datos, utilizas las peticiones PUT para actualizar información que ya existe en el servidor final.
+
+En yeboyebo utilizamos este tipo de peticiones para hacer por ejemplo sincronizacines de datos entre el ERP y la página web.
 
 Para más información consultar [quí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
 
@@ -90,6 +130,24 @@ En yeboyebo utilizamos ssh para conectar al servidor de nuestros clientes y pode
 
 Para más información consultar [quí](https://es.wikipedia.org/wiki/Secure_Shell)
 
+## Subversion o SVN
+
+Subversion (abreviado frecuentemente como SVN, por el comando svn) es una herramienta de control de versiones open source basada en un repositorio cuyo funcionamiento se asemeja enormemente al de un sistema de ficheros. Es software libre bajo una licencia de tipo Apache/BSD.
+
+Utiliza el concepto de revisión para guardar los cambios producidos en el repositorio. Entre dos revisiones solo guarda el conjunto de modificaciones (delta), optimizando así al máximo el uso de espacio en disco. SVN permite al usuario crear, copiar y borrar carpetas con la misma flexibilidad con la que lo haría si estuviese en su disco duro local. Dada su flexibilidad. Subversion puede acceder al repositorio a través de redes, lo que le permite ser usado por personas que se encuentran en distintas computadoras.
+
+En yeboyebo utilizabamos subversion para guardar todo el código pero recientemente hemos cambiado al sistema GIT
+
+Para más información consultar [quí](https://es.wikipedia.org/wiki/Subversion_(software))
+
+## TeamViewer
+
+TeamViewer es un software para asistencia remota, acceso remoto y reuniones en línea. Permite realizar acciones como compartir pantalla, conexión a través de escritorio remoto, acceso remoto, chat empresarial instantáneo, conferencias web y de vídeo, copias de seguridad, antimalware, pizarras en línea y mucho más.
+
+En yeboyebo utilizamos TeamViewer para dar asistencia a clientes (instalaciones y resolución de incidencias)
+
+Para más información consultar [quí](https://community.teamviewer.com/Spanish/kb/articles/33184-que-es-teamviewer)
+
 ## TPV
 
 TPV hace referencia al “Terminal Punto de Venta”, un concepto esencial en el comercio electrónico,
@@ -97,7 +155,17 @@ El TPV es la tecnología o sistema informático que permite gestionar todo el pr
 
 Un TPV eficaz organiza de manera rápida las funciones relacionadas con el proceso de venta, de forma que las operaciones comerciales se pueden hacer de manera mucho más ágil y eficiente que con las ya obsoletas cajas registradoras. Además permite hacer cobros por tarjeta bancaria, lo que lleva a aumentar la fluidez de las ventas.
 
+En yeboyebo tenemos un módulo de tpv que permite la gestión de los tickets, comandas y, en general, los datos y funcionalidades clave de la venta directa
+
 Para más información consultar [quí](https://www.tpvcenter.com/que-es-tpv/)
+
+## VPN
+
+Una VPN o red privada virtual crea una conexión de red privada entre dispositivos a través de Internet. Las VPN se utilizan para transmitir datos de forma segura y anónima a través de redes públicas. Su funcionamiento consiste en ocultar las direcciones IP de los usuarios y cifrar los datos para que nadie que no esté autorizado a recibirlos pueda leerlos.
+
+En yeboyebo tenemos una VPN propia que nos permite acceder a datos de la empresa y de nuestros clientes de forma segura.
+
+Para más información consultar [quí](https://aws.amazon.com/es/what-is/vpn/#:~:text=Una%20VPN%20o%20red%20privada,a%20trav%C3%A9s%20de%20redes%20p%C3%BAblicas.)
 
 ## Web Service
 
