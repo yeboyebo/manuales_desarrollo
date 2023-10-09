@@ -153,6 +153,21 @@ The current path, api, didn't match any of these.
 
 You're seeing this error because you have DEBUG = True in your Django settings file. Change that to False, and Django will display a standard 404 page
 ```
+## Actualización
+
+- Ejecutar el comando siguiente comando con la versión a actualizar
+
+```
+pip3 install pineboo==0.99.78
+```
+
+- Editar el fichero Dockerfile de nuestro directorio de pinebooapi para informar la nueva versión
+
+- Ejecutar desde nuestro directorio de pinebooapi
+
+```
+docker-compose buidl
+```
 
 ### Más
 
