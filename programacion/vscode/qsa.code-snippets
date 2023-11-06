@@ -370,6 +370,18 @@
         ],
         "description": "Establece un valor en elemento de un diccionario del estado"
     },
+    "call": {
+        "scope": "yaml",
+        "prefix": ["_call","_grape"],
+        "body": [
+            "- _type: call",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tfunction: #required",
+            "\t\t${2|statePath,payloadPath,code,const|}: ${3:nombreFunción}",
+            "\t${7|_paramsAtr #Ctrl+space despliega sugerencia, |}",
+        ],
+        "description": "Ejecuta una función"
+    },
     "get": {
         "scope": "yaml",
         "prefix": ["_get","_grape"],
