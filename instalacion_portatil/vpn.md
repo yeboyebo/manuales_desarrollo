@@ -51,4 +51,24 @@ Certificados adicionales: (ninguno)
 ```
 Hacemos clic en "Aplicar" tanto para la configuración avanzada como la general e intentamos conectarnos. 
 
+# FIX para Ubuntu 23.04 o sup.
+  Para que funcione nuestra vpn correctamente tenemos que actualizar esta configuración en /etc/ssl/openssl.cnf. Despues reiniciar el equipo.
+
+  ```
+  openssl_conf = openssl_init
+  
+  [openssl_init]
+  providers = provider_sect
+
+  [provider_sect]
+  default = default_sect
+  legacy = legacy_sect
+
+  [default_sect]
+  activate = 1
+
+  [legacy_sect]
+  activate = 1
+  ```
+
   * [Volver al Índice](./index.md)
