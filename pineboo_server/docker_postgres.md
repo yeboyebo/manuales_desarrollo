@@ -1,4 +1,4 @@
-# Docker Jasper Server / Instalación
+# Docker Postgres / Instalación
 
 ### Lee esto antes.
 
@@ -66,8 +66,8 @@ FROM postgres:15.4
 ```
 ## Notas
 * La ip es la misma que la del anfitrión. 
-* Si ya existe un servidor de postgres , hay que deshabilitarlo para levantar este.
-* Los ficheros de cron , inicialmente funciona. Para habilitarlo , hay que entrar una vez en el docker y ejecutar '*crontab -e*':
+* Si ya existe un servidor de postgres, hay que deshabilitarlo para levantar este.
+* Los ficheros de cron, inicialmente funciona. Para habilitarlo, hay que entrar una vez en el docker y ejecutar '*crontab -e*':
 ```console
     docker ps // Para ver nuestro CONTAINER ID. Ejemplo 086bbf520c72
     docker exec -i -t 086bbf520c72 /bin/bash
