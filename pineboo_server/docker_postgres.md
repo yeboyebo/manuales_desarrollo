@@ -4,45 +4,76 @@
 
 - [Pasos previos](./migracion_docker_postgres.md)
 
-## Descarga de Github
-
-El servidor de Postgres es un proyecto de docker. Clonamos el proyecto con:
-
-```console
-git clone git@github.com:yeboyebo/docker_postgres.git
+## Pasos previos
+### Copia de los datos a llevar a la nueva instalación
+Hacer un dump de usuarios y roles y de las bds que vayamos a pasar
+```sh
+pg_dumpall --globals-only -U antonio -h localhost -p 54322 > roles.dump
+pg_dump yeboyebo -U antonio -h localhost -p 54322 > yeboyebo.dump
 ```
 
-## Primer entorno
-
-Para funcionar, el servidor debe detectar un fichero _.env_ en el directorio principal. La estructura de este fichero debe ser:
-
-```sh 
-POSTGRES_USERNAME=**user**
-POSTGRES_PASSWORD=**password**
-EXTERNAL_VOLUME=/opt/yeboyebo/docker_postgres
-```
-
-## Instalacion
-
-Una vez tengamos el fichero .env correcto podemos lanzar:
-
-```console
-docker-compose build
-```
-
-En este momento es probable que no salga un error que nos indique que nos falta algunos permisos, si es asi debemos lanzar algunos comandos para cambiar eso.
-
-Primero agregaremos a nuestro usuario al grupo de **docker** y volvemos a probar:
+### Usuario de instalación
+Si no podemos hacer la instalación con root, nos aseguramos que el usuario que usaremos pertenece al grupo docker.
 
 ```
 sudo gpasswd -a $USER docker
 newgrp docker
 ```
+## Descarga de Github
 
-Si de nuevo vuele a fallar podemos intentar volver a logearnos o reiniciar:
+El servidor de Postgres es un proyecto de docker. Clonamos el proyecto con:
 
+```console
+cd /opt
+git clone https://github.com/yeboyebo/docker_postgres.git
 ```
-sudo su $USER
+Autenticar con el token generado en https://github.com/settings/tokens 
+dando permiso a la parte de _repos_.
++ Username (p.e. _antonio-yeboyebo_)
++ Pass: el token generado
+
+__Pensar política de tokens__
+
+## Primer entorno
+
+Para funcionar, el servidor debe detectar un fichero _.env_ en el directorio principal. La estructura de este fichero debe ser:
+
+En _/opt/dockerpostgres_
+
+Fichero _.env_
+
+```sh 
+POSTGRES_USERNAME=**user**
+POSTGRES_PASSWORD=**password**
+## Carpeta externa donde generar las copias
+EXTERNAL_VOLUME=/opt/docker_postgres
+```
+__Notas sobre el usuario__: El usuario que creemos será el que se encargará de realizar todas las acciones automáticas (típicamente _postgres_). Como al finalizar la instalación restauraremos, en caso de que en el fichero de roles (p.e. _roles.dump_) ya exista el usuario, al restaurar su contraseña se cambiará a la de la instalación previa de postgres.
+
+## Instalación
+Si tenemos el servicio de postgres corriendo, lo paramos:
+```sh 
+service postgres stop
+```
+Para mayor seguridad podemos cambiar el puerto de salida, por si postgres se reinicia, en el fichero _postgresql.conf_.
+
+Una vez tengamos el fichero .env correcto podemos lanzar:
+
+```console
+cd /opt/docker_posgres
+docker-compose build
+```
+Para arrancar el docker
+```console
+cd /opt/docker_posgres
+docker-compose up
+```
+Al final nos debe aparecer _database system is ready to accept connectios_
+
+Para dejar el docker levantado
+```console
+cd /opt/docker_posgres
+docker-compose start
 ```
 
 En caso que necesitemos para o reiniciar el docker utilizar start o stop:
@@ -51,27 +82,39 @@ En caso que necesitemos para o reiniciar el docker utilizar start o stop:
 docker-compose up/stop
 ```
 
-## Configuración
-
 Cuando realizamos el primer "up":
 * Se crea el usuario *POSTGRES_USERNAME* con el *POSTGRES_PASSWORD* con autenticación MD5 y se actualiza pg_hba.conf con soporte de MD5. 
 * se van a generar en *EXTERNAL_VOLUME* del anfitrión tres carpetas:
-    * pddata. Esta carpeta contiene todos los ficheros de configuración de postgres, desde habilitar ips, hasta cambiar puertos, etc.
+    * pgdata. Esta carpeta contiene todos los ficheros de configuración de postgres, desde habilitar ips, hasta cambiar puertos, etc.
     * cron. Ficheros de cron para habilitar tareas programadas. 
     * backup. Acceso a los últimos dumps generados.
 
-* Para cambiar la versión de postgresql, debemos cambiar la versión en  le Dockerfile y vovler a hacer build. Es recomendable realizar un backup previo por si la actualización de la versión produce algún problema con los datos existentes:
+* Para cambiar la versión de postgresql, debemos cambiar la versión en  le Dockerfile y volver a hacer build. Es recomendable realizar un backup previo por si la actualización de la versión produce algún problema con los datos existentes:
 ```
 FROM postgres:15.4
 ```
-## Notas
-* La ip es la misma que la del anfitrión. 
-* Si ya existe un servidor de postgres, hay que deshabilitarlo para levantar este.
-* Los ficheros de cron, inicialmente funciona. Para habilitarlo, hay que entrar una vez en el docker y ejecutar '*crontab -e*':
+### Restaurar roles y bases de datos
+```sh
+createdb yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME]
+psql yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME] < roles.dump
+psql yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME] < yeboyebo.dump
+# resto de bds...
+```
+
+## Configuración de las copias de seguridad
+
+### Indicar las BDs a copiar
+En la carpeta EXTERNAL_VOLUME/backup/databases.txt
+
+### Progamar las copias
+Para habilitar el cron, hay que entrar __una primera vez__ en el docker y ejecutar '*crontab -e*':
 ```console
     docker ps // Para ver nuestro CONTAINER ID. Ejemplo 086bbf520c72
     docker exec -i -t 086bbf520c72 /bin/bash
-    root: crontab -e 
+```    
+Y ya en la consola de docker
+```console
+    # root: crontab -e 
 ```
 * Editamos los datos:
     * Vía Google drive (Usando /backup/backup_drive.sh):
@@ -83,8 +126,6 @@ FROM postgres:15.4
         * 1 * * * /backup/backup_drive.sh remote_profile_name db_user_name db_user_pass db_port??5432
         ```
 
-
-
     * Vía SCP. Editamos los datos (Usando /backup/backup.sh)  (remote_user, remote_host y db_port son opcionales):
         * db_user_name: Usuario de postgres.
         * db_user_pass: Password de postgres.
@@ -94,12 +135,18 @@ FROM postgres:15.4
         * remote_host: Servidor remoto (Opcional). Default: 81.169.149.68
         ```
         * 1 * * * /backup/backup.sh db_user_name db_user_pass remote_profile_name db_port??5432 remote_user??yeboyebo_backup remote_host??81.169.149.68
-    ```
-
+        ```
 * Al guardar tenemos que obtener el siguiente mensaje: 
-```console
-crontab: installing new crontab
-```
+    ```console
+    crontab: installing new crontab
+    ```
+En adelante, basta editar el fichero _root_ en _EXTERNAL_VOLUME/cron/root_ para añadir o modificar acciones de cron.
+
+## Mantenimiento
+Podemos acceder a la consola de forma de siempre.
+
+Para reiniciar postgres, lo mejor es tirar y levantar el docker entero.
+
 
 ### Más
 
