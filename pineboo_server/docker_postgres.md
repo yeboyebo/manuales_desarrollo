@@ -5,6 +5,9 @@
 - [Pasos previos](./migracion_docker_postgres.md)
 
 ## Pasos previos
+### Contraseña de postgres / usuario admin
+Dado que vamos a hacer una copia de todos los usuarios del sistema a migrar, la contraseña del usuario que realizará las acciones del docker (típicamente postgres), es importante que conozcamos su contraseña. Si no la conocemos deberemos cambiarla en el postgres actual antes de continuar.
+
 ### Copia de los datos a llevar a la nueva instalación
 Hacer un dump de usuarios y roles y de las bds que vayamos a pasar
 ```sh
@@ -58,9 +61,9 @@ Fichero _.env_
 POSTGRES_USERNAME=**user**
 POSTGRES_PASSWORD=**password**
 ## Carpeta externa donde generar las copias
-EXTERNAL_VOLUME=/opt/docker_postgres
+EXTERNAL_VOLUME=/opt/postgres_data
 ```
-__External volume__: Es aconsejable
+__External volume__: Es aconsejable crear una carpeta externa distinta de la de la imagen de docker para guardar los datos externos.
 
 __Notas sobre el usuario__: El usuario que creemos será el que se encargará de realizar todas las acciones automáticas (típicamente _postgres_). Como al finalizar la instalación restauraremos, en caso de que en el fichero de roles (p.e. _roles.dump_) ya exista el usuario, al restaurar su contraseña se cambiará a la de la instalación previa de postgres.
 
@@ -76,12 +79,12 @@ Para mayor seguridad podemos cambiar el puerto de salida, por si postgres se rei
 Una vez tengamos el fichero .env correcto podemos lanzar:
 
 ```console
-cd /opt/docker_posgres
+cd /opt/docker_postgres
 docker-compose build
 ```
 Para arrancar el docker
 ```console
-cd /opt/docker_posgres
+cd /opt/docker_postgres
 docker-compose up
 ```
 Al final nos debe aparecer _database system is ready to accept connectios_
@@ -118,10 +121,15 @@ __NOTA__: Es recomendable realizar un backup previo por si la actualización de 
 
 ### Restaurar roles y bases de datos
 ```sh
-createdb yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME]
+createdb yeboyebo -E UNICODE -h localhost -p 5432 -U [POSTGRES_USERNAME]
 psql yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME] < roles.dump
 psql yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME] < yeboyebo.dump
 # resto de bds...
+```
+
+### Evitar que el postgres nativo se levante al reiniciarse la máquina
+```sh
+systemctl disable postgresql
 ```
 
 ## Configuración de las copias de seguridad
