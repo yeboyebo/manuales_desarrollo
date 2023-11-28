@@ -9,7 +9,6 @@ La clase _SpreadSheetReport.qs_ permite la creación de hojas de cálculo y la g
 - Tener los datos o la consulta que recoge los datos del informe.
 - Saber el nombre del informe y el nombre del fichero generado.
 - Si el informe tiene campos calculados, saber cuáles son.
-- Si el informe tiene campos acumulados, identificar cuáles son, de qué tipo y cómo calcularlos si es necesario.
 - Analizar los niveles que tendrá el informe y sus campos de ruptura.
 
 ### Parámetros opcionales
@@ -25,40 +24,39 @@ Función de lanzamiento
 
 ```js
 function oficial_tbnExcel_clicked() {
-  const _i = this.iface;
-  const cursor = this.cursor();
+    const _i = this.iface;
+    const cursor = this.cursor();
 
-  //  Prerrequisitos
-  const nombreInforme = "nombre del informe";
-  const nombreFichero = "nombre del fichero generado";
-  const camposCalculados = _i.dameCamposCalculados();
-  const acumulados = _i.dameAcumulados();
+    //  Prerrequisitos
+    const nombreInforme = "nombre del informe";
+    const nombreFichero = "nombre del fichero generado";
+    const camposCalculados = _i.dameCamposCalculados();
 
-  //Para obtener los datos que se imprimirán en el informe tenemos 2 opciones:
+    //Para obtener los datos que se imprimirán en el informe tenemos 2 opciones:
 
-  //OPCIÓN 1: Usamos una query que tengamos definida de la que obtener los datos
-  const query = _i.estableceConsulta("nombreConsulta", "tabla.id = 1", "");
+    //OPCIÓN 1: Usamos una query que tengamos definida de la que obtener los datos
+    const query = _i.estableceConsulta("nombreConsulta","tabla.id = 1", "");
 
-  //OPCIÓN 2: Podemos guardar los datos con la estructura que necesitemos dentro de un array que hayamos procesado manualmente
-  const data = _i.dameDatos();
+    //OPCIÓN 2: Podemos guardar los datos con la estructura que necesitemos dentro de un array que hayamos procesado manualmente
+    const data = _i.dameDatos()
 
-  /*Llamamos a la función donde definimos la estructura de niveles del informe.
+    /*Llamamos a la función donde definimos la estructura de niveles del informe.
     Esta nos debe devolver un objeto de la clase SpreadSheetReport con los niveles definidos*/
-  const spreadSheetReport = _i.dameReport(nombreInforme);
+    const spreadSheetReport = _i.dameReport(nombreInforme);
 
-  //Depende de la opción que estemos usando para recoger los datos tendremos que usar los siguientes métodos de la clase:
+    //Depende de la opción que estemos usando para recoger los datos tendremos que usar los siguientes métodos de la clase:
 
-  //Si los recogemos por Query
-  spreadSheetReport.setQuery(query);
+    //Si los recogemos por Query
+    spreadSheetReport.setQuery(query);
 
-  //Si los recogemos manualmente
-  spreadSheetReport.setData(data);
+    //Si los recogemos manualmente
+    spreadSheetReport.setData(data);
 
-  spreadSheetReport.setCamposCalculados(camposCalculados);
+    spreadSheetReport.setCamposCalculados(camposCalculados);
 
-  //PARÁMETROS OPCIONALES
+    //PARÁMETROS OPCIONALES
 
-  /*ESTILOS:
+    /*ESTILOS:
     Podemos crear un diccionario para guardar cómodamente los estilos de nuestro informe.
 
     Estilos disponibles:
@@ -77,13 +75,13 @@ function oficial_tbnExcel_clicked() {
         - "by" -> aplica los Sep verticales
     */
 
-  spreadSheetReport.setEstilos({
-    // Cada estilo debe tener asignado un array con los diferentes estilos a aplicar.
-    normal: ["lAlig", "border"],
-    titulo: ["lAlig", "border", "bold"],
-  });
+    spreadSheetReport.setEstilos({
+        // Cada estilo debe tener asignado un array con los diferentes estilos a aplicar.
+        "normal":["lAlig", "border"]
+        "titulo":["lAlig", "border", "bold"]
+    })
 
-  /*OPCIONES:
+    /*OPCIONES:
     Se le puede asignar cualquier estructura de datos.
     Pero por conveniencia deberíamos asignarle siempre un diccionario.
 
@@ -91,24 +89,18 @@ function oficial_tbnExcel_clicked() {
     se añadiría la opción de la siguiente manera.
     */
 
-  var res = formUI.preguntaMsg(
-    sys.translate("¿quieres imprimir los pies?"),
-    "info",
-    this,
-    MessageBox.Yes,
-    MessageBox.No
-  );
+    var res = formUI.preguntaMsg(sys.translate("¿quieres imprimir los pies?"), "info", this, MessageBox.Yes, MessageBox.No);
 
-  spreadSheetReport.setOpciones({
-    imprimirPies: res == Message.Yes,
-  });
+    spreadSheetReport.setOpciones({
+         "imprimirPies": (res == Message.Yes)
+    })
 
-  /*renderizamos la estructura de niveles.
+    /*renderizamos la estructura de niveles.
     Esta funcion devuelve un objeto spreadsheet, que contiene los datos dispuestos en filas.*/
-  const spreadsheet = spreadSheetReport.render();
+    const spreadsheet = spreadSheetReport.render();
 
-  //Con la funcion toODS transformamos el objeto a una  hoja de cálculo EXCEL. Le pasamos el nombre que queramos asignar al fichero generado
-  spreadsheet.toODS(nombreFichero);
+    //Con la funcion toODS transformamos el objeto a una  hoja de cálculo EXCEL. Le pasamos el nombre que queramos asignar al fichero generado
+    spreadsheet.toODS(nombreFichero);
 }
 ```
 
@@ -130,45 +122,6 @@ function oficial_dameCamposCalculados() {
 }
 ```
 
-Función que extrae los campos acumulados
-
-```js
-function oficial_dameAcumulados() {
-  const acumulados = {};
-  //para cada campo acumulado que queramos añadir, tendremos que añadir una clave al diccionario, y luego tenemos 2 opciones:
-
-  //OPCIÓN 1: guardar directamente el tipo de acumulado
-  acumulados["clave"] = "SUMA";
-
-  /*
-  OPCION 2: guardar un diccionario con el tipo del acumulado y una funcion para extraer el valor del incremento
-  
-  Esta opción es útil cuando la estructura de los valores del informe es más compleja que un diccionario con únicamente datos primitivos.
-
-  Ejemplo:{
-    Producto: x Unidades: x Envases:
-    [
-        {refEnvase:x Peso: x},
-        {refEnvase:x Peso: x}
-    ]
-  }
-  Si quisieramos en este ejemplo acumular el peso de los envases, tendríamos que usar esta forma
-  */
-
-  acumulados["clave"] = {
-    tipo: "SUMA",
-    funcionGet: function (valores, clave) {
-      var incremento = 0;
-      for (var i = 0; i < valores.envases.length; i++) {
-        incremento += valores.envases[i].peso;
-      }
-      return incremento;
-    },
-  };
-  return acumulados;
-}
-```
-
 Función que establece la query
 
 ```js
@@ -180,37 +133,6 @@ function oficial_estableceConsulta(nombreConsulta, where, orderBy) {
   if (orderBy) query.setOrderBy(orderBy);
 
   return query;
-}
-```
-
-Función que establece los datos del informe manualmente
-
-```js
-function oficial_dameDatos() {
-  /*
-    Imaginemos que queremos guardar los datos de las ventas con este formato:
-
-    {producto:x, unidadesVendidas: x, precio:x}
-
-    */
-  var q = new FLSqlQuery();
-
-  //Introduciríamos los datos de la query y la ejecutariamos
-
-  var datos = [];
-  while (q.next()) {
-    datos.push({
-      producto: q.value("producto"),
-      unidadesVendidad: q.value("unidadesVendidas"),
-      precio: q.value("precio"),
-    });
-  }
-
-  /*En este caso no tiene mucho sentido hacer esto ya que es mas sencillo obtener los datos de una query. 
-    Pero si los datos del informe necesitan usar varias querys o una estructura de datos más compleja, 
-    esta manera es más flexible.
-    */
-  return datos;
 }
 ```
 
@@ -318,13 +240,13 @@ function oficial_dameReport(nombreInforme)
 
     //NIVEL 1
 
-    report.setDetalle(1, function(valores, estilos, opciones, spreadsheet, acumulados, spreadsheetReport) {
+    report.setDetalle(1, function(valores, estilos, opciones, spreadsheet) {
 
         var fila = spreadsheet.addFila()
         fila.setFormato(estilos.normal)
-        //Si quisieramos introducir un valor en una celda concreta de la fila, podemos usar el siguiente método de la clase fila
-        fila.insertCeldaInPosition(2, valores["stocks.referencia"])
-        fila.insertCeldaInPosition(3, valores["articulos.descripcion"])
+        fila.addEspacios(2)
+        fila.addCelda(valores["stocks.referencia"])
+        fila.addCelda(valores["articulos.descripcion"])
 
         /*si el valor que queremos guardar en la celda es un número decimal,
         podemos cambiar la precision de la siguiente manera*/
@@ -336,20 +258,6 @@ function oficial_dameReport(nombreInforme)
         celda.setPrecision(2)
         //Si quisieramos que el una determinada celda ocupara más de una columna, podemos hacerlo utilizando setTamCelda
         celda.setTamCelda(3) //esta celda ocuparia 3 columnas
-
-        /*
-        En el caso de que el informe sea muy complejo, podemos hacer uso del ultimo parámetro de la función de dibujado, en el que se guarda el propio objeto report mientras se está ejecutando el render.
-
-        Esto solo deberíamos hacerlo en casos raros, pero un ejemplo es cuando necesitamos acceder a los acumulados de un nivel distinto al que se está pintando.
-        */
-       const acumuladosInforme = spreadsheetReport.acumulados;
-		acumuladosNivelCero = spreadsheetReport.getAcumulados(valores, 0, acumuladosInforme)
-
-        //Esto nos serviría por ejemplo para calcular campos como porcentajes de un total que se esta calculando en el nivel 0
-
-        valorPorcentaje = parseFloat(acumulados["clave"] / parseFloat(acumuladosNivelCero["clave"]) * 100)
-
-        fila.addCelda(valorPorcentaje + " %")
 
     })
 }
