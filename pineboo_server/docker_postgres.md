@@ -64,9 +64,11 @@ __External volume__: Es aconsejable
 
 __Notas sobre el usuario__: El usuario que creemos será el que se encargará de realizar todas las acciones automáticas (típicamente _postgres_). Como al finalizar la instalación restauraremos, en caso de que en el fichero de roles (p.e. _roles.dump_) ya exista el usuario, al restaurar su contraseña se cambiará a la de la instalación previa de postgres.
 
+__EXTERNAL_VOLUME__: Cuando el docker se inicia la primera véz crea las carpetas de backup, cron, pgdata en la carpeta que especifiquemos como __EXTERNAL_VOLUME__. Desde aquí podemos hacer cambios en la configuración del docker , sin necesidad de entrar en el. No es necesario que sea la misma carpeta que hemos descargado de GIT.
+
 ## Instalación
 Si tenemos el servicio de postgres corriendo, lo paramos:
-```sh 
+```console
 service postgres stop
 ```
 Para mayor seguridad podemos cambiar el puerto de salida, por si postgres se reinicia, en el fichero _postgresql.conf_.
@@ -103,10 +105,17 @@ Cuando realizamos el primer "up":
     * cron. Ficheros de cron para habilitar tareas programadas. 
     * backup. Acceso a los últimos dumps generados.
 
-* Para cambiar la versión de postgresql, debemos cambiar la versión en  le Dockerfile y volver a hacer build. Es recomendable realizar un backup previo por si la actualización de la versión produce algún problema con los datos existentes:
+* Para cambiar la versión de postgresql, debemos cambiar la versión en el Dockerfile , cambiando la siguiente linea, por una nueva versión:
 ```
 FROM postgres:15.4
 ```
+Una vez realizamos el cambio lanzamos 
+```console
+docker-compose build
+```
+
+__NOTA__: Es recomendable realizar un backup previo por si la actualización de la versión produce algún problema con los datos existentes.
+
 ### Restaurar roles y bases de datos
 ```sh
 createdb yeboyebo -h localhost -p 5432 -U [POSTGRES_USERNAME]
