@@ -28,9 +28,7 @@ src/contexts/shared/domain/
 
 src/contexts/shared/domain/
 
-entre objetos de infraestructura y de negocio
-
-Dinero.ts <> EnvironmentArranger.ts
+entre objetos de infraestructura y de negocio. Ejemplos: Dinero.ts <> EnvironmentArranger.ts
 
 ### Las primitivas no tienen interfaces:
 ```js
@@ -38,6 +36,13 @@ static fromPrimitives(primitives: any): VentaTpv {
     ...
 }
 ```
+### Explicar interfaz Primitives
+¿Ficheros independientes? ¿independientes en carpeta primitives? ¿incluir en fichero de entidad junto con *Props (src/contexts/ventas/ventatpv/domain/VentaTpvCliente.ts)?
+
+Mothers: los métodos _basico_ usan primitivas parciales (¿crear un nuevo tipo _PartialPrimitives_, usar _any_?)
+
+### DateTimeValueObject
+Es lioso (src/contexts/ventas/ventatpv/tests/domain/VentaTpvExpedicionMother.ts)
 
 ### Imports
 + Todo rutas no relativas o sí cuando sea ./---
@@ -52,8 +57,14 @@ domain
 + Errors
 (entidades y value objects)
 
-
-### Explicar interfaz Primitives
+### Estructura de tests ?
+test/s
++ Mocks
++ Mothers
++ Domain
++ Infrastructue
 
 ### Eventos necesitan más libertad de datos
 (quitar _| any_ de aggregateRoor.ts > record)
+
+### Funciones asíncronas y await ¿hace falta?
