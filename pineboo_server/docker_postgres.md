@@ -32,13 +32,25 @@ dando permiso a la parte de _repos_.
 + Username (p.e. _antonio-yeboyebo_)
 + Pass: el token generado
 
-__Pensar política de tokens__
+Obtendremos algo similar a:
+```console
+Clonando en 'docker_postgres'...
+Username for 'https://github.com': antonio-yeboyebo
+Password for 'https://```antonio-yeboyebo@github.com': 
+remote: Enumerating objects: 44, done.
+remote: Counting objects: 100% (44/44), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 44 (delta 15), reused 35 (delta 9), pack-reused 0
+Desempaquetando objetos: 100% (44/44), 11.30 KiB | 680.00 KiB/s, listo.
+```
+
+__NOTA: Pensar política de tokens__
 
 ## Primer entorno
 
 Para funcionar, el servidor debe detectar un fichero _.env_ en el directorio principal. La estructura de este fichero debe ser:
 
-En _/opt/dockerpostgres_
+En _/opt/docker_postgres_
 
 Fichero _.env_
 
@@ -48,6 +60,8 @@ POSTGRES_PASSWORD=**password**
 ## Carpeta externa donde generar las copias
 EXTERNAL_VOLUME=/opt/docker_postgres
 ```
+__External volume__: Es aconsejable
+
 __Notas sobre el usuario__: El usuario que creemos será el que se encargará de realizar todas las acciones automáticas (típicamente _postgres_). Como al finalizar la instalación restauraremos, en caso de que en el fichero de roles (p.e. _roles.dump_) ya exista el usuario, al restaurar su contraseña se cambiará a la de la instalación previa de postgres.
 
 ## Instalación
