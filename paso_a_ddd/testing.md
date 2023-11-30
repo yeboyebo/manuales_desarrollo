@@ -20,7 +20,7 @@ Debemos indicar los valores apropiados en el fichero qsa.config.json, que guarda
 ```
 
 ## t.describe()
-Representa una suite ((conjunto) de tests.
+Representa una suite (conjunto) de tests.
 
 Los parámetros que esta función admite son:
 + Texto descriptivo de la suite.
@@ -88,4 +88,3 @@ function TestValorPuntoClienteMON(t) {
 }
 TestValorPuntoClienteMON;
 ```
-## Test con base de datos (itest)

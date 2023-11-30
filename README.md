@@ -5,6 +5,7 @@
 ## Índice
 
 - [Arquitectura](./arquitectura/index.md)
+- [Glosario](./glosario/glosario.md)
 - [Reglas de acceso](./reglas_acceso/index.md)
 - [Pineboo Server](./pineboo_server/index.md)
 - [AQNext legacy](./aqnext_legacy/index.md)
@@ -19,7 +20,7 @@
 - [Calidad](./calidad/index.md)
 - [SQL](./sql/index.md)
 - [Configuracion del puesto](./puesto/index.md)
-- [Programación QSA](./programacion_qsa/index.md)
+- [Programación](./programacion/index.md)
 - [Copias de seguridad](./copias_seguridad/index.md)
 - [Instalación portátil](./instalacion_portatil/index.md)
 - [FAQ](./faq/index.md)

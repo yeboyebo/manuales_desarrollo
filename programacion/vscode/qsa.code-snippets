@@ -1,0 +1,502 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Class declaration": {
+		"prefix": "_class_declaration",
+		"body": [
+			"/** @class_declaration $2 */",
+			"/////////////////////////////////////////////////////////////////",
+			"//// ${1:Nombre completo} /////////////////////////////////////////////////",
+			"class ${2:clase} extends ${3:oficial} {",
+			"\tfunction $2( context ) { $3 ( context ); }",
+			"}",
+			"//// $1 /////////////////////////////////////////////////",
+			"/////////////////////////////////////////////////////////////////"
+		],
+		"description": "Declaración de clase"
+	},
+    "Function declaration": {
+		"prefix": "_function_declaration",
+		"body": [
+			"function $1() {",
+            "\treturn this.ctx.$2_$1();",
+			"}",
+		],
+		"description": "Declaración de función"
+	},
+    "campo fecha": {
+        "prefix": "campo_fecha",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>date</type>"
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo string": {
+        "prefix": "campo_string",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>string</type>"
+            "\t<length>${5:Longitud}</length>"          
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${7|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo double": {
+        "prefix": "campo_double",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>double</type>"
+            "\t<partI>10</partI>"
+            "\t<partD>2</partD>"
+            "\t<default>0</default>"    
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo stringlist": {
+        "prefix": "campo_stringlist",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>stringlist</type>" 
+            "\t<editable>${5|true,false|}</editable>"
+            "\t<visiblegrid>${6|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo booleano": {
+        "prefix": "campo_booleano",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>bool</type>"
+            "\t<default>${5|true,false|}</default>" 
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${7|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "campo unit": {
+        "prefix": "campo_entero",
+        "body": [
+            "<field>"
+            "\t<name>${1:Nombre campo}</name>"
+            "\t<alias>QT_TRANSLATE_NOOP(\"MetaData\",\"${2:Label campo}\")</alias>"
+            "\t<pk>${3|true,false|}</pk>"
+            "\t<null>${4|true,false|}</null>"
+            "\t<type>uint</type>"
+            "\t<default>0</default>"    
+            "\t<editable>${6|true,false|}</editable>"
+            "\t<visiblegrid>${8|true,false|}</visiblegrid>"
+            "</field>"
+        ]
+    },
+    "relacion 1M": {
+        "prefix": "relacion_1M",
+        "body": [
+            "<relation>"
+                "\t<table>${1:Nombre tabla}</table>"
+                "\t<field>${2:Nombre campo en tabla}</field>"
+                "\t<card>1M</card>"
+            "</relation>"
+        ]
+    },
+    "relacion M1": {
+        "prefix": "relacion_M1",
+        "body": [
+            "<relation>"
+                "\t<table>${1:Nombre tabla}</table>"
+                "\t<field>${2:Nombre campo en tabla}</field>"
+                "\t<card>M1</card>"
+            "</relation>"
+        ]
+    },
+    "Mensaje consola js": {
+        "scope": "javascript,typescript,javascriptreact",
+        "prefix": "_log",
+        "body": [
+            "console.log('mimensaje_${1:nombre}', ${2:variables});",
+            "$3"
+        ],
+        "description": "Mensaje consola javascript"
+    },
+    "Mensaje consola Grape": {
+        "scope": "javascript",
+        "prefix": "_logGrape",
+        "body": [
+            "log: (${1:payload}, ${2:state}) => ['mimensaje_${3:nombre}', ${4:variables}],",
+        ],
+        "description": "Mensaje consola javascript Grape"
+    },
+    "Borde caja": {
+        "scope": "javascriptreact",
+        "prefix": "_borde",
+        "body": [
+            "style={{ border: '1px solid red' }}",
+        ],
+        "description": "Borde caja"
+    },
+    "Grape condition ": {
+        "scope": "yaml",
+        "prefix": ["_conditionGrape","_grape"],
+        "body": [
+            "- condition:",
+            "\t\toperator: ${1|A = B,A in list B,A is defined,A is true,not A,schema is invalid for A,list A is empty,list A is not empty,mediaWidth in [xs, sm|}",
+            "\t\tA:",
+            "\t\t\t${2|statePath,payloadPath,code,const|}: ${3:data}",
+            "\t\tB:",
+            "\t\t\t${4|statePath,payloadPath,code,const|}: ${5:data}",
+            "\t_type: grape",
+            "\tname: ${6:nombreGrape}",
+            "${0}"
+        ],
+        "description": "Grape condition"
+    },
+    "Atributo condition dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_conditionAtr","_atributoGrape"],
+        "body": [
+            "condition:",
+            "\t\toperator: ${1|A = B,A in list B,A is defined,A is true,not A,schema is invalid for A,list A is empty,list A is not empty,mediaWidth in [xs, sm|}",
+            "\t\tA:",
+            "\t\t\t${2|statePath,payloadPath,code,const|}: ${3:data}",
+            "\t\tB:",
+            "\t\t\t${4|statePath,payloadPath,code,const|}: ${5:data}",
+        ],
+        "description": "Condiciona el grape a que la condición se cumpla"
+    },
+    "Atributo params dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_paramsAtr","_atributoGrape"],
+        "body": [
+            "params:",
+            "\t- key: ${1:nombreClave}",
+            "\t\tvalue:",
+            "\t\t\t${2|statePath,payloadPath,code,const|}: ${3:valor}",
+        ],
+        "description": "Constructor del objeto params para la función"
+    },
+    "Atributo data dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_dataAtr","_atributoGrape"],
+        "body": [
+            "data:",
+            "\t- key: ${1:nombreClave}",
+            "\t\tvalue:",
+            "\t\t\t${2|statePath,payloadPath,code,const|}: ${3:valor}",
+        ],
+        "description": "Constructor del objeto params para la función"
+    },
+    "Atributo filter simple dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_filterSimpleAtr","_atributoGrape"],
+        "body": [
+            "filter:",
+            "\t- ${1|statePath,payloadPath,code,const|}: ${2:campo}",
+            "\t- const: ${3|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t- ${4|statePath,payloadPath,code,const|}: ${5:valor}",
+        ],
+        "description": "Constructor del objeto filter para la función"
+    },
+    "Atributo filter and dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_filterOpLogicoAtr","_atributoGrape"],
+        "body": [
+            "filter:",
+            "\t${1|and,or|}:",
+            "\t\t- - ${2|statePath,payloadPath,code,const|}: ${3:campo}",
+            "\t\t  - ${4|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t\t  - ${5|statePath,payloadPath,code,const|}: ${6:valor}",
+            "\t\t- - ${7|statePath,payloadPath,code,const|}: ${8:campo}",
+            "\t\t  - ${9|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t\t  - ${10|statePath,payloadPath,code,const|}: ${11:valor}",
+        ],
+        "description": "Constructor del objeto filter con operador lógico para la función"
+    },
+    "Atributo filter or dentro de grape": {
+        "scope": "yaml",
+        "prefix": ["_filterAnidadoAtr","_atributoGrape"],
+        "body": [
+            "filter:",
+            "\t${1|and,or|}:",
+            "\t\t- - ${2|statePath,payloadPath,code,const|}: ${3:campo}",
+            "\t\t  - ${4|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t\t  - ${5|statePath,payloadPath,code,const|}: ${6:valor}",
+            "\t\t- - ${7|statePath,payloadPath,code,const|}: ${8:campo}",
+            "\t\t  - ${9|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t\t  - ${10|statePath,payloadPath,code,const|}: ${11:valor}",
+            "\t\t- ${12|and,or|}:",
+            "\t\t\t- - ${13|statePath,payloadPath,code,const|}: ${14:campo}",
+            "\t\t\t  - ${15|eq,neq,lt,gt,lte,neq,gte,in,not_in,like,between,interval,is_null,is_not_null,is_falsy,is_not_falsy,contains,starts_with,ends_with,like_cs,contains_cs,starts_with_cs,ends_with_cs|}",
+            "\t\t\t  - ${16|statePath,payloadPath,code,const|}: ${17:valor}",
+        ],
+        "description": "Constructor del objeto filter para la función"
+    },
+    "logYaml": {
+        "scope": "yaml",
+        "prefix": ["_log","_grape"],
+        "body": [
+            "- _type: log",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tdesc: mimensaje_${2:nombre}",
+            "\tvalue:",
+            "\t\t${3|statePath,payloadPath,code,const,toggleStatePath|}: ${4:data}",
+        ],
+        "description": "Mensaje consola yaml"
+    },
+    "alert": {
+        "scope": "yaml",
+        "prefix": ["_alert","_grape"],
+        "body": [
+            "- _type: alert",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\ttext: ${2:texto} #required",
+            "\tseverity: ${3|error,info,success,warning|} #required",
+        ],
+        "description": "Lanza un toast en pantalla con un mensaje"
+    },		
+    "appDispatch": {
+        "scope": "yaml",
+        "prefix": ["_appDispatch","_grape"],
+        "body": [
+            "- _type: appDispatch",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tname: ${2:nombreFunción} #required",
+            "\tpayload:",
+        ],
+        "description": "Llamada a un grape del contexto de aplicación"
+    },	
+    "set": {
+        "scope": "yaml",
+        "prefix": ["_set","_grape"],
+        "body": [
+            "- _type: set",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tpath: ${2:rutaVariable} #required",
+            "\tvalue: #required",
+            "\t\t${3|statePath,payloadPath,code,const,toggleStatePath|}: ${4:nuevoValor}",
+        ],
+        "description": "Establece un valor en una variable de estado"
+    },
+    "appendItem": {
+        "scope": "yaml",
+        "prefix": ["_appendItem","_grape"],
+        "body": [
+            "- _type: appendItem",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tpath: ${2:rutaArray} #required",
+            "\tvalue: #required",
+            "\t\t${3|statePath,payloadPath,code,const|}: ${4:nuevoItem}",
+        ],
+        "description": "Añade un valor al final de un array almacenado en una variable de estado"
+    },
+    "deleteItemByIndex": {
+        "scope": "yaml",
+        "prefix": ["_deleteItemByIndex","_grape"],
+        "body": [
+            "- _type: deleteItemByIndex",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tpath: ${2:rutaArray}  #required",
+            "\tindex:  #required",
+            "\t\t${3|statePath,payloadPath,code,const|}: ${4:indexItem}",
+        ],
+        "description": "Elimina un elemento de un array almacenado en una variable de estado a partir de su índice"
+    },
+    "setItem": {
+        "scope": "yaml",
+        "prefix": ["_setItem","_grape"],
+        "body": [
+            "- _type: setItem",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tpath: ${2:rutaDiccionario} #required",
+            "\tvalue: #required",
+            "\t\t${3|statePath,payloadPath,code,const|}: ${4:nuevoValor}",
+            "\tkey: #required",
+            "\t\t${5|statePath,payloadPath,code,const|}: ${6:claveDiccionario}",
+            "\tprop: ${7:Propiedad_del_elemento_a_cambiar} #required",
+        ],
+        "description": "Establece un valor en elemento de un diccionario del estado"
+    },
+    "download": {
+        "scope": "yaml",
+        "prefix": ["_download","_grape"],
+        "body": [
+            "- _type: download",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tschema: ${2:schema_a_usar} #required",
+            "${3|\t_paramsAtr #Ctrl+space despliega sugerencia, |}",
+            "\taction: ${4:acción_asociada_en_la_API}",
+            "\tfilename:",
+            "\t\t${5|statePath,payloadPath,code,const|}: ${6:nombre_del_fichero_a_crear}",
+            "\tsuccess: ${7:grape_al_que_llamar_en_caso_de_éxito}  #required",
+            "\terror: ${8:grape_al_que_llamar_en_caso_de_error}",
+        ],
+        "description": "Establece un valor en elemento de un diccionario del estado"
+    },
+    "call": {
+        "scope": "yaml",
+        "prefix": ["_call","_grape"],
+        "body": [
+            "- _type: call",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tfunction: #required",
+            "\t\t${2|statePath,payloadPath,code,const|}: ${3:nombreFunción}",
+            "\t${7|_paramsAtr #Ctrl+space despliega sugerencia, |}",
+        ],
+        "description": "Ejecuta una función"
+    },
+    "get": {
+        "scope": "yaml",
+        "prefix": ["_get","_grape"],
+        "body": [
+            "- _type: get",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tschema: ${2:schema_a_usar} #required",
+            "\taction: ${3:acción_asociada_en_la_API_si_no_es_get}",
+            "\tid: #usar_id_o_filter",
+            "\t\t${4|statePath,payloadPath,code,const|}: ${5:id_del_objeto_a_obetener}",
+            "\t${6|_filterSimpleAtr #Ctrl+space despliega sugerencia,_filterOpLogicoAtr #Ctrl+space despliega sugerencia,_filterAnidadoAtr #Ctrl+space despliega sugerencia, |}",
+            "\t${7|_paramsAtr #Ctrl+space despliega sugerencia, |}",
+            "\tsuccess: ${9:grape_al_que_llamar_en_caso_de_éxito}  #required",
+            "\terror: ${10:grape_al_que_llamar_en_caso_de_error}",
+        ],
+        "description": "Llamada http GET. Ejecuta una función en la API"
+    },
+    "grape": {
+        "scope": "yaml",
+        "prefix": ["_grape"],
+        "body": [
+            "- _type: grape",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tname: ${2:nombreGrape} #required",
+            "\tpayload:",
+        ],
+        "description": "Llama a otro grape por nombre"
+    },
+    "patch": {
+        "scope": "yaml",
+        "prefix": ["_patch","_grape"],
+        "body": [
+            "- _type: patch",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tschema: ${2:schema_a_usar} #required",
+            "\tid: #usar_id_o_filter",
+            "\t\t${3|statePath,payloadPath,code,const|}: ${4:id_del_objeto_a_obetener}",
+            "\taction: ${5:acción_asociada_en_la_API_si_no_es_patch}",
+            "\t${6|_dataAtr #Ctrl+space despliega sugerencia, |}",
+            "\tfiles: #usar_id_o_filter",
+            "\t\t${7|statePath,payloadPath,code,const|}: ${8:files}",
+            "\tsuccess: ${9:grape_al_que_llamar_en_caso_de_éxito}  #required",
+            "\terror: ${10:grape_al_que_llamar_en_caso_de_error}",
+        ],
+        "description": "Llamada http PATCH. Ejecuta una función en la API"
+    },
+    "post": {
+        "scope": "yaml",
+        "prefix": ["_post","_grape"],
+        "body": [
+            "- _type: post",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tschema: ${2:schema_a_usar} #required",
+            "\taction: ${3:acción_asociada_en_la_API_si_no_es_patch}",
+            "\t${4|_dataAtr #Ctrl+space despliega sugerencia, |}",
+            "\tsuccess: ${5:grape_al_que_llamar_en_caso_de_éxito}  #required",
+            "\terror: ${6:grape_al_que_llamar_en_caso_de_error}",
+        ],
+        "description": "Llamada http POST. Ejecuta una función en la API"
+    },
+    "if": {
+        "scope": "yaml",
+        "prefix": ["_if","_grape"],
+        "body": [
+            "- _type: if",
+            "\tif: #required",
+            "\t\toperator: ${1|A = B,A in list B,A is defined,A is true,not A,schema is invalid for A,list A is empty,list A is not empty,mediaWidth in [xs, sm|}",
+            "\t\tA:",
+            "\t\t\t${2|statePath,payloadPath,code,const|}: ${3:data}",
+            "\t\tB:",
+            "\t\t\t${4|statePath,payloadPath,code,const|}: ${5:data}",
+            "\tthen: #required",
+            "\t\t_type: ${6:tipoGrape}"
+            "\t\t${7:atributosGrape}"
+            "\telse:",
+            "\t\t_type: ${8:tipoGrape}"
+            "\t\t${9:atributosGrape}"
+            "${0}",
+        ],
+        "description": "if / then / [else]"
+    },
+    "navigate": {
+        "scope": "yaml",
+        "prefix": ["_navigate","_grape"],
+        "body": [
+            "- _type: navigate",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\turl: #required si es local comienza por /, si es externa por http y abre una nueva ventana",
+            "\t\t${2|statePath,payloadPath,code,const|}: ${3:data}",
+        ],
+        "description": "Navegar"
+    },
+    "setToLocalStorage": {
+        "scope": "yaml",
+        "prefix": ["_setToLocalStorage","_grape"],
+        "body": [
+            "- _type: setToLocalStorage",
+            "${0}${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tkey: ${2:nombreClave} #required",
+            "\tvalue: #required",
+            "\t\t${3|statePath,payloadPath,code,const|}: ${4:data}",
+        ],
+        "description": "Establece un valor a almacenar en el navegador"
+    },
+    "smTransition": {
+        "scope": "yaml",
+        "prefix": ["_smTransition","_grape"],
+        "body": [
+            "- _type: smTransition",
+            "${1|\t_conditionAtr #Ctrl+space despliega sugerencia, |}",
+            "\tcurrent: ${2:estadoInicial} #required",
+            "\ttarget: ${3:estadoFinal} #required",
+            "\tactions:",
+            "\t\tGrapes_asociados_a_la_transición${0}",
+        ],
+        "description": "Transición de máquina de estados"
+    },
+}

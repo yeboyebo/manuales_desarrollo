@@ -6,7 +6,7 @@
 
 * [Configuración personal](./configuracion_personal.md)
 * [AnyDesk](./anydesk.md)
-* [PostgresSQL](./postgressql.md)
+* [PostgresSQL](../postgresql_server/configuracion.md)
 * [MySql](./mysql.md)
 * [PgAdmin4](./pgadmin4.md)
 * [Subversion](./subversion)
@@ -26,6 +26,7 @@
 * [TeamViewer](./teamviewer.md)
 * [Abanq](./abanq.md)
 * [JasperReports](./jasperreports.md)
+* [Cloudflare (ver app desarrollo en internet)](./cloudflare.md)
   
 ## Más
 

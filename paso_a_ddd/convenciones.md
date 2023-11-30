@@ -3,7 +3,7 @@
 ## Clases
 Usaremos _PascalCase_, con el mismo valor que el nombre del fichero, si se trata de su clase principal.
 ```js
-class EjercicioFiscal { //...
+class EjercicioFiscal { ... }
 ```
 ## Variables y atributos
 Usaremos _camelCase_.
@@ -11,15 +11,42 @@ Usaremos _camelCase_.
 ### Atributos privados
 **No** usamos el guión bajo para indicar que el atributo es privado.
 ```js
-const v = this._miAtributo // Mal
 const v = this.miAtributo  // Bien
+const v = this._miAtributo // Mal
+```
+Para los atributos que son value objects usaremos un nombre igual o similar al value object.
+```js
+this.fecha = new Fecha("2023-12-31")
+```
+Si es necesario distinguirlo de otros, usamos un sufijo
+```js
+this.fechaAlta = new Fecha("2023-12-31")
+this.fechaMod = new Fecha("2024-01-06")
+```
+Si dentro de la entidad parte del nombre del value object es redundante, lo omitiremos:
+```js
+class VentaTpv {
+  ...
+  this.ventaId = new VentaTpvId(1) // Bien
+  this.ventaTpvId = new VentaTpvId(1) // Mal
+  ...
+}
+```
+
+### Claves de primitivas
+Siempre que sea posible, las claves de primitivas tendrán el mismo nombre que el atributo que mapean.
+```js
+const primitives = {
+  "lineaId": lineaId.value(),
+  ...
+}
 ```
 
 ### Acrónimos y siglas
 En el caso de palabras formadas por iniciales (_IVA_, _IRPF_) indicamos solo la primera mayúscula. Ej:
 ```js
-const codGrupoIVANegocio = "A" // Mal
 const codGrupoIvaNegocio = "A" // Bien
+const codGrupoIVANegocio = "A" // Mal
 ```
 
 ## Funciones y métodos
@@ -28,15 +55,15 @@ Usaremos _camelCase_.
 ### Métodos privados
 **No** usamos el guión bajo para indicar que el método es privado
 ```js
-const v = this._miMetodo() // Mal
 const v = this.miMetodo()  // Bien
+const v = this._miMetodo() // Mal
 ```
 
 ### Acrónimos y siglas
 En el caso de palabras formadas por iniciales (_IVA_, _IRPF_) indicamos solo la primera mayúscula. Ej:
 ```js
-const g = getGrupoIVANegocio() // Mal
 const g = getGrupoIvaNegocio() // Bien
+const g = getGrupoIVANegocio() // Mal
 ```
 
 ## Ficheros y carpetas
@@ -57,9 +84,26 @@ Por requerimientos legacy, los nombres de los ficheros no pueden coincicir aunqu
 ### Ficheros: Entidades
 Descripción de la entidad. Como el nombre debe ser único, debemos ser lo suficientemente específicos para garantizar que no se repita.
 ```sh
-/contexts/empresa/ejerciciofiscal/application/CrearEjercicioFiscal.qs
-/contexts/ventas/pedidocliente/application/LineaPedidoCliente.qs
+/contexts/ventas/pedido/domain/LineaPedidoCliente.qs
 ```
+
+### Ficheros: Value Objects
+Descripción del valor encapsulado.
+```sh
+/contexts/shared/domain/Dinero.qs
+```
+
+En caso de que el valor encapsulado sea un id, el nombre terminará en _Id_.
+```sh
+/contexts/ventas/pedido/domain/PedidoVentaId.qs
+```
+
+### Ficheros: Tests de casos de entidades
+[Nombre del la entidad] + _.test.qs_
+```sh
+/contexts/empresa/ejerciciofiscal/test/domain/EjercicioFiscal.test.qs
+```
+
 
 ### Ficheros: Casos de uso
 Descripción del caso de uso con un verbo en infinitivo al comienzo.
