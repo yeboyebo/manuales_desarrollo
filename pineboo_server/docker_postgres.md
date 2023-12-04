@@ -105,6 +105,8 @@ Cuando realizamos el primer "up":
 * Se crea el usuario *POSTGRES_USERNAME* con el *POSTGRES_PASSWORD* con autenticación MD5 y se actualiza pg_hba.conf con soporte de MD5. 
 * se van a generar en *EXTERNAL_VOLUME* del anfitrión tres carpetas:
     * pgdata. Esta carpeta contiene todos los ficheros de configuración de postgres, desde habilitar ips, hasta cambiar puertos, etc.
+        - Fichero pg_hba.conf 
+        - Fichero postgresql.conf
     * cron. Ficheros de cron para habilitar tareas programadas. 
     * backup. Acceso a los últimos dumps generados.
 
