@@ -139,7 +139,7 @@ En la carpeta EXTERNAL_VOLUME/backup/databases.txt
 
 ### Progamar las copias
 Para habilitar el cron, hay que entrar __una primera vez__ en el docker y ejecutar '*crontab -e*':
-```console
+```sh
     docker ps // Para ver nuestro CONTAINER ID. Ejemplo 086bbf520c72
     docker exec -i -t 086bbf520c72 /bin/bash
 ```    
@@ -174,8 +174,29 @@ Y ya en la consola de docker
 En adelante, basta editar el fichero _root_ en _EXTERNAL_VOLUME/cron/root_ para añadir o modificar acciones de cron.
 
 ## Mantenimiento
-Podemos acceder a la consola de forma de siempre.
+Podemos acceder a la consola a través de docker:
+```sh
+docker exec -i -t 14d21f0325e1 psql atalaya -U yeboyebo -h localhost
+```
+### TO DO: Script de copia de seguridad, instalación y regeneración de BD
++ Comprobar cómo crear usuarios con los permisos adecuados solo sobre sus BDs asociadas.
++ Mejoras propuestas por J.Aulla
+    + actualizar docker_postgres , para setear user, pass, puerto y url del servidor a migrar. Opciones:
 
+    a) junto con el nombre de las bases de datos y roles.
+
+    b) hacer un solo dump_all y volvamos todo a un único dump.
+
+    + al terminar la instalación restaurar estos datos automaticamente en el nuevo servidor del docker.
+    controlar que no cambie el password del usuario usado crear el docker.
+    script independiente para eliminar  todo lo levantado en caso de error. ( y poder volver a empezar)
+
+### Copias de seguridad antes de instalar
+```sh
+docker exec -i -t e268c1ea92b4 /bin/bash -c "pg_dump yeboyebo -U antonio -h localhost -p 5432 > /backup/dumps/yeboyebo._prueba.dump"
+```
+
+### Reinicio de postgres
 Para reiniciar postgres, lo mejor es tirar y levantar el docker entero.
 
 
