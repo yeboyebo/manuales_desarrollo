@@ -71,7 +71,7 @@ pineboolib_app.PROJECT.conn_manager.REMOVE_CONNECTIONS_AFTER_ATOMIC = * False # 
 ## Dar permisos a fichero docker.sock
 
 ```console
-sudo chmod 777 /run/docker.sock
+sudo usermod -a -G docker $USER
 ```
 
 ## Configuración postgresql
