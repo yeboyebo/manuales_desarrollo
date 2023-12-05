@@ -57,14 +57,23 @@ domain
 + Errors
 (entidades y value objects)
 
-### Estructura de tests ?
-test/s
-+ Mocks
-+ Mothers
-+ Domain
-+ Infrastructue
 
 ### Eventos necesitan más libertad de datos
 (quitar _| any_ de aggregateRoor.ts > record)
 
 ### Funciones asíncronas y await ¿hace falta?
+
+## REVISADO:
+
+### Estructura de tests ?
+tests
++ domain: mothers
++ infrastructue: tests y mocks de repo
++ applications: tests de aplicación
+
+La interfaz del repositorio es con value object
+
+
+
+## PENDIENTE
+Ejemplo de memorepo
