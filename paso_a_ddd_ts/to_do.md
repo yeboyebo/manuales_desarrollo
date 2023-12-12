@@ -11,10 +11,11 @@ Para valores de configuración que cambian muy poco (código de serie del punto 
 
 
 ## Continuar TPV
++ Repositorios obtienen la secuencia (next id)
++ Stock
 + Pagos deben asociarse a un arqueo
 + No puedo borrar un pago de un arqueo cerrado
 + Vales, emisión y uso
-+ Stock
 
 
 
