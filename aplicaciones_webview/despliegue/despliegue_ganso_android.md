@@ -9,7 +9,7 @@ Primero lanzaremos el siguiente comando para comprobar que no tenemos ningun pro
     ns doctor android
     ~~~
 
-![Comporbacion errores App](./img/ns_doctor.png)
+![Comporbacion errores App](../img/ns_doctor.png)
 
 ## 2. Instalar app en simulador o dispositivo real
 Podemos probar que la app va a funcionar instalandola en un simulador o dispositivo de pruebas. Debemos tener el simulador arrancado o nuestro dispositivo conectado correctamente a nuestro PC.
