@@ -71,50 +71,56 @@ const g = getGrupoIVANegocio() // Mal
 ### Carpetas
 Usaremos minúsculas, sin separación entre palabras.
 ```sh
-/contexts/empresa/ejerciciofiscal
+/olula/empresa/ejerciciofiscal
 ```
 
 ### Ficheros (general)
 Usaremos _PascalCase_.
 ```sh
-/contexts/empresa/ejerciciofiscal/domain/EjercicioFiscal.qs
+/olula/empresa/ejerciciofiscal/domain/EjercicioFiscal.qs
 ```
 Por requerimientos legacy, los nombres de los ficheros no pueden coincicir aunque estén en distintos directorios.
 
 ### Ficheros: Entidades
 Descripción de la entidad. Como el nombre debe ser único, debemos ser lo suficientemente específicos para garantizar que no se repita.
 ```sh
-/contexts/ventas/pedido/domain/LineaPedidoCliente.qs
+/olula/ventas/pedido/domain/LineaPedidoCliente.qs
 ```
+
+Para las entiedades que son proyecciones de otras entidades en otros contextos, usaremos el nombre de la entidad del otro contexto + el nombre del contexto local:
+```sh
+/olula/ventas/shared/domain/EjercicioFiscalVentas.qs
+```
+
 
 ### Ficheros: Value Objects
 Descripción del valor encapsulado.
 ```sh
-/contexts/shared/domain/Dinero.qs
+/olula/shared/domain/Dinero.qs
 ```
 
 En caso de que el valor encapsulado sea un id, el nombre terminará en _Id_.
 ```sh
-/contexts/ventas/pedido/domain/PedidoVentaId.qs
+/olula/ventas/pedido/domain/PedidoVentaId.qs
 ```
 
 ### Ficheros: Tests de casos de entidades
 [Nombre del la entidad] + _.test.qs_
 ```sh
-/contexts/empresa/ejerciciofiscal/test/domain/EjercicioFiscal.test.qs
+/olula/empresa/ejerciciofiscal/test/domain/EjercicioFiscal.test.qs
 ```
 
 
 ### Ficheros: Casos de uso
 Descripción del caso de uso con un verbo en infinitivo al comienzo.
 ```sh
-/contexts/empresa/ejerciciofiscal/application/CrearEjercicioFiscal.qs
+/olula/empresa/ejerciciofiscal/application/CrearEjercicioFiscal.qs
 ```
 
 ### Ficheros: Tests de casos de uso
 [Nombre del fichero de caso de uso] + _.test.qs_
 ```sh
-/contexts/empresa/ejerciciofiscal/test/application/CrearEjercicioFiscal.test.qs
+/olula/empresa/ejerciciofiscal/test/application/CrearEjercicioFiscal.test.qs
 ```
 
 ## Claves de dependencias
@@ -231,18 +237,23 @@ const valores = {
 ### Excepciones
 + Nombres de campos en los mapper a repositorios legacy (usamos minúsculas).
 
+## Idioma:
+### Español para
++ Value objects y entidades creados en domain y application y sus propiedades: _Dinero.sumar_
+Excepciones: 
++ Funciones estándar como equals, fromPrimitives, toPrimitives
++ Prefijos como get*, set*, find*, load*, dump*
++ Sufijos que denotan la naturaleza de la entidad o la propiedad como *Repository, *Id, etc.
+
+
+### Inglés para
++ Value objects primarios usados en otros value objects: _NumericValueObject.value_
+
+
+## Errores
+
+## Eventos
+
 ## Otros
 
-### Trailing comma
-Dejaremos siempre la _trailing comma_ (coma al final del último elemento) en diccionarios y listas, para facilitar su ampliación.
-```js
-const valoresDic = {
-  "valorUno": 1,
-  "valorDos": 2,
-}
 
-const valoresArr = [
-  "Elemento Uno",
-  "Elemento Dos",
-]
-```
