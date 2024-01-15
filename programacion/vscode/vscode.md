@@ -30,5 +30,5 @@ Para usar los snippets:
 
 ### Actualizar los snippets
 * File > Preferences > Configure User Snippets
-* Selecctionamos _qsa.code-snippets (global)_ de la lista _EXISTING SNIPPETS_ 
+* Seleccionamos _qsa.code-snippets (global)_ de la lista _EXISTING SNIPPETS_ 
 * Pegaremos el contenido de el fichero de snippets que almacenamos en esta documentación [aquí](./qsa.code-snippets).
