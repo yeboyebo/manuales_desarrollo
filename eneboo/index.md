@@ -5,7 +5,7 @@
 ## Índice
 
 - [Actualizar tablas](./alter_tablas.md)
-
+- [Carga estática](./carga_estatica.md)
 
 ## Más
 

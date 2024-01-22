@@ -1,5 +1,4 @@
-# Eneboo / Actualizar tablas
-
+# Eneboo / Carga estática
 ### Configuración
 Para habilitaar la carga estática tenemos que habilitar la siguiente opción:
 
