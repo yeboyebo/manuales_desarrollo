@@ -350,7 +350,8 @@
             "\t\t${3|statePath,payloadPath,code,const|}: ${4:nuevoValor}",
             "\tkey: #required",
             "\t\t${5|statePath,payloadPath,code,const|}: ${6:claveDiccionario}",
-            "\tprop: ${7:Propiedad_del_elemento_a_cambiar} #required",
+            "\tprop: #required",
+            "\t\t${7|statePath,payloadPath,code,const|}: ${8:Propiedad_del_elemento_a_cambiar}",
         ],
         "description": "Establece un valor en elemento de un diccionario del estado"
     },
