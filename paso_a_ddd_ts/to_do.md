@@ -12,8 +12,11 @@ https://medium.com/@edin.sahbaz/implementing-the-unit-of-work-pattern-in-clean-a
 
 
 ## Continuar TPV
-+ UOW
-+ No puedo borrar un pago de un arqueo cerrado
++ Eventos de crear y totalizar vale (vale infrastructure)
++ Eventos de stock
+
++ UOW, listas ¿usar, separar?
+
 + Repositorios obtienen la secuencia (next id)
 
 
@@ -249,7 +252,7 @@ export class PagoVentaTpvCreadoEvent extends DomainEvent<PagoVentaTpv> {
 ```
 
 ### Anotación del evento
-Los eventos serán publicados al terminar el caso de uso, pero deben ser anotados para su publicación en el momento en el hecho que los dispara se producen.
+Los eventos serán publicados al terminar el caso de uso, pero deben ser anotados para su publicación en el momento de que el evento que los dispara se produce.
 ```ts
 	static create(props: PagoVentaTpvProps): PagoVentaTpv {
 		const pago = new PagoVentaTpv(props);
@@ -309,6 +312,7 @@ testsTotalizacion.map((test) => {
 		);
 		const arqueoGuardado = await repoArqueo.mustFind(arqueoId);
 
+		expect(suscriptor.subscribedTo()).toContain(PagoVentaTpvCreadoEvent);
 		expect(arqueoGuardado.pagos.efectivo.equals(expectedEfectivo)).toBe(true);
 		expect(arqueoGuardado.pagos.tarjeta.equals(expectedTarjeta)).toBe(true);
 		expect(arqueoGuardado.pagos.vale.equals(expectedVale)).toBe(true);
@@ -316,6 +320,12 @@ testsTotalizacion.map((test) => {
 	});
 });
 ```
+***Importante*: Es necesario incluir el expect que asegura que el suscriptor está suscrito al evento enviado. De esta forma nos aseguramos de que el evento le llegará en un entorno real, ya que aquí lo estamos llamando de forma explícita:
+```ts
+expect(suscriptor.subscribedTo()).toContain(PagoVentaTpvCreadoEvent);
+```
+
+
 ### Implementar el suscriptor
 La clase suscriptora tendrá dos funciones:
 
