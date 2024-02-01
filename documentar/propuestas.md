@@ -101,10 +101,9 @@ Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución):
 ## Aprobar la propuesta
 
 1. Aprobar el presupuesto en el ERP.
-1. Mover la tarea del tablero *Propuestas* a *Completada*.
 1. Publicar el proyecto en *dailyjob*.
+1. Completar la tarea del tablero *Propuestas*.
 1. Incluir subtarea si hay que generar documentación de cliente
-1. Mover el documento de propuesta en *manuales_publicos* de la carpeta raíz a la carpeta *por desarrollar*.
 1. Enviar correo de confirmación:
 
  Asunto:
@@ -119,14 +118,31 @@ Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución):
     Confirmamos la aprobación la propuesta:
 
     #CLI #____ Nombre del proyecto
-
-    Para incluir los siguientes cambios:
-      * [cambio 1]
   
     Se planificará y realizará el desarrollo de acuerdo con las especificaciones descritas en
 
-    [https://yeboyebo.github.io/manuales_publicos/propuestas/por%20desarrollar/CLI_HXXXX.html]
+    [https://yeboyebo.github.io/manuales_publicos/propuestas/CLI_HXXXX.html]
 
+    Un saludo
+    ```
+
+## Cancelar la propuesta
+
+1. Completar la tarea del tablero *Propuestas*.
+1. Enviar correo de cancelación:
+
+Asunto:
+    ```txt
+    Propuesta cancelada AAAASSNNNNNN. #CLI #____ Nombre del proyecto
+    ```
+
+    Cuerpo
+    ```txt
+    Hola [Cliente],
+    Debido a la falta de una respuesta de aprobación, le informamos de que el siguiente proyecto ha pasado a estado Cancelado:
+    #CLI #____ Nombre del proyecto
+
+    Si desea reabrir la propuesta puede contestar a este email indicándolo.
     Un saludo
     ```
 
