@@ -14,6 +14,8 @@
 
 ### before / afterChange
 
+### Habilitaciones
+
 ## Librería
 
 ### CURSOR.qs
