@@ -10,6 +10,8 @@
 
 ### calculateField / commonCalculateField
 
+### bufferCommited
+
 ## Otras funciones
 
 ### before / afterChange
