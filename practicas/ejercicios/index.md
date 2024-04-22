@@ -14,7 +14,7 @@
 
     <!--4. [Master Prueba](./calculadoraPrueba/img/../calculadoraPrueba.md)-->
 
-2. [En proceso](index.md)
+<!-- 2. [En proceso](index.md) -->
 
 ### Más
 
