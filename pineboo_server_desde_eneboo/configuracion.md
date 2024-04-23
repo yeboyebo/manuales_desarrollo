@@ -10,6 +10,11 @@ La autenticación de primer nivel y el uso de tokens de autenticación necesita 
   > exit
   ```
 
+  Para poder usar el token con pinebooapi y olula, desde una consola de postgres:
+  ```sql
+  ALTER TABLE authtoken_token ALTER COLUMN key TYPE VARCHAR(400);
+  ```
+
 ## Checklist inicial
 Antes de continuar debemos asegurarnos de que tenemos instalado:
 * [Pineboo Server](../pineboo_server/instalacion.md)

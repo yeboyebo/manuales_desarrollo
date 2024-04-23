@@ -278,11 +278,12 @@ Ruta ejemplo:
 *src/apps/api/backend/dependency-injection/ventas/arqueotpv/application.yaml*.
 
 ```yml
-  contexts.ventas.arqueotpv.TotalizarArqueoOnPagoVentaTpvCMB:
+	contexts.ventas.arqueotpv.TotalizarArqueoOnPagoVentaTpvCMB:
     class: packages/olula/ventas/arqueotpv/application/TotalizarArqueoOnPagoVentaTpvCMB
     tags:
       - { name: "domainEventSubscriber" }
 ```
+
 ### Testear el suscriptor
 ```ts
 testsTotalizacion.map((test) => {

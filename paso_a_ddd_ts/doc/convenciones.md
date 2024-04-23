@@ -111,9 +111,9 @@ En caso de que el valor encapsulado sea un id, el nombre terminará en _Id_.
 ```
 
 ### Ficheros: Controladores
-Nobre del caso de uso al que llaman + _Verbo HTTP_ + _"Controller"_
+Nombres de controladores: Iguales al nombre del caso de uso al que llaman
 ```sh
-/olula/backend/controllers/ventas/BorrarPagosVentaTpvPatchController.ts
+/olula/backend/controllers/ventas/BorrarPagosVentaTpvController.ts
 ```
 
 ### Ficheros: Casos de uso
@@ -126,6 +126,16 @@ La convención para los verbos asociados a las acciones CRUD es:
 + R: Leer
 + U: Cambiar
 + D: Borrar
+
+### Ficheros: Servicios de aplicación
+Carpeta _services_.
+
+Descripción del servicio de uso con un verbo en infinitivo al comienzo.
+```sh
+/olula/empresa/ejerciciofiscal/application/services/CrearEjercicioFiscal.qs
+```
+Casos especiales:
++ Comprobaciones que lanzan excepción comienzan por _Check..._.
 
 ### Ficheros: Unit of Work
 _Entidad_ + _"Uow"_
