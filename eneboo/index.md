@@ -7,6 +7,7 @@
 - [Actualizar tablas](./alter_tablas.md)
 - [Carga estática](./carga_estatica.md)
 - [Carga paquetería desde consola](./carga_packages.md)
+- [Eneboo con driver sqlApi](./sql_api.md)
 
 ## Más
 
