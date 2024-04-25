@@ -4,6 +4,9 @@
 Descargamos desde este enlace el último eneboo que contiene el driver sqlApi.
 *https://eneboo.org/pub/contrib/tests/eneboo-v2.6.2-sqlapi-dba-linux64.tar.bz2*
 
+Descargamos el último **aqextension.py** del repositorio **github.com:yeboyebo/utils.git** y lo metemos en la carpeta bien del binario eneboo descargado.
+
+
 ### Configuración
 
 El la ventana de login especificamos:
@@ -19,7 +22,7 @@ El la ventana de login especificamos:
 
 Dentro la base de datos de pinebooapi , debemos tener el módulo fllibreria actualizado con el action __delegate_query_api__.
 
-Esto se está desarrollando en la rama __DEV-H3579-driver_sqlapi__ de codebase
+Esto se está desarrollando en la rama __DEV-H3579-sqlapi__ de codebase
 
 ![Alt text](delegate_query_api.png)
 
