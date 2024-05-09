@@ -36,6 +36,7 @@ WEBSOCKET=True
 USE_ATOMIC_LIST=True;
 PROJECT_NAME=monterelax
 ```
+
 Si se usa la nueva parte del módulo de _contextos_, es necesario indicar una clave _PROJECT_NAME_. Consultar su valor con el equipo de desarrollo.
 
 Copiamos en un fichero de texto esta estructura, sustituimos por nuestros datos locales, y lo guaramos con el nombre .env en _/pinebooapi_.
@@ -92,7 +93,6 @@ host    all             all             0.0.0.0/0               md5
 
 Para versiones de postgresql_server >= 13.0 tener en cuenta lo que se dice al respecto en [Postgresql Server / Instalación y configuración](../postgresql_server/configuracion.md).
 
-
 Reiniciar postgresql
 
 ```
@@ -104,7 +104,7 @@ sudo service postgresql restart
 Si tenemos instalado la version de python >= 3.10, puede que nuestra versión de Docker esté desfasada y eso nos genere un problema en la lectura del comando. En ese caso ejecutaremos previamente el siguiente comando:
 
 ```console
-alias docker-compose='docker compose' 
+alias docker-compose='docker compose'
 ```
 
 ## Primera ejecución
@@ -153,6 +153,7 @@ The current path, api, didn't match any of these.
 
 You're seeing this error because you have DEBUG = True in your Django settings file. Change that to False, and Django will display a standard 404 page
 ```
+
 ## Actualización
 
 - Ejecutar el comando siguiente comando con la versión a actualizar
@@ -166,7 +167,7 @@ pip3 install pineboo==0.99.78
 - Ejecutar desde nuestro directorio de pinebooapi
 
 ```
-docker-compose buidl
+docker-compose build
 ```
 
 ### Más

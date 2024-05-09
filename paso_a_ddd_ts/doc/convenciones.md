@@ -110,11 +110,37 @@ En caso de que el valor encapsulado sea un id, el nombre terminará en _Id_.
 /olula/empresa/ejerciciofiscal/test/domain/EjercicioFiscal.test.qs
 ```
 
+### Ficheros: Controladores
+Nombres de controladores: Iguales al nombre del caso de uso al que llaman
+```sh
+/olula/backend/controllers/ventas/BorrarPagosVentaTpvController.ts
+```
 
 ### Ficheros: Casos de uso
 Descripción del caso de uso con un verbo en infinitivo al comienzo.
 ```sh
 /olula/empresa/ejerciciofiscal/application/CrearEjercicioFiscal.qs
+```
+La convención para los verbos asociados a las acciones CRUD es:
++ C: Crear
++ R: Leer
++ U: Cambiar
++ D: Borrar
+
+### Ficheros: Servicios de aplicación
+Carpeta _services_.
+
+Descripción del servicio de uso con un verbo en infinitivo al comienzo.
+```sh
+/olula/empresa/ejerciciofiscal/application/services/CrearEjercicioFiscal.qs
+```
+Casos especiales:
++ Comprobaciones que lanzan excepción comienzan por _Check..._.
+
+### Ficheros: Unit of Work
+_Entidad_ + _"Uow"_
+```sh
+/olula/ventas/ventatpv/application/PagoVentaTpvUow.ts
 ```
 
 ### Ficheros: Tests de casos de uso

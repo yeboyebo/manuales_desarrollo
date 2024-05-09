@@ -20,6 +20,7 @@
 - [Imágenes](./imagenes.md)
 - [Traducciones](./traducciones.md)
 - [Despliegue automático](./despliegueGithubWorkflow.md)
+- [Estilos CSS](./estilosSass/index.md)
 
 ### Más
 
