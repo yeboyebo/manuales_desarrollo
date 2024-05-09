@@ -84,7 +84,7 @@ De esta forma buscará en los ficheros de configuración
 
 Al ejecutar este fichero se realizan 2 acciones:
 1. Realiza un **eneboo-assembler dbupdate**  así no hay que hacerlo manualmente evitando problemas de que se nos olvide y no se nos carguen funcionalidades y extensiones nuevas que pueda haber realizado un compañero.
-2. Realiza un **eneboo-assembler build** sobre el primer parámetro que se le pase, si se le pasa un segundo parámetro realziara el build del primer parámetro pero solo cargando lo que "influya" el segundo parámetro.
+2. Realiza un **eneboo-assembler build** sobre el primer parámetro que se le pase, si se le pasa un segundo parámetro realizará el build del primer parámetro pero solo cargando lo que "influya" el segundo parámetro.
 
 Ejemplos:
 1. Realizar el build de fun_guanabana
@@ -129,15 +129,21 @@ eneboo-assembler save $1
 
 Para crear un paquete de eneboo hay que realizarlo de la siguiente forma:
 
+```
 eneboo-packager create ruta_funcionalidad_final ruta_destino/nombre.eneboopkg
+```
 
 Ejemplo: Realizar un paquete de fun_guanabana y guardarlo en la carpeta subcarpeta *guanabana* de la carpeta *paquetes*
 
+```
 eneboo-packager create /home/usuario/git/codebase/extensiones_2.5.0/fun_guanabana/build/final /home/usuario/paquetes/guanabana/guanabana_20240509T1330.eneboopkg
+```
 
 Con el siguiente fichero .sh podemos acortar la síntaxis de forma que para el ejemplo anterior solamente haríamos:
 
+```
 ./paquete.sh fun_guanabana guanabana/guanabana_20240509T1330
+```
 
 El primer parámetro es el nombre de la funcionalidad de la que queremos hacer el paquete
 El segundo parámetro es donde se va a guardar y el nombre del paquete.
