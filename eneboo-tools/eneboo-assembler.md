@@ -193,6 +193,7 @@ eneboo-assembler save-fullpatch <nombre_extension>
 
 De esta forma se creará el archivo _.xml_ dentro de extension/patches/nombre_extension/nombre_extension.xml el cual nos permite que otras funcionalidades implementen esta extensión.
 
+
 ### Más
 
   * [Volver al Índice](./index.md)
