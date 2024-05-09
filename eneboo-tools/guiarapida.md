@@ -78,6 +78,79 @@ Pasos para buscar en qué funcionalidades está incluida una extensión. (Es dec
 
 De esta forma buscará en los ficheros de configuración
 
+## Ficheros .sh para agilizar build y save
+
+### build.sh
+
+Al ejecutar este fichero se realizan 2 acciones:
+1. Realiza un **eneboo-assembler dbupdate**  así no hay que hacerlo manualmente evitando problemas de que se nos olvide y no se nos carguen funcionalidades y extensiones nuevas que pueda haber realizado un compañero.
+2. Realiza un **eneboo-assembler build** sobre el primer parámetro que se le pase, si se le pasa un segundo parámetro realziara el build del primer parámetro pero solo cargando lo que "influya" el segundo parámetro.
+
+Ejemplos:
+1. Realizar el build de fun_guanabana
+```
+./build.sh fun_guanabana
+```
+2. Realizar el build de fun_guanabana pero solo regenerando la parte de envios_gls
+```
+./build.sh fun_guanabana envios_gls
+```
+
+
+
+El fichero habría que crearlo con el nombre **build.sh** con el siguiente contenido
+
+```
+#!/bin/bash
+eneboo-assembler dbupdate
+eneboo-assembler build $1 src $2
+
+```
+### save.sh
+
+Al ejecutar este fichero nos realizará un **eneboo-assembler save** sobre el primer parámetro
+
+Ejemplo: Realizar un save de fun_guanabana
+
+```
+./save.sh fun_guanabana
+```
+
+El fichero habría que crearlo con el nombre **save.sh** con el siguiente contenido
+
+```
+#!/bin/bash
+
+eneboo-assembler save $1
+
+```
+
+## Ficheros paquete.sh para generar paquetes de forma ágil
+
+Para crear un paquete de eneboo hay que realizarlo de la siguiente forma:
+
+eneboo-packager create ruta_funcionalidad_final ruta_destino/nombre.eneboopkg
+
+Ejemplo: Realizar un paquete de fun_guanabana y guardarlo en la carpeta subcarpeta *guanabana* de la carpeta *paquetes*
+
+eneboo-packager create /home/usuario/git/codebase/extensiones_2.5.0/fun_guanabana/build/final /home/usuario/paquetes/guanabana/guanabana_20240509T1330.eneboopkg
+
+Con el siguiente fichero .sh podemos acortar la síntaxis de forma que para el ejemplo anterior solamente haríamos:
+
+./paquete.sh fun_guanabana guanabana/guanabana_20240509T1330
+
+El primer parámetro es el nombre de la funcionalidad de la que queremos hacer el paquete
+El segundo parámetro es donde se va a guardar y el nombre del paquete.
+
+El fichero habría que crearlo con el nombre **paquete.sh** con el siguiente contenido.
+
+```
+#!/bin/bash
+
+eneboo-packager create /home/pozuelo/git/codebase/extensiones_2.5.0/$1/build/final /home/pozuelo/paquetes/$2.eneboopkg
+```
+Nota: Cada usuario debe de adaptar las rutas a como las tenga en su equipo.
+
 ### Más
 
   * [Volver al Índice](./index.md)
