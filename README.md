@@ -5,6 +5,7 @@
 ## Índice
 
 - [Acceso a Pineboo Server desde Eneboo](./pineboo_server_desde_eneboo/index.md)
+- [AQExtension](./aqextension/index.md)
 - [AQNext legacy](./aqnext_legacy/index.md)
 - [Arquitectura](./arquitectura/index.md)
 - [Calidad](./calidad/index.md)
