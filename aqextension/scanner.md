@@ -22,4 +22,6 @@ aqextension scanner list
 aqextension scanner adquire hpaio:/usb/Deskjet_1510_series?serial=CN3C71HM1B05YR
 ```
 
-- [Volver al índice de AQExtension](../index.md)
+## Más
+
+- [Volver al índice de AQExtension](./index.md)

@@ -24,4 +24,6 @@ Permite enviar/recibir ficheros a servicio sftp
 aqextension sftp usuario1 12345 https://servidor_sftp.com get_dir /home/usuario/remoto datos
 ```
 
-- [Volver al índice de AQExtension](../index.md)
+## Más
+
+- [Volver al índice de AQExtension](./index.md)

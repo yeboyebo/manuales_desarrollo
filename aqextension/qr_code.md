@@ -25,4 +25,6 @@ Los parametros por defecto son los sguientes:
 aqextension qrcode /tmp/qr_generado.jpg estaeslacadena {"version":8,"box_size":4}
 ```
 
-- [Volver al índice de AQExtension](../index.md)
+## Más
+
+- [Volver al índice de AQExtension](./index.md)

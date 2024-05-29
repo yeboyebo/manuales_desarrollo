@@ -17,4 +17,6 @@ aqextension md5 llevalatararaunvestidoblancollenodecascabeles /tmp/result.txt
 
 ```
 
-- [Volver al índice de AQExtension](../index.md)
+## Más
+
+- [Volver al índice de AQExtension](./index.md)

@@ -12,4 +12,4 @@ aqextension version
 
 ## Más
 
-- [Volver al índice de AQExtension](../index.md)
+- [Volver al índice de AQExtension](./index.md)

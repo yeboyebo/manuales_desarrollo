@@ -24,4 +24,4 @@ aqextension cliente_web_certificado batuz https://servicios.com/apirest /home/us
 
 ## Más
 
-- [Volver al índice de AQExtension](../index.md)
+- [Volver al índice de AQExtension](./index.md)

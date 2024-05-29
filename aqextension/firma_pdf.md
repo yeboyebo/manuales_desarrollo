@@ -23,4 +23,4 @@ aqextension firma_pdf /home/usuario/ruta_certificado.p12 12345 /home/usuario/fic
 
 ## Más
 
-- [Volver al índice de AQExtension](../index.md)
+- [Volver al índice de AQExtension](./index.md)

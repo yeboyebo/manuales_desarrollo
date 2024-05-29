@@ -32,4 +32,4 @@ aqextension envio_email prueba@midominio.es usuario1 12345 smtp.micorreo.es 564 
 
 ## Más
 
-- [Volver al índice de AQExtension](../index.md)
+- [Volver al índice de AQExtension](./index.md)

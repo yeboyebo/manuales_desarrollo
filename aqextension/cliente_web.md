@@ -30,13 +30,6 @@ El fichero contiene un JSON que especifica los parámetros de la llamada al API 
         - **verify**.
         - **url**.
 
-## Más
-
-- [Volver al índice de AQExtension](../index.md)
-
-
-
-
     - XMLRPC
         - **url** . Url del servidor.
         - **ws** . Atributos de la url.
@@ -55,5 +48,7 @@ El fichero contiene un JSON que especifica los parámetros de la llamada al API 
 aqextension cliente_web /tmp/fichero_request.txt
 ```
 
+## Más
 
+- [Volver al índice de AQExtension](./index.md)
 

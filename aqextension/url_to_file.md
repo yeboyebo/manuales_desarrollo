@@ -18,4 +18,4 @@ aqextension url_to_file https://www.pureba.com/logo.jpeg /tmp/
 
 ## Más
 
-- [Volver al índice de AQExtension](../index.md)
+- [Volver al índice de AQExtension](./index.md)
