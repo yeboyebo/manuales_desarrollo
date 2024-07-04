@@ -6,7 +6,7 @@ El software de escritorio remoto de alto rendimiento de AnyDesk permite comparti
 
 En yeboyebo utilizamos AnyDesk para dar asistencia a clientes (instalaciones y resolución de incidencias)
 
-Para más información consultar [quí](https://anydesk.com/es/caracteristicas)
+Para más información consultar [aquí](https://anydesk.com/es/caracteristicas)
 
 ## API
 
@@ -16,14 +16,14 @@ Por ejemplo, si se tiene una app para móviles acerca de recetas y se hace una b
 
 En yeboyebo hemos desarrollado una API de acceso al ERP ([pinebooapi](../pineboo_server/index.md) 
 
-Para más información consultar [quí](https://es.wikipedia.org/wiki/API)
+Para más información consultar [aquí](https://es.wikipedia.org/wiki/API)
 
 
 ## CMS
 
 Un CMS (Content Management System) o sistema de gestión de contenidos es una aplicación de software que permite a los usuarios colaborar en la creación, edición y producción de contenido digital: páginas web, blogs, etc. Un CMS funciona con un panel de administración o back-end. Se accede a través del navegador y tiene una interfaz basada en formularios que permiten crear contenidos de forma sencilla.
 
-Para más información consultar [quí](https://www.arimetrics.com/glosario-digital/cms)
+Para más información consultar [aquí](https://www.arimetrics.com/glosario-digital/cms)
 
 ## CRM
 
@@ -37,7 +37,7 @@ Cron es un administrador de tareas de Linux que permite ejecutar comandos en un 
 
 En yeboyebo utilizamos el Cron para programar tareas en los clientes que queremos ejecutar periódicamente. Por ejemplo, comprobaciones de cierto funcionamiento, sincronizaciones...
 
-Para más información consultar [quí](https://dinahosting.com/ayuda/como-configurar-tareas-cron-de-forma-manual/)
+Para más información consultar [aquí](https://dinahosting.com/ayuda/como-configurar-tareas-cron-de-forma-manual/)
 
 ## ERP
 
@@ -57,7 +57,7 @@ FTP (File Transfer Protocol o Protocolo de Transferencia de Archivos) es un prot
 
 El servicio FTP es ofrecido por la capa de Aplicación del modelo TCP/IP y utiliza normalmente el puerto 20 y el 21 para conectarse. Hoy en día, es muy habitual emplear gestores de FTP, como por ejemplo FileZilla o WinSCP, para subir los contenidos al hosting o administrar sus ficheros de forma segura.
 
-Para más información consultar [quí](https://dinahosting.com/ayuda/que-es-ftp-y-para-que-sirve/)
+Para más información consultar [aquí](https://dinahosting.com/ayuda/que-es-ftp-y-para-que-sirve/)
 
 ## GIT
 
@@ -71,7 +71,7 @@ Por ejemplo, gracias a Git los desarrolladores pueden participar en un proyecto 
 
 GIT es el sistema que utilizamos en yeboyebo actualmente para el control de versiones.
 
-Para más información consultar [quí](https://desarrolloweb.com/home/git)
+Para más información consultar [aquí](https://desarrolloweb.com/home/git)
 
 ## Postman
 
@@ -83,13 +83,13 @@ Gracias a los avances en tecnología, Postman ha pasado de ser una extensión a 
 
 En yeboyebo utilizamos postman para hacer pruebas de los servicios web que programamos en nuestras APIs antes de realizar los desarrollos.
 
-Para más información consultar [quí](https://assemblerinstitute.com/blog/que-es-postman/)
+Para más información consultar [aquí](https://assemblerinstitute.com/blog/que-es-postman/)
 
 ## RDP
 
 El RDP o Remote Desktop Protocol es un protocolo de comunicación desarrollado por Microsoft que le permite a un usuario conectarse y controlar un ordenador remoto a través de una red. RDP se utiliza principalmente en entornos empresariales y de negocios, donde los usuarios necesitan acceder a recursos y aplicaciones en equipos remotos desde un dispositivo local
 
-Para más información consultar [quí](https://keepcoding.io/blog/que-es-un-rdp-o-remote-desktop-protocol/)
+Para más información consultar [aquí](https://keepcoding.io/blog/que-es-un-rdp-o-remote-desktop-protocol/)
 
 ## Request o petición HTTP
 
@@ -102,7 +102,7 @@ Una petición HTTP es una conexión entre un equipo que hace de cliente y el ser
 
 En yeboyebo utilizamos este tipo de peticiones para hacer por ejemplo sincronizacines de datos entre el ERP y la página web.
 
-Para más información consultar [quí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
+Para más información consultar [aquí](https://kinsta.com/es/base-de-conocimiento/que-es-una-peticion-http/#:~:text=Presentar%20una%20solicitud%20HTTP%20implica,o%20redirigirte%20a%20otra%20p%C3%A1gina)
 
 ## Remmina
 
@@ -120,7 +120,7 @@ Secure Copy Protocol (SCP), es un protocolo que garantiza la transferencia segur
 
 SCP ofrece un método de autenticación entre los dos equipos, así como un cifrado de la transmisión. Por lo tanto, el protocolo no solo garantiza la seguridad, sino también la autenticidad de los datos transferidos. En ambos mecanismos de seguridad el SCP protocol se basa en SSH (Secure Shell), que también se utiliza en protocolos alternativos de transmisión como FTP (o SFTP). El puerto TCP que utiliza para la transferencia a través de SCP es el puerto estándar SSH 22.
 
-Para más información consultar [quí](https://www.ionos.es/digitalguide/servidores/know-how/scp-secure-copy/)
+Para más información consultar [aquí](https://www.ionos.es/digitalguide/servidores/know-how/scp-secure-copy/)
 
 ## SSH
 
@@ -128,7 +128,7 @@ SSH (o Secure SHell, en español: intérprete de órdenes seguro) es el nombre d
 
 En yeboyebo utilizamos ssh para conectar al servidor de nuestros clientes y poder realizar instlaciones o resolver posibles incidencias
 
-Para más información consultar [quí](https://es.wikipedia.org/wiki/Secure_Shell)
+Para más información consultar [aquí](https://es.wikipedia.org/wiki/Secure_Shell)
 
 ## Subversion o SVN
 
@@ -138,7 +138,7 @@ Utiliza el concepto de revisión para guardar los cambios producidos en el repos
 
 En yeboyebo utilizabamos subversion para guardar todo el código pero recientemente hemos cambiado al sistema GIT
 
-Para más información consultar [quí](https://es.wikipedia.org/wiki/Subversion_(software))
+Para más información consultar [aquí](https://es.wikipedia.org/wiki/Subversion_(software))
 
 ## TeamViewer
 
@@ -146,7 +146,7 @@ TeamViewer es un software para asistencia remota, acceso remoto y reuniones en l
 
 En yeboyebo utilizamos TeamViewer para dar asistencia a clientes (instalaciones y resolución de incidencias)
 
-Para más información consultar [quí](https://community.teamviewer.com/Spanish/kb/articles/33184-que-es-teamviewer)
+Para más información consultar [aquí](https://community.teamviewer.com/Spanish/kb/articles/33184-que-es-teamviewer)
 
 ## TPV
 
@@ -157,7 +157,7 @@ Un TPV eficaz organiza de manera rápida las funciones relacionadas con el proce
 
 En yeboyebo tenemos un módulo de tpv que permite la gestión de los tickets, comandas y, en general, los datos y funcionalidades clave de la venta directa
 
-Para más información consultar [quí](https://www.tpvcenter.com/que-es-tpv/)
+Para más información consultar [aquí](https://www.tpvcenter.com/que-es-tpv/)
 
 ## VPN
 
@@ -165,7 +165,7 @@ Una VPN o red privada virtual crea una conexión de red privada entre dispositiv
 
 En yeboyebo tenemos una VPN propia que nos permite acceder a datos de la empresa y de nuestros clientes de forma segura.
 
-Para más información consultar [quí](https://aws.amazon.com/es/what-is/vpn/#:~:text=Una%20VPN%20o%20red%20privada,a%20trav%C3%A9s%20de%20redes%20p%C3%BAblicas.)
+Para más información consultar [aquí](https://aws.amazon.com/es/what-is/vpn/#:~:text=Una%20VPN%20o%20red%20privada,a%20trav%C3%A9s%20de%20redes%20p%C3%BAblicas.)
 
 ## Web Service
 
