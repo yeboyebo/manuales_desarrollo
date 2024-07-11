@@ -5,6 +5,7 @@ Instalación de proyecto #CLI #____ Nombre del proyecto
 ```
 
 Cuerpo
+
 ```txt
 Hola [Cliente],
 
