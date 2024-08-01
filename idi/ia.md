@@ -38,10 +38,10 @@ Cada nueva opción o desarrollo de la aplicación debe enriquecer el mapa de est
 
 ### Power bar de navegación y ejecución de acciones
 Una vez definido el mapa de estados, podemos generar una herramienta de navegación determinista (sin aplicar IA) en la que:
-+ Sea posible visualizar el estado en el que estamos, así como los datos necesarios de su contexto.
-+ Se posible escoger el evento a disparar, y aportar los datos realacionados con dicho evento desde un control básico y común a toda la aplicación.
++ Sea posible visualizar el estado en el que estamos, así como los datos representativos de su contexto.
++ Sea posible escoger el evento a disparar, y aportar los datos realacionados con dicho evento desde un control básico y común a toda la aplicación.
 
-Este control puede ser lo que se llama una power bar, un control de texto con autocompletado que en función del estado de la aplicación permite al usuario escoger entre las opciones apropiadas.
+Este control puede ser lo que se llama una _power bar_, un control de texto con autocompletado que en función del estado de la aplicación permite al usuario escoger entre las opciones apropiadas.
 
 Por ejemplo, si estando en el estado _Creando presupuesto_ escribimos en la barra "_Cambiar_", la barra nos propone entonces la lista de posibles del presupuesto valores a cambiar ("Cliente, Divisa, Forma de pago, etc.). Si escogiéramos '_Divisa_', la barra nos ofrecería la lista de divisas. De igual forma, si escribimos 'Cancelar', nos ofrecerá confirmar la cancelación de la creación del presupuesto y si confirmamos nos sacará a un estado anterior.
 
@@ -52,7 +52,7 @@ Por ejemplo, si estando en el estado _Creando presupuesto_ escribimos en la barr
     + 'Cancelar' > 'Cancelar ¿Está seguro? (Sí / No)
         + Sí > Se cancela la creación y pasamos al estado anterior.
 
-Cada una de estas acciones debe provocar también el redibujo de la zona de contexto de la aplicación, para que el usuario compruebe que la acción solicitada ha surtido efecto y de los posibles efectos secundarios de la acción (por ejemplo, si cambiamos la divisa, el valor _Total en Euros_ se recalcula).
+Cada una de estas acciones debe provocar también el redibujo de la zona de contexto de la aplicación, para que el usuario compruebe que la acción solicitada ha surtido efecto y conozca los posibles efectos secundarios de la acción (por ejemplo, si cambiamos la divisa, el valor _Total en Euros_ se recalcula).
 
 ### Aplicación de IA en la power bar, integración de voz
 Herramientas como la API de autocompletado o de asistentes de OpenAI, permiten que un modelo LLM (Large Language Model) pueda ser invocado con:
@@ -105,7 +105,7 @@ Lógicamente esto se complica más que lo que el ejemplo indica, ya que es neces
 
 Dado que la IA puede alucinar los parámetros, será necesario pedir confirmación al usuario de todas aquellas acciones irreversibles o potencialmente peligrosas.
 
-Dado que las APIs de IA siguen un modelo de facturación por uso (tokens) y las llamadas necesarias para ejecutarlas son más lentas que si se ejecutasen en el servidor de la aplicación, es interesante estudiar vías para reducir este tipo de llamdas. Para ello se considerará crear un sistema de caché que, dados un conjunto mínimo de entradas / salidas correctas de la IA (confirmadas por un usuario), memorice los resultados y los aplique directamente a futuras entradas con la misma estructura. También puede considerarse ejecutar un modelo de IA local que haga la función de esta caché y complemente al LLM, entrenándose con sus llamadas y respuestas.
+Dado que las APIs de IA siguen un modelo de facturación por uso (tokens) y las llamadas necesarias para ejecutarlas son más lentas que si se ejecutasen en el servidor de la aplicación, es interesante estudiar vías para reducir este tipo de llamasdas. Para ello se considerará crear un sistema de caché que, dados un conjunto mínimo de entradas / salidas correctas de la IA (confirmadas por un usuario), memorice los resultados y los aplique directamente a futuras entradas con la misma estructura. También puede considerarse ejecutar un modelo de IA local que haga la función de esta caché y complemente al LLM, entrenándose con sus llamadas y respuestas.
 
 ### Aplicación de IA en la power bar para petición libre de datos
 Otra situación común para el usuario de la aplicación es la petición de datos a consultar.
