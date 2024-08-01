@@ -31,5 +31,6 @@
 - [Reglas de acceso](./reglas_acceso/index.md)
 - [SQL](./sql/index.md)
 - [Testing](./testing/index.md)
+- [I+D+i](./idi/index.md)
 
 
