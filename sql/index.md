@@ -63,6 +63,20 @@ select codcliente, nombre, email from clientes where email !~ '^[A-Za-z0-9._%-]+
 set client_encoding=utf8
 ```
 
+## Ignorar acentos en query (Postgres)
+Solo lanzar el siguiente comando para utilizar la extension.
+
+```sql
+CREATE EXTENSION unaccent;
+```
+
+Esto solo hace falta una vez, despues solo hay que usar la expresion igual que un UPPER por emplo:
+
+```sql
+SELECT * FROM table WHERE UNACCENT(table.id) ILIKE UNACCENT('%Jose%');
+```
+
+
 ### Más
 
   * [Volver al índice de manuales](../README.md)
