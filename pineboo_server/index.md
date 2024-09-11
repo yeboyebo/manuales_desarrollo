@@ -16,6 +16,8 @@
 - [Migración a docker Postgres](./migracion_docker_postgres.md)
 - [Como Crear Una API](./estructura_ficheros_api.md)
 - [Acceso a Olula](./acceso_olula.md)
+- [Despliegue en Kubernetes](./despliegue_kubernetes.md)
+- [Despliegue Automático](./despliegue_automatico.md)
 
 ### Más
 
