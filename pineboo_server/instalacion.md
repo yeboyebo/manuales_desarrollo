@@ -35,6 +35,8 @@ STATIC_LOADER_DIRS=/pineboo/modules/facturacion/facturacion/scripts/,/pineboo/mo
 WEBSOCKET=True
 USE_ATOMIC_LIST=True;
 PROJECT_NAME=monterelax
+# Usa modulos python alojados en esta carpeta
+# EXTERNAL_MODULES=/ruta/a/carpeta/
 ```
 
 Si se usa la nueva parte del módulo de _contextos_, es necesario indicar una clave _PROJECT_NAME_. Consultar su valor con el equipo de desarrollo.
