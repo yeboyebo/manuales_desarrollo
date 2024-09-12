@@ -98,20 +98,23 @@ Tabla: flqueues / flcolas:
 + datos error: traza, etc.
 
 ## Publicación de eventos desde Olula en colas asíncronas:
-Por ahora se puede llamar al código traducido de EVENT.qs
+Se utiliza la función formQUEUE_EVENTS.iface.crearRegistroPendiente(colaId, datosEvento, tipoEvento, intento, error_log = None, idPadre = None)
 
 ## Publicación de eventos desde Olula en colas síncronas:
 TO DO
 
 ## Consumo de procesos síncronos
-TO DO
+se utiliza la función formQUEUE_EVENTS.iface.procesaCola(cola_id, datosEvento, tipoEvento, idDatabase= None):
 
 ## Consumo de eventos asíncronos
 Cuando se activa el servidor de PinebooApi / Olula, se activa uno o varios demonios que escuchan en una o más colas (según configuración), y que consumen los eventos guardados.
 
 Cada operación de consumo va en una transacción independiente que termina marcando el evento como OK, Error o Dead. Este marcado se produce en la misma transacción que el proceso de consumo, para asegurar la coherencia de los datos de la tabla de colas.
 
-`NOTA`: Proceso  a desarrollar, podemos usar lo ya hecho de cron
+`LLAMADA PINEBOO-CORE`: 
+```js
+pineboo-core -s 'username:pass:PostgreSQL (PSYCOPG2)@localhost:5432/tablename' -x -c formQUEUE_EVENTS.iface.servicioTareasPendientes -vv
+```
 
 Los demonios se podrán configurar para usar una cola ('contabilidad.regenerar_asiento'), un grupo de colas ('contabilidad'), varios grupos, todo, todo menos un grupo, etc.
 
@@ -119,7 +122,7 @@ Los demonios se podrán configurar para usar una cola ('contabilidad.regenerar_a
 
 Cuando un proceso de consumo falla, se marca el registro como Error, y se duplica en estado Pendiente para volverse a intentar su consumo más tarde.
 
-`NOTA`: Procesar (configurable) cada 0seg, 5seg, 60seg ¿hace falta un campo de timestamp "siguiente intento"?
+`NOTA`: Procesar (configurable) cada 0seg, 5seg, 60seg. Si utiliza numintento y timestamp_ejecucion_programada para calcular la proxima ejecuión
 
 Los suscriptores se declara en Olula en una estructura del siguiente tipo:
 
