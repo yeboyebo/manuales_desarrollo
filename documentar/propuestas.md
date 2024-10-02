@@ -126,23 +126,22 @@ Cuando pasan dos semanas desde el envío (ha vencido la fecha de ejecución):
     Un saludo
     ```
 
-## Cancelar la propuesta
+## Suspender la propuesta
 
 1. Completar la tarea del tablero *Propuestas*.
-1. Enviar correo de cancelación:
+1. Enviar correo de suspensión:
 
 Asunto:
     ```txt
-    Propuesta cancelada AAAASSNNNNNN. #CLI #____ Nombre del proyecto
+    Propuesta suspendida AAAASSNNNNNN. #CLI #____ Nombre del proyecto
     ```
 
     Cuerpo
     ```txt
     Hola [Cliente],
-    Debido a la falta de una respuesta de aprobación, le informamos de que el siguiente proyecto ha pasado a estado Cancelado:
-    #CLI #____ Nombre del proyecto
-
-    Si desea reabrir la propuesta puede contestar a este email indicándolo.
+    Al no recibir respuesta sobre esta propuesta vamos a pasar el proyecto a estado Suspendido y no os enviaremos más correos de seguimiento relacionados.
+    Puedes reactivarlo cuando quieras enviándonos un correo indicando la referencia #CLI #____.
+    
     Un saludo
     ```
 
