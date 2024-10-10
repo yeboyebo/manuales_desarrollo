@@ -6,6 +6,12 @@
 
 ---
 
+## Aviso
+
+ Solo se comprobará los permisos de acceso para las reglas existentes, es decir, si no se ha creado una regla de acceso al fichero transacciones_api, tendremos acceso por defecto.
+
+ Hay que tener en cuenta que puede que exista un regla de acceso para transacciones/get pero no para transacciones/delete. En este caso comprobariamos la regla al hacer el get pero no para el delete.
+
 ## Preparando el entorno para la creación de reglas
 
 - Lo primero que demos hacer el comprobar si el módulo al que queremos aplicar las reglas tiene una función `createRules()` en su script principal (ej: flfactteso.qs) dentro de nuestra extensión. Si ya lo tiene, podemos pasar al siguiente apartado. Si no, seguimos el resto de pasos
