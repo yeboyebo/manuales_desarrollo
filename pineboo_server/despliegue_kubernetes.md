@@ -66,6 +66,9 @@ Una vez configurado, el despliegue se lanza automáticamente al hacer un push a 
 
 Podemos ver si el despliegue está en curso, hecho o con error en la web de Github > Proyecto _Codebase_ > Actions
 
+### Ver el log de pinebooapi en Kubernetes
+Lens > Pods > (pod que queremos consultar) > botón (...) > log
+
 ## Más información sobre Kubernetes
 [Kubernetes](https://www.youtube.com/watch?v=oTf0KxK1QNo&t=151s) es una infraestructura que nos permite el despliegue completo de aplicaciones WEB.
 
