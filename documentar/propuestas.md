@@ -31,6 +31,12 @@
 
     [https://yeboyebo.github.io/manuales_publicos/propuestas/H____.html]
 
+    __Trabajos opcionales__
+    La propuesta incluye los siguientes trabajos opcionales:
+    + #CLI #____ Nombre del proyecto. Nombre del trabajo
+
+    En caso de aprobar la propuesta debes indicarnos si incluimos en el desarrollo las partes opcinonales.
+
     Quedamos a la espera de tu confirmación o comentarios.
 
     Un saludo
