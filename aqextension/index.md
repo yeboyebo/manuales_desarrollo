@@ -17,6 +17,7 @@ Detallamos la lista de comandos disponible:
  - [envio_mail](./envio_mail.md)
  - [firma_pdf](./firma_pdf.md)
  - [md5](./md5.md)
+ - [ofuscador](./ofuscador.md)
  - [qrcode](./qr_code.md)
  - [scanner](./scanner.md)
  - [sftp](./sftp.md)
