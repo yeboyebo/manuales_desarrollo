@@ -1,186 +1,95 @@
 # Despliegue automático
+El despliegue automático consta de dos partes principales:
 
-Para automatizar el despliegue de los cambios en el servidor de Pineboo, utilizamos la tecnología de [Github Actions](https://www.youtube.com/watch?v=sIhm4YOMK6Q&t=5873s). Esta tecnología nos permite realizar acciones en diferentes puntos del ciclo de control de versiones con GIT.
++ Crear la rama y la Github action
 
-Por lo general, lanzaremos acciones al realizar un PUSH en una rama, para ejecutar los pasos necesarios para desplegar la nueva version en pre-producción o producción. Estas acciones pueden ser:
-- Compilar código
-- Ejecutar tests
-- Ejecutar analísis del código
-- Preparar paquete / imagen de docker
-- Copiar en producción
-- Reemplazar imagen / instalar versión
++ Crear 
+
+## Crear la rama y la Github Action
+
+### Crear la rama de despliegue
++ Creamos la rama en github a partir de master [NombreApp]_Produccion.
+
+  + Ejemplo: `Guanabana_Produccion`
+
+### Fichero de Github actions
+El fichero describe las acciones a realizar cuando se haga un commit sobre la rama de despliegue.
+
++ En `codebase/.github/workflows/` creamos un nuevo fichero Deploy_[NombreApp].yml a partir del fichero Deploy_Plantilla.yml.template:
+
+  `Deploy_Plantilla.yml.template` > `Deploy_Guanabana.yml`
+
++ Modificamos el fichero con los datos del despliegue:
+
+  + Cambiamos `[NombreApp]` > `Guanabana`
+  + Cambiamos `[nombre_rama]` > `fun_guanabana`
+  + Cambiamos `[nombre]` > `guanabana`
+  + Si no vamos a desplegar en Kubernetes, borramos completamente la clave `deploy-to-cluster`.
+
+Checks:
+
+  + pinebooapi_[nombre] es el repo en DockerHub
+  + [NombreApp]_Produccion es el nombre de la rama en GitHub
+  + [nombre]-deployment es el nombre del deployment en Kubernetes (si desplegamos en Kubernetes), especificado en el fichero de despliegue de Kubernetes, en la clave _metadata_ > _name_
+
+### Fichero Dockerfile
+El fichero Dockerfile 
+
++ En `codebase/.despligue` creamos un nuevo fichero Dockerfile_[NombreApp] a partir del fichero Dockerfile_Plantilla
+
+  `Dockerfile_Plantilla` > `Dockerfile_Guanabana`
+
+  + Cambiamos `[nombre_rama]` > `fun_guanabana`
+
+Checks:
+
+  + El nombre del fichero Dockerfile_[Aplicacion] generado coincide con la clave `name: Build and push > _file_` del fichero de github asociado Deploy_[Aplicacion].yml
+
+## Crear el Repositorio en Docker Hub
+
+Creamos en dockerhub ([hub.docker.com](https://hub.docker.com)) el respositorio __privado__ `pinebooapi_[nombre]`(p.e. pinebooapi_sanhigia). El nombre del repositorio (pinebooapi_guanabana en este ejemplo) debe ser el que se indica en la clave:
+
+## Despliegue en local del servidor (no Kubernetes)
+El despliegue en local es el que haremos sobre un servidor del cliente
+
+### Establecer la carpeta de despliegue
+En la carpeta de despliegue del servidor delcliente debemos incluir:
+
++ Un fichero `docker-compose.yml` copia de `codebase/despliegue/docker-compose-local.yml`
+
++ En fichero `.env` con los valores de environment necesarios. Cambiar del fichero .env estos valores respecto del fichero de desarrollo:
+  + (parámetros de acceso a la BD)
+  + PINEBOODIR=/src/pineboo/
+  + MODULESDIR=/src/codebase/extensiones_2.5.0/fun_jsenar/build/final/
+  + FLFILES_FOLDER=/src/codebase/extensiones_2.5.0/fun_jsenar/build/final/
+  + EXTERNAL_MODULES=/src/codebase/olula
+
++ Una copia del fichero de despliegue `despliegue_local.sh` que tenemos en `codebase/despliegue`, cambiando:
+  + `[nombre]` por `guanabana`, p.e. `REPO=yeboyebohub/pinebooapi_guanabana`
 
 
-## Configuración
+## Despliegue en servidor de cliente:
 
-Crearemos una rama especifica para los despliegues de un proyecto, de forma que cada vez que realicemos un PUSH en esa rama, automáticamente se desplegará la última versión de esa rama. Debemos crear la rama dentro del proyecto de **CODEBASE** Para configurar el despliegue necesitamos:
++ Hacemos un push de la rama `[NombreApp]_Produccion`.
 
-- .github/workflows/Deploy_miProyecto.yml  (Aqui se configuran las acciones que ejecutará GitHub)
-- despliegue/Dockerfile_MiProyecto  (Configuración de la imagen de docker para este proyecto)
++ Esperamos a que las acciones terminen en [github](https://github.com/yeboyebo/codebase/actions).
 
++ Entramos en [hub.docker.com](https://hub.docker.com/repositories/yeboyebohub) y para el reposiorio de despliegue copiamos el TAG asociado a la última subida (push).
 
-## Configurar GitHub Action
-
-La configuración depende del proyecto en concreto y de dónde se quiera desplegar. A modo de ejemplo, esto es un despliegue en Kubernetes de Egicar
-**.github/workflows/Deploy_Egicar.yml**
++ En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue
+:
+``` sh
+sh despliegue_local.sh [TAG]
 ```
-	name: Egicar
+La primera vez deberemos introducir el usuario y login de dockerhub
 
-# Aqui indicaremos el nombre de la rama sobre la cual al hacer push se iniciara el proceso de despliegue automatico
-on:
-  push:
-    branches:
-      - Egicar_Produccion
+TO DO:
+ + Que Iván lo valide
+ + Ver lo de arrancar el pineboo de eventos
+ + Ver cómo volver a versión anterior
+ + Ver si la secuencia del sh es correcta o se puede hacer mejor para interrumpir lo mínimo
+ + Ver volcado a log de docker-compose up
 
-jobs:
-  Download-and-Build:
-    if: ${{ github.ref_name == 'Egicar_Produccion' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: "yeboyebo/codebase"
-          path: codebase
-      - uses: actions/checkout@v3
-        with:
-          repository: "yeboyebo/pinebooapi"
-          path: pinebooapi
-          branch: "master"
-      
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_PORT: 8005
-          envkey_DOCKER_IP: 55
-          envkey_PINEBOODIR: "/src/pineboo/"
-          envkey_MODULESDIR: /src/codebase/extensiones_2.5.0/fun_egicar/build/final
-          envkey_FLFILES_FOLDER: /src/codebase/extensiones_2.5.0/fun_egicar/build/final
-          envkey_TEMPDIR: /src/pineboo/pineboo/tempdata
-          envkey_WEBSOCKET: true
-          envkey_USE_ATOMIC_LIST: true
-          envkey_PROJECT_NAME: fun_egicar
-          directory: pinebooapi
-          file_name: .env
-          fail_on_empty: false
-          sort_keys: false
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: ./
-          file: codebase/despliegue/Dockerfile_Egicar
-          push: true
-          tags: yeboyebohub/pinebooapi_egicar:${{ github.sha }}
-  
-  deploy-to-cluster:
-    name: deploy to cluster
-    if: ${{ github.ref_name == 'Egicar_Produccion' }}
-    runs-on: ubuntu-latest
-    needs: Download-and-Build
-    steps:
-    
-    - name: deploy to cluster
-      uses: steebchen/kubectl@v2.0.0
-      with:
-        config: ${{ secrets.KUBE_CONFIG_DATA }}
-        command: -n default set image --record deployment/egicar-deployment pineboo=yeboyebohub/pinebooapi_egicar:${{ github.sha }}
-    
-    - name: verify deployment
-      uses: steebchen/kubectl@v2.0.0
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        KUBECTL_VERSION: "1.28"
-      with:
-        config: ${{ secrets.KUBE_CONFIG_DATA }}
-        command: -n default rollout status deployment/egicar-deployment    
-```
-
-## Configurar imagen Pineboo
-La configuración depende del proyecto en concreto y de **como** se quiera desplegar. A modo de ejemplo, esto es un despliegue en Kubernetes de Egicar
-**despliegue/Dockerfile_Egicar**
-
-```py
-    FROM python:3.12.4-slim
-
-MAINTAINER Javier Cortés <javier@yeboyebo.es>
-
-ENV PYTHONUNBUFFERED 1
-
-RUN apt-get update && apt-get install -y apt-utils build-essential vim tzdata libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev freetds-dev libgl1 libegl1 libxkbcommon-x11-0 libjpeg-dev libdbus-1-3 xcb libxcb-cursor0 libpq-dev libglib2.0-0 locales nano git
-RUN apt-get install -y python3-anyjson
-
-ENV TZ=Europe/Madrid
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN mkdir /src/
-RUN mkdir /src/app/
-RUN mkdir /src/app/logs
-RUN mkdir /static/
-RUN mkdir /static/images/
-RUN mkdir /static/images/eventos
-RUN mkdir /static/images/roadbooks
-RUN mkdir /static/images/justificantes
-RUN touch /src/app/logs/yebo.log
-RUN touch /src/app/logs/django.log
-RUN chmod -R a+rw /src
-RUN echo "COMPROBANDO PERMISOS /src"
-RUN ls -la -R /src
-RUN chmod -R a+rw /static
-ADD pinebooapi/requirements.txt /src/
-COPY pinebooapi/app /src/app
-COPY pinebooapi/motor /src/motor
-COPY pinebooapi/.env /src/.env
-RUN mkdir /pineboo
-RUN mkdir /pineboo/log
-RUN mkdir /src/pineboo
-RUN mkdir /src/pineboo/modules
-RUN mkdir /src/pineboo/pineboo
-RUN mkdir /src/pineboo/tempdata
-COPY codebase /src/codebase
-WORKDIR /src/
-RUN /usr/local/bin/python3 -m pip install --upgrade pip
-RUN pip3 install --upgrade setuptools==57.5.0
-RUN pip3 install -r requirements.txt --use-deprecated=legacy-resolver
-RUN pip3 install pineboo==0.99.87.5
-RUN pip3 install gpxpy
-RUN pip3 install unidecode
-RUN pip3 install enebootools
-RUN chmod 777 -R /src/
-RUN chmod 777 -R /static/images
-RUN localedef -i es_ES -f UTF-8 es_ES.UTF-8
-RUN echo "LANG=\"es_ES.UTF-8\"" > /etc/locale.conf
-RUN ln -s -f /usr/share/zoneinfo/CET /etc/localtime
-RUN echo "CREANDO USUARIO 'yeboyebo'"
-RUN adduser --quiet --disabled-password --gecos '' yeboyebo 
-RUN echo "yeboyebo:yeboyebo" | chpasswd 
-RUN adduser yeboyebo sudo
-RUN echo "COMPROBANDO EXISTENCIA USUARIO 'yeboyebo' y permisos"
-RUN chown -R yeboyebo:yeboyebo /src
-RUN chown -R yeboyebo:yeboyebo /pineboo
-USER yeboyebo
-RUN rm -rf /home/yeboyebo/Pineboo/tempdata/cache/*
-RUN mkdir /home/yeboyebo/.eneboo-tools
-COPY codebase/despliegue/assembler-config.ini /home/yeboyebo/.eneboo-tools/assembler-config.ini
-RUN eneboo-assembler dbupdate
-RUN eneboo-assembler build fun_egicar src
-ENV LANG es_ES.UTF-8
-ENV LANGUAGE es_ES.UTF-8
-ENV LC_ALL es_ES.UTF-8
-RUN whoami
-
-```
 
 ### Más
 

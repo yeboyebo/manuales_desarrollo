@@ -47,19 +47,8 @@ certificate.cert-manager.io/yeboyebo-ssl-secret created
 Desde la administración de subdominios, apuntar el subdominio indicado en las claves _host_ y _subdomain_ a la IP pública de Kubernetes. Podemos verla con Lens > Network > Ingresses (columna load balancers)
 
 ### Crear la rama y la Github Action
-+ Creamos la rama en github a partir de master [Aplicacion]_Produccion. Ejemplo: *Sanhigia_Produccion*
+Ver punto similar en [despliegue_automatico](./despliegue_automatico.md)
 
-__Fichero de github__
-+ En codebase/.github/workflows/creamos un nuevo fichero Deploy_[Aplicacion].yml a partir del fichero Deploy_Plantilla.yml.
-  + Modificamos los datos y ponemos la funcionalidad correcta
-  + En las claves *deploy_to_cluster*, _command_ tiene que apuntar al nombre del deployment correto de Kubernetes, especificado en el fichero de despliegue de Kubernetes, en la clave _metadata_ > _name_.
-
-__Fichero Dockerfile__
-+ En codebase/.despligue creamos un nuevo fichero Dockerfile_[Aplicacion] a partir del fichero Dockerfile_Plantilla
-  + Modificamos la línea `RUN eneboo-assembler build... ` indicando el nombre de la extensión
-  + Comprobamos que el nombre del fichero Dockerfile_[Aplicacion] generado coincide con la clave `name: Build and push` > _file_ del fichero de github asociado Deploy_[Aplicacion].yml
-
-+ En codebase/despliegue creamo un nuevo fichero Dockerfile_[Aplicacion]
 
 ### Comprobar el despliegue en github
 Una vez configurado, el despliegue se lanza automáticamente al hacer un push a la rama [Aplicacion]_Produccion.
