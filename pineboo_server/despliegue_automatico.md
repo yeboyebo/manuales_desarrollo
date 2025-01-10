@@ -47,7 +47,7 @@ Checks:
 
 ## Crear el Repositorio en Docker Hub
 
-Creamos en dockerhub ([hub.docker.com](https://hub.docker.com)) el respositorio __privado__ `pinebooapi_[nombre]`(p.e. pinebooapi_sanhigia). El nombre del repositorio (pinebooapi_guanabana en este ejemplo) debe ser el que se indica en la clave:
+Creamos en dockerhub ([hub.docker.com](https://hub.docker.com) (claves en bitwarden)) el respositorio __privado__ `pinebooapi_[nombre]`(p.e. pinebooapi_sanhigia). El nombre del repositorio (pinebooapi_guanabana en este ejemplo) debe ser el que se indica en la clave:
 
 ## Despliegue en local del servidor (no Kubernetes)
 El despliegue en local es el que haremos sobre un servidor del cliente

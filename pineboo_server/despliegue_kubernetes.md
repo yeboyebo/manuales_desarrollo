@@ -22,10 +22,15 @@ Una vez tenemos el dump con la base de datos preparado:
   + Restauramos la copia:
     + `psql [bd] < [fichero.dump]`
 
+### Apuntar la API a Kubernetes
+Desde la administración de subdominios, apuntar el subdominio indicado en las claves _host_ y _subdomain_ a la IP pública de Kubernetes. Podemos verla con Lens > Network > Ingresses (columna load balancers)
+
 ### Crear la aplicación
 Preparamos un fichero yaml de aplicación. La plantilla está en:
 
 codebase/despliegue/plantilla_deploy.yaml
+
+copiamos la plantilla con [nombre_app]_deploy.yaml  (este es el fichero que se usará una unica vez para hacer la instalación)
 
 Sustituimos [nombre_app] por el nombre de la aplicación a crear, teniendo en cuenta:
 
@@ -42,9 +47,6 @@ service/yeboyebo created
 ingress.networking.k8s.io/ingress-yeboyebo created
 certificate.cert-manager.io/yeboyebo-ssl-secret created
 ```
-
-### Apuntar la API a Kubernetes
-Desde la administración de subdominios, apuntar el subdominio indicado en las claves _host_ y _subdomain_ a la IP pública de Kubernetes. Podemos verla con Lens > Network > Ingresses (columna load balancers)
 
 ### Crear la rama y la Github Action
 Ver punto similar en [despliegue_automatico](./despliegue_automatico.md)
