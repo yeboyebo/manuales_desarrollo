@@ -47,7 +47,7 @@ Checks:
 
 ## Crear el Repositorio en Docker Hub
 
-Creamos en dockerhub ([hub.docker.com](https://hub.docker.com) (claves en bitwarden)) el respositorio __privado__ `pinebooapi_[nombre]`(p.e. pinebooapi_sanhigia). El nombre del repositorio (pinebooapi_guanabana en este ejemplo) debe ser el que se indica en la clave:
+Creamos en dockerhub ([hub.docker.com](https://hub.docker.com) (claves en bitwarden)) el respositorio __privado__ `pinebooapi_[nombre]`(p.e. pinebooapi_sanhigia). El nombre del repositorio (pinebooapi_guanabana en este ejemplo) debe ser el que se indica en la clave `Build and push` > `tags` del fichero Deploy_[aplicacion].
 
 ## Despliegue en local del servidor (no Kubernetes)
 El despliegue en local es el que haremos sobre un servidor del cliente
@@ -58,11 +58,15 @@ En la carpeta de despliegue del servidor delcliente debemos incluir:
 + Un fichero `docker-compose.yml` copia de `codebase/despliegue/docker-compose-local.yml`
 
 + En fichero `.env` con los valores de environment necesarios. Cambiar del fichero .env estos valores respecto del fichero de desarrollo:
+
+```ini
   + (parámetros de acceso a la BD)
   + PINEBOODIR=/src/pineboo/
   + MODULESDIR=/src/codebase/extensiones_2.5.0/fun_jsenar/build/final/
   + FLFILES_FOLDER=/src/codebase/extensiones_2.5.0/fun_jsenar/build/final/
   + EXTERNAL_MODULES=/src/codebase/olula
+  + PROJECT_NAME=[nombre de la carpeta del cliente en olula/apps]
+```
 
 + Una copia del fichero de despliegue `despliegue_local.sh` que tenemos en `codebase/despliegue`, cambiando:
   + `[nombre]` por `guanabana`, p.e. `REPO=yeboyebohub/pinebooapi_guanabana`
@@ -74,10 +78,15 @@ En la carpeta de despliegue del servidor delcliente debemos incluir:
 
 + Esperamos a que las acciones terminen en [github](https://github.com/yeboyebo/codebase/actions).
 
-+ Entramos en [hub.docker.com](https://hub.docker.com/repositories/yeboyebohub) y para el reposiorio de despliegue copiamos el TAG asociado a la última subida (push).
++ Entramos en [hub.docker.com](https://hub.docker.com/repositories/yeboyebohub) y para el reposiorio de despliegue copiamos el TAG asociado a la última subida (push). Para ello pulsamos en el enlace de la subida y sacamos el tag del título de la página:
+Ejemplo: `yeboyebohub/pinebooapi_guanabana:a53dc48bd5efd3ecd4b7fa7db212fbdee6b792e3` > Tag = a53dc48bd5efd3ecd4b7fa7db212fbdee6b792e3
 
-+ En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue
-:
++ En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue.
+La carpeta de despliegue del cliente debe contener:
+
++ El fichero docker-compose.yml (podemos copiarlo de `codebase/despliegue/docker-compose-local.yml`)
++ El fichero .env
+
 ``` sh
 sh despliegue_local.sh [TAG]
 ```
