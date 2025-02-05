@@ -92,12 +92,30 @@ sh despliegue_local.sh [TAG]
 ```
 La primera vez deberemos introducir el usuario y login de dockerhub
 
-TO DO:
- + Que Iván lo valide
- + Ver lo de arrancar el pineboo de eventos
- + Ver cómo volver a versión anterior
- + Ver si la secuencia del sh es correcta o se puede hacer mejor para interrumpir lo mínimo
- + Ver volcado a log de docker-compose up
+### Ver el log de pinebooapi en local
+Para ver el log entramos en la consola de docker:
+```sh
+docker ps
+```
+(obtenemos el CONTANIER_ID)
+```sh
+docker exec -it CONTAINER_ID /bin/bash
+```
+Una vez en la consola de docker usamos tail, cat, etc para ver el fichero en `app/logs/yebo.log`.
+```sh
+$ tail -n 100 app/logs/yebo.log
+```
+Salimos de la consola con exit
+```sh
+$ exit
+```
+
+### Reiniciar pinebooapi en local
+Para reiniciar, podemos usar el script sin indicar la etiqueta:
+``` sh
+sh despliegue_local.sh
+```
+Como alternativa, podemos también matar el docker como se describe en _Ver el log de pinebooapi en local_ y luego lanzar la última línea del script de despliegue local.
 
 
 ### Más
