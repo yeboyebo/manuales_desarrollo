@@ -92,6 +92,15 @@ sh despliegue_local.sh [TAG]
 ```
 La primera vez deberemos introducir el usuario y login de dockerhub
 
+Si tras lanzar el despliegue no aparece la imagen con docker ps, podemos ver qué ha fallado entrando en modo interactivo:
+```sh
+  docker run -p 8080:8000 --expose 8080 --env-file .env -it --entrypoint /bin/bash yeboyebohub/pinebooapi_hispanicfiber:latest
+```
+Y ejecutando dentro del contenedor:
+
+```sh
+python3 app/manage.py runserver 0.0.0.0:8000
+```
 ### Ver el log de pinebooapi en local
 Para ver el log entramos en la consola de docker:
 ```sh
