@@ -55,8 +55,6 @@ El despliegue en local es el que haremos sobre un servidor del cliente
 ### Establecer la carpeta de despliegue
 En la carpeta de despliegue del servidor delcliente debemos incluir:
 
-+ Un fichero `docker-compose.yml` copia de `codebase/despliegue/docker-compose-local.yml`
-
 + En fichero `.env` con los valores de environment necesarios. Cambiar del fichero .env estos valores respecto del fichero de desarrollo:
 
 ```ini
@@ -84,7 +82,6 @@ Ejemplo: `yeboyebohub/pinebooapi_guanabana:a53dc48bd5efd3ecd4b7fa7db212fbdee6b79
 + En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue.
 La carpeta de despliegue del cliente debe contener:
 
-+ El fichero docker-compose.yml (podemos copiarlo de `codebase/despliegue/docker-compose-local.yml`)
 + El fichero .env
 
 ``` sh
