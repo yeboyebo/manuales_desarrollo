@@ -60,11 +60,15 @@ Podemos ver si el despliegue está en curso, hecho o con error en la web de Gith
 ### Ver el log de pinebooapi en Kubernetes
 Lens > Pods > (pod que queremos consultar) > botón (...) > log
 
+### Modificar el fichero de environment (env) en Kubernetes
+Editamos el deployment (lápiz) y lo editamos allí.
+
 ## Más información sobre Kubernetes
 [Kubernetes](https://www.youtube.com/watch?v=oTf0KxK1QNo&t=151s) es una infraestructura que nos permite el despliegue completo de aplicaciones WEB.
 
 ### Más
 
   * [Volver al Índice](./index.md)
+
 
 
