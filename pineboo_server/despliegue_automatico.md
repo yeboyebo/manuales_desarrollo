@@ -55,8 +55,6 @@ El despliegue en local es el que haremos sobre un servidor del cliente
 ### Establecer la carpeta de despliegue
 En la carpeta de despliegue del servidor delcliente debemos incluir:
 
-+ Un fichero `docker-compose.yml` copia de `codebase/despliegue/docker-compose-local.yml`
-
 + En fichero `.env` con los valores de environment necesarios. Cambiar del fichero .env estos valores respecto del fichero de desarrollo:
 
 ```ini
@@ -84,7 +82,6 @@ Ejemplo: `yeboyebohub/pinebooapi_guanabana:a53dc48bd5efd3ecd4b7fa7db212fbdee6b79
 + En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue.
 La carpeta de despliegue del cliente debe contener:
 
-+ El fichero docker-compose.yml (podemos copiarlo de `codebase/despliegue/docker-compose-local.yml`)
 + El fichero .env
 
 ``` sh
@@ -92,6 +89,15 @@ sh despliegue_local.sh [TAG]
 ```
 La primera vez deberemos introducir el usuario y login de dockerhub
 
+Si tras lanzar el despliegue no aparece la imagen con docker ps, podemos ver qué ha fallado entrando en modo interactivo:
+```sh
+  docker run -p 8080:8000 --expose 8080 --env-file .env -it --entrypoint /bin/bash yeboyebohub/pinebooapi_hispanicfiber:latest
+```
+Y ejecutando dentro del contenedor:
+
+```sh
+python3 app/manage.py runserver 0.0.0.0:8000
+```
 ### Ver el log de pinebooapi en local
 Para ver el log entramos en la consola de docker:
 ```sh
