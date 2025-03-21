@@ -16,6 +16,9 @@ Una vez tenemos el dump con la base de datos preparado:
 
 `NOTA`: Esto a veces no funciona según la instalación. Pedir a Iván que lo haga él si no nos funciona.
 
++ Otra forma de subir ficheros
+  `kubectl cp fichero_de_mi_equipo.zip default/nombre_del_pod:/ruta_dentro_del_pod`
+
 + En Lens, entramos en la consola desde el pod asociado a postgres (pods > postgres-deployment...) > Opción ">_"
   + Creamos la BD
     + `createdb [bd] -E UNICODE`
