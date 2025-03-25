@@ -79,25 +79,54 @@ En la carpeta de despliegue del servidor delcliente debemos incluir:
 + Entramos en [hub.docker.com](https://hub.docker.com/repositories/yeboyebohub) y para el reposiorio de despliegue copiamos el TAG asociado a la última subida (push). Para ello pulsamos en el enlace de la subida y sacamos el tag del título de la página:
 Ejemplo: `yeboyebohub/pinebooapi_guanabana:a53dc48bd5efd3ecd4b7fa7db212fbdee6b792e3` > Tag = a53dc48bd5efd3ecd4b7fa7db212fbdee6b792e3
 
-+ En el servidor del cliente, accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue.
-La carpeta de despliegue del cliente debe contener:
++ En el servidor del cliente:
+  - Miramos si hay un docker levantado y si existe lo mataremos:
 
-+ El fichero .env
+    ``` 
+    docker ps
+    ```
+    Si no hay un docker levantado nos devolverá:
 
-``` sh
-sh despliegue_local.sh [TAG]
-```
-La primera vez deberemos introducir el usuario y login de dockerhub
+    ```
 
-Si tras lanzar el despliegue no aparece la imagen con docker ps, podemos ver qué ha fallado entrando en modo interactivo:
-```sh
-  docker run -p 8080:8000 --expose 8080 --env-file .env -it --entrypoint /bin/bash yeboyebohub/pinebooapi_hispanicfiber:latest
-```
-Y ejecutando dentro del contenedor:
+    CONTAINER ID   IMAGE                                     COMMAND                  CREATED      STATUS      PORTS                                                 NAMES
 
-```sh
-python3 app/manage.py runserver 0.0.0.0:8000
-```
+    ```
+
+    Si hay un docker levantado nos devolverá algo así:
+
+    ```
+
+    CONTAINER ID   IMAGE                                     COMMAND                  CREATED      STATUS      PORTS                                                 NAMES
+    31257e34eae7   yeboyebohub/pinebooapi_guanabana:latest   "/bin/bash -c '/usr/…"   5 days ago   Up 5 days   8080/tcp, 0.0.0.0:8080->8000/tcp, :::8080->8000/tcp   goofy_haibt
+
+
+    ```
+
+    Nos fijaremos en el CONTAINER ID para matarlo:
+
+    ``` sh
+      docker kill 31257e34eae7
+    ```
+
+ 
+  - Accedemos a la carpeta de despliegue del cliente y lanzamos el sh de despliegue.
+
+
+    ``` sh
+    sh despliegue_local.sh [TAG]
+    ```
+    La primera vez deberemos introducir el usuario y login de dockerhub
+
+    Si tras lanzar el despliegue no aparece la imagen con docker ps, podemos ver qué ha fallado entrando en modo interactivo:
+    ```sh
+      docker run -p 8080:8000 --expose 8080 --env-file .env -it --entrypoint /bin/bash yeboyebohub/pinebooapi_hispanicfiber:latest
+    ```
+    Y ejecutando dentro del contenedor:
+
+    ```sh
+    python3 app/manage.py runserver 0.0.0.0:8000
+    ```
 ### Ver el log de pinebooapi en local
 Para ver el log entramos en la consola de docker:
 ```sh
@@ -111,6 +140,14 @@ Una vez en la consola de docker usamos tail, cat, etc para ver el fichero en `ap
 ```sh
 $ tail -n 100 app/logs/yebo.log
 ```
+
+Podemos realizar búsquedas dentro del fichero de log estando dentro de la carpeta logs:
+
+```sh
+  yeboyebo@31257e34eae7:/src/app/logs$ grep palabra_a_buscar $(find . -name .log)
+
+```
+
 Salimos de la consola con exit
 ```sh
 $ exit
