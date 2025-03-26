@@ -153,6 +153,14 @@ Salimos de la consola con exit
 $ exit
 ```
 
+Podemos traernos el log a nuestro equipo de la siguiente forma:
+1. Hacemos **docker ps** para ver el nombre del contenedor (no el id)
+2. Con la **docker cp** podremos traernos el log fuera del docker
+
+```
+docker cp nombre_docker:/src/app/logs/yebo.log .
+```
+
 ### Reiniciar pinebooapi en local
 Para reiniciar, podemos usar el script sin indicar la etiqueta:
 ``` sh
