@@ -20,6 +20,7 @@
 - [FAQ](./faq/index.md)
 - [Git](./eneboo-tools/guiarapida.md)
 - [Glosario](./glosario/glosario.md)
+- [Impresoras](./impresoras/index.md)
 - [Instalación portátil](./instalacion_portatil/index.md)
 - [Instalacion y configuración Postgresql-server](./postgresql_server/index.md)
 - [Integraciones](./integraciones/index.md)
