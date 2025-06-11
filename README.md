@@ -32,6 +32,7 @@
 - [Reglas de acceso](./reglas_acceso/index.md)
 - [SSH. Instalacion](./ssh/index.md)
 - [SQL](./sql/index.md)
+- [Jasper con JSON](./jasperjson/index.md)
 - [Testing](./testing/index.md)
 - [I+D+i](./idi/index.md)
 
