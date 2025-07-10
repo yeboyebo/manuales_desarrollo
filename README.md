@@ -18,6 +18,7 @@
 - [Eneboo tools](./eneboo-tools/index.md)
 - [Eventos y Colas](./eventos_y_colas/index.md)
 - [FAQ](./faq/index.md)
+- [Fiskaly](./fiskaly/index.md)
 - [Git](./eneboo-tools/guiarapida.md)
 - [Glosario](./glosario/glosario.md)
 - [Impresoras](./impresoras/index.md)
