@@ -9,6 +9,9 @@
 ### 1. Registrar en Dashboard
 - Lo primero es registrarte en el Dashboard. Crearemos la cuenta y a partir de ahí se creará la estructura organizativa de la empresa.
 
+    https://dashboard.fiskaly.com/
+    
+
 ### 2. Crear organización principal
 
 - Entraremos en el Dashboard con las credenciales facilitadas y lo primero que se muestra es la lista de organizaciones que hay y la opción de crear una nueva, pulsaremos en **Crear nueva organización**
@@ -151,11 +154,51 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
 * API Secret --> Informamos el valor obtenido en el punto 4 lave API secret.
 
-* URL --> Valor fijo: https://{{entorno}}.es.sign.fiskaly.com/api/v1/
+* URL --> Valor fijo:
+```
+    https://{{entorno}}.es.sign.fiskaly.com/api/v1/
+
+```
+
 
 * Id.Cliente --> Valor obtenido en el punto 7 en el campo id.
 
-#### 8.1. Proceso crear facturas 
+#### 8.1. Proceso crear/firmar facturas 
 
-- Una vez informados esta configuración podremos crear facturas, firmarlas con fiskaly
+- Una vez informados esta configuración podremos crear facturas y firmarlas con fiskaly.
+
+- El proceso de creación de facturas es el estandard del ERP pero hasta que la factura no se emite a Fiskaly y queda firmada no estará en firme.
+
+- Al crear la factura, no tiene un código estándard, nos da un código de borrador y el estado será **Borrador**
+
+![ERP](img/fiskaly23.png)
+
+- Con la factura seleccionada, pulsamos en el botón **Emitir** 
+
+![ERP](img/fiskaly24.png)
+
+- La factura pasará por los estados de **Pte.Emitir** y **Pte.Firma**, cuando está **Pte.Emitir** automáticamente se envía a Fiskaly y si no ha habido problema en el envío la factura se queda como **Pte.Firma**.
+
+![ERP](img/fiskaly25.png)
+
+- Una vez en este punto, la factura será firmada por Fiskaly y la siguiente factura que se presente obtendrá la información del estado de las facturas en estado **Pte.Firma** y actualizará el estado como **Firmada** si todo ha ido bien.
+
+- Una forma alternativa de actualizar el estado sin tener que esperar a enviar otra factura es pulsando el botón de **Comprobar estado**
+
+![ERP](img/fiskaly26.png)
+
+![ERP](img/fiskaly27.png)
+
+
+### 9. Ver facturas presentadas a Fiskaly desde el ERP
+
+- En principio, todas las facturas en estado **Firmada** están firmadas pero es posible que haya habido errores y podemos verlos desde el **Área de Facturación --> Facturación --> Más --> Garante Sign**
+
+![ERP](img/fiskaly28.png)
+
+- En esta pantalla podemos ver las facturas firmadas en Fiskaly y podemos ver el id que le ha asignado Fiskaly con el que se pueden ver las facturas en el dashboard
+
+
+![ERP](img/fiskaly29.png)
+
 
