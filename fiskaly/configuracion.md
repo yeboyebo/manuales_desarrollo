@@ -35,8 +35,8 @@
 
 ![Dashboard1](img/fiskaly0-4.png)
 
-
-### 3. Crear organización gestionada
+### 3. Modo manual.
+#### 3.1 Crear organización gestionada
 - Teniendo seleccionada nuestra organización principal, pulsaremos en **Crear nueva organización** 
 
 ![Dashboard1](img/fiskaly5.png)
@@ -54,7 +54,7 @@ Los pasos son los mismos que al crear una organización pero en el paso de infor
 ![Dashboard1](img/fiskaly2.png)
 
 
-### 4. Crear clave API
+#### 3.2 Crear clave API
 - En el apartado de General, tenemos la opción de creear la clave API, pulsaremos y daremos un nombre.
 
 ![Dashboard1](img/fiskaly3.png)
@@ -107,7 +107,7 @@ https://developer.fiskaly.com/es/api/sign-es/v1#section/Guia-Rapida
 
 ![Dashboard1](img/fiskaly18.png)
 
-### 5. Añadir información del contribuyente
+#### 3.3 Añadir información del contribuyente
 
 - El siguiente paso es añadir la información del contribuyente al sistema, para ello lo haremos con al sistema a través del endpoint **Set taxpayer information** de la API de SIGN ES.
 
@@ -120,7 +120,7 @@ Este es un paso obligatorio para garantizar que todas las facturas generadas cum
 
 ![Dashboard1](img/fiskaly19.png)
 
-### 6. Crear un firmante
+#### 3.4 Crear un firmante
 
 - A continuación, se debe de crear un Firmante a través del endpoint **Create a first signer** para cada organización gestionada. El firmante es responsable de la firma digital de las facturas.
 
@@ -132,7 +132,7 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
 ![Dashboard1](img/fiskaly20.png)
 
-### 7. Crear clientes
+#### 3.5 Crear clientes
 
 - El siguiente paso es crear clientes, el flujo de trabajo incluye la creación de createClient a través del endpoint **create a first Client**. Debes crear un Cliente para cada dispositivo POS u otros dispositivos de facturación utilizados en tu organización.
 
@@ -142,9 +142,41 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
 - En la respuesta, obtenemos el idcliente que tendremos que guardar en la configuración de verifactu en el campo id.
 
+### 4. Modo auto con herramienta fiskaly_tools.py
 
+#### 4.1 Configuración
 
-### 8. Crear facturas
+- Se crea el fichero fiskay_config.json en la misma carpeta donde está el fichero fiskaly_tools.py con los siguientes datos:
+``` json
+{
+    "key" : "test_2b25l4adaxxxr6u42tog21lwh_pruebasx",
+    "secret" : "mJyC5VSTanjgl7rCsWiRDAOrFs2VFHFSLCbeIg8iuiT",
+    "uuid" : "26f8c0d4-35e4-4bea-97f9-0b1d4a676731"
+}
+```
+key: clave api_key de la empresa gestionadora.
+secreat: clave api_secret de la empresa gestionadora.
+uuid: uuid de la empresa gestionadora.
+
+#### 4.3 Ejecución
+
+- Lanzamos la herramienta con python3 ./fiskaly_tools.py
+
+![Tool1](img/tool_1.png)
+
+- Pulsamos la opción 1 y rellenamos los datos de la empresa a crear. La dirección a especificar es la dirección fiscal de la empresa.
+
+![Tool2](img/tool_2.png)
+
+- Pulsamos s y se generará automaticamente todo.
+
+![Tool3](img/tool_3.png)
+
+- La herramienta inforará del api_key, api_secret y client_id a usar por la empresa nueva.
+
+![Tool4](img/tool_4.png)
+
+### 5. Crear facturas
 
 - El siguiente paso es crear facturas desde el ERP y firmalas, antes de eso vamos a configurar los datos en el ERP dentro de la pestaña **VERI*FACTU** del formulario de configuración de **Facturación**:
 
@@ -161,9 +193,9 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 ```
 
 
-* Id.Cliente --> Valor obtenido en el punto 7 en el campo id.
+* Id.Cliente --> Valor obtenido en el punto 3.5 , 4.2 en el campo id.
 
-#### 8.1. Proceso crear/firmar facturas 
+#### 5.1. Proceso crear/firmar facturas 
 
 - Una vez informados esta configuración podremos crear facturas y firmarlas con fiskaly.
 
@@ -190,7 +222,7 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 ![ERP](img/fiskaly27.png)
 
 
-### 9. Ver facturas presentadas a Fiskaly desde el ERP
+### 6. Ver facturas presentadas a Fiskaly desde el ERP
 
 - En principio, todas las facturas en estado **Firmada** están firmadas pero es posible que haya habido errores y podemos verlos desde el **Área de Facturación --> Facturación --> Más --> Garante Sign**
 
