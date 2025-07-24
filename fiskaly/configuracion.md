@@ -189,6 +189,7 @@ uuid: uuid de la empresa gestionadora.
 * API Secret --> Informamos el valor obtenido en el punto 4 lave API secret.
 
 * URL --> Valor fijo:
+
 ```
     https://{{entorno}}.es.sign.fiskaly.com/api/v1/
 
