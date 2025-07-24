@@ -236,3 +236,26 @@ uuid: uuid de la empresa gestionadora.
 ![ERP](img/fiskaly29.png)
 
 
+### 7. Impresión de facturas
+
+- En las facturas que se impriman, tienen que tener el QR generado al presentarse, para ello nos ayudaremos de las siguientes funciones que están en *flfactinfo* para poder imprimir tanto en **.jasper** como en **.kut**
+
+```
+    veriFactu_crearFicheroVeriFactu(curFactura : FLSqlCursor)
+    veriFactu_qrVeriFactu(nodo : FLDomNode , campo : String)
+
+```
+
+- El QR debe de siguir las especificaciones que están incluidas en el siguiente documento:
+
+https://www.agenciatributaria.es/static_files/AEAT_Desarrolladores/EEDD/IVA/VERI-FACTU/DetalleEspecificacTecnCodigoQRfactura.pdf
+
+- Las más importantes son:
+
+    - Se tiene que imprimir en la primera página, arriba centrado.
+    - El tamaño tiene que ser entre 3x3 y 4x4 cm.
+    - El QR tiene que ir precedido por el texto **QR tributario:**
+    - El QR tiene que ir sucedido por el texto **Factura verificable en la sede electrónica de la AEAT** o **VERI*FACTU**
+
+
+![ERP](img/fiskaly30.png)
