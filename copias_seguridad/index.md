@@ -2,7 +2,7 @@
 
 ### Herramientas
  - [deja-dup](./deja-dup/index.md)
- - [backup_tools](./backup_tools/index.md)
+ - [backup_tools](./backup-tools/index.md)
 
 
 ## Más
