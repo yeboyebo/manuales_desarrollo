@@ -146,9 +146,11 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
 Fiskaly_tools es una herramienta que facilita la creación de entidades intermedias que van desde dar de alta la organización (Empresa), tokens, keys, certificados, firmantes, contribuyente, hasta dar de alta la instalación. Todo en un solo paso.
 
+La podemos encontrar en el repositorio de git **utils**
+
 #### 4.1 Configuración
 
-- Se crea el fichero fiskay_config.json en la misma carpeta donde está el fichero fiskaly_tools.py con los siguientes datos:
+- Se crea el fichero fiskaly_config.json en la misma carpeta donde está el fichero fiskaly_tools.py con los siguientes datos:
 ``` json
 {
     "key" : "test_2b25l4adaxxxr6u42tog21lwh_pruebasx",
