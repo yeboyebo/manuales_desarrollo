@@ -242,7 +242,8 @@ uuid: uuid de la empresa gestionadora.
 
 ### 7. Anular factura
 
-- En principio, todas las facturas en estado **Firmada** o **Error firma** , pueden ser anuladas. Si la factura no puede informarse a Fiskaly, continuará en el estado **Firmada**.
+- En principio, todas las facturas en estado **Firmada** o **Error firma** , pueden ser anuladas. 
+- Si la factura no puede informarse a Fiskaly, continuará en el estado **Firmada** y tendremos que volver a intentar anularla más tarde.
 
 ### 8. Incidencias en la comunicación
 
