@@ -106,5 +106,11 @@ El xml del subreport de la imagen quedaría como:
 
 NOTA: Hay un ejemplo de esto en fun_cremacafe para el informe tpv_i_comandas_json
 
+### Preview
+
+En la pestaña de Preview tenemos que seleccionar **Don't use Data Adapter** tomar los datos del parámetro de JSON.
+
+![preview](./img/Preview.png)
+
 
   * [Volver al Índice](./index.md)
