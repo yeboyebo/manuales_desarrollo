@@ -7,6 +7,7 @@
 ![Diagrama](img/diagrama.png)
 
 - Los pasos a seguir serían:
+
 1. Registrarse en Dashboard de Fiskaly.
 
 2. Crear organización principal gestionadora, esta organización no emite facturas, lo que hace es ser la que da de alta y gestiona a las demás empresas.
@@ -55,9 +56,10 @@
 
     5. Pulsamos en **CREAR** y se creará la organización principal.
 
-    6. Si pulsamos en el icono de info podemos ver los datos de la organización.
 
-    En este caso está en **test** y el id de organización que nos ha dado ya será el mismo aunque pasemos la organización a **live**. (Para pasar una organización principal gestionadora a **live** hay que contactar con soporte de fiskaly, para pasar una organización gestionada no hará falta contactar con ellos.)
+- Una vez creada la organización, si pulsamos en el icono de info podemos ver su datos.
+
+- En este caso está en **test** y el id de organización que nos ha dado ya será el mismo aunque pasemos la organización a **live**. (Para pasar una organización principal gestionadora a **live** hay que contactar con soporte de fiskaly, para pasar una organización gestionada no hará falta contactar con ellos.)
 
     ![Dashboard4](img/fiskaly_verifactu4.png)
 
@@ -110,7 +112,7 @@ La podemos encontrar en el repositorio de git **utils**
 - secret: clave api_secret de la empresa gestionadora (test o live)
 
 
-##### Ejecución
+#### Ejecución
 
 - Lanzamos la herramienta con python3 ./fiskaly_tools.py
 
@@ -176,7 +178,7 @@ La podemos encontrar en el repositorio de git **utils**
 
     5. Descargar, Firmar y Subir acuerdo de Fiskaly
  
- #### 8.1. Configuración de los datos obtenidos en Fiskaly
+#### 8.1. Configuración de los datos obtenidos en Fiskaly
 
 - En la pestaña VERI*FACTU del formulario de empresa informaremos los siguientes campos:
 
@@ -192,7 +194,7 @@ La podemos encontrar en el repositorio de git **utils**
 
 #### 8.2. Claves que son específicas de Veri*factu.
 
-##### 8.2.1. Regímenes de IVA específicos de Veri*Factu
+#### 8.2.1. Regímenes de IVA específicos de Veri*Factu
 
 En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Regímenes IVA Veri*Factu** hay que crear los distintos regímenes de iva que puede utilizar Verifactu:
 
@@ -221,7 +223,7 @@ En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Regímenes I
 
 ```
 
-##### 8.2.2. Regímenes de IVA específicos de Veri*Factu
+#### 8.2.2. Regímenes de IVA específicos de Veri*Factu
 
 En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Causas Excepción IVA Veri*Factu** crearemos las distintas causas por las que será exento o no sujeto el iva de una factura según la nomenclatura de Verifactu:
 
@@ -246,7 +248,7 @@ En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Causas Excep
     INSERT INTO veri_causasexencioniva(veri_causaexencioniva,descripcion) VALUES('NON_TAXABLE_4','Operación no sujeta por ventas realizadas por cuenta de terceros (importe no computable a efectos de IVA ni de IRPF).');
 ```
 
-##### 8.2.3. Actualizar paises
+#### 8.2.3. Actualizar paises
 
 - Todos los países deben de tener el codigo ISO informado
 - Es necesario poder saber si un país es Europeo o no por lo que hay que marcar el check de Pertenece a U.E. en los paises que corresponda
@@ -284,7 +286,7 @@ En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Causas Excep
     UPDATE paises set perteneceue = true where codiso ='SK';
 ``` 
 
-##### 8.2.4. Grupos contables Veri*Factu
+#### 8.2.4. Grupos contables Veri*Factu
 
 En este apartado se configurarán grupos de iva de negocio para cada tipo de factura que se pueda tener.
 
@@ -345,19 +347,19 @@ Los campos que hay que configurar de Verifactu son:
 
 1. Clientes Nacionales en Régimen General:
 
-![Dashboard10](img/fiskaly_verifactu26.png)
+    ![Dashboard10](img/fiskaly_verifactu26.png)
 
 2. Clientes Exentos:
 
-![Dashboard10](img/fiskaly_verifactu27.png)
+    ![Dashboard10](img/fiskaly_verifactu27.png)
 
 3. Clientes Exportación:
 
-![Dashboard10](img/fiskaly_verifactu28.png)
+    ![Dashboard10](img/fiskaly_verifactu28.png)
 
 4. Clientes Intracomunitarios:
 
-![Dashboard10](img/fiskaly_verifactu29.png)
+    ![Dashboard10](img/fiskaly_verifactu29.png)
 
 
 #### 8.3. Declaración Responsable del programa (Eneboo)

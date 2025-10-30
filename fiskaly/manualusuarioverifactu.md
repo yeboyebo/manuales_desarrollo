@@ -1,4 +1,4 @@
-## Manual usuario con Fiskaly-Veri*Factu
+## Manual usuario Fiskaly-Veri*Factu
 
 ### 1. Proceso crear/firmar facturas 
 #### 1.1. Crear factura (borrador)

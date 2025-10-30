@@ -6,7 +6,8 @@
 
 ![Diagrama](img/diagrama.png)
 
-- Los pasos a seguir seróan:
+- Los pasos a seguir serían:
+
 1. Registrarse en Dashboard de Fiskaly.
 
 2. Crear organización principal gestionadora, esta organización no emite facturas, lo que hace es ser la que da de alta y gestiona a las demás empresas.
@@ -53,9 +54,9 @@
 
     5. Pulsamos en **CREAR** y se creará la organización principal.
 
-    6. Si pulsamos en el icono de info podemos ver los datos de la organización.
+- Una vez creada la organización, si pulsamos en el icono de info podemos ver su datos.
 
-    En este caso está en **test** y el id de organización que nos ha dado ya será el mismo aunque pasemos la organización a **live**. (Para pasar una organización principal gestionadora a **live** hay que contactar con soporte de fiskaly, para pasar una organización gestionada no hará falta contactar con ellos.)
+- En este caso está en **test** y el id de organización que nos ha dado ya será el mismo aunque pasemos la organización a **live**. (Para pasar una organización principal gestionadora a **live** hay que contactar con soporte de fiskaly, para pasar una organización gestionada no hará falta contactar con ellos.)
 
     ![Dashboard4](img/fiskaly_verifactu4.png)
 
@@ -187,7 +188,7 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
     5. Descargar, Firmar y Subir acuerdo de Fiskaly
  
- #### 8.1. Configuración de los datos obtenidos en Fiskaly
+#### 8.1. Configuración de los datos obtenidos en Fiskaly
 
 - En la pestaña VERI*FACTU del formulario de empresa informaremos los siguientes campos:
 
@@ -203,7 +204,7 @@ Para el cumplimiento de TicketBAI, un certificado de dispositivo se asigna autom
 
 #### 8.2. Claves que son específicas de Veri*factu.
 
-##### 8.2.1. Regímenes de IVA específicos de Veri*Factu
+#### 8.2.1. Regímenes de IVA específicos de Veri*Factu
 
 En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Regímenes IVA Veri*Factu** hay que crear los distintos Regímenes de iva que puede utilizar Verifactu:
 
@@ -212,7 +213,7 @@ En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Regímenes I
 ![Dashboard10](img/fiskaly_verifactu22.png)
 
 
-##### 8.2.2. Regímenes de IVA específicos de Veri*Factu
+#### 8.2.2. Regímenes de IVA específicos de Veri*Factu
 
 En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Causas Excepción IVA Veri*Factu** crearemos las distintas causas por las que será exento o no sujeto el iva de una factura según la nomenclatura de Verifactu:
 
@@ -220,14 +221,14 @@ En el **Área de Facturación -> Principal -> Más -> Fiscalidad -> Causas Excep
 
 ![Dashboard10](img/fiskaly_verifactu24.png)
 
-##### 8.2.3. Actualizar paises
+#### 8.2.3. Actualizar paises
 
 - Todos los países deben de tener el codigo ISO informado
 - Es necesario poder saber si un país es Europeo o no por lo que hay que marcar el check de Pertenece a U.E. en los paises que corresponda
 
 ![Paises](img/fiskaly_verifactu33.png)
 
-##### 8.2.4. Grupos contables Veri*Factu
+#### 8.2.4. Grupos contables Veri*Factu
 
 En este apartado se configurarón grupos de iva de negocio para cada tipo de factura que se pueda tener.
 
@@ -251,19 +252,19 @@ Los campos que hay que configurar de Verifactu son:
 
 1. Clientes Nacionales en Régimen General:
 
-![Dashboard10](img/fiskaly_verifactu26.png)
+    ![Dashboard10](img/fiskaly_verifactu26.png)
 
 2. Clientes Exentos:
 
-![Dashboard10](img/fiskaly_verifactu27.png)
+    ![Dashboard10](img/fiskaly_verifactu27.png)
 
 3. Clientes Exportación:
 
-![Dashboard10](img/fiskaly_verifactu28.png)
+    ![Dashboard10](img/fiskaly_verifactu28.png)
 
 4. Clientes Intracomunitarios:
 
-![Dashboard10](img/fiskaly_verifactu29.png)
+    ![Dashboard10](img/fiskaly_verifactu29.png)
 
 
 #### 8.3. Declaración Responsable del programa (Eneboo)
@@ -328,10 +329,10 @@ En el **Área de Facturación -> Facturación -> Más -> Principal -> Garante Si
 
 ![Dashboard10](img/fiskaly_verifactu32.png)
 
-1. Descargar acuerdo: habráa que pulsar sobre el botón de **Descargar acuerdo para firmar**, este botón descargará un fichero el cual habrá que firmar digitalmente.
+1. Descargar acuerdo: habrá que pulsar sobre el botón de **Descargar acuerdo para firmar**, este botón descargará un fichero el cual habrá que firmar digitalmente.
 
 
-2. Subir acuerdo: habráa que pulsar sobre el botón de **Subir acuerdo**, este botón nos pedirá que seleccionemos el acuerdo ya firmado y lo subirá a Fiskaly.
+2. Subir acuerdo: habrá que pulsar sobre el botón de **Subir acuerdo**, este botón nos pedirá que seleccionemos el acuerdo ya firmado y lo subirá a Fiskaly.
 
 ### 9. Impresión de facturas
 
