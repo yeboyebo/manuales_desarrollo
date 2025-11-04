@@ -1,6 +1,6 @@
 ## Integración con Fiskaly
 
-- En la siguiente dirección podemos ver todo el proceso de integración https://developer.fiskaly.com/es/sign-es/integration_process
+- En la siguiente dirección podemos ver todo el proceso de integración [https://developer.fiskaly.com/es/sign-es/integration_process](https://developer.fiskaly.com/es/sign-es/integration_process)
 
 - En la siguiente imagen podemos ver el diagrama de flujo para realiazar la integración y que herramientas hay que utilizar en cada paso.
 
@@ -27,7 +27,7 @@
 ### 1. Registrar en Dashboard
 - Lo primero es registrarte en el Dashboard. Crearemos la cuenta y a partir de ahí se creará la estructura organizativa de la empresa.
 
-    https://dashboard.fiskaly.com/
+    [https://dashboard.fiskaly.com/](https://dashboard.fiskaly.com/)
     
 
 ### 2. Crear organización principal gestionadora
@@ -73,7 +73,7 @@
 
 - La forma manual está descrita en los puntos 3 - 4 - 5 - 6 y 7 del siguiente enlace:
 
-[Manual instalación y configuración Fiskaly-Veri*Factu](./instconfverifactu.md)
+[Manual instalación y configuración Fiskaly-Veri*Factu](https://yeboyebo.github.io/manuales_publicos/extensiones/fiskaly/instconfverifactu.html)
 
 
 #### Herramienta fiskaly_tools.py
