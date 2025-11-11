@@ -186,17 +186,23 @@ La podemos encontrar en el repositorio de git **utils**
  
 #### 8.1. Configuración de los datos obtenidos en Fiskaly
 
+- En la pestaña de Valores por defecto del formulario de empresa, seleccionaremos como tipo de suministro a la AEAT **Verif*Factu**  
+
+    ![empresa](img/fiskaly_verifactu52.png)
+
+- Puede ocurrir que tengamos varias empresas en nuestro sistema y que unas empresas funcionen con **Veri*Factu** y otras empresas funcionen con **SII**, para cada empresa habrá que seleccionar el tipo de suministro que utiliza.
+
 - En la pestaña VERI*FACTU del formulario de empresa informaremos los siguientes campos:
 
-* API Identificador --> Informamos el valor obtenido en el punto 4 **clave API**.
+    * API Identificador --> Informamos el valor obtenido en el punto 4 **clave API**.
 
-* API Secret --> Informamos el valor obtenido en el punto 4 clave **API secret**.
+    * API Secret --> Informamos el valor obtenido en el punto 4 clave **API secret**.
 
-* URL --> Valor fijo: ![Dashboard10](img/fiskaly_verifactu20.png)
+    * URL --> Valor fijo: ![Dashboard10](img/fiskaly_verifactu20.png)
 
-* Id.Cliente --> Valor obtenido en el punto 7 en el campo **id**.
+    * Id.Cliente --> Valor obtenido en el punto 7 en el campo **id**.
 
-![Dashboard10](img/fiskaly_verifactu19.png)
+    ![Dashboard10](img/fiskaly_verifactu19.png)
 
 #### 8.2. Claves que son específicas de Veri*factu.
 
