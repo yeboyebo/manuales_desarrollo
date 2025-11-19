@@ -183,6 +183,8 @@ La podemos encontrar en el repositorio de git **utils**
     7. Cliente simplificado    
 
     8. Marcar facturas anteriores a Verifactu con el estado firma "PRE_Verifactu"
+
+    9. Impresión de facturas
  
 #### 8.1. Configuración de los datos obtenidos en Fiskaly
 
@@ -505,3 +507,98 @@ https://www.agenciatributaria.es/static_files/AEAT_Desarrolladores/EEDD/IVA/VERI
 
 ![ERP](img/fiskaly30.png)
 
+
+## FAQ
+
+### 1. Borrar un factura de prueba de Eneboo que se ha firmado en Fiskaly
+
+**PROBLEMA:** Creamos una factura, la hemos presentado a fiskaly test y luego la hemos borrado de eneboo (tanto de facturascli_sign como la factura entera) porque era una prueba. Cuando se haga una factura para esa serie en concreto y luego se emita, dará el código de factura que borramos en su momento y va a dar error de factura duplicada en fiskaly porque ya se presentó una factura con ese código.
+     - Ejemplo: 
+
+        1. Creamos factura y la emitimos, el código de la factura es 2025VA000048.
+
+        2. Hacemos un delete por consola de facturascli_sign para eliminar el registro
+``` sql
+        delete from facturascli_sign where codigo = '2025VA000048';
+```
+
+        3. Hacemos un update a la factura para ponerla en estado_firma 'Borrador' para que deje eliminarla        
+``` sql
+        update facturascli set estado_firma = 'Borrador' where codigo = '2025VA000048';
+```
+        4. Eliminamos la factura con el botón de eliminar del maestro de factura
+        
+        5. Tiempo después se crea una factura de la serie VA y nos da el código '#VA/4948'
+
+        6. Pulsamos en emitir y lo que intentará hacer el sistema es darnos el código '2025VA000048' ya que hay un hueco y presentarla a verifactu, pero fískaly nos va a dar error de factura duplicada porque en su sistema ya existe
+
+**SOLUCIÓN:** Modificaremos el borrador para darle el código y número que le correspondería y le ponemos estado_firma 'PRE_Verifactu'. Seguidamente modificaríamos la cantidad de la factura para que recalcule recibos y contabilidad, dejaríamos la cantidad como estaba y actualizaríamos el estado_firma a 'Firmado'
+    - En nuestro ejemplo:
+
+        1. update facturascli set codigo = '2025VA000048', numero = '48', estado_firma = 'PRE_Verifactu' where codigo = '#VA/4948';
+
+        2. Modificar factura para que se recalcule
+
+        3. Actualizamos la factura como Firmada
+``` sql
+        update facturascli set estado_firma = 'Firmado'  where codigo = '2025VA000048';
+
+``` 
+
+### 2. Se ha firmado una factura y ha dado error antes de actualizar el estado. Si volvemos a presentar da error duplicado.
+
+**PROBLEMA:** Se ha creado una factura y se ha pulsado en emitir, parece ser que eneboo se ha quedado pillado y no termina de actualizarse la factura en eneboo y se ha quedado en estado Borrador y sin código eneboo, se ha quedado con el código borrador. Si se vuelve a pulsar en enviar nos da **error de duplicado**.
+
+**SOLUCIÓN:** 
+
+1. Actualizamos la factura a estado **PRE_Verifactu** y le damos el número y código que le pertenecería.
+
+``` sql
+    update facturascli set numero = 126, codigo = '2025ST000126', estado_firma = 'PRE_Verifactu' where idfactura = 5423;
+
+```
+
+2. Modificamos la cantidad de la factura, guardamos y volvermos a modificarla como debe de estar y volvemos a guardar para que se recalcule el asiento y el recibo
+
+3. Como la factura está presentada pero no tenemos registro en la tabla **facturascli_sign**, lo que hacemos es ir al dashboard de fiskaly y coger el id de la factura y hacemos un insert en la tabla
+
+``` sql
+    insert into facturascli_sign (codigo,codejercicio,id_facturascli,codserie,invoice_id) VALUES ('2025ST000126','2025',5423,'ST','35213c0f-1dc7-408c-b654-4aca8f357c89');
+```
+
+4. Actualizamos el estado de la factura como **Pte.Firma**
+
+``` sql
+    UPDATE set facturascli estado_firma = 'Pte.Firma' where idfactura = 9786;
+```
+
+5. Pulsamos en el botón **Comprobar estado** para que se actualice el estado a **Firmado** y podamos ver en el log que nos devuelve Fiskaly los datos del QR
+
+6. Sacamos del xml_signed el data de image
+
+``` sql
+    select xml_signed from facturascli_sign where id_facturascli = 5423;
+```
+
+{"content" : {"client" : {"id" : "6e94447b-b0de-4ccc-a705-890b561da21a"}, "compliance" : {"code" : {"image" : {"data" : **"iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtEAAAAABP4WEFAAACgklEQVR4nKRXbZKsMAhEy/tfmVeKTH/AzPuxVs26CaRDoCF4hTyZx5F5/1fv46jZnvmflLGuFpW4/9bCltR//btHWMMainUBkoWAZZDWA5DaqVjnLrrf93Mvvh/Ms1PqfDirPpdPsJV67IYocGywwX6gHULHHTBAcdCwyWaOwfzlJyZusQZHYgSWD+9kXC3Fnvk+22hbUVL8YP/VQeEkYB+DYMx1pSb8zvaf7AqHr+jDjo0JTVKFDz403r/cpW5QLXVIZgBWlbYNpmenLjROrxxuRyl33eDMLI1ap6co/QthQMC8pigcazWkhvE1liH3SGvWMZN/aUsYp1/ZcgR7hrFHuuLDa2WB0oxrm1dzXw3Xnly5GAI+5FRGOd0SnK+Mh3wRzGuloTpsOzZTV50mIEo8X7h7ds+Be/7UvZPuNjBjyiclIac01912lmjuac3bGfVk47akss+ZgjrXMua2mvlko/IDzQC/Y617XPFc/jYL7D/NKt6OOctU7HNIHkbmqemAEsRbYqw2drsQ1sOUxgk+6845bhPeAGHlWghOPXOcddqKsRPUv+5b7Uo+mjNheKFWxa3mTc0eXWqngmmQEGa+Q/eS+4QxqAhBOA+tI/SDaXc75KGhmYGaYc3Rd+wl7GcLrlxWN3HvyjNg2skWg0iZymHY5KwHKG/1Wu3d0SSV5lmsHSDT4cXxYzsV0U8ziDbBk3qxd6rf+MqxmOfxK224baeS1+utbvuV8hRVj7kGjKsHJ5E7IZar2tjrraXbr+fItSup9/hM4m7jWzpztoGOaZ3I+LhDJvZnnXq5Z7WjTmv7iXyYiC8fzP7FtRVXtX0E4hhM3wJ0LCZ5av0LAAD//3HBAOnSwZ31AAAAAElFTkSuQmCC"**, "form...
+
+7. Hacemos un update a la tabla facturascli_sign para informar los campo **qr_url**, **qr_text** y **qr_image**.
+
+    - qr_url -> Copiamos de otro registro y ojo a los datos nif (debe ser el mismo porque es el de la empresa que emite). numserie (serie de la factura + codigo de la factura), fecha e importe total de la factura.
+
+    - qr_text -> Texto fijo  **'QR tributario:|VERI*FACTU'**
+
+    - qr_image -> El campo data que hemos sacado en el paso anterior
+
+``` sql
+    update facturascli_sign set qr_url = 'https://www2.agenciatributaria.gob.es/wlpl/TIKE-CONT/ValidarQR?nif=B02352961&numserie=ST2025ST000126&fecha=19-11-2025&importe=195.66', qr_text = 'QR tributario:|VERI*FACTU', qr_image = 'iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtEAAAAABP4WEFAAACgklEQVR4nKRXbZKsMAhEy/tfmVeKTH/AzPuxVs26CaRDoCF4hTyZx5F5/1fv46jZnvmflLGuFpW4/9bCltR//btHWMMainUBkoWAZZDWA5DaqVjnLrrf93Mvvh/Ms1PqfDirPpdPsJV67IYocGywwX6gHULHHTBAcdCwyWaOwfzlJyZusQZHYgSWD+9kXC3Fnvk+22hbUVL8YP/VQeEkYB+DYMx1pSb8zvaf7AqHr+jDjo0JTVKFDz403r/cpW5QLXVIZgBWlbYNpmenLjROrxxuRyl33eDMLI1ap6co/QthQMC8pigcazWkhvE1liH3SGvWMZN/aUsYp1/ZcgR7hrFHuuLDa2WB0oxrm1dzXw3Xnly5GAI+5FRGOd0SnK+Mh3wRzGuloTpsOzZTV50mIEo8X7h7ds+Be/7UvZPuNjBjyiclIac01912lmjuac3bGfVk47akss+ZgjrXMua2mvlko/IDzQC/Y617XPFc/jYL7D/NKt6OOctU7HNIHkbmqemAEsRbYqw2drsQ1sOUxgk+6845bhPeAGHlWghOPXOcddqKsRPUv+5b7Uo+mjNheKFWxa3mTc0eXWqngmmQEGa+Q/eS+4QxqAhBOA+tI/SDaXc75KGhmYGaYc3Rd+wl7GcLrlxWN3HvyjNg2skWg0iZymHY5KwHKG/1Wu3d0SSV5lmsHSDT4cXxYzsV0U8ziDbBk3qxd6rf+MqxmOfxK224baeS1+utbvuV8hRVj7kGjKsHJ5E7IZar2tjrraXbr+fItSup9/hM4m7jWzpztoGOaZ3I+LhDJvZnnXq5Z7WjTmv7iXyYiC8fzP7FtRVXtX0E4hhM3wJ0LCZ5av0LAAD//3HBAOnSwZ31AAAAAElFTkSuQmCC' WHERE id_facturascli = 5423;
+
+```
+
+### 3. Facturas que no existen en eneboo pero si que existen en Fiskaly
+
+**PROBLEMA:** Se ha estado creando facturas, firmando y presentando y al cerrar eneboo y volver a abrir no están las facturas porque ha dado un **error de transacción**, pero las facturas están presentadas en Fiskaly.
+
+1. Creamos las facturas en eneboo, las facturas estarán creadas como borrador y con el código borrador.
+
+2. Si pulsamos en **Emitir** dará error de **duplicada** por lo que haremos los pasos del FAQ anterior **2. Se ha firmado una factura y ha dado error antes de actualizar el estado. Si volvemos a presentar da error duplicado.**
