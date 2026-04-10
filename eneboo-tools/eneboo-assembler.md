@@ -194,6 +194,43 @@ eneboo-assembler save-fullpatch <nombre_extension>
 De esta forma se creará el archivo _.xml_ dentro de extension/patches/nombre_extension/nombre_extension.xml el cual nos permite que otras funcionalidades implementen esta extensión.
 
 
+#### copy ( **Copiar extensión y dependencias** )
+
+Disponible desde la versión **2.4.0** (enero 2026).
+
+Copia una extensión/módulo y todas sus dependencias a una carpeta destino.
+
+```
+eneboo-assembler copy <ext_name> <folder>
+```
+
+**Cómo funciona:**
+1. **Validación de carpeta** — verifica que `folder` existe y es directorio
+2. **Resolución de dependencias** — consulta la BD de assembler para obtener todas las dependencias (features y módulos) de `ext_name`
+3. **Copia recursiva** — para cada dependencia:
+   - Resuelve la carpeta origen desde la BD
+   - Extrae la subcarpeta contenedora (ej: `extX000-codename` → `extX000`)
+   - Copia el árbol completo a `folder/subcarpeta/dependencia/`
+
+**Ejemplo:**
+```
+eneboo-assembler copy ext0001-auth /tmp/output
+```
+
+Resultado:
+```
+/tmp/output/
+├── ext0001/
+│   └── auth/
+├── ext0002/
+│   └── config/
+└── mod001/
+    └── utils/
+```
+
+Versión actual estable: **2.4.1**
+
+
 ### Más
 
   * [Volver al Índice](./index.md)
