@@ -1,5 +1,14 @@
 ## IMPRESORA TM-T20II (EPSON)
 
+### Drivers
+
+- Podemos encontrar los drivers en la siguiente dentro de GIT en:
+
+manuales_desarrollo/drivers/impresoras/TM-T20II
+
+- [Descargar drivers](../drivers/impresoras/TM-T20II/tmt-cups-1.4.1.0.tar.gz)
+
+
 ### Instalación Linux
 - Dentro de la carpeta 
 ``` console
@@ -91,16 +100,5 @@ Se instalará:
 - En opciones avanzadas, modificaremos las opciones necesarias, por ejemplo, quietaremos los márgenes de arriba y abajo en la opción de *Paper Reduction* 
 
 ![tm-t20](./img/tm-t20ii_5.png)
-
-
-### Drivers
-
-- Podemos encontrar los drivers en la siguiente dentro de GIT en:
-
-manuales_desarrollo/drivers/impresoras/TM-T20II
-
-- [Descargar drivers](../drivers/impresoras/TM-T20II/)
-
-
 
 - [Volver al índice de manuales](../README.md)
