@@ -8,7 +8,7 @@ Esta herramienta sustituye a los scripts usados para copias de seguridad y el pa
 - El único fichero necesario es **backup_tools.py**. El resto (**config.ini** y **lista.txt**) son a modo de ejemplo.
 
 ```bash
-pip install fernet
+pip install fernet python-logging-loki-v2
 ```
 
 Dependencias del sistema: `pg_dump`, `psql`, `tar`, `nice`, `mount`/`mount.cifs`, `ping`.
@@ -35,6 +35,11 @@ La primera vez que se ejecute **backup_tools.py** se creará el fichero `config.
 | `current_copies` | `1` | no | Nº de backups recientes a mantener en subcarpeta `currents/` |
 | `current_folder` | `currents` | no | Nombre de la subcarpeta para copias recientes |
 | `min_size` | `5000` | no | Tamaño mínimo en bytes de un backup; si es menor se envía alerta |
+| `loki_url` | — | no | URL del endpoint Loki (ej. `https://monitor.yeboyebo.es/loki/api/v1/push`). Vacío = Loki desactivado |
+| `loki_user` | — | **sí** | Usuario autenticación básica Loki (opcional) |
+| `loki_pass` | — | **sí** | Contraseña autenticación básica Loki (opcional) |
+| `loki_app` | `backup_tools` | no | Etiqueta `app` enviada a Loki |
+| `loki_env` | `produccion` | no | Etiqueta `env` enviada a Loki |
 
 ![Backup_tools_1](./img/backup_tools_1.png)
 
@@ -49,7 +54,7 @@ python3 backup_tools.py config atributo valor ofuscado?:False
 - **config**: Indica que vamos a setear una configuración.
 - **atributo**: Nombre del atributo a setear.
 - **valor**: Valor en texto plano a guardar.
-- **ofuscado** (opcional): `true` para que el dato se ofusque con Fernet usando el `token`. Solo 3 atributos deben ir ofuscados: **user_db**, **pass_db** y **pass_email**.
+- **ofuscado** (opcional): `true` para que el dato se ofusque con Fernet usando el `token`. Solo 5 atributos deben ir ofuscados: **user_db**, **pass_db**, **pass_email**, **loki_user** y **loki_pass**.
 
 ```bash
 # Parámetros planos (sin ofuscar)
@@ -71,6 +76,8 @@ python3 backup_tools.py config min_size 10000
 python3 backup_tools.py config user_db postgres true
 python3 backup_tools.py config pass_db SECRETO true
 python3 backup_tools.py config pass_email CLAVE_GMAIL true
+python3 backup_tools.py config loki_user USUARIO_LOKI true
+python3 backup_tools.py config loki_pass CLAVE_LOKI true
 ```
 
 ![Backup_tools_5](./img/backup_tools_5.png)
@@ -202,9 +209,40 @@ La herramienta usa `nice` para ajustar la prioridad de los comandos que ejecuta:
 
 ## Logging
 
+### Consola
+
 - `-v`: nivel INFO
 - `-vv`: nivel DEBUG
 - Sin flag: nivel WARNING
+
+### Loki (Grafana)
+
+Opcionalmente, los logs pueden enviarse a un servidor Loki compatible. Para activarlo:
+
+1. Instalar el paquete: `pip install logging-loki`
+2. Configurar la URL del endpoint:
+
+   ```bash
+   python3 backup_tools.py config loki_url https://monitor.yeboyebo.es/loki/api/v1/push
+   ```
+
+3. (Opcional) Si el servidor Loki requiere autenticación básica:
+
+   ```bash
+   python3 backup_tools.py config loki_user usuario_loki true
+   python3 backup_tools.py config loki_pass contraseña_loki true
+   ```
+
+4. (Opcional) Personalizar etiquetas:
+
+   ```bash
+   python3 backup_tools.py config loki_app mi_app
+   python3 backup_tools.py config loki_env staging
+   ```
+
+   Las etiquetas `app` y `env` se envían con cada registro y permiten filtrar en Grafana.
+
+La configuración de Loki es **opt-in**: si `loki_url` está vacío (default) solo funciona el log por consola.
 
 ## Crontab
 
@@ -226,6 +264,8 @@ python3 /opt/backup_tools/backup_tools.py config days_alive 30
 python3 /opt/backup_tools/backup_tools.py config user_db postgres true
 python3 /opt/backup_tools/backup_tools.py config pass_db SECRETO true
 python3 /opt/backup_tools/backup_tools.py config pass_email CLAVE_GMAIL true
+python3 /opt/backup_tools/backup_tools.py config loki_user USUARIO_LOKI true
+python3 /opt/backup_tools/backup_tools.py config loki_pass CLAVE_LOKI true
 ```
 
 ### Crontab completo
