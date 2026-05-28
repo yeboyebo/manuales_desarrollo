@@ -8,4 +8,5 @@
   * [Landia](./landia/index.md)
   * [UlbSports](./ulbsports/index.md)
   * [Uniformidad](./uniformidad/index.md)
+  * [Vbarba](./vbarba/index.md)
   * [AQNext en Grupo Mixto 1](./aqnext/aqnextgm1.md)
