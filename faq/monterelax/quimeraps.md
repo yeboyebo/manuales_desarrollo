@@ -44,4 +44,12 @@ cupsctl
 ### Reiniciar CUPS
 sudo systemctl restart cups
 
+## Cambiar impresora para el demonio
+Ir a la carpeta /opt/quimeraPS
+Lanzar:
+
+sudo sqlite3 quimera_ps.bd
+Actualizar el nombre de impresora nuevo
+sqlite> update printers set name ='Kyocera_ECOSYS_PA4500x@KME93912.local';
+
 
