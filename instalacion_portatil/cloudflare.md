@@ -58,6 +58,15 @@ VITE_API_URL=url_generada/api/
 cloudflared tunnel --url http://localhost:5173
 ```
 
+- Para Olula también tendremos que poner la url del tunel para el quimera en el fichero de middelware apps/sanhigia/\_dependencias/auth/middleware.ini:
+
+```
+args =
+    ; https://webapp.sanhigia.com
+    http://localhost:5173
+    https://llc-completely-experiments-offline.trycloudflare.com
+```
+
 Levantamos cliente y servidor y usamos la url generada en el segundo tunel para acceder a la aplicación.
 
 - [Volver al Índice](./index.md)
