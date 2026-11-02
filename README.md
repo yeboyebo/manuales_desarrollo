@@ -26,6 +26,7 @@
 - [Instalacion y configuración Postgresql-server](./postgresql_server/index.md)
 - [Integraciones](./integraciones/index.md)
 - [Magento 2](./magento2/index.md)
+- [Migración Meanomar (fun_meanomar)](./meanomar/index.md)
 - [Pineboo Server](./pineboo_server/index.md)
 - [Prácticas](./practicas/index.md)
 - [Programación](./programacion/index.md)
